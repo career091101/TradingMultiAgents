@@ -26,3 +26,5 @@ langchain_anthropic
 langchain-google-genai
 typer
 python-dotenv
+streamlit
+watchdog
