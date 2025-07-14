@@ -1,0 +1,101 @@
+name: Auto PR from Master
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '.github/workflows/**'
+      - 'README.md'
+      - 'docs/**'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create-feature-branch-and-pr:
+    runs-on: ubuntu-latest
+    if: |
+      !contains(github.event.head_commit.message, '[skip pr]') &&
+      !contains(github.event.head_commit.message, '[no pr]') &&
+      github.actor != 'dependabot[bot]'
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 2
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Configure Git
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+    
+    - name: Check if commit is already on a feature branch PR
+      id: check-existing
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        COMMIT_SHA=${{ github.sha }}
+        
+        # Check if this commit is already part of any open PR
+        EXISTING_PR=$(gh pr list --state open --json number,headRefName,commits --jq ".[] | select(.commits[].oid == \"$COMMIT_SHA\") | .number" | head -n 1 || echo "")
+        
+        if [ -n "$EXISTING_PR" ]; then
+          echo "Commit already in PR #$EXISTING_PR"
+          echo "skip=true" >> $GITHUB_OUTPUT
+        else
+          echo "skip=false" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Create feature branch and PR
+      if: steps.check-existing.outputs.skip == 'false'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        # Get commit info
+        COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+        COMMIT_SHA_SHORT=$(git log -1 --pretty=%h)
+        TIMESTAMP=$(date +%Y%m%d-%H%M%S)
+        
+        # Extract title (first line) and clean it for branch name
+        TITLE=$(echo "$COMMIT_MESSAGE" | head -n 1)
+        BRANCH_BASE=$(echo "$TITLE" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-//' | sed 's/-$//' | cut -c1-50)
+        
+        # Create unique branch name
+        BRANCH_NAME="auto-pr/${BRANCH_BASE}-${COMMIT_SHA_SHORT}"
+        
+        # Create and push the branch
+        git checkout -b "$BRANCH_NAME"
+        git push -u origin "$BRANCH_NAME"
+        
+        # Extract body for PR description
+        BODY=$(echo "$COMMIT_MESSAGE" | tail -n +2)
+        
+        # Create PR description
+        PR_BODY="## 🤖 Auto-generated Pull Request
+
+This PR was automatically created from a direct commit to master.
+
+### Commit: \`${{ github.sha }}\`
+### Author: @${{ github.actor }}
+
+$BODY
+
+---
+*To prevent automatic PR creation, include \`[skip pr]\` or \`[no pr]\` in your commit message.*"
+        
+        # Create the PR
+        gh pr create \
+          --title "$TITLE" \
+          --body "$PR_BODY" \
+          --head "$BRANCH_NAME" \
+          --base master \
+          --label "auto-pr"
+    
+    - name: Comment on skipped PR
+      if: steps.check-existing.outputs.skip == 'true'
+      run: |
+        echo "Skipped PR creation: commit already exists in an open PR"
