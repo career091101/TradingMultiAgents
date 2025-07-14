@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - '**'
-      - '!master'
       - '!main'
 
 permissions:
@@ -81,7 +80,7 @@ $BODY
           --title "$TITLE" \
           --body "$BODY" \
           --head "$BRANCH" \
-          --base master
+          --base main
     
     - name: Update existing PR
       if: steps.check-pr.outputs.pr_exists == 'true'

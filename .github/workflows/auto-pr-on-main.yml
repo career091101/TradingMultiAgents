@@ -1,9 +1,9 @@
-name: Auto PR from Master
+name: Auto PR from Main
 
 on:
   push:
     branches:
-      - master
+      - main
     paths-ignore:
       - '.github/workflows/**'
       - 'README.md'
@@ -77,7 +77,7 @@ jobs:
         # Create PR description
         PR_BODY="## 🤖 Auto-generated Pull Request
 
-This PR was automatically created from a direct commit to master.
+This PR was automatically created from a direct commit to main.
 
 ### Commit: \`${{ github.sha }}\`
 ### Author: @${{ github.actor }}
@@ -92,7 +92,7 @@ $BODY
           --title "$TITLE" \
           --body "$PR_BODY" \
           --head "$BRANCH_NAME" \
-          --base master \
+          --base main \
           --label "auto-pr"
     
     - name: Comment on skipped PR
