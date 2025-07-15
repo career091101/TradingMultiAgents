@@ -1,0 +1,110 @@
+{
+  "test_result": {
+    "test_id": "retry_20250715_212637",
+    "start_time": "2025-07-15T21:26:37.891017",
+    "ticker": "SPY",
+    "depth": 1,
+    "status": "success",
+    "analysis_start": "2025-07-15T21:26:53.835486",
+    "end_time": "2025-07-15T21:30:04.349113",
+    "duration": 190.51366186141968
+  },
+  "event_log": [
+    {
+      "timestamp": "2025-07-15T21:26:37.890701",
+      "event_type": "info",
+      "message": "ディスク容量: 23.8GB空き / 228GB総容量 (使用率: 90%)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:26:43.483447",
+      "event_type": "start",
+      "message": "WebUIアクセス",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:26:47.590818",
+      "event_type": "info",
+      "message": "設定ページで分析設定",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:26:50.450221",
+      "event_type": "info",
+      "message": "ティッカー: SPY",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:26:50.889823",
+      "event_type": "info",
+      "message": "プリセット: 総合分析",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:26:51.056241",
+      "event_type": "info",
+      "message": "実行ページへ移動",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:26:53.390214",
+      "event_type": "start",
+      "message": "分析実行開始",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:26:53.940823",
+      "event_type": "info",
+      "message": "進捗モニタリング（最大3分）",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:27:24.970169",
+      "event_type": "info",
+      "message": "30秒経過...",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:27:56.022294",
+      "event_type": "info",
+      "message": "60秒経過...",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:28:27.001329",
+      "event_type": "info",
+      "message": "90秒経過...",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:28:58.024933",
+      "event_type": "info",
+      "message": "120秒経過...",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:29:29.053875",
+      "event_type": "info",
+      "message": "150秒経過...",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:30:00.276500",
+      "event_type": "info",
+      "message": "180秒経過...",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:30:00.436421",
+      "event_type": "info",
+      "message": "結果ページへ移動",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:30:04.209405",
+      "event_type": "complete",
+      "message": "分析結果確認",
+      "details": {}
+    }
+  ]
+}

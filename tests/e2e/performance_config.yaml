@@ -1,0 +1,118 @@
+# E2Eテストパフォーマンス最適化設定
+
+# 並列実行設定
+parallel_execution:
+  max_workers: 4  # 最大並列ワーカー数
+  distribution_strategy: "resource_based"  # resource_based, round_robin, historical
+  group_timeout: 300  # グループ実行のタイムアウト（秒）
+  
+# キャッシュ設定
+cache:
+  enabled: true
+  ttl: 3600  # デフォルトTTL（秒）
+  max_memory_size: 100  # メモリキャッシュの最大サイズ（MB）
+  disk_cache_dir: "tests/e2e/.cache"
+  
+  # キャッシュ対象
+  cache_targets:
+    page_states: true
+    api_responses: true
+    test_data: true
+    screenshots: false
+
+# パフォーマンス監視設定
+performance_monitoring:
+  enabled: true
+  sample_interval: 0.5  # リソースサンプリング間隔（秒）
+  report_dir: "reports/e2e/performance"
+  
+  # 監視対象メトリクス
+  metrics:
+    - cpu_usage
+    - memory_usage
+    - network_io
+    - disk_io
+    - browser_timing
+
+# リソース制限
+resource_limits:
+  max_memory_per_test: 200  # テストあたりの最大メモリ（MB）
+  max_cpu_per_test: 0.5  # テストあたりの最大CPU使用率
+  screenshot_compression: true
+  cleanup_interval: 5  # クリーンアップ間隔（テスト数）
+
+# 待機処理の最適化
+wait_optimization:
+  default_timeout: 30000  # デフォルトタイムアウト（ミリ秒）
+  use_smart_wait: true
+  polling_interval: 100  # ポーリング間隔（ミリ秒）
+  
+  # 要素別のカスタムタイムアウト
+  element_timeouts:
+    navigation: 60000
+    api_response: 30000
+    animation: 5000
+    chart_render: 10000
+
+# テスト実行の最適化
+test_optimization:
+  # テストの優先度
+  priority_tests:
+    - test_navigation
+    - test_critical_path
+    - test_authentication
+  
+  # リトライ設定
+  retry_config:
+    max_retries: 3
+    retry_delay: 2
+    backoff_factor: 1.5
+    
+  # スキップ条件
+  skip_conditions:
+    - slow_network
+    - low_memory
+    - ci_environment
+
+# ボトルネック閾値
+bottleneck_thresholds:
+  slow_test_duration: 10  # 秒
+  high_cpu_usage: 80  # %
+  high_memory_usage: 500  # MB
+  
+# レポート設定
+reporting:
+  generate_html_report: true
+  include_charts: true
+  export_formats:
+    - html
+    - json
+    - csv
+  
+  # アラート設定
+  alerts:
+    slow_test_alert: true
+    resource_alert: true
+    failure_rate_alert: true
+
+# 環境別の設定オーバーライド
+environments:
+  local:
+    parallel_execution:
+      max_workers: 2
+    cache:
+      enabled: true
+    
+  ci:
+    parallel_execution:
+      max_workers: 4
+    cache:
+      enabled: true
+      ttl: 7200
+    
+  production:
+    parallel_execution:
+      max_workers: 8
+    performance_monitoring:
+      enabled: true
+      sample_interval: 1.0

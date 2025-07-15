@@ -1,0 +1,236 @@
+{
+  "test_result": {
+    "test_id": "completion_20250715_215028",
+    "start_time": "2025-07-15T21:50:28.433843",
+    "ticker": "SPY",
+    "depth": 1,
+    "status": "timeout",
+    "progress_history": [],
+    "analysis_start_time": "2025-07-15T21:50:41.650818",
+    "end_time": "2025-07-15T22:07:44.147995"
+  },
+  "event_log": [
+    {
+      "timestamp": "2025-07-15T21:50:28.433546",
+      "event_type": "info",
+      "message": "ディスク容量: 23.4GB空き",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:50:32.200745",
+      "event_type": "start",
+      "message": "WebUIアクセス開始",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:50:36.223120",
+      "event_type": "info",
+      "message": "設定ページへ移動",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:50:39.094864",
+      "event_type": "info",
+      "message": "設定完了: SPY, 総合分析, 深度1",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:50:41.343025",
+      "event_type": "start",
+      "message": "分析実行開始",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:50:46.652483",
+      "event_type": "info",
+      "message": "進捗モニタリング開始",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:51:20.471945",
+      "event_type": "info",
+      "message": "経過時間: 30秒 (0.5分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:51:54.080125",
+      "event_type": "info",
+      "message": "経過時間: 60秒 (1.0分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:52:27.763502",
+      "event_type": "info",
+      "message": "経過時間: 90秒 (1.5分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:53:01.628457",
+      "event_type": "info",
+      "message": "経過時間: 120秒 (2.0分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:53:35.386709",
+      "event_type": "info",
+      "message": "経過時間: 150秒 (2.5分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:54:09.357273",
+      "event_type": "info",
+      "message": "経過時間: 180秒 (3.0分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:54:43.167670",
+      "event_type": "info",
+      "message": "経過時間: 210秒 (3.5分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:55:17.259498",
+      "event_type": "info",
+      "message": "経過時間: 240秒 (4.0分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:55:51.099343",
+      "event_type": "info",
+      "message": "経過時間: 270秒 (4.5分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:56:24.800288",
+      "event_type": "info",
+      "message": "経過時間: 300秒 (5.0分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:56:58.579422",
+      "event_type": "info",
+      "message": "経過時間: 330秒 (5.5分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:57:32.329526",
+      "event_type": "info",
+      "message": "経過時間: 360秒 (6.0分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:58:06.784786",
+      "event_type": "info",
+      "message": "経過時間: 390秒 (6.5分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:58:40.712359",
+      "event_type": "info",
+      "message": "経過時間: 420秒 (7.0分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:59:14.457052",
+      "event_type": "info",
+      "message": "経過時間: 450秒 (7.5分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:59:48.112868",
+      "event_type": "info",
+      "message": "経過時間: 480秒 (8.0分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T22:00:22.081495",
+      "event_type": "info",
+      "message": "経過時間: 510秒 (8.5分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T22:00:55.745568",
+      "event_type": "info",
+      "message": "経過時間: 540秒 (9.0分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T22:01:29.484070",
+      "event_type": "info",
+      "message": "経過時間: 570秒 (9.5分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T22:02:03.248888",
+      "event_type": "info",
+      "message": "経過時間: 600秒 (10.0分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T22:02:37.300182",
+      "event_type": "info",
+      "message": "経過時間: 630秒 (10.5分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T22:03:10.936391",
+      "event_type": "info",
+      "message": "経過時間: 660秒 (11.0分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T22:03:44.878854",
+      "event_type": "info",
+      "message": "経過時間: 690秒 (11.5分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T22:04:18.583959",
+      "event_type": "info",
+      "message": "経過時間: 720秒 (12.0分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T22:04:52.155881",
+      "event_type": "info",
+      "message": "経過時間: 750秒 (12.5分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T22:05:25.891474",
+      "event_type": "info",
+      "message": "経過時間: 780秒 (13.0分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T22:06:02.780644",
+      "event_type": "info",
+      "message": "経過時間: 810秒 (13.5分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T22:06:37.034722",
+      "event_type": "info",
+      "message": "経過時間: 840秒 (14.0分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T22:07:10.648264",
+      "event_type": "info",
+      "message": "経過時間: 870秒 (14.5分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T22:07:44.147681",
+      "event_type": "info",
+      "message": "経過時間: 900秒 (15.0分)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T22:07:44.147934",
+      "event_type": "warning",
+      "message": "タイムアウト: 100%に到達しませんでした",
+      "details": {}
+    }
+  ]
+}
