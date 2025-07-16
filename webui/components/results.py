@@ -258,19 +258,36 @@ class ResultsPage:
         """キーポイント抽出"""
         st.subheader("🔍 主要ポイント")
         
-        col1, col2 = st.columns(2)
+        # ポイント数に応じて列の幅を調整
+        positive_points = self._extract_positive_points(reports)
+        risk_points = self._extract_risk_points(reports)
+        max_points = max(len(positive_points), len(risk_points))
+        
+        # 項目数が多い場合は列幅を広げる
+        if max_points > 8:
+            col1, col2 = st.columns([1, 1], gap="large")
+        else:
+            col1, col2 = st.columns(2)
         
         with col1:
             st.markdown("### 📈 ポジティブ要因")
-            positive_points = self._extract_positive_points(reports)
-            for point in positive_points[:5]:  # 上位5つ
-                st.markdown(f"• {point}")
+            
+            # 全件表示（最大12個まで）
+            if positive_points:
+                for i, point in enumerate(positive_points, 1):
+                    st.markdown(f"{i}. {point}")
+            else:
+                st.info("ポジティブ要因が見つかりませんでした")
         
         with col2:
             st.markdown("### 📉 リスク要因")
-            risk_points = self._extract_risk_points(reports)
-            for point in risk_points[:5]:  # 上位5つ
-                st.markdown(f"• {point}")
+            
+            # 全件表示（最大12個まで）
+            if risk_points:
+                for i, point in enumerate(risk_points, 1):
+                    st.markdown(f"{i}. {point}")
+            else:
+                st.info("リスク要因が見つかりませんでした")
     
     def _render_action_recommendations(self, final_decision: Dict[str, str], reports: Dict[str, str]):
         """アクション推奨事項"""
@@ -295,8 +312,8 @@ class ResultsPage:
         recommendations = self._extract_recommendations(reports)
         if recommendations:
             st.markdown("### 📋 追加推奨事項")
-            for rec in recommendations:
-                st.markdown(f"• {rec}")
+            for i, rec in enumerate(recommendations, 1):
+                st.markdown(f"{i}. {rec}")
     
     def _render_report_content(self, report_key: str, content: str, description: str):
         """個別レポート表示"""
@@ -414,15 +431,37 @@ class ResultsPage:
         }
         
         action = "HOLD"  # デフォルト
+        confidence = "中程度"
+        
         for pattern, act in action_patterns.items():
             if re.search(pattern, final_report, re.IGNORECASE):
                 action = act
                 break
         
+        # 信頼度の抽出
+        if "強く" in final_report or "高い信頼" in final_report:
+            confidence = "高"
+        elif "低い" in final_report or "慎重" in final_report:
+            confidence = "低"
+        
+        # 判断理由の抽出（重要な部分を優先）
+        reasoning = final_report
+        if len(final_report) > 800:
+            # 「最終判断」や「結論」の部分を探す
+            conclusion_keywords = ["最終判断", "結論", "総合評価", "判断理由", "推奨理由"]
+            for keyword in conclusion_keywords:
+                if keyword in final_report:
+                    start_idx = final_report.find(keyword)
+                    reasoning = final_report[start_idx:start_idx + 800]
+                    break
+            else:
+                # キーワードが見つからない場合は最初から800文字
+                reasoning = final_report[:800] + "..."
+        
         return {
             "action": action,
-            "confidence": "中程度",  # 実際の分析が必要
-            "reasoning": final_report[:200] + "..." if len(final_report) > 200 else final_report
+            "confidence": confidence,
+            "reasoning": reasoning
         }
     
     def _extract_positive_points(self, reports: Dict[str, str]) -> List[str]:
@@ -439,9 +478,21 @@ class ResultsPage:
                 if any(keyword in line.lower() for keyword in positive_keywords):
                     clean_line = line.strip('- *#').strip()
                     if clean_line and len(clean_line) > 10:
-                        points.append(clean_line[:100])
+                        # 文の長さに応じて適切に切り詰める
+                        if len(clean_line) <= 250:
+                            points.append(clean_line)  # 250文字以下はそのまま
+                        else:
+                            # 長い文は句読点で切る
+                            cutoff_point = clean_line[:250].rfind('。')
+                            if cutoff_point > 200:
+                                points.append(clean_line[:cutoff_point + 1])
+                            else:
+                                points.append(clean_line[:250] + "...")
         
-        return list(set(points))[:10]  # 重複除去して上位10個
+        # 重複除去して、長さで並び替え（短い順）して返す
+        unique_points = list(set(points))
+        unique_points.sort(key=len)
+        return unique_points[:12]  # 最大12個まで表示
     
     def _extract_risk_points(self, reports: Dict[str, str]) -> List[str]:
         """リスク要因を抽出"""
@@ -457,9 +508,21 @@ class ResultsPage:
                 if any(keyword in line.lower() for keyword in risk_keywords):
                     clean_line = line.strip('- *#').strip()
                     if clean_line and len(clean_line) > 10:
-                        points.append(clean_line[:100])
+                        # 文の長さに応じて適切に切り詰める
+                        if len(clean_line) <= 250:
+                            points.append(clean_line)  # 250文字以下はそのまま
+                        else:
+                            # 長い文は句読点で切る
+                            cutoff_point = clean_line[:250].rfind('。')
+                            if cutoff_point > 200:
+                                points.append(clean_line[:cutoff_point + 1])
+                            else:
+                                points.append(clean_line[:250] + "...")
         
-        return list(set(points))[:10]  # 重複除去して上位10個
+        # 重複除去して、長さで並び替え（短い順）して返す
+        unique_points = list(set(points))
+        unique_points.sort(key=len)
+        return unique_points[:12]  # 最大12個まで表示
     
     def _extract_recommendations(self, reports: Dict[str, str]) -> List[str]:
         """推奨事項を抽出"""
@@ -467,16 +530,44 @@ class ResultsPage:
             "推奨", "提案", "検討", "おすすめ", "suggest", "recommend", "consider"
         ]
         
-        recommendations = []
+        priority_keywords = ["緊急", "重要", "必須", "immediate", "urgent", "critical", "must"]
+        action_keywords = ["実行", "行う", "する", "べき", "必要", "should", "need"]
+        
+        priority_recommendations = []  # 優先度の高い推奨事項
+        action_recommendations = []    # 具体的なアクション
+        general_recommendations = []   # 一般的な推奨事項
+        
         for report_content in reports.values():
             lines = report_content.split('\n')
             for line in lines:
                 if any(keyword in line.lower() for keyword in rec_keywords):
                     clean_line = line.strip('- *#').strip()
                     if clean_line and len(clean_line) > 10:
-                        recommendations.append(clean_line[:150])
+                        # 文の処理
+                        if len(clean_line) <= 350:
+                            processed_line = clean_line
+                        else:
+                            cutoff_point = clean_line[:350].rfind('。')
+                            if cutoff_point > 300:
+                                processed_line = clean_line[:cutoff_point + 1]
+                            else:
+                                processed_line = clean_line[:350] + "..."
+                        
+                        # 優先度による分類
+                        if any(keyword in line.lower() for keyword in priority_keywords):
+                            priority_recommendations.append(f"🔴 {processed_line}")
+                        elif any(keyword in line.lower() for keyword in action_keywords):
+                            action_recommendations.append(f"🟡 {processed_line}")
+                        else:
+                            general_recommendations.append(processed_line)
         
-        return list(set(recommendations))[:5]  # 重複除去して上位5個
+        # 重複除去して統合（優先度順）
+        all_recommendations = []
+        all_recommendations.extend(list(set(priority_recommendations))[:3])  # 優先度高は最大3個
+        all_recommendations.extend(list(set(action_recommendations))[:3])    # アクションは最大3個
+        all_recommendations.extend(list(set(general_recommendations))[:2])   # 一般は最大2個
+        
+        return all_recommendations[:8]  # 合計最大8個まで
     
     def _export_to_pdf(self, reports: Dict[str, str], results: Dict[str, Any]):
         """PDFエクスポート機能"""
@@ -563,14 +654,16 @@ class ResultsPage:
         positive_points = self._extract_positive_points(reports)
         if positive_points:
             summary_parts.append("\n主要ポジティブ要因:")
-            for i, point in enumerate(positive_points[:3], 1):
+            # サマリーでは5個まで表示（画面表示と同じ基準）
+            for i, point in enumerate(positive_points[:5], 1):
                 summary_parts.append(f"{i}. {point}")
         
         # 主要リスク要因
         risk_points = self._extract_risk_points(reports)
         if risk_points:
             summary_parts.append("\n主要リスク要因:")
-            for i, point in enumerate(risk_points[:3], 1):
+            # サマリーでは5個まで表示（画面表示と同じ基準）
+            for i, point in enumerate(risk_points[:5], 1):
                 summary_parts.append(f"{i}. {point}")
         
         return "\n".join(summary_parts)
