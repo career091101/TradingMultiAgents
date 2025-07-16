@@ -14,6 +14,24 @@ sys.path.insert(0, str(project_root))
 
 from cli.models import AnalystType
 from webui.utils.state import SessionState, UIHelpers
+from enum import Enum
+
+# 追加のエージェントタイプ定義
+class ResearcherType(str, Enum):
+    BULL = "bull"
+    BEAR = "bear"
+    MANAGER = "research_manager"
+
+class RiskManagementType(str, Enum):
+    AGGRESSIVE = "aggressive"
+    CONSERVATIVE = "conservative"
+    NEUTRAL = "neutral"
+
+class TradingType(str, Enum):
+    TRADER = "trader"
+
+class PortfolioType(str, Enum):
+    MANAGER = "portfolio_manager"
 
 class SettingsPage:
     """分析設定画面"""
@@ -33,6 +51,21 @@ class SettingsPage:
         
         # アナリスト選択セクション
         self._render_analyst_selection()
+        
+        st.markdown("---")
+        
+        # 研究チーム選択セクション
+        self._render_research_team_selection()
+        
+        st.markdown("---")
+        
+        # リスク管理チーム選択セクション
+        self._render_risk_management_selection()
+        
+        st.markdown("---")
+        
+        # トレーディング・ポートフォリオ選択セクション
+        self._render_trading_portfolio_selection()
         
         st.markdown("---")
         
@@ -183,6 +216,152 @@ class SettingsPage:
         if not selected_analysts:
             st.warning("⚠️ 少なくとも1つのアナリストを選択してください")
     
+    def _render_research_team_selection(self):
+        """研究チーム選択セクション"""
+        st.subheader("🔬 研究チーム選択")
+        
+        st.markdown("投資議論を行う研究チームの設定です。Bull/Bearの議論により深い洞察を得られます。")
+        
+        # 研究チームを有効にするか
+        enable_research = st.checkbox(
+            "研究チームを有効にする",
+            value=SessionState.get("enable_research_team", True),
+            help="Bull（強気）とBear（弱気）の研究者による投資議論を実行します"
+        )
+        SessionState.set("enable_research_team", enable_research)
+        
+        if enable_research:
+            col1, col2, col3 = st.columns(3)
+            
+            with col1:
+                # Bull Researcher
+                bull_enabled = st.checkbox(
+                    "🐂 Bull Researcher（強気派）",
+                    value=SessionState.get("enable_bull_researcher", True),
+                    help="市場に対して楽観的な視点で分析"
+                )
+                SessionState.set("enable_bull_researcher", bull_enabled)
+            
+            with col2:
+                # Bear Researcher
+                bear_enabled = st.checkbox(
+                    "🐻 Bear Researcher（弱気派）",
+                    value=SessionState.get("enable_bear_researcher", True),
+                    help="市場に対して慎重な視点で分析"
+                )
+                SessionState.set("enable_bear_researcher", bear_enabled)
+            
+            with col3:
+                # Research Manager
+                manager_enabled = st.checkbox(
+                    "👔 Research Manager",
+                    value=SessionState.get("enable_research_manager", True),
+                    help="議論を調整し最終判断を下す"
+                )
+                SessionState.set("enable_research_manager", manager_enabled)
+            
+            # 議論設定
+            st.markdown("**議論設定:**")
+            debate_rounds = st.slider(
+                "議論ラウンド数",
+                min_value=1,
+                max_value=5,
+                value=SessionState.get("debate_rounds", 3),
+                help="Bull/Bear間の議論の往復回数"
+            )
+            SessionState.set("debate_rounds", debate_rounds)
+    
+    def _render_risk_management_selection(self):
+        """リスク管理チーム選択セクション"""
+        st.subheader("⚖️ リスク管理チーム選択")
+        
+        st.markdown("投資リスクを多角的に評価するチームです。")
+        
+        # リスク管理チームを有効にするか
+        enable_risk = st.checkbox(
+            "リスク管理チームを有効にする",
+            value=SessionState.get("enable_risk_team", True),
+            help="異なるリスク許容度の観点から投資を評価します"
+        )
+        SessionState.set("enable_risk_team", enable_risk)
+        
+        if enable_risk:
+            col1, col2, col3 = st.columns(3)
+            
+            with col1:
+                # Aggressive Debator
+                aggressive_enabled = st.checkbox(
+                    "🚀 Aggressive Analyst",
+                    value=SessionState.get("enable_aggressive_analyst", True),
+                    help="高リスク高リターンの視点"
+                )
+                SessionState.set("enable_aggressive_analyst", aggressive_enabled)
+            
+            with col2:
+                # Conservative Debator
+                conservative_enabled = st.checkbox(
+                    "🛡️ Conservative Analyst",
+                    value=SessionState.get("enable_conservative_analyst", True),
+                    help="低リスクで安全性重視の視点"
+                )
+                SessionState.set("enable_conservative_analyst", conservative_enabled)
+            
+            with col3:
+                # Neutral Debator
+                neutral_enabled = st.checkbox(
+                    "⚖️ Neutral Analyst",
+                    value=SessionState.get("enable_neutral_analyst", True),
+                    help="バランスの取れた中立的視点"
+                )
+                SessionState.set("enable_neutral_analyst", neutral_enabled)
+    
+    def _render_trading_portfolio_selection(self):
+        """トレーディング・ポートフォリオ選択セクション"""
+        st.subheader("💼 トレーディング & ポートフォリオ管理")
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            # Trader
+            st.markdown("**トレーディング:**")
+            trader_enabled = st.checkbox(
+                "📈 Trader（トレーダー）",
+                value=SessionState.get("enable_trader", True),
+                help="具体的な投資戦略と実行計画を策定"
+            )
+            SessionState.set("enable_trader", trader_enabled)
+            
+            if trader_enabled:
+                # トレーディング戦略
+                strategies = ["Momentum", "Value", "Growth", "Balanced"]
+                strategy = st.selectbox(
+                    "トレーディング戦略",
+                    strategies,
+                    index=strategies.index(SessionState.get("trading_strategy", "Balanced")),
+                    help="トレーダーが使用する主要戦略"
+                )
+                SessionState.set("trading_strategy", strategy)
+        
+        with col2:
+            # Portfolio Manager
+            st.markdown("**ポートフォリオ管理:**")
+            portfolio_enabled = st.checkbox(
+                "🎯 Portfolio Manager",
+                value=SessionState.get("enable_portfolio_manager", True),
+                help="最終的な投資決定とポートフォリオ配分"
+            )
+            SessionState.set("enable_portfolio_manager", portfolio_enabled)
+            
+            if portfolio_enabled:
+                # リスク許容度
+                risk_tolerance = st.select_slider(
+                    "リスク許容度",
+                    options=["Very Low", "Low", "Medium", "High", "Very High"],
+                    value=SessionState.get("risk_tolerance", "Medium"),
+                    help="ポートフォリオ全体のリスク許容度"
+                )
+                SessionState.set("risk_tolerance", risk_tolerance)
+    
     def _render_llm_settings(self):
         """LLM設定セクション"""
         st.subheader("🤖 LLM設定")
@@ -229,7 +408,7 @@ class SettingsPage:
             SessionState.set("research_depth", depth)
             
             # 高性能モデル選択
-            current_deep = SessionState.get("deep_thinker", "o4-mini")
+            current_deep = SessionState.get("deep_thinker", "o4-mini-2025-04-16")
             
             if current_deep not in available_models and available_models:
                 current_deep = available_models[-1]  # 通常、最後が最も高性能
@@ -315,7 +494,15 @@ class SettingsPage:
         with col4:
             # 分析開始ボタン（設定が有効な場合のみ）
             selected_analysts = SessionState.get("selected_analysts", [])
-            can_start = len(selected_analysts) > 0 and self._check_environment()
+            # 少なくとも1つのチームが有効であれば開始可能
+            has_active_team = (
+                len(selected_analysts) > 0 or
+                SessionState.get("enable_research_team", False) or
+                SessionState.get("enable_risk_team", False) or
+                SessionState.get("enable_trader", False) or
+                SessionState.get("enable_portfolio_manager", False)
+            )
+            can_start = has_active_team and self._check_environment()
             
             if st.button("▶️ 分析開始", 
                         key="settings_start_analysis",
@@ -337,7 +524,7 @@ class SettingsPage:
             "default_depth": SessionState.get("research_depth", 3),
             "default_provider": SessionState.get("llm_provider", "openai"),
             "shallow_model": SessionState.get("shallow_thinker", "gpt-4o-mini"),
-            "deep_model": SessionState.get("deep_thinker", "o4-mini")
+            "deep_model": SessionState.get("deep_thinker", "o4-mini-2025-04-16")
         })
         SessionState.set("user_preferences", prefs)
         SessionState.save_user_preferences()
@@ -351,7 +538,7 @@ class SettingsPage:
             "research_depth": 3,
             "llm_provider": "openai",
             "shallow_thinker": "gpt-4o-mini",
-            "deep_thinker": "o4-mini",
+            "deep_thinker": "o4-mini-2025-04-16",
             "show_advanced_settings": False
         })
     
@@ -364,10 +551,17 @@ class SettingsPage:
         if not ticker or len(ticker) < 1:
             issues.append("ティッカーシンボルが無効です")
         
-        # アナリスト選択検証
+        # チーム選択検証
         analysts = SessionState.get("selected_analysts", [])
-        if not analysts:
-            issues.append("アナリストが選択されていません")
+        has_active_team = (
+            len(analysts) > 0 or
+            SessionState.get("enable_research_team", False) or
+            SessionState.get("enable_risk_team", False) or
+            SessionState.get("enable_trader", False) or
+            SessionState.get("enable_portfolio_manager", False)
+        )
+        if not has_active_team:
+            issues.append("少なくとも1つのチームを有効にしてください")
         
         # 環境変数検証
         if not self._check_environment():
@@ -406,10 +600,24 @@ class SettingsPage:
             **LLM設定:**
             - プロバイダー: `{SessionState.get('llm_provider', 'openai')}`
             - 軽量モデル: `{SessionState.get('shallow_thinker', 'gpt-4o-mini')}`
-            - 高性能モデル: `{SessionState.get('deep_thinker', 'o4-mini')}`
+            - 高性能モデル: `{SessionState.get('deep_thinker', 'o4-mini-2025-04-16')}`
             """)
         
         if analyst_names:
             st.markdown(f"**選択済みアナリスト:** {', '.join(analyst_names)}")
         else:
             st.warning("⚠️ アナリストが選択されていません")
+        
+        # その他のチーム状態表示
+        active_teams = []
+        if SessionState.get("enable_research_team", False):
+            active_teams.append("🔬 研究チーム")
+        if SessionState.get("enable_risk_team", False):
+            active_teams.append("⚖️ リスク管理チーム")
+        if SessionState.get("enable_trader", False):
+            active_teams.append("📈 トレーダー")
+        if SessionState.get("enable_portfolio_manager", False):
+            active_teams.append("🎯 ポートフォリオマネージャー")
+        
+        if active_teams:
+            st.markdown(f"**有効なチーム:** {', '.join(active_teams)}")

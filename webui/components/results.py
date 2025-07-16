@@ -13,6 +13,7 @@ project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
 from webui.utils.state import SessionState, UIHelpers
+from webui.utils.pdf_generator import PDFReportGenerator
 
 class ResultsPage:
     """分析結果表示画面"""
@@ -131,34 +132,48 @@ class ResultsPage:
     
     def _render_result_tabs(self, reports: Dict[str, str], results: Dict[str, Any], ticker: str, date: str):
         """結果をタブ形式で表示"""
-        # レポートの順序定義
+        # レポートの順序定義 - 実際に生成されるファイルに基づいて更新
         report_order = [
-            ("final_trade_decision", "🎯 最終投資判断", "最終的な投資判断と推奨事項"),
-            ("trader_investment_plan", "💼 トレーダー計画", "具体的な取引戦略"),
-            ("investment_plan", "📈 投資計画", "リサーチチームの投資提案"),
-            ("market_report", "📊 市場分析", "テクニカル指標とチャート分析"),
-            ("fundamentals_report", "💰 ファンダメンタル", "財務諸表と企業分析"),
-            ("news_report", "📰 ニュース分析", "最新ニュースと市場動向"),
-            ("sentiment_report", "💬 センチメント", "ソーシャルメディア分析")
+            # 最終判断レポート
+            ("final_trade_decision", "🎯 最終投資判断", "ポートフォリオマネージャーによる最終判断とリスク管理チームの議論"),
+            ("trader_investment_plan", "💼 トレーダー計画", "トレーダーによる具体的な取引戦略と執行計画"),
+            
+            # リサーチチームレポート
+            ("investment_plan", "📈 投資計画", "研究マネージャーの総括とBull/Bear研究者の議論結果"),
+            
+            # アナリストレポート（基礎分析）
+            ("market_report", "📊 市場分析", "マーケットアナリストによるテクニカル指標とチャート分析"),
+            ("fundamentals_report", "💰 ファンダメンタル", "ファンダメンタルアナリストによる財務諸表と企業分析"),
+            ("news_report", "📰 ニュース分析", "ニュースアナリストによる最新ニュースと市場動向"),
+            ("sentiment_report", "💬 センチメント", "ソーシャルアナリストによるソーシャルメディア分析"),
+            
+            # 追加の詳細タブ（レポート内から抽出）
+            ("debate_transcript", "🗣️ 議論記録", "Bull/Bear研究者間の詳細な議論内容"),
+            ("risk_discussion", "⚖️ リスク議論", "リスク管理チーム（積極派/保守派/中立派）の議論"),
+            ("technical_indicators", "📈 テクニカル詳細", "詳細なテクニカル指標とチャートパターン"),
+            ("key_metrics", "📊 主要指標", "財務指標、リスク指標、パフォーマンス指標の要約"),
+            ("action_items", "✅ アクション項目", "推奨される具体的なアクションと実行タイミング")
         ]
+        
+        # 既存レポートから追加の詳細情報を抽出
+        extracted_reports = self._extract_detailed_reports(reports)
+        
+        # すべてのレポート（既存 + 抽出）を統合
+        all_reports = {**reports, **extracted_reports}
         
         # 利用可能なレポートのタブのみ作成
         available_tabs = []
         tab_contents = []
         
         for report_key, tab_name, description in report_order:
-            if report_key in reports:
+            if report_key in all_reports:
                 available_tabs.append(tab_name)
-                tab_contents.append((report_key, reports[report_key], description))
+                tab_contents.append((report_key, all_reports[report_key], description))
         
         if not available_tabs:
             st.warning("表示可能なレポートがありません")
             st.info(f"利用可能なレポートキー: {list(reports.keys())}")
             return
-        
-        # デバッグ情報
-        st.info(f"利用可能なタブ: {available_tabs}")
-        st.info(f"レポート数: {len(tab_contents)}")
         
         # サマリーダッシュボードタブを追加
         all_tab_names = ["📋 サマリー"] + available_tabs + ["📝 実行ログ"]
@@ -200,6 +215,12 @@ class ResultsPage:
     def _render_summary_dashboard(self, reports: Dict[str, str], results: Dict[str, Any]):
         """サマリーダッシュボード"""
         st.subheader("📋 分析サマリー")
+        
+        # PDF出力ボタン
+        col_pdf = st.columns([3, 1])
+        with col_pdf[1]:
+            if st.button("📄 PDFで出力", key="results_export_pdf", use_container_width=True, type="primary"):
+                self._export_to_pdf(reports, results)
         
         # 基本情報
         col1, col2, col3 = st.columns(3)
@@ -456,3 +477,313 @@ class ResultsPage:
                         recommendations.append(clean_line[:150])
         
         return list(set(recommendations))[:5]  # 重複除去して上位5個
+    
+    def _export_to_pdf(self, reports: Dict[str, str], results: Dict[str, Any]):
+        """PDFエクスポート機能"""
+        try:
+            # PDFデータの準備
+            pdf_data = self._prepare_pdf_data(reports, results)
+            
+            # PDF生成
+            pdf_generator = PDFReportGenerator()
+            pdf_bytes = pdf_generator.generate_report(pdf_data)
+            
+            # ダウンロードボタン
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"TradingAgents_Report_{results['ticker']}_{results['date']}_{timestamp}.pdf"
+            
+            st.download_button(
+                label="📥 PDFをダウンロード",
+                data=pdf_bytes,
+                file_name=filename,
+                mime="application/pdf",
+                key="download_pdf_report"
+            )
+            
+            st.success("✅ PDFレポートを生成しました")
+            
+        except Exception as e:
+            st.error(f"❌ PDF生成エラー: {e}")
+            st.exception(e)
+    
+    def _prepare_pdf_data(self, reports: Dict[str, str], results: Dict[str, Any]) -> Dict[str, Any]:
+        """PDF用データの準備"""
+        # 最終判断を抽出
+        final_decision = self._extract_final_recommendation(reports)
+        
+        # 詳細レポートを抽出
+        extracted_reports = self._extract_detailed_reports(reports)
+        
+        # サマリーの生成
+        summary = self._generate_summary(reports, final_decision)
+        
+        # PDFデータ構造の作成
+        pdf_data = {
+            "ticker": results.get("ticker", "N/A"),
+            "analysis_date": results.get("date", "N/A"),
+            "research_depth": SessionState.get("research_depth", 3),
+            "llm_provider": SessionState.get("llm_provider", "openai"),
+            "shallow_model": SessionState.get("shallow_thinker", "gpt-4o-mini"),
+            "deep_model": SessionState.get("deep_thinker", "o4-mini-2025-04-16"),
+            
+            # サマリー
+            "summary": summary,
+            
+            # 最終投資判断
+            "final_decision": final_decision.get("action", "HOLD") if final_decision else "N/A",
+            
+            # 各レポート内容
+            "trader_plan": reports.get("trader_investment_plan", ""),
+            "investment_plan": reports.get("investment_plan", ""),
+            "market_analysis": reports.get("market_report", ""),
+            "fundamental_analysis": reports.get("fundamentals_report", ""),
+            "news_analysis": reports.get("news_report", ""),
+            "sentiment_analysis": reports.get("sentiment_report", ""),
+            
+            # 追加の詳細レポート（抽出されたもの）
+            "debate_transcript": extracted_reports.get("debate_transcript", ""),
+            "risk_discussion": extracted_reports.get("risk_discussion", ""),
+            "key_metrics": extracted_reports.get("key_metrics", ""),
+            "action_items": extracted_reports.get("action_items", "")
+        }
+        
+        return pdf_data
+    
+    def _generate_summary(self, reports: Dict[str, str], final_decision: Optional[Dict[str, str]]) -> str:
+        """サマリーの生成"""
+        summary_parts = []
+        
+        # 最終判断
+        if final_decision:
+            summary_parts.append(f"最終投資判断: {final_decision['action']}")
+            if final_decision.get("confidence"):
+                summary_parts.append(f"信頼度: {final_decision['confidence']}")
+        
+        # 主要ポジティブ要因
+        positive_points = self._extract_positive_points(reports)
+        if positive_points:
+            summary_parts.append("\n主要ポジティブ要因:")
+            for i, point in enumerate(positive_points[:3], 1):
+                summary_parts.append(f"{i}. {point}")
+        
+        # 主要リスク要因
+        risk_points = self._extract_risk_points(reports)
+        if risk_points:
+            summary_parts.append("\n主要リスク要因:")
+            for i, point in enumerate(risk_points[:3], 1):
+                summary_parts.append(f"{i}. {point}")
+        
+        return "\n".join(summary_parts)
+    
+    def _extract_detailed_reports(self, reports: Dict[str, str]) -> Dict[str, str]:
+        """既存レポートから詳細情報を抽出して新しいレポートを生成"""
+        extracted = {}
+        
+        # 1. Bull/Bear議論の抽出
+        if "investment_plan" in reports:
+            debate_content = self._extract_debate_content(reports["investment_plan"])
+            if debate_content:
+                extracted["debate_transcript"] = debate_content
+        
+        # 2. リスク管理議論の抽出
+        if "final_trade_decision" in reports:
+            risk_discussion = self._extract_risk_discussion(reports["final_trade_decision"])
+            if risk_discussion:
+                extracted["risk_discussion"] = risk_discussion
+        
+        # 3. テクニカル指標詳細の抽出
+        if "market_report" in reports:
+            technical_details = self._extract_technical_details(reports["market_report"])
+            if technical_details:
+                extracted["technical_indicators"] = technical_details
+        
+        # 4. 主要指標の集約
+        key_metrics = self._aggregate_key_metrics(reports)
+        if key_metrics:
+            extracted["key_metrics"] = key_metrics
+        
+        # 5. アクション項目の抽出
+        action_items = self._extract_action_items(reports)
+        if action_items:
+            extracted["action_items"] = action_items
+        
+        return extracted
+    
+    def _extract_debate_content(self, investment_plan: str) -> Optional[str]:
+        """投資計画からBull/Bear議論を抽出"""
+        lines = investment_plan.split('\n')
+        debate_sections = []
+        in_debate = False
+        
+        for i, line in enumerate(lines):
+            # 議論セクションの開始を検出
+            if any(keyword in line.lower() for keyword in ['bull', 'bear', '議論', 'debate', 'discussion']):
+                in_debate = True
+            
+            if in_debate:
+                # Bull研究者の発言を抽出
+                if 'bull' in line.lower() and ':' in line:
+                    debate_sections.append(f"\n### 🐂 Bull研究者の見解\n{line}")
+                    # 次の数行も含める
+                    for j in range(i+1, min(i+10, len(lines))):
+                        if lines[j].strip() and not any(k in lines[j].lower() for k in ['bear', '###', '##']):
+                            debate_sections.append(lines[j])
+                        else:
+                            break
+                
+                # Bear研究者の発言を抽出
+                elif 'bear' in line.lower() and ':' in line:
+                    debate_sections.append(f"\n### 🐻 Bear研究者の見解\n{line}")
+                    # 次の数行も含める
+                    for j in range(i+1, min(i+10, len(lines))):
+                        if lines[j].strip() and not any(k in lines[j].lower() for k in ['bull', '###', '##']):
+                            debate_sections.append(lines[j])
+                        else:
+                            break
+        
+        if debate_sections:
+            return "# Bull vs Bear 研究者の議論内容\n\n" + "\n".join(debate_sections)
+        return None
+    
+    def _extract_risk_discussion(self, final_decision: str) -> Optional[str]:
+        """最終決定からリスク管理チームの議論を抽出"""
+        lines = final_decision.split('\n')
+        risk_sections = []
+        
+        risk_keywords = ['aggressive', 'conservative', 'neutral', 'リスク', 'risk management', '積極派', '保守派', '中立派']
+        
+        for i, line in enumerate(lines):
+            if any(keyword in line.lower() for keyword in risk_keywords):
+                # セクションタイトルを特定
+                if 'aggressive' in line.lower() or '積極派' in line:
+                    risk_sections.append(f"\n### 🚀 積極派アナリストの見解\n")
+                elif 'conservative' in line.lower() or '保守派' in line:
+                    risk_sections.append(f"\n### 🛡️ 保守派アナリストの見解\n")
+                elif 'neutral' in line.lower() or '中立派' in line:
+                    risk_sections.append(f"\n### ⚖️ 中立派アナリストの見解\n")
+                
+                # 内容を抽出
+                for j in range(i, min(i+15, len(lines))):
+                    if lines[j].strip():
+                        risk_sections.append(lines[j])
+                    if j > i and any(k in lines[j].lower() for k in ['###', '##', '---']):
+                        break
+        
+        if risk_sections:
+            return "# リスク管理チームの議論\n\n" + "\n".join(risk_sections)
+        return None
+    
+    def _extract_technical_details(self, market_report: str) -> Optional[str]:
+        """市場レポートから詳細なテクニカル指標を抽出"""
+        lines = market_report.split('\n')
+        technical_sections = []
+        
+        # テクニカル指標のキーワード
+        tech_keywords = ['rsi', 'macd', 'bollinger', 'sma', 'ema', 'volume', 'support', 'resistance', 
+                        'trend', 'pattern', 'fibonacci', 'indicator', '指標', 'チャート']
+        
+        for i, line in enumerate(lines):
+            if any(keyword in line.lower() for keyword in tech_keywords):
+                technical_sections.append(line)
+                # 数値データや詳細説明を含む次の行も追加
+                for j in range(i+1, min(i+5, len(lines))):
+                    if lines[j].strip() and (any(char.isdigit() for char in lines[j]) or '.' in lines[j]):
+                        technical_sections.append(lines[j])
+        
+        if technical_sections:
+            return "# 詳細なテクニカル分析\n\n" + "\n".join(technical_sections)
+        return None
+    
+    def _aggregate_key_metrics(self, reports: Dict[str, str]) -> Optional[str]:
+        """全レポートから主要指標を集約"""
+        metrics = []
+        
+        # 財務指標の抽出
+        if "fundamentals_report" in reports:
+            financial_metrics = self._extract_financial_metrics(reports["fundamentals_report"])
+            if financial_metrics:
+                metrics.append("## 📊 財務指標\n" + financial_metrics)
+        
+        # 市場指標の抽出
+        if "market_report" in reports:
+            market_metrics = self._extract_market_metrics(reports["market_report"])
+            if market_metrics:
+                metrics.append("\n## 📈 市場指標\n" + market_metrics)
+        
+        # センチメント指標の抽出
+        if "sentiment_report" in reports:
+            sentiment_metrics = self._extract_sentiment_metrics(reports["sentiment_report"])
+            if sentiment_metrics:
+                metrics.append("\n## 💬 センチメント指標\n" + sentiment_metrics)
+        
+        if metrics:
+            return "# 主要指標サマリー\n\n" + "\n".join(metrics)
+        return None
+    
+    def _extract_financial_metrics(self, report: str) -> str:
+        """財務指標を抽出"""
+        metrics = []
+        keywords = ['p/e', 'eps', 'revenue', '売上', '利益', 'margin', 'ratio', 'growth']
+        
+        lines = report.split('\n')
+        for line in lines:
+            if any(keyword in line.lower() for keyword in keywords) and any(char.isdigit() for char in line):
+                metrics.append(f"- {line.strip()}")
+        
+        return "\n".join(metrics[:10])  # 上位10個まで
+    
+    def _extract_market_metrics(self, report: str) -> str:
+        """市場指標を抽出"""
+        metrics = []
+        keywords = ['price', 'volume', 'volatility', 'beta', 'correlation', '価格', '出来高']
+        
+        lines = report.split('\n')
+        for line in lines:
+            if any(keyword in line.lower() for keyword in keywords) and any(char.isdigit() for char in line):
+                metrics.append(f"- {line.strip()}")
+        
+        return "\n".join(metrics[:10])
+    
+    def _extract_sentiment_metrics(self, report: str) -> str:
+        """センチメント指標を抽出"""
+        metrics = []
+        keywords = ['sentiment', 'score', 'positive', 'negative', 'neutral', 'mention', 'trend']
+        
+        lines = report.split('\n')
+        for line in lines:
+            if any(keyword in line.lower() for keyword in keywords) and (':' in line or any(char.isdigit() for char in line)):
+                metrics.append(f"- {line.strip()}")
+        
+        return "\n".join(metrics[:10])
+    
+    def _extract_action_items(self, reports: Dict[str, str]) -> Optional[str]:
+        """全レポートから具体的なアクション項目を抽出"""
+        action_items = []
+        action_keywords = ['recommend', 'suggest', 'should', 'must', 'action', 'next step', 
+                          '推奨', '提案', 'べき', '必要', 'アクション']
+        
+        priority_items = []  # 優先度の高いアイテム
+        regular_items = []   # 通常のアイテム
+        
+        for report_name, content in reports.items():
+            lines = content.split('\n')
+            for line in lines:
+                if any(keyword in line.lower() for keyword in action_keywords):
+                    # 優先度の判定
+                    if any(urgent in line.lower() for urgent in ['immediate', 'urgent', 'critical', '緊急', '重要']):
+                        priority_items.append(f"🔴 {line.strip()}")
+                    else:
+                        regular_items.append(f"🔵 {line.strip()}")
+        
+        if priority_items or regular_items:
+            result = "# 推奨アクション項目\n\n"
+            
+            if priority_items:
+                result += "## 🚨 優先アクション\n" + "\n".join(priority_items[:5]) + "\n\n"
+            
+            if regular_items:
+                result += "## 📋 通常アクション\n" + "\n".join(regular_items[:10])
+            
+            return result
+        
+        return None

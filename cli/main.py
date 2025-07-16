@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 import datetime
 import typer
 from pathlib import Path
@@ -734,15 +734,35 @@ def extract_content_string(content):
 def run_analysis():
     # First get all user selections
     selections = get_user_selections()
+    run_analysis_with_selections(selections)
+
+def run_analysis_with_selections(selections):
 
     # Create config with selected research depth
     config = DEFAULT_CONFIG.copy()
-    config["max_debate_rounds"] = selections["research_depth"]
+    config["max_debate_rounds"] = selections.get("debate_rounds", selections["research_depth"])
     config["max_risk_discuss_rounds"] = selections["research_depth"]
     config["quick_think_llm"] = selections["shallow_thinker"]
     config["deep_think_llm"] = selections["deep_thinker"]
     config["backend_url"] = selections["backend_url"]
     config["llm_provider"] = selections["llm_provider"].lower()
+    
+    # Add team configuration
+    config["enable_research_team"] = selections.get("enable_research_team", True)
+    config["enable_bull_researcher"] = selections.get("enable_bull_researcher", True)
+    config["enable_bear_researcher"] = selections.get("enable_bear_researcher", True)
+    config["enable_research_manager"] = selections.get("enable_research_manager", True)
+    
+    config["enable_risk_team"] = selections.get("enable_risk_team", True)
+    config["enable_aggressive_analyst"] = selections.get("enable_aggressive_analyst", True)
+    config["enable_conservative_analyst"] = selections.get("enable_conservative_analyst", True)
+    config["enable_neutral_analyst"] = selections.get("enable_neutral_analyst", True)
+    
+    config["enable_trader"] = selections.get("enable_trader", True)
+    config["trading_strategy"] = selections.get("trading_strategy", "Balanced")
+    
+    config["enable_portfolio_manager"] = selections.get("enable_portfolio_manager", True)
+    config["risk_tolerance"] = selections.get("risk_tolerance", "Medium")
 
     # Initialize the graph
     graph = TradingAgentsGraph(
@@ -812,11 +832,55 @@ def run_analysis():
             "System",
             f"Selected analysts: {', '.join(analyst.value for analyst in selections['analysts'])}",
         )
+        
+        # Add messages for enabled teams
+        enabled_teams = []
+        if config.get("enable_research_team", True):
+            enabled_teams.append("Research Team")
+        if config.get("enable_risk_team", True):
+            enabled_teams.append("Risk Management Team")
+        if config.get("enable_trader", True):
+            enabled_teams.append("Trader")
+        if config.get("enable_portfolio_manager", True):
+            enabled_teams.append("Portfolio Manager")
+        
+        if enabled_teams:
+            message_buffer.add_message(
+                "System",
+                f"Enabled teams: {', '.join(enabled_teams)}"
+            )
         update_display(layout)
 
-        # Reset agent statuses
+        # Reset agent statuses based on configuration
         for agent in message_buffer.agent_status:
-            message_buffer.update_agent_status(agent, "pending")
+            # Check if agent should be enabled based on config
+            should_enable = True
+            
+            if agent == "Bull Researcher" and not config.get("enable_bull_researcher", True):
+                should_enable = False
+            elif agent == "Bear Researcher" and not config.get("enable_bear_researcher", True):
+                should_enable = False
+            elif agent == "Research Manager" and not config.get("enable_research_manager", True):
+                should_enable = False
+            elif agent in ["Bull Researcher", "Bear Researcher", "Research Manager"] and not config.get("enable_research_team", True):
+                should_enable = False
+            elif agent == "Trader" and not config.get("enable_trader", True):
+                should_enable = False
+            elif agent == "Risky Analyst" and not config.get("enable_aggressive_analyst", True):
+                should_enable = False
+            elif agent == "Safe Analyst" and not config.get("enable_conservative_analyst", True):
+                should_enable = False
+            elif agent == "Neutral Analyst" and not config.get("enable_neutral_analyst", True):
+                should_enable = False
+            elif agent in ["Risky Analyst", "Safe Analyst", "Neutral Analyst"] and not config.get("enable_risk_team", True):
+                should_enable = False
+            elif agent == "Portfolio Manager" and not config.get("enable_portfolio_manager", True):
+                should_enable = False
+            
+            if should_enable:
+                message_buffer.update_agent_status(agent, "pending")
+            else:
+                message_buffer.update_agent_status(agent, "disabled")
 
         # Reset report sections
         for section in message_buffer.report_sections:
@@ -1097,8 +1161,127 @@ def run_analysis():
 
 
 @app.command()
-def analyze():
-    run_analysis()
+def analyze(
+    ticker: Optional[str] = typer.Option(None, "--ticker", help="Stock ticker symbol"),
+    date: Optional[str] = typer.Option(None, "--date", help="Analysis date (YYYY-MM-DD)"),
+    depth: Optional[int] = typer.Option(None, "--depth", help="Research depth (1-5)"),
+    provider: Optional[str] = typer.Option(None, "--provider", help="LLM provider"),
+    shallow_model: Optional[str] = typer.Option(None, "--shallow-model", help="Shallow thinking model"),
+    deep_model: Optional[str] = typer.Option(None, "--deep-model", help="Deep thinking model"),
+    analyst: Optional[List[str]] = typer.Option(None, "--analyst", help="Analyst types"),
+    # Research team options
+    no_research_team: bool = typer.Option(False, "--no-research-team", help="Disable research team"),
+    no_bull_researcher: bool = typer.Option(False, "--no-bull-researcher", help="Disable bull researcher"),
+    no_bear_researcher: bool = typer.Option(False, "--no-bear-researcher", help="Disable bear researcher"),
+    no_research_manager: bool = typer.Option(False, "--no-research-manager", help="Disable research manager"),
+    debate_rounds: int = typer.Option(3, "--debate-rounds", help="Number of debate rounds"),
+    # Risk management team options
+    no_risk_team: bool = typer.Option(False, "--no-risk-team", help="Disable risk management team"),
+    no_aggressive_analyst: bool = typer.Option(False, "--no-aggressive-analyst", help="Disable aggressive analyst"),
+    no_conservative_analyst: bool = typer.Option(False, "--no-conservative-analyst", help="Disable conservative analyst"),
+    no_neutral_analyst: bool = typer.Option(False, "--no-neutral-analyst", help="Disable neutral analyst"),
+    # Trading team options
+    no_trader: bool = typer.Option(False, "--no-trader", help="Disable trader"),
+    trading_strategy: str = typer.Option("Balanced", "--trading-strategy", help="Trading strategy (Momentum/Value/Growth/Balanced)"),
+    # Portfolio management options
+    no_portfolio_manager: bool = typer.Option(False, "--no-portfolio-manager", help="Disable portfolio manager"),
+    risk_tolerance: str = typer.Option("Medium", "--risk-tolerance", help="Risk tolerance (Very Low/Low/Medium/High/Very High)"),
+):
+    # Convert CLI args to selections dict
+    selections = {}
+    
+    # Use CLI args if provided, otherwise fall back to interactive mode
+    if ticker:
+        selections["ticker"] = ticker
+    else:
+        # Default to SPY if not specified
+        selections["ticker"] = "SPY"
+    
+    if date:
+        selections["analysis_date"] = date
+    else:
+        # Default to today's date if not specified
+        selections["analysis_date"] = datetime.now().strftime("%Y-%m-%d")
+    
+    if depth:
+        selections["research_depth"] = depth
+    else:
+        # Default to medium depth (3) if not specified
+        selections["research_depth"] = 3
+    
+    if provider:
+        selections["llm_provider"] = provider
+        selections["backend_url"] = f"https://api.{provider}.com/v1"
+    else:
+        # Default to openai if not specified
+        selections["llm_provider"] = "openai"
+        selections["backend_url"] = "https://api.openai.com/v1"
+    
+    if shallow_model:
+        selections["shallow_thinker"] = shallow_model
+    else:
+        # Default shallow models per provider
+        default_shallow_models = {
+            "openai": "gpt-4o-mini",
+            "anthropic": "claude-3-haiku-20240307",
+            "google": "gemini-1.5-flash"
+        }
+        selections["shallow_thinker"] = default_shallow_models.get(
+            selections["llm_provider"], "gpt-4o-mini"
+        )
+    
+    if deep_model:
+        selections["deep_thinker"] = deep_model
+    else:
+        # Default deep models per provider
+        default_deep_models = {
+            "openai": "o3-2025-04-16",
+            "anthropic": "claude-3-5-sonnet-20241022",
+            "google": "gemini-1.5-pro"
+        }
+        selections["deep_thinker"] = default_deep_models.get(
+            selections["llm_provider"], "o3-2025-04-16"
+        )
+    
+    if analyst:
+        # Convert analyst strings to AnalystType enums
+        selected_analysts = []
+        for a in analyst:
+            try:
+                selected_analysts.append(AnalystType(a))
+            except ValueError:
+                console.print(f"[red]Invalid analyst type: {a}[/red]")
+                exit(1)
+        selections["analysts"] = selected_analysts
+    else:
+        # Default to all analysts if none specified
+        selections["analysts"] = [
+            AnalystType.MARKET,
+            AnalystType.SOCIAL,
+            AnalystType.NEWS,
+            AnalystType.FUNDAMENTALS
+        ]
+    
+    # Add new team settings to selections
+    selections["enable_research_team"] = not no_research_team
+    selections["enable_bull_researcher"] = not no_bull_researcher
+    selections["enable_bear_researcher"] = not no_bear_researcher
+    selections["enable_research_manager"] = not no_research_manager
+    selections["debate_rounds"] = debate_rounds
+    
+    selections["enable_risk_team"] = not no_risk_team
+    selections["enable_aggressive_analyst"] = not no_aggressive_analyst
+    selections["enable_conservative_analyst"] = not no_conservative_analyst
+    selections["enable_neutral_analyst"] = not no_neutral_analyst
+    
+    selections["enable_trader"] = not no_trader
+    selections["trading_strategy"] = trading_strategy
+    
+    selections["enable_portfolio_manager"] = not no_portfolio_manager
+    selections["risk_tolerance"] = risk_tolerance
+    
+    # Run analysis with the selections
+    run_analysis_with_selections(selections)
 
 
 if __name__ == "__main__":

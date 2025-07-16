@@ -19,6 +19,7 @@ sys.path.insert(0, str(project_root))
 sys.path.insert(0, str(Path(__file__).parent))
 
 from webui.utils.state import SessionState, UIHelpers
+from webui.utils.mobile_responsive import mobile_page_config, apply_mobile_optimizations
 from webui.components.dashboard import Dashboard
 from webui.components.settings import SettingsPage
 from webui.components.execution import ExecutionPage
@@ -43,11 +44,11 @@ class WebUIApp:
     
     def setup_page_config(self):
         """Streamlitページ設定"""
-        st.set_page_config(
+        mobile_page_config(
             page_title="TradingAgents WebUI",
             page_icon="📈",
             layout="wide",
-            initial_sidebar_state="expanded"
+            initial_sidebar_state="auto"
         )
         
         # カスタムCSS

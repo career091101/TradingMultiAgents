@@ -28,7 +28,7 @@ class SessionState:
             "research_depth": 3,
             "llm_provider": "openai",
             "shallow_thinker": "gpt-4o-mini",
-            "deep_thinker": "o3-2025-04-16",
+            "deep_thinker": "o4-mini-2025-04-16",
             
             # 分析実行状態
             "analysis_running": False,
@@ -43,7 +43,7 @@ class SessionState:
             
             # UI状態
             "show_advanced_settings": False,
-            "auto_refresh": True,
+            "auto_refresh": False,  # デフォルトをFalseに変更してボタンの無効化を防ぐ
             "progress_container": None,
             
             # ユーザー設定
@@ -175,7 +175,7 @@ class UIHelpers:
     def get_provider_models(provider: str) -> List[str]:
         """プロバイダーに対応するモデル一覧を取得"""
         model_map = {
-            "openai": ["gpt-4o-mini", "gpt-4o", "o1-mini", "o4-mini", "o3-2025-04-16"],
+            "openai": ["gpt-4o-mini", "gpt-4o", "o1-mini", "o4-mini", "o4-mini-2025-04-16", "o3-2025-04-16"],
             "anthropic": ["claude-3-haiku-20240307", "claude-3-sonnet-20240229", "claude-3-5-sonnet-20241022"],
             "google": ["gemini-1.5-flash", "gemini-1.5-pro"],
             "openrouter": ["meta-llama/llama-3.1-8b-instruct", "anthropic/claude-3.5-sonnet"],
@@ -194,7 +194,21 @@ class UIHelpers:
             llm_provider=SessionState.get("llm_provider"),
             backend_url=f"https://api.{SessionState.get('llm_provider')}.com/v1",
             shallow_thinker=SessionState.get("shallow_thinker"),
-            deep_thinker=SessionState.get("deep_thinker")
+            deep_thinker=SessionState.get("deep_thinker"),
+            # 新しいチーム設定
+            enable_research_team=SessionState.get("enable_research_team", True),
+            enable_bull_researcher=SessionState.get("enable_bull_researcher", True),
+            enable_bear_researcher=SessionState.get("enable_bear_researcher", True),
+            enable_research_manager=SessionState.get("enable_research_manager", True),
+            debate_rounds=SessionState.get("debate_rounds", 3),
+            enable_risk_team=SessionState.get("enable_risk_team", True),
+            enable_aggressive_analyst=SessionState.get("enable_aggressive_analyst", True),
+            enable_conservative_analyst=SessionState.get("enable_conservative_analyst", True),
+            enable_neutral_analyst=SessionState.get("enable_neutral_analyst", True),
+            enable_trader=SessionState.get("enable_trader", True),
+            trading_strategy=SessionState.get("trading_strategy", "Balanced"),
+            enable_portfolio_manager=SessionState.get("enable_portfolio_manager", True),
+            risk_tolerance=SessionState.get("risk_tolerance", "Medium")
         )
     
     @staticmethod

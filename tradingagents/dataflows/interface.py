@@ -714,7 +714,7 @@ def get_stock_news_openai(ticker, curr_date):
                 "content": [
                     {
                         "type": "input_text",
-                        "text": f"Can you search Social Media for {ticker} from 7 days before {curr_date} to {curr_date}? Make sure you only get the data posted during that period.",
+                        "text": f"{curr_date}の7日前から{curr_date}までの期間における{ticker}に関するソーシャルメディアの投稿を検索してください。その期間に投稿されたデータのみを取得し、以下の形式で日本語で分析結果を出力してください：\n\n1. タイトルは「{ticker} ソーシャルメディアセンチメント分析」とする\n2. センチメント評価は「ポジティブ」「ネガティブ」「中立」の日本語表記を使用\n3. 表の列名も日本語（日付、ニュース内容、センチメント）で記載\n4. 全ての分析結果と説明を日本語で記述してください。",
                     }
                 ],
             }
@@ -749,7 +749,7 @@ def get_global_news_openai(curr_date):
                 "content": [
                     {
                         "type": "input_text",
-                        "text": f"Can you search global or macroeconomics news from 7 days before {curr_date} to {curr_date} that would be informative for trading purposes? Make sure you only get the data posted during that period.",
+                        "text": f"{curr_date}の7日前から{curr_date}までの期間における、トレーディングに有用なグローバルまたはマクロ経済のニュースを検索してください。その期間に公開されたデータのみを取得し、市場への影響を日本語で分析してください。",
                     }
                 ],
             }
@@ -784,7 +784,7 @@ def get_fundamentals_openai(ticker, curr_date):
                 "content": [
                     {
                         "type": "input_text",
-                        "text": f"Can you search Fundamental for discussions on {ticker} during of the month before {curr_date} to the month of {curr_date}. Make sure you only get the data posted during that period. List as a table, with PE/PS/Cash flow/ etc",
+                        "text": f"{curr_date}の前月から{curr_date}の月までの期間における{ticker}のファンダメンタル情報を検索してください。その期間のデータのみを取得し、PE比率、PS比率、キャッシュフロー等を含む表形式で日本語でまとめてください。",
                     }
                 ],
             }

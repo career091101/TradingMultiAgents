@@ -18,16 +18,31 @@ def is_rate_limited(response):
     return response.status_code == 429
 
 
+def is_overloaded(response):
+    """Check if the response indicates server overload (status code 529)"""
+    return response.status_code == 529
+
+
+def is_retryable_error(response):
+    """Check if the response indicates a retryable error"""
+    return response.status_code in [429, 529, 500, 502, 503, 504]
+
+
 @retry(
-    retry=(retry_if_result(is_rate_limited)),
-    wait=wait_exponential(multiplier=1, min=4, max=60),
-    stop=stop_after_attempt(5),
+    retry=(retry_if_result(is_retryable_error)),
+    wait=wait_exponential(multiplier=2, min=5, max=120),  # より長い待機時間
+    stop=stop_after_attempt(10),  # 最大10回試行
 )
 def make_request(url, headers):
-    """Make a request with retry logic for rate limiting"""
-    # Random delay before each request to avoid detection
-    time.sleep(random.uniform(2, 6))
+    """Make a request with enhanced retry logic for rate limiting and overload"""
+    # ランダム遅延を増加（2-8秒）
+    time.sleep(random.uniform(2, 8))
     response = requests.get(url, headers=headers)
+    
+    # エラーログ
+    if response.status_code != 200:
+        print(f"⚠️ API Error ({response.status_code} {response.text}) · Retrying in {random.uniform(2, 8):.1f} seconds…")
+    
     return response
 
 

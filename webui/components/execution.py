@@ -9,6 +9,7 @@ import time
 from datetime import datetime
 from typing import Dict, List, Any
 import os
+import logging
 
 import sys
 from pathlib import Path
@@ -17,6 +18,9 @@ sys.path.insert(0, str(project_root))
 
 from webui.utils.state import SessionState, UIHelpers
 from webui.backend.cli_wrapper import AnalysisConfig, AnalysisProgress
+
+# ログ設定
+logger = logging.getLogger(__name__)
 
 class ExecutionPage:
     """分析実行画面"""
@@ -70,12 +74,14 @@ class ExecutionPage:
             
             col1, col2 = st.columns(2)
             with col1:
-                if st.button("⚙️ 設定画面へ", type="primary", use_container_width=True, key="exec_to_settings"):
+                if st.button("⚙️ 設定画面へ", type="primary", use_container_width=True, 
+                           key="exec_to_settings", help="設定画面に移動"):
                     SessionState.navigate_to("settings")
                     st.rerun()
             
             with col2:
-                if st.button("🏠 ダッシュボードへ", use_container_width=True, key="exec_to_dashboard"):
+                if st.button("🏠 ダッシュボードへ", use_container_width=True, 
+                           key="exec_to_dashboard", help="ダッシュボードに移動"):
                     SessionState.navigate_to("dashboard")
                     st.rerun()
             
@@ -110,11 +116,13 @@ class ExecutionPage:
             st.markdown(f"**実行中**: {SessionState.get('selected_ticker')} ({SessionState.get('selected_date')})")
         
         with col2:
-            if st.button("⏹️ 停止", type="secondary", use_container_width=True, key="exec_stop_analysis"):
+            if st.button("⏹️ 停止", type="secondary", use_container_width=True, 
+                       key="exec_stop_analysis", help="分析を強制停止"):
                 self._stop_analysis()
         
         with col3:
-            if st.button("🔄 更新", use_container_width=True, key="exec_refresh"):
+            if st.button("🔄 更新", use_container_width=True, 
+                       key="exec_refresh", help="画面を更新"):
                 st.rerun()
         
         st.markdown("---")
@@ -127,10 +135,20 @@ class ExecutionPage:
         # リアルタイムログ
         self._render_live_log()
         
-        # 自動更新（5秒間隔）
-        if SessionState.get("auto_refresh", True):
-            time.sleep(5)
-            st.rerun()
+        # 自動更新（10秒間隔）
+        auto_refresh = st.checkbox("自動更新", value=SessionState.get("auto_refresh", False), 
+                                 key="auto_refresh_toggle", help="10秒間隔で自動更新")
+        SessionState.set("auto_refresh", auto_refresh)
+        
+        if auto_refresh:
+            # 最終更新時刻を取得
+            last_update = SessionState.get("last_update_time", 0)
+            current_time = time.time()
+            
+            # 10秒経過したら更新
+            if current_time - last_update >= 10:
+                SessionState.set("last_update_time", current_time)
+                st.rerun()
     
     def _render_config_summary(self):
         """設定サマリー表示"""
@@ -163,6 +181,17 @@ class ExecutionPage:
             else:
                 st.warning("アナリストが選択されていません")
             
+            # その他の有効チーム
+            st.markdown("### 🎯 有効チーム")
+            if SessionState.get("enable_research_team", False):
+                st.markdown("- 🔬 研究チーム")
+            if SessionState.get("enable_risk_team", False):
+                st.markdown("- ⚖️ リスク管理チーム")
+            if SessionState.get("enable_trader", False):
+                st.markdown("- 📈 トレーダー")
+            if SessionState.get("enable_portfolio_manager", False):
+                st.markdown("- 🎯 ポートフォリオマネージャー")
+            
             st.markdown("### ⏱️ 予想実行時間")
             depth = SessionState.get('research_depth', 3)
             analyst_count = len(analysts)
@@ -180,18 +209,24 @@ class ExecutionPage:
         with col1:
             if st.button("▶️ 分析開始", 
                         type="primary", 
-                        use_container_width=True, key="exec_start_analysis"):
+                        use_container_width=True, 
+                        key="exec_start_analysis",
+                        help="現在の設定で分析を開始"):
                 self._start_analysis()
         
         with col2:
             if st.button("⚙️ 設定変更", 
-                        use_container_width=True, key="exec_change_settings"):
+                        use_container_width=True, 
+                        key="exec_change_settings",
+                        help="分析設定を変更"):
                 SessionState.navigate_to("settings")
                 st.rerun()
         
         with col3:
             if st.button("🏠 ダッシュボード", 
-                        use_container_width=True, key="exec_to_home"):
+                        use_container_width=True, 
+                        key="exec_to_home",
+                        help="ダッシュボードに戻る"):
                 SessionState.navigate_to("dashboard")
                 st.rerun()
     
@@ -249,7 +284,44 @@ class ExecutionPage:
                 st.markdown("### 🤖 エージェント状況")
                 
                 # 各エージェントのステータスを表示
-                expected_agents = ["Market Analyst", "Social Analyst", "News Analyst", "Fundamentals Analyst"]
+                expected_agents = []
+                
+                # アナリストチーム
+                analysts = SessionState.get("selected_analysts", [])
+                if analysts:
+                    analyst_map = {
+                        "market": "Market Analyst",
+                        "social": "Social Analyst",
+                        "news": "News Analyst",
+                        "fundamentals": "Fundamentals Analyst"
+                    }
+                    for analyst in analysts:
+                        if analyst.value in analyst_map:
+                            expected_agents.append(analyst_map[analyst.value])
+                
+                # 研究チーム
+                if SessionState.get("enable_research_team", False):
+                    if SessionState.get("enable_bull_researcher", False):
+                        expected_agents.append("Bull Researcher")
+                    if SessionState.get("enable_bear_researcher", False):
+                        expected_agents.append("Bear Researcher")
+                    if SessionState.get("enable_research_manager", False):
+                        expected_agents.append("Research Manager")
+                
+                # リスク管理チーム
+                if SessionState.get("enable_risk_team", False):
+                    if SessionState.get("enable_aggressive_analyst", False):
+                        expected_agents.append("Aggressive Analyst")
+                    if SessionState.get("enable_conservative_analyst", False):
+                        expected_agents.append("Conservative Analyst")
+                    if SessionState.get("enable_neutral_analyst", False):
+                        expected_agents.append("Neutral Analyst")
+                
+                # トレーダーとポートフォリオマネージャー
+                if SessionState.get("enable_trader", False):
+                    expected_agents.append("Trader")
+                if SessionState.get("enable_portfolio_manager", False):
+                    expected_agents.append("Portfolio Manager")
                 
                 for agent in expected_agents:
                     # この エージェントの最新状況を取得

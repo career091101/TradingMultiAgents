@@ -1,0 +1,154 @@
+/* Mobile Responsive Styles for TradingAgents WebUI */
+
+/* モバイルビューポート対応 */
+@media (max-width: 768px) {
+    /* サイドバーの調整 */
+    [data-testid="stSidebar"] {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        position: fixed;
+        z-index: 1000;
+        width: 280px !important;
+    }
+    
+    /* サイドバーが開いている時 */
+    [data-testid="stSidebar"][aria-expanded="true"] {
+        transform: translateX(0);
+    }
+    
+    /* メインコンテンツの調整 */
+    .main .block-container {
+        padding: 1rem !important;
+        max-width: 100% !important;
+    }
+    
+    /* ヘッダーの調整 */
+    [data-testid="stHeader"] {
+        height: auto !important;
+    }
+    
+    /* メトリクスカードの調整 */
+    [data-testid="stMetric"] {
+        padding: 0.5rem !important;
+    }
+    
+    /* カラムレイアウトの調整 */
+    [data-testid="column"] {
+        width: 100% !important;
+        flex: 1 0 100% !important;
+    }
+    
+    /* ボタンの調整 */
+    .stButton > button {
+        width: 100%;
+        margin: 0.25rem 0;
+    }
+    
+    /* テーブルのスクロール対応 */
+    .stDataFrame {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* フォーム要素の調整 */
+    .stTextInput > div > div > input,
+    .stSelectbox > div > div > select,
+    .stDateInput > div > div > input {
+        font-size: 16px !important; /* iOS zoom防止 */
+    }
+    
+    /* エキスパンダーの調整 */
+    [data-testid="stExpander"] {
+        margin: 0.5rem 0 !important;
+    }
+    
+    /* タブの調整 */
+    .stTabs [data-baseweb="tab-list"] {
+        flex-wrap: wrap;
+    }
+    
+    .stTabs [data-baseweb="tab"] {
+        flex: 1 0 auto;
+        min-width: 100px;
+    }
+}
+
+/* タブレットビュー */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* サイドバーの幅調整 */
+    [data-testid="stSidebar"] {
+        width: 250px !important;
+    }
+    
+    /* メインコンテンツのパディング調整 */
+    .main .block-container {
+        padding: 2rem 1rem !important;
+    }
+    
+    /* カラムレイアウトの調整 */
+    [data-testid="column"]:nth-child(odd) {
+        padding-right: 0.5rem !important;
+    }
+    
+    [data-testid="column"]:nth-child(even) {
+        padding-left: 0.5rem !important;
+    }
+}
+
+/* タッチデバイス対応 */
+@media (hover: none) {
+    /* ホバー効果を無効化 */
+    .stButton > button:hover {
+        background-color: inherit !important;
+    }
+    
+    /* タッチターゲットサイズの確保 */
+    .stButton > button,
+    [data-testid="stSidebar"] button,
+    .stCheckbox,
+    .stRadio {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* 横向き対応 */
+@media (orientation: landscape) and (max-height: 500px) {
+    /* ヘッダーを小さく */
+    [data-testid="stHeader"] {
+        height: 2.5rem !important;
+    }
+    
+    /* サイドバーの高さ調整 */
+    [data-testid="stSidebar"] {
+        padding-top: 2.5rem !important;
+    }
+}
+
+/* アニメーション設定 */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ダークモード対応 */
+@media (prefers-color-scheme: dark) {
+    /* 必要に応じてダークモード用の調整を追加 */
+}
+
+/* 印刷対応 */
+@media print {
+    [data-testid="stSidebar"],
+    [data-testid="stHeader"],
+    .stButton {
+        display: none !important;
+    }
+    
+    .main .block-container {
+        padding: 0 !important;
+        max-width: 100% !important;
+    }
+}

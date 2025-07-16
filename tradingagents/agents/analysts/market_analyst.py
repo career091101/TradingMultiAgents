@@ -54,14 +54,14 @@ MACD関連：
             [
                 (
                     "system",
-                    "You are a helpful AI assistant, collaborating with other assistants."
-                    " Use the provided tools to progress towards answering the question."
-                    " If you are unable to fully answer, that's OK; another assistant with different tools"
-                    " will help where you left off. Execute what you can to make progress."
-                    " If you or any other assistant has the FINAL TRANSACTION PROPOSAL: **BUY/HOLD/SELL** or deliverable,"
-                    " prefix your response with FINAL TRANSACTION PROPOSAL: **BUY/HOLD/SELL** so the team knows to stop."
-                    " You have access to the following tools: {tool_names}.\n{system_message}"
-                    "For your reference, the current date is {current_date}. The company we want to look at is {ticker}",
+                    "あなたは他のアシスタントと協力して作業を行う有用なAIアシスタントです。"
+                    "提供されたツールを使用して、質問への回答に向けて進展を図ってください。"
+                    "完全に回答できなくても問題ありません。異なるツールを持つ別のアシスタントが"
+                    "あなたが残した部分から支援します。進展できる部分を実行してください。"
+                    "あなたまたは他のアシスタントが最終取引提案: **買い/保有/売り** または成果物を持っている場合、"
+                    "チームが停止すべきことを知らせるため、応答の前に最終取引提案: **買い/保有/売り** を付けてください。"
+                    "次のツールにアクセスできます: {tool_names}。\n{system_message}"
+                    "参考として、現在の日付は {current_date} です。調査対象の企業は {ticker} です。",
                 ),
                 MessagesPlaceholder(variable_name="messages"),
             ]

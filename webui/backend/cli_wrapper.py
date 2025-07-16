@@ -20,6 +20,11 @@ sys.path.insert(0, str(project_root))
 
 from cli.models import AnalystType
 
+# ログ設定を強化
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
 logger = logging.getLogger(__name__)
 
 @dataclass
@@ -33,6 +38,20 @@ class AnalysisConfig:
     backend_url: str
     shallow_thinker: str
     deep_thinker: str
+    # 新しいチーム設定
+    enable_research_team: bool = True
+    enable_bull_researcher: bool = True
+    enable_bear_researcher: bool = True
+    enable_research_manager: bool = True
+    debate_rounds: int = 3
+    enable_risk_team: bool = True
+    enable_aggressive_analyst: bool = True
+    enable_conservative_analyst: bool = True
+    enable_neutral_analyst: bool = True
+    enable_trader: bool = True
+    trading_strategy: str = "Balanced"
+    enable_portfolio_manager: bool = True
+    risk_tolerance: str = "Medium"
 
 @dataclass
 class AnalysisProgress:
@@ -171,7 +190,7 @@ class CLIWrapper:
             
             # CLIコマンド構築
             cmd = [
-                sys.executable, "-m", "cli.main", "analyze",
+                sys.executable, "-m", "cli.main",
                 "--ticker", config.ticker,
                 "--date", config.analysis_date,
                 "--depth", str(config.research_depth),
@@ -180,9 +199,46 @@ class CLIWrapper:
                 "--deep-model", config.deep_thinker
             ]
             
+            logger.info(f"Executing CLI command: {' '.join(cmd)}")
+            
             # アナリスト選択
             for analyst in config.analysts:
                 cmd.extend(["--analyst", analyst.value])
+            
+            # 研究チーム設定
+            if not config.enable_research_team:
+                cmd.append("--no-research-team")
+            else:
+                if not config.enable_bull_researcher:
+                    cmd.append("--no-bull-researcher")
+                if not config.enable_bear_researcher:
+                    cmd.append("--no-bear-researcher")
+                if not config.enable_research_manager:
+                    cmd.append("--no-research-manager")
+                cmd.extend(["--debate-rounds", str(config.debate_rounds)])
+            
+            # リスク管理チーム設定
+            if not config.enable_risk_team:
+                cmd.append("--no-risk-team")
+            else:
+                if not config.enable_aggressive_analyst:
+                    cmd.append("--no-aggressive-analyst")
+                if not config.enable_conservative_analyst:
+                    cmd.append("--no-conservative-analyst")
+                if not config.enable_neutral_analyst:
+                    cmd.append("--no-neutral-analyst")
+            
+            # トレーディング設定
+            if not config.enable_trader:
+                cmd.append("--no-trader")
+            else:
+                cmd.extend(["--trading-strategy", config.trading_strategy])
+            
+            # ポートフォリオマネージャー設定
+            if not config.enable_portfolio_manager:
+                cmd.append("--no-portfolio-manager")
+            else:
+                cmd.extend(["--risk-tolerance", config.risk_tolerance])
             
             # 進捗通知開始
             self._notify_progress(AnalysisProgress(
@@ -194,17 +250,40 @@ class CLIWrapper:
                 timestamp=datetime.now()
             ))
             
+            # ログディレクトリを作成
+            log_dir = self.project_root / "logs" / "webui"
+            log_dir.mkdir(parents=True, exist_ok=True)
+            
+            # 実行ログファイル
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            log_file = log_dir / f"analysis_{config.ticker}_{timestamp}.log"
+            
             # CLI実行（リアルタイムログ出力）
+            logger.info(f"Starting CLI process, logs will be written to: {log_file}")
+            
+            with open(log_file, 'w', encoding='utf-8') as f:
+                f.write(f"CLI Command: {' '.join(cmd)}\n")
+                f.write(f"Environment variables:\n")
+                f.write(f"  OPENAI_API_KEY: {'set' if os.getenv('OPENAI_API_KEY') else 'not set'}\n")
+                f.write(f"  FINNHUB_API_KEY: {'set' if os.getenv('FINNHUB_API_KEY') else 'not set'}\n")
+                f.write(f"Working directory: {self.project_root}\n")
+                f.write(f"Analysis started at: {datetime.now()}\n\n")
+                
+            # 環境変数を明示的に設定
+            env = os.environ.copy()
+            logger.info(f"Environment check - OPENAI_API_KEY: {'set' if env.get('OPENAI_API_KEY') else 'not set'}")
+            logger.info(f"Environment check - FINNHUB_API_KEY: {'set' if env.get('FINNHUB_API_KEY') else 'not set'}")
+            
             process = await asyncio.create_subprocess_exec(
                 *cmd,
                 cwd=str(self.project_root),
                 stdout=asyncio.subprocess.PIPE,
                 stderr=asyncio.subprocess.STDOUT,
-                env=os.environ.copy()
+                env=env
             )
             
             # リアルタイムログ監視
-            await self._monitor_cli_output(process, config.ticker, config.analysis_date)
+            await self._monitor_cli_output(process, config.ticker, config.analysis_date, log_file)
             
             # プロセス完了待機
             await process.wait()
@@ -254,24 +333,34 @@ class CLIWrapper:
                 "error": str(e)
             }
     
-    async def _monitor_cli_output(self, process, ticker: str, date: str):
+    async def _monitor_cli_output(self, process, ticker: str, date: str, log_file: Path):
         """CLIの出力をリアルタイムで監視してログを配信"""
         try:
-            while True:
-                # プロセスからの出力を1行ずつ読み取り
-                line = await process.stdout.readline()
-                
-                if not line:
-                    break
+            with open(log_file, 'a', encoding='utf-8') as f:
+                while True:
+                    # プロセスからの出力を1行ずつ読み取り
+                    line = await process.stdout.readline()
                     
-                line_text = line.decode('utf-8', errors='ignore').strip()
-                
-                if line_text:
-                    # CLIログの解析と進捗通知
-                    self._parse_cli_log_and_notify(line_text)
+                    if not line:
+                        break
+                        
+                    line_text = line.decode('utf-8', errors='ignore').strip()
                     
+                    if line_text:
+                        # ログファイルに書き込み
+                        f.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - {line_text}\n")
+                        f.flush()
+                        
+                        # デバッグログ
+                        logger.debug(f"CLI Output: {line_text}")
+                        
+                        # CLIログの解析と進捗通知
+                        self._parse_cli_log_and_notify(line_text)
+                        
         except Exception as e:
             logger.error(f"CLI output monitoring error: {e}")
+            with open(log_file, 'a', encoding='utf-8') as f:
+                f.write(f"\nERROR: {str(e)}\n")
     
     def _parse_cli_log_and_notify(self, log_line: str):
         """CLIログを解析して進捗通知"""
@@ -319,6 +408,24 @@ class CLIWrapper:
                     agent="Research Team",
                     status="running",
                     progress=0.85,
+                    message=log_line,
+                    timestamp=datetime.now()
+                ))
+            elif "Research Manager" in log_line:
+                self._notify_progress(AnalysisProgress(
+                    stage="research",
+                    agent="Research Manager",
+                    status="running",
+                    progress=0.87,
+                    message=log_line,
+                    timestamp=datetime.now()
+                ))
+            elif "Aggressive" in log_line or "Conservative" in log_line or "Neutral" in log_line:
+                self._notify_progress(AnalysisProgress(
+                    stage="risk_management",
+                    agent="Risk Management Team",
+                    status="running",
+                    progress=0.88,
                     message=log_line,
                     timestamp=datetime.now()
                 ))
