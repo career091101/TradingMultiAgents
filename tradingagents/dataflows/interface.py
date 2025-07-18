@@ -323,12 +323,13 @@ def get_reddit_global_news(
     """
 
     start_date = datetime.strptime(start_date, "%Y-%m-%d")
+    end_date = start_date.strftime("%Y-%m-%d")
     before = start_date - relativedelta(days=look_back_days)
-    before = before.strftime("%Y-%m-%d")
+    before_str = before.strftime("%Y-%m-%d")
 
     posts = []
     # iterate from start_date to end_date
-    curr_date = datetime.strptime(before, "%Y-%m-%d")
+    curr_date = before
 
     total_iterations = (start_date - curr_date).days + 1
     pbar = tqdm(desc=f"Getting Global News on {start_date}", total=total_iterations)
@@ -357,7 +358,7 @@ def get_reddit_global_news(
         else:
             news_str += f"### {post['title']}\n\n{post['content']}\n\n"
 
-    return f"## Global News Reddit, from {before} to {curr_date}:\n{news_str}"
+    return f"## Global News Reddit, from {before_str} to {end_date}:\n{news_str}"
 
 
 def get_reddit_company_news(
@@ -377,12 +378,13 @@ def get_reddit_company_news(
     """
 
     start_date = datetime.strptime(start_date, "%Y-%m-%d")
+    end_date = start_date.strftime("%Y-%m-%d")
     before = start_date - relativedelta(days=look_back_days)
-    before = before.strftime("%Y-%m-%d")
+    before_str = before.strftime("%Y-%m-%d")
 
     posts = []
     # iterate from start_date to end_date
-    curr_date = datetime.strptime(before, "%Y-%m-%d")
+    curr_date = before
 
     total_iterations = (start_date - curr_date).days + 1
     pbar = tqdm(
@@ -416,7 +418,7 @@ def get_reddit_company_news(
         else:
             news_str += f"### {post['title']}\n\n{post['content']}\n\n"
 
-    return f"##{ticker} News Reddit, from {before} to {curr_date}:\n\n{news_str}"
+    return f"##{ticker} News Reddit, from {before_str} to {end_date}:\n\n{news_str}"
 
 
 def get_stock_stats_indicators_window(
