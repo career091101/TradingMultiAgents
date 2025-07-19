@@ -102,6 +102,12 @@ def parse_arguments():
     )
     
     parser.add_argument(
+        '--fast',
+        action='store_true',
+        help='Enable fast mode (minimal agents, no debates)'
+    )
+    
+    parser.add_argument(
         '--risk-free-rate',
         type=float,
         default=0.02,
@@ -248,7 +254,7 @@ def main():
     
     # Initialize simulator
     logger.info("Initializing backtest simulator...")
-    simulator = BacktestSimulator(config=config, debug=args.debug)
+    simulator = BacktestSimulator(config=config, debug=args.debug, fast_mode=args.fast)
     
     # Run backtests for each ticker
     if len(args.tickers) == 1:

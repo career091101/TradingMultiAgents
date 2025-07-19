@@ -86,7 +86,11 @@ class BacktestWrapper:
                 "results_dir": "./backtest/results",
                 "data_dir": os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))), "data"),
                 "data_cache_dir": os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "tradingagents/dataflows/data_cache"),
-                "online_tools": False
+                "online_tools": False,
+                "llm_provider": "openai",
+                "deep_think_llm": "gpt-4o-mini",
+                "quick_think_llm": "gpt-4o-mini",
+                "backend_url": "https://api.openai.com/v1"
             }
             
             # Merge with agent config if provided

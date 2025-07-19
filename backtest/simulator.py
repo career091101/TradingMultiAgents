@@ -77,13 +77,14 @@ class BacktestSimulator:
     framework on historical data.
     """
     
-    def __init__(self, config: Optional[Dict[str, Any]] = None, debug: bool = False):
+    def __init__(self, config: Optional[Dict[str, Any]] = None, debug: bool = False, fast_mode: bool = False):
         """
         Initialize the backtest simulator.
         
         Args:
             config: Configuration dictionary for TradingAgentsGraph (defaults to DEFAULT_CONFIG)
             debug: Enable debug mode for more verbose output
+            fast_mode: Enable fast mode with reduced agents and no debates
         """
         # Create a safe default config for backtesting
         base_config = DEFAULT_CONFIG.copy()
@@ -106,8 +107,24 @@ class BacktestSimulator:
             "results_dir": os.path.join(parent_dir, "backtest", "results"),
             "data_dir": os.path.join(parent_dir, "data"),
             "data_cache_dir": os.path.join(tradingagents_dir, "dataflows", "data_cache") if os.path.exists(tradingagents_dir) else os.path.join(parent_dir, "data_cache"),
-            "online_tools": False  # Always use offline for backtesting
+            "online_tools": False,  # Always use offline for backtesting
+            # Ensure LLM settings are present with safe defaults
+            "llm_provider": base_config.get("llm_provider", "openai"),
+            "deep_think_llm": "gpt-4o-mini",  # Use standard model for backtesting
+            "quick_think_llm": "gpt-4o-mini",  # Use standard model for backtesting
+            "backend_url": base_config.get("backend_url", "https://api.openai.com/v1")
         })
+        
+        # Apply fast mode optimizations
+        if fast_mode:
+            logger.info("Fast mode enabled - using minimal agents and no debates")
+            base_config.update({
+                "max_debate_rounds": 0,  # Skip debates
+                "max_risk_discuss_rounds": 0,  # Skip risk discussions
+                "quick_think_llm": "gpt-3.5-turbo",  # Use faster model
+                "deep_think_llm": "gpt-4o-mini",  # Use faster deep think model
+                "temperature": 0  # Deterministic outputs
+            })
         
         # Apply user config if provided
         if config:
@@ -115,6 +132,7 @@ class BacktestSimulator:
             
         self.config = base_config
         self.debug = debug
+        self.fast_mode = fast_mode
         self.agent = None
         
     def _initialize_agent(self) -> TradingAgentsGraph:
