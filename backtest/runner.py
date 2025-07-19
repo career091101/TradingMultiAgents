@@ -19,6 +19,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from backtest.simulator import BacktestSimulator
 from backtest.metrics import calculate_performance_metrics, format_metrics_report
 from backtest.plotting import create_backtest_report
+from backtest.validation import ValidationError
 
 # Configure logging
 logging.basicConfig(
@@ -217,6 +218,9 @@ def run_single_backtest(simulator: BacktestSimulator, ticker: str, args) -> None
         
         logger.info(f"Backtest completed successfully for {ticker}")
         
+    except ValidationError as e:
+        logger.error(f"Validation error for {ticker}: {str(e)}")
+        # Don't print traceback for validation errors
     except Exception as e:
         logger.error(f"Failed to backtest {ticker}: {str(e)}")
         if args.debug:

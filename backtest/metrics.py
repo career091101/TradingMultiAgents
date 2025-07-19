@@ -11,6 +11,11 @@ from typing import List, Dict, Tuple, Optional
 from dataclasses import dataclass
 from datetime import datetime
 
+from .constants import (
+    MAX_SHARPE_RATIO, MAX_SORTINO_RATIO, MAX_PROFIT_FACTOR,
+    MAX_CALMAR_RATIO, TRADING_DAYS_PER_YEAR
+)
+
 
 @dataclass
 class PerformanceMetrics:
@@ -82,7 +87,7 @@ def calculate_max_drawdown(equity_curve: List[float]) -> Tuple[float, int, int]:
 
 
 def calculate_sharpe_ratio(returns: np.ndarray, risk_free_rate: float = 0.02, 
-                          periods_per_year: int = 252) -> float:
+                          periods_per_year: int = TRADING_DAYS_PER_YEAR) -> float:
     """
     Calculate the Sharpe ratio.
     
@@ -109,11 +114,12 @@ def calculate_sharpe_ratio(returns: np.ndarray, risk_free_rate: float = 0.02,
     
     sharpe = np.mean(excess_returns) / np.std(excess_returns) * np.sqrt(periods_per_year)
     
-    return sharpe
+    # Cap at maximum reasonable value
+    return min(sharpe, MAX_SHARPE_RATIO)
 
 
 def calculate_sortino_ratio(returns: np.ndarray, risk_free_rate: float = 0.02,
-                           periods_per_year: int = 252) -> float:
+                           periods_per_year: int = TRADING_DAYS_PER_YEAR) -> float:
     """
     Calculate the Sortino ratio (uses downside deviation).
     
@@ -138,7 +144,7 @@ def calculate_sortino_ratio(returns: np.ndarray, risk_free_rate: float = 0.02,
     downside_returns = excess_returns[excess_returns < 0]
     
     if len(downside_returns) == 0:
-        return float('inf')  # No downside risk
+        return MAX_SORTINO_RATIO  # No downside risk
     
     # Calculate downside deviation
     downside_std = np.std(downside_returns)
@@ -148,7 +154,8 @@ def calculate_sortino_ratio(returns: np.ndarray, risk_free_rate: float = 0.02,
     
     sortino = np.mean(excess_returns) / downside_std * np.sqrt(periods_per_year)
     
-    return sortino
+    # Cap at maximum reasonable value
+    return min(sortino, MAX_SORTINO_RATIO)
 
 
 def analyze_trades(trades: List) -> Dict[str, float]:
@@ -225,7 +232,7 @@ def analyze_trades(trades: List) -> Dict[str, float]:
     # Calculate profit factor
     total_wins = np.sum(winning_trades) if num_winning > 0 else 0.0
     total_losses = abs(np.sum(losing_trades)) if num_losing > 0 else 1.0
-    profit_factor = total_wins / total_losses if total_losses > 0 else float('inf')
+    profit_factor = total_wins / total_losses if total_losses > 0 else MAX_PROFIT_FACTOR
     
     return {
         'total_trades': total_trades,
@@ -275,12 +282,16 @@ def calculate_performance_metrics(result, risk_free_rate: float = 0.02) -> Perfo
     
     # Calculate volatility (annualized)
     if len(returns) > 0:
-        volatility = np.std(returns) * np.sqrt(252) * 100
+        volatility = np.std(returns) * np.sqrt(TRADING_DAYS_PER_YEAR) * 100
     else:
         volatility = 0.0
     
     # Calculate Calmar ratio (annualized return / max drawdown)
-    calmar = annualized_return / max_dd if max_dd > 0 else 0.0
+    if max_dd > 0:
+        calmar = annualized_return / max_dd
+        calmar = min(calmar, MAX_CALMAR_RATIO)  # Cap at reasonable value
+    else:
+        calmar = 0.0
     
     return PerformanceMetrics(
         total_return=total_return,

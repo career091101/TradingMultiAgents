@@ -9,6 +9,7 @@ import pandas as pd
 import os
 import json
 from typing import Dict, Any, List, Optional, Tuple
+import re
 
 from ..utils.state import SessionState, UIHelpers
 from ..backend.backtest_wrapper import BacktestWrapper
@@ -53,7 +54,21 @@ class BacktestPage:
                 value=self.state.get("backtest_tickers", "AAPL"),
                 help="Enter one or more tickers separated by commas (e.g., AAPL, MSFT, GOOGL)"
             )
-            tickers = [t.strip().upper() for t in ticker_input.split(",") if t.strip()]
+            # Validate tickers
+            tickers = []
+            invalid_tickers = []
+            for t in ticker_input.split(","):
+                t = t.strip().upper()
+                if t:
+                    # Simple validation for ticker format
+                    if re.match(r'^[A-Z0-9\.\-]{1,10}$', t):
+                        tickers.append(t)
+                    else:
+                        invalid_tickers.append(t)
+            
+            if invalid_tickers:
+                st.error(f"Invalid ticker(s): {', '.join(invalid_tickers)}")
+            
             self.state.set("backtest_tickers", ",".join(tickers))
             
             # Date range selection

@@ -14,6 +14,16 @@ from dataclasses import dataclass, field
 import sys
 import os
 
+# Import constants and validation
+from .constants import (
+    DEFAULT_INITIAL_CAPITAL, DEFAULT_SLIPPAGE, 
+    TRADING_DAYS_PER_YEAR
+)
+from .validation import (
+    validate_ticker, validate_date_range, 
+    validate_capital, validate_slippage, ValidationError
+)
+
 # Add parent directory to path to import tradingagents
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -176,6 +186,10 @@ class BacktestSimulator:
             if hist_data.empty:
                 raise ValueError(f"No data found for ticker {ticker} in the specified date range")
             
+            # Validate data quality
+            if 'Close' not in hist_data.columns or hist_data['Close'].isna().all():
+                raise ValueError(f"No valid price data for ticker {ticker}")
+            
             # Reset index to have date as a column
             hist_data.reset_index(inplace=True)
             
@@ -262,7 +276,8 @@ class BacktestSimulator:
             return "HOLD"
     
     def run_backtest(self, ticker: str, start_date: str, end_date: str,
-                    initial_capital: float = 10000.0, slippage: float = 0.0) -> BacktestResult:
+                    initial_capital: float = DEFAULT_INITIAL_CAPITAL, 
+                    slippage: float = DEFAULT_SLIPPAGE) -> BacktestResult:
         """
         Run a backtest for a single ticker over the specified date range.
         
@@ -276,6 +291,16 @@ class BacktestSimulator:
         Returns:
             BacktestResult object containing all simulation results
         """
+        # Validate inputs
+        try:
+            ticker = validate_ticker(ticker)
+            start_dt, end_dt = validate_date_range(start_date, end_date)
+            initial_capital = validate_capital(initial_capital)
+            slippage = validate_slippage(slippage)
+        except ValidationError as e:
+            logger.error(f"Validation error: {str(e)}")
+            raise
+        
         logger.info(f"Starting backtest for {ticker}")
         logger.info(f"Period: {start_date} to {end_date}")
         logger.info(f"Initial capital: ${initial_capital:,.2f}")
