@@ -80,7 +80,20 @@ class BacktestWrapper:
             if progress_callback:
                 progress_callback(0.0, "Initializing simulator...", "")
             
-            self.simulator = BacktestSimulator(config=agent_config, debug=debug)
+            # Prepare safe config for backtesting
+            safe_config = {
+                "project_dir": os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+                "results_dir": "./backtest/results",
+                "data_dir": os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))), "data"),
+                "data_cache_dir": os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "tradingagents/dataflows/data_cache"),
+                "online_tools": False
+            }
+            
+            # Merge with agent config if provided
+            if agent_config:
+                safe_config.update(agent_config)
+            
+            self.simulator = BacktestSimulator(config=safe_config, debug=debug)
             
             # Calculate capital per ticker
             capital_per_ticker = initial_capital / len(tickers)

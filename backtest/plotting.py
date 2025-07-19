@@ -283,8 +283,20 @@ def plot_returns_distribution(result, save_path: Optional[str] = None) -> None:
     ax1.grid(True, alpha=0.3)
     
     # Q-Q plot
-    from scipy import stats
-    stats.probplot(returns, dist="norm", plot=ax2)
+    try:
+        from scipy import stats
+        stats.probplot(returns, dist="norm", plot=ax2)
+    except ImportError:
+        # Fallback if scipy is not available
+        # Simple normal Q-Q plot implementation
+        returns_sorted = np.sort(returns)
+        n = len(returns_sorted)
+        theoretical_quantiles = np.array([np.percentile(np.random.randn(10000), i*100/n) for i in range(1, n+1)])
+        ax2.scatter(theoretical_quantiles, returns_sorted, alpha=0.7)
+        ax2.plot([min(theoretical_quantiles), max(theoretical_quantiles)], 
+                [min(theoretical_quantiles), max(theoretical_quantiles)], 'r--')
+        ax2.set_xlabel('Theoretical Quantiles')
+        ax2.set_ylabel('Sample Quantiles')
     ax2.set_title('Q-Q Plot (Normal Distribution)')
     ax2.grid(True, alpha=0.3)
     

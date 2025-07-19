@@ -85,7 +85,35 @@ class BacktestSimulator:
             config: Configuration dictionary for TradingAgentsGraph (defaults to DEFAULT_CONFIG)
             debug: Enable debug mode for more verbose output
         """
-        self.config = config or DEFAULT_CONFIG.copy()
+        # Create a safe default config for backtesting
+        base_config = DEFAULT_CONFIG.copy()
+        
+        # Override problematic paths with safe defaults
+        # Find the TradingMultiAgents directory
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        parent_dir = os.path.dirname(current_dir)
+        tradingagents_dir = os.path.join(parent_dir, "TradingMultiAgents", "tradingagents")
+        
+        # Ensure the tradingagents directory exists
+        if os.path.exists(tradingagents_dir):
+            project_dir = tradingagents_dir
+        else:
+            # Fallback to parent directory
+            project_dir = parent_dir
+            
+        base_config.update({
+            "project_dir": project_dir,
+            "results_dir": os.path.join(parent_dir, "backtest", "results"),
+            "data_dir": os.path.join(parent_dir, "data"),
+            "data_cache_dir": os.path.join(tradingagents_dir, "dataflows", "data_cache") if os.path.exists(tradingagents_dir) else os.path.join(parent_dir, "data_cache"),
+            "online_tools": False  # Always use offline for backtesting
+        })
+        
+        # Apply user config if provided
+        if config:
+            base_config.update(config)
+            
+        self.config = base_config
         self.debug = debug
         self.agent = None
         
@@ -97,7 +125,16 @@ class BacktestSimulator:
         backtest_config = self.config.copy()
         backtest_config['online_tools'] = False
         
-        return TradingAgentsGraph(debug=self.debug, config=backtest_config)
+        # Log configuration for debugging
+        if self.debug:
+            logger.debug(f"Initializing with config: {backtest_config}")
+        
+        try:
+            return TradingAgentsGraph(debug=self.debug, config=backtest_config)
+        except Exception as e:
+            logger.error(f"Failed to initialize TradingAgentsGraph: {e}")
+            logger.error(f"Config used: {backtest_config}")
+            raise
     
     def _fetch_historical_data(self, ticker: str, start_date: str, end_date: str) -> pd.DataFrame:
         """
@@ -244,6 +281,10 @@ class BacktestSimulator:
             start_date=start_date,
             end_date=end_date
         )
+        
+        # Log expected duration
+        total_days = len(hist_data)
+        logger.info(f"Processing {total_days} trading days. This may take several minutes...")
         
         # Iterate through each trading day
         for idx, row in hist_data.iterrows():
