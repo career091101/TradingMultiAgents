@@ -24,6 +24,10 @@ from .validation import (
     validate_capital, validate_slippage, ValidationError
 )
 
+# Import project utilities
+from .path_utils import get_tradingagents_config, get_project_paths
+from .logging_config import get_logger, get_structured_logger
+
 # Add parent directory to path to import tradingagents
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -37,8 +41,8 @@ except ImportError:
     from tradingagents.default_config import DEFAULT_CONFIG
 
 # Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
+logger = get_logger('simulator')
+structured_logger = get_structured_logger()
 
 
 @dataclass
@@ -99,24 +103,11 @@ class BacktestSimulator:
         # Create a safe default config for backtesting
         base_config = DEFAULT_CONFIG.copy()
         
-        # Override problematic paths with safe defaults
-        # Find the TradingMultiAgents directory
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        parent_dir = os.path.dirname(current_dir)
-        tradingagents_dir = os.path.join(parent_dir, "TradingMultiAgents", "tradingagents")
+        # Use centralized path resolution
+        path_config = get_tradingagents_config()
         
-        # Ensure the tradingagents directory exists
-        if os.path.exists(tradingagents_dir):
-            project_dir = tradingagents_dir
-        else:
-            # Fallback to parent directory
-            project_dir = parent_dir
-            
         base_config.update({
-            "project_dir": project_dir,
-            "results_dir": os.path.join(parent_dir, "backtest", "results"),
-            "data_dir": os.path.join(parent_dir, "data"),
-            "data_cache_dir": os.path.join(tradingagents_dir, "dataflows", "data_cache") if os.path.exists(tradingagents_dir) else os.path.join(parent_dir, "data_cache"),
+            **path_config,
             "online_tools": False,  # Always use offline for backtesting
             # Ensure LLM settings are present with safe defaults
             "llm_provider": base_config.get("llm_provider", "openai"),
@@ -306,6 +297,17 @@ class BacktestSimulator:
         logger.info(f"Initial capital: ${initial_capital:,.2f}")
         logger.info(f"Slippage: {slippage*100:.2f}%")
         
+        # Log backtest start with structured logger
+        structured_logger.log_backtest_start({
+            'ticker': ticker,
+            'start_date': start_date,
+            'end_date': end_date,
+            'initial_capital': initial_capital,
+            'slippage': slippage,
+            'fast_mode': self.fast_mode,
+            'config': {k: v for k, v in self.config.items() if k not in ['project_dir', 'data_dir', 'data_cache_dir']}
+        })
+        
         # Initialize agent
         if self.agent is None:
             self.agent = self._initialize_agent()
@@ -378,6 +380,17 @@ class BacktestSimulator:
             )
             result.trades.append(trade)
             
+            # Log trade with structured logger
+            structured_logger.log_trade(
+                ticker=ticker,
+                action=signal,
+                price=current_price,
+                shares=shares,
+                portfolio_value=portfolio_value_after,
+                date=current_date.strftime('%Y-%m-%d'),
+                cash=cash
+            )
+            
             # Update equity curve
             result.equity_curve.append(portfolio_value_after)
             result.dates.append(current_date)
@@ -397,6 +410,16 @@ class BacktestSimulator:
         
         logger.info(f"Backtest completed. Final value: ${result.final_portfolio_value:,.2f}")
         logger.info(f"Total return: {result.total_return:.2f}%")
+        
+        # Log backtest completion
+        structured_logger.log_backtest_end({
+            'ticker': ticker,
+            'initial_capital': initial_capital,
+            'final_value': result.final_portfolio_value,
+            'total_return': result.total_return,
+            'num_trades': result.num_trades,
+            'duration_days': len(hist_data)
+        })
         
         return result
     
