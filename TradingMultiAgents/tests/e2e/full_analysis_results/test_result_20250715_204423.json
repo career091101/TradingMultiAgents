@@ -1,0 +1,73 @@
+{
+  "test_result": {
+    "test_id": "full_flow_20250715_204423",
+    "start_time": "2025-07-15T20:44:23.317768",
+    "ticker": "SPY",
+    "depth": 1,
+    "status": "timeout",
+    "analysis_start_time": "2025-07-15T20:44:39.071118",
+    "end_time": "2025-07-15T21:00:06.844012"
+  },
+  "event_log": [
+    {
+      "timestamp": "2025-07-15T20:44:27.295130",
+      "event_type": "start",
+      "message": "WebUIアクセス開始",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T20:44:31.986101",
+      "event_type": "info",
+      "message": "WebUIアクセス成功",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T20:44:31.986836",
+      "event_type": "info",
+      "message": "設定ページへ移動",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T20:44:35.181845",
+      "event_type": "info",
+      "message": "ティッカー設定: SPY",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T20:44:35.816742",
+      "event_type": "info",
+      "message": "総合分析プリセット選択",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T20:44:35.948541",
+      "event_type": "info",
+      "message": "実行ページへ移動",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T20:44:38.484149",
+      "event_type": "start",
+      "message": "分析実行開始",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T20:44:39.189529",
+      "event_type": "info",
+      "message": "進捗モニタリング開始",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:00:06.837117",
+      "event_type": "error",
+      "message": "タイムアウト",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:00:06.844044",
+      "event_type": "info",
+      "message": "5秒後にブラウザを閉じます...",
+      "details": {}
+    }
+  ]
+}

@@ -133,38 +133,32 @@ class BacktestPage:
             # Agent configuration options
             st.markdown("#### Agent Configuration")
             
-            use_custom_config = st.checkbox(
-                "Use Custom Agent Configuration",
-                value=self.state.get("backtest_use_custom_config", False)
-            )
-            self.state.set("backtest_use_custom_config", use_custom_config)
+            # Always use analysis settings
+            st.info(f"""
+            **Using Analysis Settings Models:**
+            - Provider: {self.state.get("llm_provider", "openai")}
+            - Deep Model: {self.state.get("deep_thinker", "o3-2025-04-16")}
+            - Fast Model: {self.state.get("shallow_thinker", "o4-mini-2025-04-16")}
+            """)
+            st.caption("※ To change models, go to Analysis Settings page")
             
-            if use_custom_config:
-                # LLM provider selection
-                llm_provider = st.selectbox(
-                    "LLM Provider",
-                    options=["openai", "anthropic", "google", "ollama"],
-                    index=0,
-                    key="backtest_llm_provider"
-                )
-                
-                # Debate rounds
-                max_debate_rounds = st.number_input(
-                    "Max Debate Rounds",
-                    min_value=1,
-                    max_value=5,
-                    value=self.state.get("backtest_debate_rounds", 1),
-                    help="Number of rounds for agent debates"
-                )
-                self.state.set("backtest_debate_rounds", max_debate_rounds)
-                
-                # Online tools
-                online_tools = st.checkbox(
-                    "Use Online Tools",
-                    value=self.state.get("backtest_online_tools", False),
-                    help="Use real-time data (less reproducible) vs cached data"
-                )
-                self.state.set("backtest_online_tools", online_tools)
+            # Debate rounds
+            max_debate_rounds = st.number_input(
+                "Max Debate Rounds",
+                min_value=1,
+                max_value=5,
+                value=self.state.get("backtest_debate_rounds", 1),
+                help="Number of rounds for agent debates"
+            )
+            self.state.set("backtest_debate_rounds", max_debate_rounds)
+            
+            # Online tools
+            online_tools = st.checkbox(
+                "Use Online Tools",
+                value=self.state.get("backtest_online_tools", False),
+                help="Use real-time data (less reproducible) vs cached data"
+            )
+            self.state.set("backtest_online_tools", online_tools)
         
         # Advanced options
         with st.expander("Advanced Options"):
@@ -205,12 +199,12 @@ class BacktestPage:
             "Risk-Free Rate": f"{risk_free_rate:.1f}%"
         }
         
-        if use_custom_config:
-            config_summary.update({
-                "LLM Provider": llm_provider,
-                "Debate Rounds": max_debate_rounds,
-                "Online Tools": "Yes" if online_tools else "No"
-            })
+        # Add LLM configuration info from analysis settings
+        config_summary.update({
+            "LLM Provider": self.state.get("llm_provider", "openai"),
+            "Deep Model": self.state.get("deep_thinker", "o3-2025-04-16"),
+            "Fast Model": self.state.get("shallow_thinker", "o4-mini-2025-04-16")
+        })
         
         for key, value in config_summary.items():
             st.write(f"**{key}:** {value}")
@@ -314,13 +308,14 @@ class BacktestPage:
             "debug": self.state.get("backtest_debug", False)
         }
         
-        # Add custom agent configuration if enabled
-        if self.state.get("backtest_use_custom_config", False):
-            config["agent_config"] = {
-                "llm_provider": self.state.get("backtest_llm_provider", "openai"),
-                "max_debate_rounds": self.state.get("backtest_debate_rounds", 1),
-                "online_tools": self.state.get("backtest_online_tools", False)
-            }
+        # Always use analysis settings for models
+        config["agent_config"] = {
+            "llm_provider": self.state.get("llm_provider", "openai"),
+            "deep_model": self.state.get("deep_thinker", "o4-mini-2025-04-16"),
+            "fast_model": self.state.get("shallow_thinker", "gpt-4o-mini"),
+            "max_debate_rounds": self.state.get("backtest_debate_rounds", 1),
+            "online_tools": self.state.get("backtest_online_tools", False)
+        }
         
         return config
     
@@ -363,6 +358,10 @@ class BacktestPage:
     
     def _render_ticker_results(self, ticker: str, result: Dict[str, Any]):
         """Render results for a single ticker."""
+        # Add type checking
+        if not isinstance(result, dict):
+            st.error(f"Invalid result format for {ticker}: expected dict, got {type(result).__name__}")
+            return
         metrics = result.get("metrics", {})
         
         # Key metrics in columns
@@ -506,6 +505,9 @@ class BacktestPage:
         
         perf_data = []
         for ticker, result in results.items():
+            # Skip invalid results
+            if not isinstance(result, dict):
+                continue
             metrics = result.get("metrics", {})
             perf_data.append({
                 "Ticker": ticker,

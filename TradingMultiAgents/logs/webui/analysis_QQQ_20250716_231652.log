@@ -1,0 +1,35 @@
+CLI Command: /Library/Frameworks/Python.framework/Versions/3.12/bin/python3.12 -m cli.main --ticker QQQ --date 2025-07-16 --depth 1 --provider openai --shallow-model gpt-4o-mini --deep-model o4-mini-2025-04-16 --analyst market --analyst social --analyst news --analyst fundamentals --debate-rounds 3 --trading-strategy Balanced --risk-tolerance Medium
+Environment variables:
+  OPENAI_API_KEY: set
+  FINNHUB_API_KEY: set
+Working directory: /Users/y-sato/TradingAgents2/TradingMultiAgents
+Analysis started at: 2025-07-16 23:16:52.809612
+
+2025-07-16 23:16:55 - Traceback (most recent call last):
+2025-07-16 23:16:55 - File "<frozen runpy>", line 198, in _run_module_as_main
+2025-07-16 23:16:55 - File "<frozen runpy>", line 88, in _run_code
+2025-07-16 23:16:55 - File "/Users/y-sato/TradingAgents2/TradingMultiAgents/cli/main.py", line 23, in <module>
+2025-07-16 23:16:55 - from tradingagents.graph.trading_graph import TradingAgentsGraph
+2025-07-16 23:16:55 - File "/Users/y-sato/TradingAgents2/TradingMultiAgents/tradingagents/graph/__init__.py", line 3, in <module>
+2025-07-16 23:16:55 - from .trading_graph import TradingAgentsGraph
+2025-07-16 23:16:55 - File "/Users/y-sato/TradingAgents2/TradingMultiAgents/tradingagents/graph/trading_graph.py", line 9, in <module>
+2025-07-16 23:16:55 - from langchain_openai import ChatOpenAI
+2025-07-16 23:16:55 - File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/langchain_openai/__init__.py", line 1, in <module>
+2025-07-16 23:16:55 - from langchain_openai.chat_models import AzureChatOpenAI, ChatOpenAI
+2025-07-16 23:16:55 - File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/langchain_openai/chat_models/__init__.py", line 1, in <module>
+2025-07-16 23:16:55 - from langchain_openai.chat_models.azure import AzureChatOpenAI
+2025-07-16 23:16:55 - File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/langchain_openai/chat_models/azure.py", line 21, in <module>
+2025-07-16 23:16:55 - from langchain_openai.chat_models.base import BaseChatOpenAI
+2025-07-16 23:16:55 - File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 34, in <module>
+2025-07-16 23:16:55 - import tiktoken
+2025-07-16 23:16:55 - File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/tiktoken/__init__.py", line 2, in <module>
+2025-07-16 23:16:55 - from .core import Encoding as Encoding
+2025-07-16 23:16:55 - File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/tiktoken/core.py", line 7, in <module>
+2025-07-16 23:16:55 - import regex
+2025-07-16 23:16:55 - File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/regex/__init__.py", line 1, in <module>
+2025-07-16 23:16:55 - from .regex import *
+2025-07-16 23:16:55 - File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/regex/regex.py", line 417, in <module>
+2025-07-16 23:16:55 - import regex._regex_core as _regex_core
+2025-07-16 23:16:55 - File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/regex/_regex_core.py", line 21, in <module>
+2025-07-16 23:16:55 - import regex._regex as _regex
+2025-07-16 23:16:55 - ImportError: dlopen(/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/regex/_regex.cpython-312-darwin.so, 0x0002): tried: '/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/regex/_regex.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64')), '/System/Volumes/Preboot/Cryptexes/OS/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/regex/_regex.cpython-312-darwin.so' (no such file), '/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/regex/_regex.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64'))

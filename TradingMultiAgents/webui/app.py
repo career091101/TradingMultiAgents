@@ -15,6 +15,10 @@ import uuid
 # .envファイルを読み込み
 load_dotenv()
 
+# ログ設定を最初に
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 # プロジェクトルートを追加
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
@@ -22,17 +26,31 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from webui.utils.state import SessionState, UIHelpers
 from webui.utils.mobile_responsive import mobile_page_config, apply_mobile_optimizations
+from webui.utils.auth import AuthManager
+from webui.components.login import show_login_page, show_logout_button
 from webui.components.dashboard import Dashboard
 from webui.components.settings import SettingsPage
 from webui.components.execution import ExecutionPage
 from webui.components.results import ResultsPage
 from webui.components.logs import LogsPage
-from webui.components.backtest import BacktestPage
-from webui.backend.cli_wrapper import CLIWrapper
+# Lazy import for backtest to avoid architecture issues
+BacktestPage = None
+Backtest2Page = None
 
-# ログ設定
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+try:
+    from webui.components.backtest import BacktestPage
+except ImportError as e:
+    logger.error(f"バックテスト機能のインポートに失敗しました: {e}")
+    import traceback
+    logger.error(traceback.format_exc())
+
+try:
+    from webui.components.backtest2 import Backtest2Page
+except ImportError as e:
+    logger.error(f"バックテスト2機能のインポートに失敗しました: {e}")
+    import traceback
+    logger.error(traceback.format_exc())
+from webui.backend.cli_wrapper import CLIWrapper
 
 class WebUIApp:
     """WebUIメインアプリケーション"""
@@ -56,53 +74,33 @@ class WebUIApp:
         )
         
         # カスタムCSS
+        # Apply custom styles without unsafe HTML
         st.markdown("""
         <style>
-        .main-header {
-            background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        .metric-card {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            border: 1px solid #dee2e6;
-        }
-        .status-running {
-            color: #007bff;
-        }
-        .status-completed {
-            color: #28a745;
-        }
-        .status-error {
-            color: #dc3545;
-        }
-        .sidebar-section {
-            margin-bottom: 1rem;
-            padding: 0.5rem;
-            border-left: 3px solid #007bff;
-            background: #f8f9fa;
-        }
+        /* Custom CSS for TradingAgents WebUI */
+        .stApp { background-color: #f8f9fa; }
+        .stButton > button { width: 100%; }
+        .stProgress > div > div { background-color: #007bff; }
         </style>
         """, unsafe_allow_html=True)
     
     def render_header(self):
         """ヘッダー表示"""
-        st.markdown("""
-        <div class="main-header">
-            <h1>📈 TradingAgents WebUI</h1>
-            <p>マルチエージェント金融分析プラットフォーム</p>
-        </div>
-        """, unsafe_allow_html=True)
+        col1, col2, col3 = st.columns([1, 3, 1])
+        with col2:
+            st.title("📈 TradingAgents WebUI")
+            st.caption("マルチエージェント金融分析プラットフォーム")
     
     def render_sidebar(self):
         """サイドバー表示"""
         with st.sidebar:
             st.markdown("### 📈 TradingAgents")
+            
+            # User info and logout
+            if "current_user" in st.session_state:
+                st.markdown(f"👤 **User:** {st.session_state.current_user}")
+                st.markdown(f"🔑 **Role:** {st.session_state.user_role}")
+                show_logout_button()
             
             st.markdown("---")
             
@@ -141,19 +139,22 @@ class WebUIApp:
                 SessionState.navigate_to("backtest")
                 st.rerun()
             
+            if st.button("🧪 バックテスト2", use_container_width=True,
+                        type="primary" if current_page == "backtest2" else "secondary", key="nav_backtest2"):
+                SessionState.navigate_to("backtest2")
+                st.rerun()
+            
             st.markdown("---")
             
             # 現在の設定表示
             st.markdown("### 📋 現在の設定")
             with st.container():
-                st.markdown(f"""
-                <div class="sidebar-section">
-                <strong>ティッカー:</strong> {SessionState.get('selected_ticker')}<br>
-                <strong>日付:</strong> {SessionState.get('selected_date')}<br>
-                <strong>深度:</strong> {UIHelpers.format_research_depth(SessionState.get('research_depth'))}<br>
-                <strong>LLM:</strong> {SessionState.get('llm_provider')}
-                </div>
-                """, unsafe_allow_html=True)
+                st.info(f"""
+                **ティッカー:** {SessionState.get('selected_ticker')}  
+                **日付:** {SessionState.get('selected_date')}  
+                **深度:** {UIHelpers.format_research_depth(SessionState.get('research_depth'))}  
+                **LLM:** {SessionState.get('llm_provider')}
+                """)
             
             # 分析状況
             if SessionState.get("analysis_running"):
@@ -186,24 +187,25 @@ class WebUIApp:
                     })
                     st.rerun()
             
-            # 環境変数チェック
-            st.markdown("---")
-            st.markdown("### 🔐 環境設定")
-            
-            required_vars = ["FINNHUB_API_KEY", "OPENAI_API_KEY"]
-            all_set = True
-            
-            for var in required_vars:
-                if os.getenv(var):
-                    st.success(f"✅ {var}")
-                else:
-                    st.error(f"❌ {var}")
-                    all_set = False
-            
-            if not all_set:
-                st.warning("⚠️ 必要な環境変数が設定されていません")
-                with st.expander("設定方法"):
-                    st.code("""
+            # 環境変数チェック（管理者のみ）
+            if st.session_state.get("user_role") == "admin":
+                st.markdown("---")
+                st.markdown("### 🔐 環境設定")
+                
+                required_vars = ["FINNHUB_API_KEY", "OPENAI_API_KEY"]
+                all_set = True
+                
+                for var in required_vars:
+                    if os.getenv(var):
+                        st.success(f"✅ {var} is configured")
+                    else:
+                        st.error(f"❌ {var} is missing")
+                        all_set = False
+                
+                if not all_set:
+                    st.warning("⚠️ 必要な環境変数が設定されていません")
+                    with st.expander("設定方法"):
+                        st.code("""
 export FINNHUB_API_KEY=your_key_here
 export OPENAI_API_KEY=your_key_here
 """)
@@ -233,8 +235,29 @@ export OPENAI_API_KEY=your_key_here
             logs.render()
         
         elif current_page == "backtest":
-            backtest = BacktestPage(SessionState)
-            backtest.render()
+            if BacktestPage is not None:
+                backtest = BacktestPage(SessionState)
+                backtest.render()
+            else:
+                st.error("バックテスト機能は現在利用できません。代わりにバックテスト2をご利用ください。")
+                if st.button("バックテスト2に移動"):
+                    SessionState.navigate_to("backtest2")
+                    st.rerun()
+        
+        elif current_page == "backtest2":
+            if Backtest2Page:
+                try:
+                    backtest2 = Backtest2Page(SessionState)
+                    backtest2.render()
+                except Exception as e:
+                    logger.error(f"バックテスト2ページのレンダリングエラー: {e}")
+                    import traceback
+                    logger.error(traceback.format_exc())
+                    st.error(f"バックテスト2機能でエラーが発生しました: {str(e)}")
+                    st.error("詳細はログをご確認ください。")
+            else:
+                st.error("バックテスト2機能は現在利用できません。")
+                st.info("インポートエラーの詳細はログをご確認ください。")
         
         else:
             st.error(f"Unknown page: {current_page}")
@@ -259,6 +282,29 @@ export OPENAI_API_KEY=your_key_here
     def run(self):
         """アプリケーション実行"""
         try:
+            # Check authentication
+            if "auth_session_id" not in st.session_state:
+                # Show login page
+                session_id = show_login_page()
+                if session_id:
+                    st.session_state.auth_session_id = session_id
+                    st.rerun()
+                return
+            
+            # Validate session
+            auth_manager = AuthManager()
+            session_info = auth_manager.validate_session(st.session_state.auth_session_id)
+            
+            if not session_info:
+                # Session expired
+                del st.session_state.auth_session_id
+                st.rerun()
+                return
+            
+            # Store current user info
+            st.session_state.current_user = session_info["username"]
+            st.session_state.user_role = session_info["role"]
+            
             # 通知チェック
             self.check_pending_notifications()
             

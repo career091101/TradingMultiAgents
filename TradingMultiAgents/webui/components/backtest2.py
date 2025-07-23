@@ -9,9 +9,12 @@ import pandas as pd
 import json
 from typing import Dict, Any, List, Optional
 from pathlib import Path
+import logging
 
 from ..utils.state import SessionState, UIHelpers
 from ..backend.backtest2_wrapper import Backtest2Wrapper
+
+logger = logging.getLogger(__name__)
 
 
 class Backtest2Page:
@@ -21,6 +24,7 @@ class Backtest2Page:
         self.state = session_state
         self.ui = UIHelpers()
         self.backtest_wrapper = Backtest2Wrapper()
+        self.logger = logger  # Use module-level logger
     
     def render(self):
         """Render the Backtest2 page."""
@@ -578,6 +582,15 @@ class Backtest2Page:
             
             # Quick summary
             if results:
+                # Debug: Log results structure
+                logger.info(f"Results type: {type(results)}")
+                for ticker, r in results.items():
+                    logger.info(f"{ticker} result type: {type(r)}")
+                    if isinstance(r, dict):
+                        logger.info(f"{ticker} keys: {list(r.keys())}")
+                        if "metrics" in r:
+                            logger.info(f"{ticker} metrics type: {type(r['metrics'])}")
+                
                 # Check if results have valid format
                 valid_results = []
                 for ticker, r in results.items():
@@ -585,7 +598,7 @@ class Backtest2Page:
                         valid_results.append(r)
                 
                 if valid_results:
-                    total_return = sum(r["metrics"]["total_return"] for r in valid_results) / len(valid_results)
+                    total_return = sum(r["metrics"].get("total_return", 0) for r in valid_results) / len(valid_results)
                     st.info(f"Average Return: {total_return:.2f}% | View detailed results in the Results tab")
                 else:
                     st.warning("Results format is invalid. Please check the logs.")
@@ -688,7 +701,12 @@ class Backtest2Page:
             if not isinstance(result, dict) or "metrics" not in result:
                 logger.warning(f"Skipping invalid result for {ticker}")
                 continue
-            return_value = result.get("metrics", {}).get("total_return", 0)
+            # Safe access to metrics
+            metrics = result.get("metrics", {})
+            if isinstance(metrics, dict):
+                return_value = metrics.get("total_return", 0)
+            else:
+                return_value = 0
             with st.expander(f"📊 {ticker} - Return: {return_value:.2f}%", 
                            expanded=len(results) == 1):
                 self._render_ticker_analysis(ticker, result)
@@ -754,8 +772,9 @@ class Backtest2Page:
         with col1:
             # Aggregate metrics JSON
             all_metrics = {
-                ticker: result["metrics"] 
+                ticker: result.get("metrics", {}) 
                 for ticker, result in results.items()
+                if isinstance(result, dict)
             }
             
             st.download_button(
@@ -771,7 +790,7 @@ class Backtest2Page:
             for ticker, result in results.items():
                 if not isinstance(result, dict) or "metrics" not in result:
                     continue
-                metrics = result["metrics"]
+                metrics = result.get("metrics", {})
                 summary_data.append({
                     "Ticker": ticker,
                     "Return (%)": metrics.get("total_return", 0),
@@ -859,7 +878,7 @@ class Backtest2Page:
         if result.get("benchmark_comparison"):
             st.markdown("##### ベンチマーク比較")
             
-            comparison = result["benchmark_comparison"]
+            comparison = result.get("benchmark_comparison", {})
             portfolio = comparison.get('portfolio', {})
             benchmark = comparison.get('benchmark', {})
             relative = comparison.get('relative', {})
@@ -886,34 +905,30 @@ class Backtest2Page:
         if result.get("agent_performance"):
             st.markdown("##### エージェントパフォーマンス")
             
-            agent_perf = result["agent_performance"]
+            agent_perf = result.get("agent_performance", {})
             # Display agent-specific metrics
             st.json(agent_perf)
     
     def _aggregate_agent_performance(self, results: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
         """Aggregate agent performance across all tickers."""
-        aggregated = {}
+        # Simple aggregation for current engine format
+        total_decisions = 0
+        total_memory_entries = 0
         
         for ticker, result in results.items():
-            if "agent_performance" in result and result["agent_performance"]:
-                for agent, perf in result["agent_performance"].items():
-                    if agent not in aggregated:
-                        aggregated[agent] = {
-                            "total_decisions": 0,
-                            "correct_decisions": 0,
-                            "accuracy": 0.0
-                        }
-                    
-                    # Aggregate metrics (this is placeholder logic)
-                    aggregated[agent]["total_decisions"] += perf.get("decisions", 0)
-                    aggregated[agent]["correct_decisions"] += perf.get("correct", 0)
+            if not isinstance(result, dict):
+                continue
+                
+            agent_perf = result.get("agent_performance", {})
+            if isinstance(agent_perf, dict):
+                total_decisions += agent_perf.get("total_decisions", 0)
+                total_memory_entries += agent_perf.get("memory_entries", 0)
         
-        # Calculate accuracy
-        for agent in aggregated:
-            if aggregated[agent]["total_decisions"] > 0:
-                aggregated[agent]["accuracy"] = (
-                    aggregated[agent]["correct_decisions"] / 
-                    aggregated[agent]["total_decisions"] * 100
-                )
-        
-        return aggregated
+        # Return summary format expected by UI
+        return {
+            "Summary": {
+                "total_decisions": total_decisions,
+                "memory_entries": total_memory_entries,
+                "accuracy": 0.0  # Placeholder until engine provides this
+            }
+        }

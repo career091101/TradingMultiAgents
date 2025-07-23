@@ -11,22 +11,34 @@ from datetime import datetime
 import threading
 import traceback
 
+# Initialize logger first
+logger = logging.getLogger(__name__)
+
 # Add paths for imports
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
+project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+backtest_path = os.path.join(project_root, 'backtest')
+
+# Add both project root and backtest directory to path
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+if backtest_path not in sys.path:
+    sys.path.insert(0, backtest_path)
 
 try:
     from backtest.simulator import BacktestSimulator
     from backtest.metrics import calculate_performance_metrics, format_metrics_report
     from backtest.plotting import create_backtest_report
-except ImportError:
-    # Try alternative import path
-    sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))), 'backtest'))
-    from simulator import BacktestSimulator
-    from metrics import calculate_performance_metrics, format_metrics_report
-    from plotting import create_backtest_report
-
-logger = logging.getLogger(__name__)
+except ImportError as e:
+    # Try direct import from backtest directory
+    try:
+        from simulator import BacktestSimulator
+        from metrics import calculate_performance_metrics, format_metrics_report
+        from plotting import create_backtest_report
+    except ImportError:
+        logger.error(f"Failed to import backtest modules: {e}")
+        logger.error(f"sys.path: {sys.path}")
+        logger.error(f"Current directory: {os.getcwd()}")
+        raise
 
 
 class BacktestWrapper:

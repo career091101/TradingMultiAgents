@@ -599,6 +599,8 @@ class Backtest2Wrapper:
         agent_performance = {}
         if hasattr(result, 'agent_performance') and result.agent_performance:
             agent_performance = result.agent_performance
+            logger.info(f"Result agent_performance type: {type(agent_performance)}")
+            logger.info(f"Result agent_performance content: {agent_performance}")
         
         return {
             "ticker": ticker,

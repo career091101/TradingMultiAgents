@@ -10,11 +10,14 @@ import pandas as pd
 from typing import List, Dict, Tuple, Optional
 from dataclasses import dataclass
 from datetime import datetime
+import logging
 
 from .constants import (
     MAX_SHARPE_RATIO, MAX_SORTINO_RATIO, MAX_PROFIT_FACTOR,
     MAX_CALMAR_RATIO, TRADING_DAYS_PER_YEAR
 )
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -201,7 +204,10 @@ def analyze_trades(trades: List) -> Dict[str, float]:
                 break
         
         if recent_buy:
-            # Calculate return percentage
+            # Calculate return percentage (handle zero price edge case)
+            if recent_buy.price == 0:
+                logger.warning(f"Skipping trade with zero buy price at {recent_buy.date}")
+                continue
             return_pct = ((sell.price - recent_buy.price) / recent_buy.price) * 100
             trade_returns.append(return_pct)
     

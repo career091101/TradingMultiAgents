@@ -1,0 +1,319 @@
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.50.9:8501
+
+WARNING:root:TradingMultiAgents dataflows not available
+INFO:webui.backend.backtest2_wrapper:Successfully imported backtest2 modules (direct import)
+INFO:webui.backend.backtest2_wrapper:Successfully imported backtest2 modules (direct import)
+INFO:backtest2.core.engine:Starting backtest execution afa2a9dd-0e7e-43ef-9b13-2cea5108616e
+INFO:backtest2.core.engine:Initializing backtest environment
+ERROR:backtest2.core.engine:Backtest failed: 'BacktestConfig' object has no attribute 'random_seed'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 93, in run
+    await self._initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 135, in _initialize
+    random.seed(self.config.random_seed)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BacktestConfig' object has no attribute 'random_seed'
+INFO:backtest2.core.engine:Cleaning up backtest resources
+INFO:backtest2.data.manager_simple:Closing data manager
+ERROR:MemoryStore:Failed to save memories: [Errno 28] No space left on device: 'results/backtest2_20250721_163427'
+ERROR:webui.backend.backtest2_wrapper:Backtest2 failed: 'BacktestConfig' object has no attribute 'random_seed'
+ERROR:webui.backend.backtest2_wrapper:Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 191, in run_backtest_async
+    result = await engine.run()
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 93, in run
+    await self._initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 135, in _initialize
+    random.seed(self.config.random_seed)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BacktestConfig' object has no attribute 'random_seed'
+
+INFO:backtest2.core.engine:Starting backtest execution 6ccda30f-b757-4570-b8ad-d6c0de7f6bcf
+INFO:backtest2.core.engine:Initializing backtest environment
+ERROR:backtest2.core.engine:Backtest failed: 'BacktestConfig' object has no attribute 'random_seed'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 93, in run
+    await self._initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 135, in _initialize
+    random.seed(self.config.random_seed)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BacktestConfig' object has no attribute 'random_seed'
+INFO:backtest2.core.engine:Cleaning up backtest resources
+INFO:backtest2.data.manager_simple:Closing data manager
+ERROR:MemoryStore:Failed to save memories: [Errno 63] File name too long: 'results/backtest2_20250721_164439/[\'[\\\'[\\\\\\\'[\\\\\\\\\\\\\\\'[\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'[\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'["[\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'AAPL\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'\\\\\\\\\\\\\\\'\\\\\\\'\\\'\''
+ERROR:webui.backend.backtest2_wrapper:Backtest2 failed: 'BacktestConfig' object has no attribute 'random_seed'
+ERROR:webui.backend.backtest2_wrapper:Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 191, in run_backtest_async
+    result = await engine.run()
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 93, in run
+    await self._initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 135, in _initialize
+    random.seed(self.config.random_seed)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BacktestConfig' object has no attribute 'random_seed'
+
+INFO:webui.backend.backtest2_wrapper:Successfully imported backtest2 modules (direct import)
+INFO:backtest2.core.engine:Starting backtest execution fbfb7ff9-f22e-4097-9c80-dcfc0f159424
+INFO:backtest2.core.engine:Initializing backtest environment
+ERROR:backtest2.core.engine:Backtest failed: 'BacktestConfig' object has no attribute 'random_seed'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 93, in run
+    await self._initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 135, in _initialize
+    random.seed(self.config.random_seed)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BacktestConfig' object has no attribute 'random_seed'
+INFO:backtest2.core.engine:Cleaning up backtest resources
+INFO:backtest2.data.manager_simple:Closing data manager
+INFO:MemoryStore:Saved memories to results/backtest2_20250721_170545/NVDA/memories.json
+ERROR:webui.backend.backtest2_wrapper:Backtest2 failed: 'BacktestConfig' object has no attribute 'random_seed'
+ERROR:webui.backend.backtest2_wrapper:Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 191, in run_backtest_async
+    result = await engine.run()
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 93, in run
+    await self._initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 135, in _initialize
+    random.seed(self.config.random_seed)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BacktestConfig' object has no attribute 'random_seed'
+
+INFO:webui.backend.backtest2_wrapper:Successfully imported backtest2 modules (direct import)
+ERROR:webui.backend.backtest2_wrapper:Backtest2 failed: BacktestConfig.__init__() got an unexpected keyword argument 'random_seed'
+ERROR:webui.backend.backtest2_wrapper:Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 160, in run_backtest_async
+    backtest_config = self._create_backtest_config(config)
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 305, in _create_backtest_config
+    config = BacktestConfig(
+        name="webui_backtest",
+    ...<23 lines>...
+        log_level="INFO"
+    )
+TypeError: BacktestConfig.__init__() got an unexpected keyword argument 'random_seed'
+
+INFO:webui.backend.backtest2_wrapper:Successfully imported backtest2 modules (direct import)
+ERROR:webui.backend.backtest2_wrapper:Backtest2 failed: BacktestConfig.__init__() got an unexpected keyword argument 'random_seed'
+ERROR:webui.backend.backtest2_wrapper:Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 160, in run_backtest_async
+    backtest_config = self._create_backtest_config(config)
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 305, in _create_backtest_config
+    config = BacktestConfig(
+        name="webui_backtest",
+    ...<23 lines>...
+        log_level="INFO"
+    )
+TypeError: BacktestConfig.__init__() got an unexpected keyword argument 'random_seed'
+
+INFO:webui.backend.backtest2_wrapper:Successfully imported backtest2 modules (direct import)
+INFO:webui.backend.backtest2_wrapper:BacktestConfig type: <class 'type'>
+INFO:webui.backend.backtest2_wrapper:BacktestConfig module: backtest2.core.config
+ERROR:webui.backend.backtest2_wrapper:Backtest2 failed: BacktestConfig.__init__() got an unexpected keyword argument 'random_seed'
+ERROR:webui.backend.backtest2_wrapper:Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 164, in run_backtest_async
+    backtest_config = self._create_backtest_config(config)
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 314, in _create_backtest_config
+    config = BacktestConfig(
+        name="webui_backtest",
+    ...<23 lines>...
+        log_level="INFO"
+    )
+TypeError: BacktestConfig.__init__() got an unexpected keyword argument 'random_seed'
+
+ERROR:webui.backend.backtest2_wrapper:Backtest2 failed: BacktestConfig.__init__() got an unexpected keyword argument 'random_seed'
+ERROR:webui.backend.backtest2_wrapper:Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 164, in run_backtest_async
+    backtest_config = self._create_backtest_config(config)
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 314, in _create_backtest_config
+    config = BacktestConfig(
+        name="webui_backtest",
+    ...<23 lines>...
+        log_level="INFO"
+    )
+TypeError: BacktestConfig.__init__() got an unexpected keyword argument 'random_seed'
+
+INFO:webui.backend.backtest2_wrapper:Successfully imported backtest2 modules (direct import)
+INFO:webui.backend.backtest2_wrapper:BacktestConfig type: <class 'type'>
+INFO:webui.backend.backtest2_wrapper:BacktestConfig module: backtest2.core.config
+INFO:webui.backend.backtest2_wrapper:BacktestConfig existing fields: ['name', 'symbols', 'time_range', 'initial_capital', 'max_positions', 'position_limits', 'llm_config', 'data_sources', 'reflection_config', 'result_dir', 'slippage', 'commission', 'risk_free_rate', 'benchmark', 'start_date', 'end_date', 'agent_config', 'data_config', 'risk_config', 'enable_parallel', 'max_workers', 'cache_size', 'log_level', 'save_results', 'results_path', 'enable_monitoring']
+WARNING:webui.backend.backtest2_wrapper:random_seed not found in BacktestConfig fields, patching class...
+[31m──[0m[31m────────────────────────[0m[31m [0m[1;31mTraceback [0m[1;2;31m(most recent call last)[0m[31m [0m[31m─────────────────────────[0m[31m──[0m
+[31m [0m [2;33m/usr/local/Caskroom/miniconda/base/lib/python3.13/site-packages/streamlit/runtime/sc[0m [31m [0m
+[31m [0m [2;33mriptrunner/[0m[1;33mexec_code.py[0m:[94m128[0m in [92mexec_func_with_error_handling[0m                         [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/usr/local/Caskroom/miniconda/base/lib/python3.13/site-packages/streamlit/runtime/sc[0m [31m [0m
+[31m [0m [2;33mriptrunner/[0m[1;33mscript_runner.py[0m:[94m669[0m in [92mcode_to_exec[0m                                      [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/[0m[1;33mapp.py[0m:[94m45[0m in [92m<module>[0m          [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m 42 [0m                                                                               [31m [0m
+[31m [0m   [2m 43 [0mBacktest2Page = [94mNone[0m                                                           [31m [0m
+[31m [0m   [2m 44 [0m[94mtry[0m:                                                                           [31m [0m
+[31m [0m [31m❱ [0m 45 [2m│   [0m[94mfrom[0m[90m [0m[4;96mwebui[0m[4;96m.[0m[4;96mcomponents[0m[4;96m.[0m[4;96mbacktest2[0m[90m [0m[94mimport[0m Backtest2Page                       [31m [0m
+[31m [0m   [2m 46 [0m[1;4;94mexcept[0m[1;4m [0m[1;4;96mImportError[0m[1;4m [0m[1;4;94mas[0m[1;4m e:[0m                                                       [31m [0m
+[31m [0m   [2m 47 [0m[1;2;4m│   [0m[1;4mlogger.warning([0m[1;4;33mf[0m[1;4;33m"[0m[1;4;33mバックテスト2機能が利用できません: [0m[1;4;33m{[0m[1;4me[0m[1;4;33m}[0m[1;4;33m"[0m[1;4m)[0m                  [31m [0m
+[31m [0m   [2m 48 [0m[94mfrom[0m[90m [0m[4;96mwebui[0m[4;96m.[0m[4;96mbackend[0m[4;96m.[0m[4;96mcli_wrapper[0m[90m [0m[94mimport[0m CLIWrapper                               [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/[0m[1;33mbacktest2.py[0m:[94m14[0m in  [31m [0m
+[31m [0m [92m<module>[0m                                                                             [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m 11 [0m[94mfrom[0m[90m [0m[4;96mpathlib[0m[90m [0m[94mimport[0m Path                                                       [31m [0m
+[31m [0m   [2m 12 [0m                                                                               [31m [0m
+[31m [0m   [2m 13 [0m[94mfrom[0m[90m [0m[4;96m.[0m[4;96m.[0m[4;96mutils[0m[4;96m.[0m[4;96mstate[0m[90m [0m[94mimport[0m SessionState, UIHelpers                              [31m [0m
+[31m [0m [31m❱ [0m 14 [1;4;94mfrom[0m[1;4;90m [0m[1;4;96m.[0m[1;4;96m.[0m[1;4;96mbackend[0m[1;4;96m.[0m[1;4;96mbacktest2_wrapper[0m[1;4;90m [0m[1;4;94mimport[0m[1;4m Backtest2Wrapper[0m                       [31m [0m
+[31m [0m   [2m 15 [0m                                                                               [31m [0m
+[31m [0m   [2m 16 [0m                                                                               [31m [0m
+[31m [0m   [2m 17 [0m[94mclass[0m[90m [0m[4;92mBacktest2Page[0m:                                                           [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/[0m[1;33mbacktest2_wrapper.py[0m:[94m1[0m [31m [0m
+[31m [0m [94m48[0m in [92m<module>[0m                                                                       [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m145 [0m[2;33m│   │   [0m[33mArgs:[0m                                                                  [31m [0m
+[31m [0m   [2m146 [0m[2;33m│   │   │   [0m[33mconfig: Backtest configuration dictionary from WebUI[0m               [31m [0m
+[31m [0m   [2m147 [0m[2;33m│   │   │   [0m[33mprogress_callback: Function to call with progress updates (progres[0m [31m [0m
+[31m [0m [31m❱ [0m148 [2;33m│   │   │   [0m[33mlog_callback: Function to call with log messages[0m                   [31m [0m
+[31m [0m   [2m149 [0m[2m│   │   [0m                                                                       [31m [0m
+[31m [0m   [2m150 [0m[2;33m│   │   [0m[33mReturns:[0m                                                               [31m [0m
+[31m [0m   [2m151 [0m[2;33m│   │   │   [0m[33mDictionary with results for each ticker[0m                            [31m [0m
+[31m────────────────────────────────────────────────────────────────────────────────────────[0m
+[1;91mTypeError: [0m[1;35mField.__init__[0m[1m([0m[1m)[0m got an unexpected keyword argument [32m'name'[0m
+INFO:webui.backend.backtest2_wrapper:Successfully imported backtest2 modules (direct import)
+INFO:webui.backend.backtest2_wrapper:BacktestConfig type: <class 'type'>
+INFO:webui.backend.backtest2_wrapper:BacktestConfig module: backtest2.core.config
+INFO:webui.backend.backtest2_wrapper:BacktestConfig existing fields: ['name', 'symbols', 'time_range', 'initial_capital', 'max_positions', 'position_limits', 'llm_config', 'data_sources', 'reflection_config', 'result_dir', 'slippage', 'commission', 'risk_free_rate', 'benchmark', 'start_date', 'end_date', 'agent_config', 'data_config', 'risk_config', 'enable_parallel', 'max_workers', 'cache_size', 'log_level', 'save_results', 'results_path', 'enable_monitoring']
+WARNING:webui.backend.backtest2_wrapper:random_seed not found in BacktestConfig fields, patching class...
+[31m──[0m[31m────────────────────────[0m[31m [0m[1;31mTraceback [0m[1;2;31m(most recent call last)[0m[31m [0m[31m─────────────────────────[0m[31m──[0m
+[31m [0m [2;33m/usr/local/Caskroom/miniconda/base/lib/python3.13/site-packages/streamlit/runtime/sc[0m [31m [0m
+[31m [0m [2;33mriptrunner/[0m[1;33mexec_code.py[0m:[94m128[0m in [92mexec_func_with_error_handling[0m                         [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/usr/local/Caskroom/miniconda/base/lib/python3.13/site-packages/streamlit/runtime/sc[0m [31m [0m
+[31m [0m [2;33mriptrunner/[0m[1;33mscript_runner.py[0m:[94m669[0m in [92mcode_to_exec[0m                                      [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/[0m[1;33mapp.py[0m:[94m45[0m in [92m<module>[0m          [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m 42 [0m                                                                               [31m [0m
+[31m [0m   [2m 43 [0mBacktest2Page = [94mNone[0m                                                           [31m [0m
+[31m [0m   [2m 44 [0m[94mtry[0m:                                                                           [31m [0m
+[31m [0m [31m❱ [0m 45 [2m│   [0m[94mfrom[0m[90m [0m[4;96mwebui[0m[4;96m.[0m[4;96mcomponents[0m[4;96m.[0m[4;96mbacktest2[0m[90m [0m[94mimport[0m Backtest2Page                       [31m [0m
+[31m [0m   [2m 46 [0m[1;4;94mexcept[0m[1;4m [0m[1;4;96mImportError[0m[1;4m [0m[1;4;94mas[0m[1;4m e:[0m                                                       [31m [0m
+[31m [0m   [2m 47 [0m[1;2;4m│   [0m[1;4mlogger.warning([0m[1;4;33mf[0m[1;4;33m"[0m[1;4;33mバックテスト2機能が利用できません: [0m[1;4;33m{[0m[1;4me[0m[1;4;33m}[0m[1;4;33m"[0m[1;4m)[0m                  [31m [0m
+[31m [0m   [2m 48 [0m[94mfrom[0m[90m [0m[4;96mwebui[0m[4;96m.[0m[4;96mbackend[0m[4;96m.[0m[4;96mcli_wrapper[0m[90m [0m[94mimport[0m CLIWrapper                               [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/[0m[1;33mbacktest2.py[0m:[94m14[0m in  [31m [0m
+[31m [0m [92m<module>[0m                                                                             [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m 11 [0m[94mfrom[0m[90m [0m[4;96mpathlib[0m[90m [0m[94mimport[0m Path                                                       [31m [0m
+[31m [0m   [2m 12 [0m                                                                               [31m [0m
+[31m [0m   [2m 13 [0m[94mfrom[0m[90m [0m[4;96m.[0m[4;96m.[0m[4;96mutils[0m[4;96m.[0m[4;96mstate[0m[90m [0m[94mimport[0m SessionState, UIHelpers                              [31m [0m
+[31m [0m [31m❱ [0m 14 [1;4;94mfrom[0m[1;4;90m [0m[1;4;96m.[0m[1;4;96m.[0m[1;4;96mbackend[0m[1;4;96m.[0m[1;4;96mbacktest2_wrapper[0m[1;4;90m [0m[1;4;94mimport[0m[1;4m Backtest2Wrapper[0m                       [31m [0m
+[31m [0m   [2m 15 [0m                                                                               [31m [0m
+[31m [0m   [2m 16 [0m                                                                               [31m [0m
+[31m [0m   [2m 17 [0m[94mclass[0m[90m [0m[4;92mBacktest2Page[0m:                                                           [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/[0m[1;33mbacktest2_wrapper.py[0m:[94m1[0m [31m [0m
+[31m [0m [94m55[0m in [92m<module>[0m                                                                       [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m152 [0m[2m│   │   │   │   [0m[96mtype[0m=[96mint[0m,                                                      [31m [0m
+[31m [0m   [2m153 [0m[2m│   │   │   │   [0mcompare=[94mTrue[0m,                                                  [31m [0m
+[31m [0m   [2m154 [0m[2m│   │   │   │   [0m[96mhash[0m=[94mNone[0m,                                                     [31m [0m
+[31m [0m [31m❱ [0m155 [2m│   │   │   │   [0minit=[94mTrue[0m,                                                     [31m [0m
+[31m [0m   [2m156 [0m[2m│   │   │   │   [0m[96mrepr[0m=[94mTrue[0m,                                                     [31m [0m
+[31m [0m   [2m157 [0m[2m│   │   │   │   [0mmetadata={}                                                    [31m [0m
+[31m [0m   [2m158 [0m[2m│   │   │   [0m)                                                                  [31m [0m
+[31m────────────────────────────────────────────────────────────────────────────────────────[0m
+[1;91mTypeError: [0m[1;35m_init_fn[0m[1m([0m[1m)[0m got an unexpected keyword argument [32m'globals'[0m
+INFO:webui.backend.backtest2_wrapper:Successfully imported backtest2 modules (direct import)
+INFO:webui.backend.backtest2_wrapper:BacktestConfig type: <class 'type'>
+INFO:webui.backend.backtest2_wrapper:BacktestConfig module: backtest2.core.config
+INFO:webui.backend.backtest2_wrapper:BacktestConfig existing fields: ['name', 'symbols', 'time_range', 'initial_capital', 'max_positions', 'position_limits', 'llm_config', 'data_sources', 'reflection_config', 'result_dir', 'slippage', 'commission', 'risk_free_rate', 'benchmark', 'start_date', 'end_date', 'agent_config', 'data_config', 'risk_config', 'enable_parallel', 'max_workers', 'cache_size', 'log_level', 'save_results', 'results_path', 'enable_monitoring', 'random_seed']
+INFO:webui.backend.backtest2_wrapper:Creating BacktestConfig - class type: <class 'type'>
+INFO:webui.backend.backtest2_wrapper:BacktestConfig module: backtest2.core.config
+INFO:webui.backend.backtest2_wrapper:BacktestConfig MRO: (<class 'backtest2.core.config.BacktestConfig'>, <class 'object'>)
+INFO:webui.backend.backtest2_wrapper:Is dataclass: True
+INFO:webui.backend.backtest2_wrapper:Dataclass fields: ['name', 'symbols', 'time_range', 'initial_capital', 'max_positions', 'position_limits', 'llm_config', 'data_sources', 'reflection_config', 'result_dir', 'slippage', 'commission', 'risk_free_rate', 'benchmark', 'start_date', 'end_date', 'agent_config', 'data_config', 'risk_config', 'enable_parallel', 'max_workers', 'cache_size', 'log_level', 'save_results', 'results_path', 'enable_monitoring', 'random_seed']
+INFO:webui.backend.backtest2_wrapper:Has random_seed attr: True
+INFO:webui.backend.backtest2_wrapper:BacktestConfig.__init__ signature: {'name': <class 'str'>, 'symbols': typing.List[str], 'time_range': typing.Optional[backtest2.core.config.TimeRange], 'initial_capital': <class 'float'>, 'max_positions': <class 'int'>, 'position_limits': typing.Dict[backtest2.core.config.RiskProfile, float], 'llm_config': <class 'backtest2.core.config.LLMConfig'>, 'data_sources': typing.List[str], 'reflection_config': typing.Optional[typing.Dict[str, typing.Any]], 'result_dir': typing.Optional[pathlib._local.Path], 'slippage': <class 'float'>, 'commission': <class 'float'>, 'risk_free_rate': <class 'float'>, 'benchmark': <class 'str'>, 'start_date': typing.Optional[datetime.datetime], 'end_date': typing.Optional[datetime.datetime], 'agent_config': typing.Optional[backtest2.core.config.AgentConfig], 'data_config': typing.Optional[backtest2.core.config.DataConfig], 'risk_config': typing.Optional[backtest2.core.config.RiskConfig], 'enable_parallel': <class 'bool'>, 'max_workers': <class 'int'>, 'cache_size': <class 'int'>, 'log_level': <class 'str'>, 'save_results': <class 'bool'>, 'results_path': <class 'str'>, 'enable_monitoring': <class 'bool'>, 'return': None}
+WARNING:webui.backend.backtest2_wrapper:Failed to create BacktestConfig with random_seed: BacktestConfig.__init__() got an unexpected keyword argument 'random_seed'
+WARNING:webui.backend.backtest2_wrapper:Creating BacktestConfig without random_seed
+WARNING:webui.backend.backtest2_wrapper:Failed to create BacktestConfig with random_seed in update: BacktestConfig.__init__() got an unexpected keyword argument 'random_seed'
+INFO:backtest2.core.engine:Starting backtest execution 55460214-c979-41fc-92fb-a7930c7fcb59
+INFO:backtest2.core.engine:Initializing backtest environment
+INFO:backtest2.data.manager_simple:Initializing data manager
+ERROR:backtest2.core.engine:Backtest failed: 'MemoryStore' object has no attribute 'get_agent_memory'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 93, in run
+    await self._initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 148, in _initialize
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 156, in initialize
+    self.memory_store.get_agent_memory("market_analyst")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MemoryStore' object has no attribute 'get_agent_memory'
+INFO:backtest2.core.engine:Cleaning up backtest resources
+INFO:backtest2.data.manager_simple:Closing data manager
+INFO:MemoryStore:Saved memories to results/backtest2_20250721_184432/AAPL/memories.json
+ERROR:webui.backend.backtest2_wrapper:Backtest2 failed: 'MemoryStore' object has no attribute 'get_agent_memory'
+ERROR:webui.backend.backtest2_wrapper:Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 234, in run_backtest_async
+    result = await engine.run()
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 93, in run
+    await self._initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 148, in _initialize
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 156, in initialize
+    self.memory_store.get_agent_memory("market_analyst")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MemoryStore' object has no attribute 'get_agent_memory'
+
+INFO:webui.backend.backtest2_wrapper:Creating BacktestConfig - class type: <class 'type'>
+INFO:webui.backend.backtest2_wrapper:BacktestConfig module: backtest2.core.config
+INFO:webui.backend.backtest2_wrapper:BacktestConfig MRO: (<class 'backtest2.core.config.BacktestConfig'>, <class 'object'>)
+INFO:webui.backend.backtest2_wrapper:Is dataclass: True
+INFO:webui.backend.backtest2_wrapper:Dataclass fields: ['name', 'symbols', 'time_range', 'initial_capital', 'max_positions', 'position_limits', 'llm_config', 'data_sources', 'reflection_config', 'result_dir', 'slippage', 'commission', 'risk_free_rate', 'benchmark', 'start_date', 'end_date', 'agent_config', 'data_config', 'risk_config', 'enable_parallel', 'max_workers', 'cache_size', 'log_level', 'save_results', 'results_path', 'enable_monitoring', 'random_seed']
+INFO:webui.backend.backtest2_wrapper:Has random_seed attr: True
+INFO:webui.backend.backtest2_wrapper:BacktestConfig.__init__ signature: {'name': <class 'str'>, 'symbols': typing.List[str], 'time_range': typing.Optional[backtest2.core.config.TimeRange], 'initial_capital': <class 'float'>, 'max_positions': <class 'int'>, 'position_limits': typing.Dict[backtest2.core.config.RiskProfile, float], 'llm_config': <class 'backtest2.core.config.LLMConfig'>, 'data_sources': typing.List[str], 'reflection_config': typing.Optional[typing.Dict[str, typing.Any]], 'result_dir': typing.Optional[pathlib._local.Path], 'slippage': <class 'float'>, 'commission': <class 'float'>, 'risk_free_rate': <class 'float'>, 'benchmark': <class 'str'>, 'start_date': typing.Optional[datetime.datetime], 'end_date': typing.Optional[datetime.datetime], 'agent_config': typing.Optional[backtest2.core.config.AgentConfig], 'data_config': typing.Optional[backtest2.core.config.DataConfig], 'risk_config': typing.Optional[backtest2.core.config.RiskConfig], 'enable_parallel': <class 'bool'>, 'max_workers': <class 'int'>, 'cache_size': <class 'int'>, 'log_level': <class 'str'>, 'save_results': <class 'bool'>, 'results_path': <class 'str'>, 'enable_monitoring': <class 'bool'>, 'return': None}
+WARNING:webui.backend.backtest2_wrapper:Failed to create BacktestConfig with random_seed: BacktestConfig.__init__() got an unexpected keyword argument 'random_seed'
+WARNING:webui.backend.backtest2_wrapper:Creating BacktestConfig without random_seed
+WARNING:webui.backend.backtest2_wrapper:Failed to create BacktestConfig with random_seed in update: BacktestConfig.__init__() got an unexpected keyword argument 'random_seed'
+INFO:backtest2.core.engine:Starting backtest execution f2a331f1-c620-415b-bc0b-d11ff7c4d5ce
+INFO:backtest2.core.engine:Initializing backtest environment
+INFO:backtest2.data.manager_simple:Initializing data manager
+ERROR:backtest2.core.engine:Backtest failed: 'MemoryStore' object has no attribute 'get_agent_memory'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 93, in run
+    Returns:
+        ^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 148, in _initialize
+    try:
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 156, in initialize
+    self.memory_store.get_agent_memory("market_analyst")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MemoryStore' object has no attribute 'get_agent_memory'
+INFO:backtest2.core.engine:Cleaning up backtest resources
+INFO:backtest2.data.manager_simple:Closing data manager
+INFO:MemoryStore:Saved memories to results/backtest2_20250721_202611/AAPL/memories.json
+ERROR:webui.backend.backtest2_wrapper:Backtest2 failed: 'MemoryStore' object has no attribute 'get_agent_memory'
+ERROR:webui.backend.backtest2_wrapper:Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 234, in run_backtest_async
+    result = await engine.run()
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 93, in run
+    Returns:
+        ^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 148, in _initialize
+    try:
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 156, in initialize
+    self.memory_store.get_agent_memory("market_analyst")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MemoryStore' object has no attribute 'get_agent_memory'
+
+  Stopping...
+🚀 TradingAgents WebUIを起動中...
+📁 WebUIパス: /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/app.py
+🔑 FINNHUB_API_KEY: ✅ 設定済み
+🔑 OPENAI_API_KEY: ✅ 設定済み
+🌐 ブラウザで http://localhost:8501 を開いてください
+🔚 終了するには Ctrl+C を押してください

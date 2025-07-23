@@ -1,0 +1,6 @@
+2025-07-20 18:35:21,601 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for AAPL
+2025-07-20 18:35:21,601 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-12-31
+2025-07-20 18:35:21,601 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-20 18:35:21,601 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.00%
+2025-07-20 18:35:21,601 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-20 18:35:22,804 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-12-31

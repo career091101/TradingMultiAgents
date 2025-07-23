@@ -1,0 +1,2 @@
+{"type": "trade", "ticker": "AAPL", "action": "BUY", "price": 150.0, "shares": 10, "portfolio_value": 10000, "timestamp": "2025-07-19T13:54:34.391987"}
+{"type": "metrics", "ticker": "AAPL", "metrics": {"total_return": 10.5, "sharpe_ratio": 1.5, "max_drawdown": 5.2}, "timestamp": "2025-07-19T13:54:34.392349"}

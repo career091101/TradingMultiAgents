@@ -15,8 +15,21 @@ import os
 
 
 def setup_plot_style():
-    """Set up a clean plotting style."""
-    plt.style.use('seaborn-v0_8-darkgrid')
+    """Set up a clean plotting style with fallback for older matplotlib versions."""
+    try:
+        plt.style.use('seaborn-v0_8-darkgrid')
+    except OSError:
+        # Fallback for newer matplotlib versions
+        try:
+            plt.style.use('seaborn-darkgrid')
+        except OSError:
+            # Final fallback to default style
+            plt.style.use('default')
+            # Apply some custom styling to match seaborn
+            plt.rcParams['axes.grid'] = True
+            plt.rcParams['grid.alpha'] = 0.3
+            plt.rcParams['axes.facecolor'] = '#f0f0f0'
+    
     plt.rcParams['figure.figsize'] = (12, 6)
     plt.rcParams['font.size'] = 10
     plt.rcParams['lines.linewidth'] = 2
@@ -110,6 +123,22 @@ def plot_price_with_signals(result, ticker: str,
     
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 10), 
                                    gridspec_kw={'height_ratios': [3, 1]})
+    
+    # Check if there are trades
+    if not result.trades:
+        # No trades, create a simple plot
+        ax1.text(0.5, 0.5, 'No trades to display', 
+                ha='center', va='center', transform=ax1.transAxes)
+        ax1.set_title(f'{ticker} - No Trading Activity')
+        ax2.set_visible(False)
+        
+        if save_path:
+            plt.savefig(save_path, dpi=300, bbox_inches='tight')
+            print(f"Price chart saved to: {save_path}")
+        else:
+            plt.show()
+        plt.close()
+        return
     
     # Extract price data from trades
     dates = [trade.date for trade in result.trades]

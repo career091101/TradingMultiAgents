@@ -1,0 +1,557 @@
+2025-07-19 13:54:34,391 - backtest - INFO - [test_enhancements.py:38] - Test info message
+2025-07-19 13:54:34,391 - backtest - DEBUG - [test_enhancements.py:39] - Test debug message
+2025-07-19 13:54:34,391 - backtest - WARNING - [test_enhancements.py:40] - Test warning message
+2025-07-19 13:54:34,391 - backtest - ERROR - [test_enhancements.py:41] - Test error message
+2025-07-19 14:47:39,404 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /custom/path
+2025-07-19 14:47:39,407 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /auto/detected
+2025-07-19 14:47:39,409 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /string/path
+2025-07-19 14:47:39,410 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: relative/path
+2025-07-19 14:47:39,414 - backtest.path_utils - DEBUG - [path_utils.py:51] - Found project root at: /private/var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpf75xovrq/level1/level2/level3
+2025-07-19 14:47:39,414 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /private/var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpf75xovrq/level1/level2/level3
+2025-07-19 14:47:39,418 - backtest.path_utils - WARNING - [path_utils.py:57] - Could not detect project root, using fallback: /no/indicators
+2025-07-19 14:47:39,418 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /no/indicators
+2025-07-19 14:47:39,422 - backtest.path_utils - DEBUG - [path_utils.py:51] - Found project root at: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpi18sr6ko
+2025-07-19 14:47:39,422 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpi18sr6ko
+2025-07-19 14:47:39,424 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmp4imouq7w
+2025-07-19 14:47:39,426 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmp3t1qcxpe
+2025-07-19 14:47:39,428 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpwnqa27wh
+2025-07-19 14:47:39,431 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpeudndqm9
+2025-07-19 14:47:39,432 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpeudndqm9/backtest/results
+2025-07-19 14:47:39,432 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpeudndqm9/backtest/cache
+2025-07-19 14:47:39,432 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpeudndqm9/data
+2025-07-19 14:47:39,432 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpeudndqm9/logs
+2025-07-19 14:47:39,435 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpbgcaepru
+2025-07-19 14:47:39,436 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpbgcaepru/backtest/cache
+2025-07-19 14:47:39,436 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpbgcaepru/data
+2025-07-19 14:47:39,437 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpbgcaepru/logs
+2025-07-19 14:47:39,439 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpv213o517
+2025-07-19 14:47:39,441 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpqkz7ltsl
+2025-07-19 14:47:39,442 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpqkz7ltsl/backtest/cache
+2025-07-19 14:47:39,442 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpqkz7ltsl/data
+2025-07-19 14:47:39,442 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpqkz7ltsl/logs
+2025-07-19 14:47:39,455 - backtest.path_utils - DEBUG - [path_utils.py:51] - Found project root at: /Users/y-sato/TradingAgents2
+2025-07-19 14:47:39,455 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /Users/y-sato/TradingAgents2
+2025-07-19 14:47:39,461 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmp3q8hrx1r
+2025-07-19 14:47:39,463 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpdgse_m3j
+2025-07-19 14:47:39,465 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpgt_es84r
+2025-07-19 14:47:39,466 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpgt_es84r/backtest/results
+2025-07-19 14:47:39,467 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpgt_es84r/backtest/results
+2025-07-19 14:47:39,467 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpgt_es84r/backtest/cache
+2025-07-19 14:47:39,467 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpgt_es84r/backtest/cache
+2025-07-19 14:47:39,468 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpgt_es84r/data
+2025-07-19 14:47:39,468 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpgt_es84r/logs
+2025-07-19 14:47:39,473 - backtest.path_utils - DEBUG - [path_utils.py:51] - Found project root at: /private/var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmplhmsecv6
+2025-07-19 14:47:39,473 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /private/var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmplhmsecv6
+2025-07-19 14:47:39,479 - backtest.simulator - INFO - [simulator.py:219] - Executing BUY: 9.90 shares at $101.00
+2025-07-19 14:47:39,484 - backtest.simulator - INFO - [simulator.py:229] - Executing SELL: 10.00 shares at $108.90
+2025-07-19 14:47:39,492 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for INVALID from 2023-01-01 to 2023-01-05
+2025-07-19 14:47:39,493 - backtest.simulator - ERROR - [simulator.py:190] - Error fetching data for INVALID: No data found for ticker INVALID in the specified date range
+2025-07-19 14:47:39,515 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-05
+2025-07-19 14:47:39,526 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for AAPL
+2025-07-19 14:47:39,526 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-03
+2025-07-19 14:47:39,526 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 14:47:39,526 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 14:47:39,527 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 14:47:39,527 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-03
+2025-07-19 14:47:39,528 - backtest.simulator - INFO - [simulator.py:332] - Processing 3 trading days. This may take several minutes...
+2025-07-19 14:47:39,531 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-01
+2025-07-19 14:47:39,531 - backtest.simulator - INFO - [simulator.py:219] - Executing BUY: 99.90 shares at $100.10
+2025-07-19 14:47:39,532 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-01: BUY @ $100.00, Portfolio: $9,990.01
+2025-07-19 14:47:39,532 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-02
+2025-07-19 14:47:39,532 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-02: HOLD @ $101.00, Portfolio: $10,089.91
+2025-07-19 14:47:39,532 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-03
+2025-07-19 14:47:39,533 - backtest.simulator - INFO - [simulator.py:229] - Executing SELL: 99.90 shares at $98.90
+2025-07-19 14:47:39,533 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-03: SELL @ $99.00, Portfolio: $9,880.22
+2025-07-19 14:47:39,533 - backtest.simulator - INFO - [simulator.py:411] - Backtest completed. Final value: $9,880.22
+2025-07-19 14:47:39,533 - backtest.simulator - INFO - [simulator.py:412] - Total return: -1.20%
+2025-07-19 14:47:39,536 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Invalid ticker format: INVALID-TICKER-TOO-LONG. Must be 1-10 characters, alphanumeric with dots/dashes allowed.
+2025-07-19 14:47:39,536 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Start date must be before end date
+2025-07-19 14:47:39,537 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Initial capital must be at least $100.0
+2025-07-19 14:47:39,539 - backtest.simulator - INFO - [simulator.py:446] - Running portfolio backtest for 2 tickers
+2025-07-19 14:47:39,540 - backtest.simulator - INFO - [simulator.py:447] - Capital per ticker: $5,000.00
+2025-07-19 14:47:39,558 - backtest.simulator - INFO - [simulator.py:121] - Fast mode enabled - using minimal agents and no debates
+2025-07-19 14:48:37,177 - backtest.simulator - INFO - [simulator.py:219] - Executing BUY: 9.90 shares at $101.00
+2025-07-19 14:48:37,181 - backtest.simulator - INFO - [simulator.py:229] - Executing SELL: 10.00 shares at $108.90
+2025-07-19 14:48:37,185 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for INVALID from 2023-01-01 to 2023-01-05
+2025-07-19 14:48:37,185 - backtest.simulator - ERROR - [simulator.py:190] - Error fetching data for INVALID: No data found for ticker INVALID in the specified date range
+2025-07-19 14:48:37,202 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-05
+2025-07-19 14:48:37,207 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for AAPL
+2025-07-19 14:48:37,208 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-03
+2025-07-19 14:48:37,208 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 14:48:37,208 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 14:48:37,208 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 14:48:37,208 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-03
+2025-07-19 14:48:37,209 - backtest.simulator - INFO - [simulator.py:332] - Processing 3 trading days. This may take several minutes...
+2025-07-19 14:48:37,212 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-01
+2025-07-19 14:48:37,212 - backtest.simulator - INFO - [simulator.py:219] - Executing BUY: 99.90 shares at $100.10
+2025-07-19 14:48:37,212 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-01: BUY @ $100.00, Portfolio: $9,990.01
+2025-07-19 14:48:37,212 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-02
+2025-07-19 14:48:37,213 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-02: HOLD @ $101.00, Portfolio: $10,089.91
+2025-07-19 14:48:37,213 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-03
+2025-07-19 14:48:37,213 - backtest.simulator - INFO - [simulator.py:229] - Executing SELL: 99.90 shares at $98.90
+2025-07-19 14:48:37,213 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-03: SELL @ $99.00, Portfolio: $9,880.22
+2025-07-19 14:48:37,214 - backtest.simulator - INFO - [simulator.py:411] - Backtest completed. Final value: $9,880.22
+2025-07-19 14:48:37,214 - backtest.simulator - INFO - [simulator.py:412] - Total return: -1.20%
+2025-07-19 14:48:37,215 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Invalid ticker format: INVALID-TICKER-TOO-LONG. Must be 1-10 characters, alphanumeric with dots/dashes allowed.
+2025-07-19 14:48:37,215 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Start date must be before end date
+2025-07-19 14:48:37,215 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Initial capital must be at least $100.0
+2025-07-19 14:48:37,216 - backtest.simulator - INFO - [simulator.py:446] - Running portfolio backtest for 2 tickers
+2025-07-19 14:48:37,217 - backtest.simulator - INFO - [simulator.py:447] - Capital per ticker: $5,000.00
+2025-07-19 14:48:37,219 - backtest.simulator - INFO - [simulator.py:121] - Fast mode enabled - using minimal agents and no debates
+2025-07-19 14:48:51,155 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /custom/path
+2025-07-19 14:48:51,158 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /auto/detected
+2025-07-19 14:48:51,161 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /string/path
+2025-07-19 14:48:51,162 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: relative/path
+2025-07-19 14:48:51,166 - backtest.path_utils - DEBUG - [path_utils.py:51] - Found project root at: /private/var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpn6r3h0jr/level1/level2/level3
+2025-07-19 14:48:51,167 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /private/var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpn6r3h0jr/level1/level2/level3
+2025-07-19 14:48:51,171 - backtest.path_utils - WARNING - [path_utils.py:57] - Could not detect project root, using fallback: /no/indicators
+2025-07-19 14:48:51,172 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /no/indicators
+2025-07-19 14:48:51,176 - backtest.path_utils - DEBUG - [path_utils.py:51] - Found project root at: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpw1ozrggi
+2025-07-19 14:48:51,176 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpw1ozrggi
+2025-07-19 14:48:51,178 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpokcfemcv
+2025-07-19 14:48:51,181 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpg2ylndxo
+2025-07-19 14:48:51,185 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmp6x7vpweb
+2025-07-19 14:48:51,188 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmprjxabq9p
+2025-07-19 14:48:51,189 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmprjxabq9p/backtest/results
+2025-07-19 14:48:51,189 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmprjxabq9p/backtest/cache
+2025-07-19 14:48:51,190 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmprjxabq9p/data
+2025-07-19 14:48:51,190 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmprjxabq9p/logs
+2025-07-19 14:48:51,197 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmp9h2tjzvm
+2025-07-19 14:48:51,198 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmp9h2tjzvm/backtest/cache
+2025-07-19 14:48:51,198 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmp9h2tjzvm/data
+2025-07-19 14:48:51,198 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmp9h2tjzvm/logs
+2025-07-19 14:48:51,201 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmp9uofuwq0
+2025-07-19 14:48:51,203 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmp5_aroui9
+2025-07-19 14:48:51,204 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmp5_aroui9/backtest/cache
+2025-07-19 14:48:51,204 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmp5_aroui9/data
+2025-07-19 14:48:51,205 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmp5_aroui9/logs
+2025-07-19 14:48:51,220 - backtest.path_utils - DEBUG - [path_utils.py:51] - Found project root at: /Users/y-sato/TradingAgents2
+2025-07-19 14:48:51,220 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /Users/y-sato/TradingAgents2
+2025-07-19 14:48:51,228 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmp3cj_de30
+2025-07-19 14:48:51,232 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpxs6h0ebu
+2025-07-19 14:48:51,238 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpuujr563_
+2025-07-19 14:48:51,240 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpuujr563_/backtest/results
+2025-07-19 14:48:51,241 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpuujr563_/backtest/results
+2025-07-19 14:48:51,241 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpuujr563_/backtest/results
+2025-07-19 14:48:51,241 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpuujr563_/backtest/cache
+2025-07-19 14:48:51,242 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpuujr563_/data
+2025-07-19 14:48:51,243 - backtest.path_utils - INFO - [path_utils.py:110] - Created directory: /var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpuujr563_/logs
+2025-07-19 14:48:51,262 - backtest.path_utils - DEBUG - [path_utils.py:51] - Found project root at: /private/var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpc5vc4nhg
+2025-07-19 14:48:51,263 - backtest.path_utils - DEBUG - [path_utils.py:31] - PathResolver initialized with base_dir: /private/var/folders/1q/hsl4s6c550g0hr59kdb2mv3r0000gn/T/tmpc5vc4nhg
+2025-07-19 14:48:51,283 - backtest.simulator - INFO - [simulator.py:219] - Executing BUY: 9.90 shares at $101.00
+2025-07-19 14:48:51,296 - backtest.simulator - INFO - [simulator.py:229] - Executing SELL: 10.00 shares at $108.90
+2025-07-19 14:48:51,312 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for INVALID from 2023-01-01 to 2023-01-05
+2025-07-19 14:48:51,312 - backtest.simulator - ERROR - [simulator.py:190] - Error fetching data for INVALID: No data found for ticker INVALID in the specified date range
+2025-07-19 14:48:51,348 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-05
+2025-07-19 14:48:51,380 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for AAPL
+2025-07-19 14:48:51,380 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-03
+2025-07-19 14:48:51,380 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 14:48:51,380 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 14:48:51,381 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 14:48:51,382 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-03
+2025-07-19 14:48:51,385 - backtest.simulator - INFO - [simulator.py:332] - Processing 3 trading days. This may take several minutes...
+2025-07-19 14:48:51,393 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-01
+2025-07-19 14:48:51,393 - backtest.simulator - INFO - [simulator.py:219] - Executing BUY: 99.90 shares at $100.10
+2025-07-19 14:48:51,395 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-01: BUY @ $100.00, Portfolio: $9,990.01
+2025-07-19 14:48:51,395 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-02
+2025-07-19 14:48:51,396 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-02: HOLD @ $101.00, Portfolio: $10,089.91
+2025-07-19 14:48:51,397 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-03
+2025-07-19 14:48:51,397 - backtest.simulator - INFO - [simulator.py:229] - Executing SELL: 99.90 shares at $98.90
+2025-07-19 14:48:51,397 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-03: SELL @ $99.00, Portfolio: $9,880.22
+2025-07-19 14:48:51,398 - backtest.simulator - INFO - [simulator.py:411] - Backtest completed. Final value: $9,880.22
+2025-07-19 14:48:51,400 - backtest.simulator - INFO - [simulator.py:412] - Total return: -1.20%
+2025-07-19 14:48:51,409 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Invalid ticker format: INVALID-TICKER-TOO-LONG. Must be 1-10 characters, alphanumeric with dots/dashes allowed.
+2025-07-19 14:48:51,413 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Start date must be before end date
+2025-07-19 14:48:51,414 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Initial capital must be at least $100.0
+2025-07-19 14:48:51,428 - backtest.simulator - INFO - [simulator.py:446] - Running portfolio backtest for 2 tickers
+2025-07-19 14:48:51,429 - backtest.simulator - INFO - [simulator.py:447] - Capital per ticker: $5,000.00
+2025-07-19 14:48:51,460 - backtest.simulator - INFO - [simulator.py:121] - Fast mode enabled - using minimal agents and no debates
+2025-07-19 15:10:12,551 - backtest.simulator - INFO - [simulator.py:219] - Executing BUY: 9.90 shares at $101.00
+2025-07-19 15:10:12,555 - backtest.simulator - INFO - [simulator.py:229] - Executing SELL: 10.00 shares at $108.90
+2025-07-19 15:10:12,561 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for INVALID from 2023-01-01 to 2023-01-05
+2025-07-19 15:10:12,561 - backtest.simulator - ERROR - [simulator.py:190] - Error fetching data for INVALID: No data found for ticker INVALID in the specified date range
+2025-07-19 15:10:12,583 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-05
+2025-07-19 15:10:12,589 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for AAPL
+2025-07-19 15:10:12,589 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-03
+2025-07-19 15:10:12,589 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 15:10:12,589 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 15:10:12,590 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 15:10:12,590 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-03
+2025-07-19 15:10:12,590 - backtest.simulator - INFO - [simulator.py:332] - Processing 3 trading days. This may take several minutes...
+2025-07-19 15:10:12,593 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-01
+2025-07-19 15:10:12,593 - backtest.simulator - INFO - [simulator.py:219] - Executing BUY: 99.90 shares at $100.10
+2025-07-19 15:10:12,593 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-01: BUY @ $100.00, Portfolio: $9,990.01
+2025-07-19 15:10:12,594 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-02
+2025-07-19 15:10:12,594 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-02: HOLD @ $101.00, Portfolio: $10,089.91
+2025-07-19 15:10:12,594 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-03
+2025-07-19 15:10:12,594 - backtest.simulator - INFO - [simulator.py:229] - Executing SELL: 99.90 shares at $98.90
+2025-07-19 15:10:12,594 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-03: SELL @ $99.00, Portfolio: $9,880.22
+2025-07-19 15:10:12,594 - backtest.simulator - INFO - [simulator.py:411] - Backtest completed. Final value: $9,880.22
+2025-07-19 15:10:12,594 - backtest.simulator - INFO - [simulator.py:412] - Total return: -1.20%
+2025-07-19 15:10:12,595 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Invalid ticker format: INVALID-TICKER-TOO-LONG. Must be 1-10 characters, alphanumeric with dots/dashes allowed.
+2025-07-19 15:10:12,596 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Start date must be before end date
+2025-07-19 15:10:12,596 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Initial capital must be at least $100.0
+2025-07-19 15:10:12,597 - backtest.simulator - INFO - [simulator.py:446] - Running portfolio backtest for 2 tickers
+2025-07-19 15:10:12,597 - backtest.simulator - INFO - [simulator.py:447] - Capital per ticker: $5,000.00
+2025-07-19 15:10:12,600 - backtest.simulator - INFO - [simulator.py:121] - Fast mode enabled - using minimal agents and no debates
+2025-07-19 15:10:12,605 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 15:10:12,605 - backtest.simulator - ERROR - [simulator.py:154] - Failed to initialize TradingAgentsGraph: Config error
+2025-07-19 15:10:12,605 - backtest.simulator - ERROR - [simulator.py:155] - Config used: {'project_dir': '/Users/y-sato/TradingAgents2/TradingMultiAgents/tradingagents', 'results_dir': '/Users/y-sato/TradingAgents2/backtest/results', 'data_dir': '/Users/y-sato/TradingAgents2/data', 'data_cache_dir': '/Users/y-sato/TradingAgents2/TradingMultiAgents/tradingagents/dataflows/data_cache', 'llm_provider': 'openai', 'deep_think_llm': 'gpt-4o-mini', 'quick_think_llm': 'gpt-4o-mini', 'backend_url': 'https://api.openai.com/v1', 'max_debate_rounds': 1, 'max_risk_discuss_rounds': 1, 'max_recur_limit': 100, 'online_tools': False}
+2025-07-19 15:10:12,607 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for AAPL
+2025-07-19 15:10:12,607 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-03
+2025-07-19 15:10:12,607 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 15:10:12,607 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 15:10:12,608 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 15:10:12,608 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-03
+2025-07-19 15:10:12,608 - backtest.simulator - ERROR - [simulator.py:190] - Error fetching data for AAPL: No valid price data for ticker AAPL
+2025-07-19 15:10:12,738 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for AAPL
+2025-07-19 15:10:12,738 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-03
+2025-07-19 15:10:12,738 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 15:10:12,738 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 15:10:12,738 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 15:10:12,739 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-03
+2025-07-19 15:10:12,739 - backtest.simulator - INFO - [simulator.py:332] - Processing 3 trading days. This may take several minutes...
+2025-07-19 15:10:12,739 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-01
+2025-07-19 15:10:12,739 - backtest.simulator - INFO - [simulator.py:219] - Executing BUY: 99.90 shares at $100.10
+2025-07-19 15:10:12,739 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-01: BUY @ $100.00, Portfolio: $9,990.01
+2025-07-19 15:10:12,740 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-02
+2025-07-19 15:10:12,740 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-02: HOLD @ $105.00, Portfolio: $10,489.51
+2025-07-19 15:10:12,740 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-03
+2025-07-19 15:10:12,740 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-03: HOLD @ $110.00, Portfolio: $10,989.01
+2025-07-19 15:10:12,740 - backtest.simulator - INFO - [simulator.py:406] - Closing final position at $110.00
+2025-07-19 15:10:12,741 - backtest.simulator - INFO - [simulator.py:411] - Backtest completed. Final value: $10,989.01
+2025-07-19 15:10:12,741 - backtest.simulator - INFO - [simulator.py:412] - Total return: 9.89%
+2025-07-19 15:10:12,754 - backtest.simulator - INFO - [simulator.py:446] - Running portfolio backtest for 2 tickers
+2025-07-19 15:10:12,754 - backtest.simulator - INFO - [simulator.py:447] - Capital per ticker: $5,000.00
+2025-07-19 15:10:12,754 - backtest.simulator - ERROR - [simulator.py:457] - Failed to backtest INVALID: Data error
+2025-07-19 15:10:58,924 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for AAPL
+2025-07-19 15:10:58,925 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-03
+2025-07-19 15:10:58,925 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 15:10:58,925 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 15:10:58,926 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 15:10:58,926 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-03
+2025-07-19 15:10:58,926 - backtest.simulator - ERROR - [simulator.py:190] - Error fetching data for AAPL: No valid price data for ticker AAPL
+2025-07-19 15:10:59,058 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for AAPL
+2025-07-19 15:10:59,058 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-03
+2025-07-19 15:10:59,058 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 15:10:59,058 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 15:10:59,058 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 15:10:59,058 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-03
+2025-07-19 15:10:59,060 - backtest.simulator - INFO - [simulator.py:332] - Processing 3 trading days. This may take several minutes...
+2025-07-19 15:10:59,063 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-01
+2025-07-19 15:10:59,063 - backtest.simulator - INFO - [simulator.py:219] - Executing BUY: 99.90 shares at $100.10
+2025-07-19 15:10:59,063 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-01: BUY @ $100.00, Portfolio: $9,990.01
+2025-07-19 15:10:59,063 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-02
+2025-07-19 15:10:59,063 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-02: HOLD @ $105.00, Portfolio: $10,489.51
+2025-07-19 15:10:59,063 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-03
+2025-07-19 15:10:59,063 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-03: HOLD @ $110.00, Portfolio: $10,989.01
+2025-07-19 15:10:59,064 - backtest.simulator - INFO - [simulator.py:406] - Closing final position at $110.00
+2025-07-19 15:10:59,064 - backtest.simulator - INFO - [simulator.py:411] - Backtest completed. Final value: $10,989.01
+2025-07-19 15:10:59,064 - backtest.simulator - INFO - [simulator.py:412] - Total return: 9.89%
+2025-07-19 15:11:59,292 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for AAPL
+2025-07-19 15:11:59,292 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-03
+2025-07-19 15:11:59,293 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 15:11:59,293 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 15:11:59,293 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 15:11:59,293 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-03
+2025-07-19 15:11:59,294 - backtest.simulator - ERROR - [simulator.py:190] - Error fetching data for AAPL: No valid price data for ticker AAPL
+2025-07-19 15:16:06,373 - backtest.runner - INFO - [runner.py:178] - Metrics saved to: /output/dir/AAPL_metrics_20250719_151606.json
+2025-07-19 15:16:06,612 - backtest.runner - INFO - [runner.py:149] - Trade log saved to: trades.csv
+2025-07-19 15:16:06,614 - backtest.runner - INFO - [runner.py:183] - 
+============================================================
+2025-07-19 15:16:06,614 - backtest.runner - INFO - [runner.py:184] - Running backtest for AAPL
+2025-07-19 15:16:06,614 - backtest.runner - INFO - [runner.py:185] - ============================================================
+2025-07-19 15:16:06,615 - backtest.runner - INFO - [runner.py:219] - Backtest completed successfully for AAPL
+2025-07-19 15:16:06,699 - backtest.runner - INFO - [runner.py:183] - 
+============================================================
+2025-07-19 15:16:06,700 - backtest.runner - INFO - [runner.py:184] - Running backtest for AAPL
+2025-07-19 15:16:06,700 - backtest.runner - INFO - [runner.py:185] - ============================================================
+2025-07-19 15:16:06,700 - backtest.runner - ERROR - [runner.py:225] - Failed to backtest AAPL: unsupported format string passed to Mock.__format__
+2025-07-19 15:17:19,999 - backtest.runner - INFO - [runner.py:178] - Metrics saved to: /output/dir/AAPL_metrics_20250719_151719.json
+2025-07-19 15:17:20,002 - backtest.runner - INFO - [runner.py:260] - Initializing backtest simulator...
+2025-07-19 15:17:20,002 - backtest.runner - INFO - [runner.py:269] - Running portfolio backtest for 3 tickers
+2025-07-19 15:17:20,002 - backtest.runner - INFO - [runner.py:275] - 
+Portfolio backtest completed
+2025-07-19 15:17:20,002 - backtest.runner - INFO - [runner.py:277] - 
+All results saved to: <Mock name='parse_arguments().output' id='5098543424'>
+2025-07-19 15:17:20,004 - backtest.runner - INFO - [runner.py:260] - Initializing backtest simulator...
+2025-07-19 15:17:20,004 - backtest.runner - INFO - [runner.py:277] - 
+All results saved to: <Mock name='parse_arguments().output' id='5098538384'>
+2025-07-19 15:17:20,005 - backtest.runner - INFO - [runner.py:260] - Initializing backtest simulator...
+2025-07-19 15:17:20,005 - backtest.runner - INFO - [runner.py:277] - 
+All results saved to: <Mock name='parse_arguments().output' id='5098546112'>
+2025-07-19 15:17:33,234 - backtest.runner - INFO - [runner.py:183] - 
+============================================================
+2025-07-19 15:17:33,235 - backtest.runner - INFO - [runner.py:184] - Running backtest for AAPL
+2025-07-19 15:17:33,235 - backtest.runner - INFO - [runner.py:185] - ============================================================
+2025-07-19 15:17:33,235 - backtest.runner - INFO - [runner.py:219] - Backtest completed successfully for AAPL
+2025-07-19 15:17:33,431 - backtest.runner - INFO - [runner.py:183] - 
+============================================================
+2025-07-19 15:17:33,431 - backtest.runner - INFO - [runner.py:184] - Running backtest for AAPL
+2025-07-19 15:17:33,431 - backtest.runner - INFO - [runner.py:185] - ============================================================
+2025-07-19 15:17:33,431 - backtest.runner - ERROR - [runner.py:225] - Failed to backtest AAPL: unsupported format string passed to Mock.__format__
+2025-07-19 15:18:07,074 - backtest.runner - INFO - [runner.py:178] - Metrics saved to: /output/dir/AAPL_metrics_20250719_151807.json
+2025-07-19 15:18:07,081 - backtest.runner - INFO - [runner.py:149] - Trade log saved to: trades.csv
+2025-07-19 15:18:07,083 - backtest.runner - INFO - [runner.py:183] - 
+============================================================
+2025-07-19 15:18:07,083 - backtest.runner - INFO - [runner.py:184] - Running backtest for AAPL
+2025-07-19 15:18:07,083 - backtest.runner - INFO - [runner.py:185] - ============================================================
+2025-07-19 15:18:07,083 - backtest.runner - INFO - [runner.py:219] - Backtest completed successfully for AAPL
+2025-07-19 15:18:07,276 - backtest.runner - INFO - [runner.py:183] - 
+============================================================
+2025-07-19 15:18:07,276 - backtest.runner - INFO - [runner.py:184] - Running backtest for AAPL
+2025-07-19 15:18:07,276 - backtest.runner - INFO - [runner.py:185] - ============================================================
+2025-07-19 15:18:07,276 - backtest.runner - ERROR - [runner.py:225] - Failed to backtest AAPL: unsupported format string passed to Mock.__format__
+2025-07-19 15:18:07,321 - backtest.runner - INFO - [runner.py:260] - Initializing backtest simulator...
+2025-07-19 15:18:07,321 - backtest.runner - INFO - [runner.py:269] - Running portfolio backtest for 3 tickers
+2025-07-19 15:18:07,322 - backtest.runner - INFO - [runner.py:275] - 
+Portfolio backtest completed
+2025-07-19 15:18:07,322 - backtest.runner - INFO - [runner.py:277] - 
+All results saved to: <Mock name='parse_arguments().output' id='5068802096'>
+2025-07-19 15:18:07,323 - backtest.runner - INFO - [runner.py:260] - Initializing backtest simulator...
+2025-07-19 15:18:07,324 - backtest.runner - INFO - [runner.py:277] - 
+All results saved to: <Mock name='parse_arguments().output' id='5068804448'>
+2025-07-19 15:18:07,326 - backtest.runner - INFO - [runner.py:260] - Initializing backtest simulator...
+2025-07-19 15:18:07,326 - backtest.runner - INFO - [runner.py:277] - 
+All results saved to: <Mock name='parse_arguments().output' id='5068807136'>
+2025-07-19 15:18:31,146 - backtest.runner - INFO - [runner.py:178] - Metrics saved to: /output/dir/AAPL_metrics_20250719_151831.json
+2025-07-19 15:18:31,154 - backtest.runner - INFO - [runner.py:149] - Trade log saved to: trades.csv
+2025-07-19 15:18:31,156 - backtest.runner - INFO - [runner.py:260] - Initializing backtest simulator...
+2025-07-19 15:18:31,156 - backtest.runner - INFO - [runner.py:269] - Running portfolio backtest for 3 tickers
+2025-07-19 15:18:31,157 - backtest.runner - INFO - [runner.py:275] - 
+Portfolio backtest completed
+2025-07-19 15:18:31,157 - backtest.runner - INFO - [runner.py:277] - 
+All results saved to: <Mock name='parse_arguments().output' id='5035728848'>
+2025-07-19 15:18:31,158 - backtest.runner - INFO - [runner.py:260] - Initializing backtest simulator...
+2025-07-19 15:18:31,159 - backtest.runner - INFO - [runner.py:277] - 
+All results saved to: <Mock name='parse_arguments().output' id='5035731200'>
+2025-07-19 15:18:31,160 - backtest.runner - INFO - [runner.py:260] - Initializing backtest simulator...
+2025-07-19 15:18:31,160 - backtest.runner - INFO - [runner.py:277] - 
+All results saved to: <Mock name='parse_arguments().output' id='5035733888'>
+2025-07-19 17:28:26,346 - backtest.simulator - INFO - [simulator.py:219] - Executing BUY: 9.90 shares at $101.00
+2025-07-19 17:28:26,352 - backtest.simulator - INFO - [simulator.py:229] - Executing SELL: 10.00 shares at $108.90
+2025-07-19 17:28:26,358 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for INVALID from 2023-01-01 to 2023-01-05
+2025-07-19 17:28:26,358 - backtest.simulator - ERROR - [simulator.py:190] - Error fetching data for INVALID: No data found for ticker INVALID in the specified date range
+2025-07-19 17:28:26,377 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-05
+2025-07-19 17:28:26,388 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for AAPL
+2025-07-19 17:28:26,389 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-03
+2025-07-19 17:28:26,389 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 17:28:26,389 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 17:28:26,389 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 17:28:26,390 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-03
+2025-07-19 17:28:26,390 - backtest.simulator - INFO - [simulator.py:332] - Processing 3 trading days. This may take several minutes...
+2025-07-19 17:28:26,393 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-01
+2025-07-19 17:28:26,393 - backtest.simulator - INFO - [simulator.py:219] - Executing BUY: 99.90 shares at $100.10
+2025-07-19 17:28:26,394 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-01: BUY @ $100.00, Portfolio: $9,990.01
+2025-07-19 17:28:26,394 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-02
+2025-07-19 17:28:26,394 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-02: HOLD @ $101.00, Portfolio: $10,089.91
+2025-07-19 17:28:26,395 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-03
+2025-07-19 17:28:26,395 - backtest.simulator - INFO - [simulator.py:229] - Executing SELL: 99.90 shares at $98.90
+2025-07-19 17:28:26,395 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-03: SELL @ $99.00, Portfolio: $9,880.22
+2025-07-19 17:28:26,395 - backtest.simulator - INFO - [simulator.py:411] - Backtest completed. Final value: $9,880.22
+2025-07-19 17:28:26,396 - backtest.simulator - INFO - [simulator.py:412] - Total return: -1.20%
+2025-07-19 17:28:26,399 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Invalid ticker format: INVALID-TICKER-TOO-LONG. Must be 1-10 characters, alphanumeric with dots/dashes allowed.
+2025-07-19 17:28:26,399 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Start date must be before end date
+2025-07-19 17:28:26,399 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Initial capital must be at least $100.0
+2025-07-19 17:28:26,402 - backtest.simulator - INFO - [simulator.py:446] - Running portfolio backtest for 2 tickers
+2025-07-19 17:28:26,402 - backtest.simulator - INFO - [simulator.py:447] - Capital per ticker: $5,000.00
+2025-07-19 17:28:26,408 - backtest.simulator - INFO - [simulator.py:121] - Fast mode enabled - using minimal agents and no debates
+2025-07-19 17:28:26,421 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 17:28:26,421 - backtest.simulator - ERROR - [simulator.py:154] - Failed to initialize TradingAgentsGraph: Config error
+2025-07-19 17:28:26,422 - backtest.simulator - ERROR - [simulator.py:155] - Config used: {'project_dir': '/Users/y-sato/TradingAgents2/TradingMultiAgents/tradingagents', 'results_dir': '/Users/y-sato/TradingAgents2/backtest/results', 'data_dir': '/Users/y-sato/TradingAgents2/data', 'data_cache_dir': '/Users/y-sato/TradingAgents2/TradingMultiAgents/tradingagents/dataflows/data_cache', 'llm_provider': 'openai', 'deep_think_llm': 'gpt-4o-mini', 'quick_think_llm': 'gpt-4o-mini', 'backend_url': 'https://api.openai.com/v1', 'max_debate_rounds': 1, 'max_risk_discuss_rounds': 1, 'max_recur_limit': 100, 'online_tools': False}
+2025-07-19 17:28:26,426 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for AAPL
+2025-07-19 17:28:26,426 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-03
+2025-07-19 17:28:26,426 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 17:28:26,426 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 17:28:26,427 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 17:28:26,427 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-03
+2025-07-19 17:28:26,427 - backtest.simulator - ERROR - [simulator.py:190] - Error fetching data for AAPL: No valid price data for ticker AAPL
+2025-07-19 17:28:26,431 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for AAPL
+2025-07-19 17:28:26,432 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-03
+2025-07-19 17:28:26,432 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 17:28:26,432 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 17:28:26,432 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 17:28:26,432 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-03
+2025-07-19 17:28:26,433 - backtest.simulator - INFO - [simulator.py:332] - Processing 3 trading days. This may take several minutes...
+2025-07-19 17:28:26,434 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-01
+2025-07-19 17:28:26,434 - backtest.simulator - INFO - [simulator.py:219] - Executing BUY: 99.90 shares at $100.10
+2025-07-19 17:28:26,435 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-01: BUY @ $100.00, Portfolio: $9,990.01
+2025-07-19 17:28:26,435 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-02
+2025-07-19 17:28:26,435 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-02: HOLD @ $105.00, Portfolio: $10,489.51
+2025-07-19 17:28:26,436 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-03
+2025-07-19 17:28:26,436 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-03: HOLD @ $110.00, Portfolio: $10,989.01
+2025-07-19 17:28:26,437 - backtest.simulator - INFO - [simulator.py:406] - Closing final position at $110.00
+2025-07-19 17:28:26,437 - backtest.simulator - INFO - [simulator.py:411] - Backtest completed. Final value: $10,989.01
+2025-07-19 17:28:26,437 - backtest.simulator - INFO - [simulator.py:412] - Total return: 9.89%
+2025-07-19 17:28:26,448 - backtest.simulator - INFO - [simulator.py:446] - Running portfolio backtest for 2 tickers
+2025-07-19 17:28:26,449 - backtest.simulator - INFO - [simulator.py:447] - Capital per ticker: $5,000.00
+2025-07-19 17:28:26,449 - backtest.simulator - ERROR - [simulator.py:457] - Failed to backtest INVALID: Data error
+2025-07-19 17:47:06,729 - backtest.simulator - INFO - [simulator.py:219] - Executing BUY: 9.90 shares at $101.00
+2025-07-19 17:47:06,732 - backtest.simulator - INFO - [simulator.py:229] - Executing SELL: 10.00 shares at $108.90
+2025-07-19 17:47:06,735 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for INVALID from 2023-01-01 to 2023-01-05
+2025-07-19 17:47:06,735 - backtest.simulator - ERROR - [simulator.py:190] - Error fetching data for INVALID: No data found for ticker INVALID in the specified date range
+2025-07-19 17:47:06,741 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-05
+2025-07-19 17:47:06,746 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for AAPL
+2025-07-19 17:47:06,747 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-03
+2025-07-19 17:47:06,747 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 17:47:06,747 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 17:47:06,747 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 17:47:06,747 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-03
+2025-07-19 17:47:06,748 - backtest.simulator - INFO - [simulator.py:332] - Processing 3 trading days. This may take several minutes...
+2025-07-19 17:47:06,749 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-01
+2025-07-19 17:47:06,749 - backtest.simulator - INFO - [simulator.py:219] - Executing BUY: 99.90 shares at $100.10
+2025-07-19 17:47:06,749 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-01: BUY @ $100.00, Portfolio: $9,990.01
+2025-07-19 17:47:06,749 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-02
+2025-07-19 17:47:06,749 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-02: HOLD @ $101.00, Portfolio: $10,089.91
+2025-07-19 17:47:06,750 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-03
+2025-07-19 17:47:06,750 - backtest.simulator - INFO - [simulator.py:229] - Executing SELL: 99.90 shares at $98.90
+2025-07-19 17:47:06,750 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-03: SELL @ $99.00, Portfolio: $9,880.22
+2025-07-19 17:47:06,750 - backtest.simulator - INFO - [simulator.py:411] - Backtest completed. Final value: $9,880.22
+2025-07-19 17:47:06,750 - backtest.simulator - INFO - [simulator.py:412] - Total return: -1.20%
+2025-07-19 17:47:06,751 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Invalid ticker format: INVALID-TICKER-TOO-LONG. Must be 1-10 characters, alphanumeric with dots/dashes allowed.
+2025-07-19 17:47:06,751 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Start date must be before end date
+2025-07-19 17:47:06,752 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Initial capital must be at least $100.0
+2025-07-19 17:47:06,753 - backtest.simulator - INFO - [simulator.py:446] - Running portfolio backtest for 2 tickers
+2025-07-19 17:47:06,753 - backtest.simulator - INFO - [simulator.py:447] - Capital per ticker: $5,000.00
+2025-07-19 17:47:06,755 - backtest.simulator - INFO - [simulator.py:121] - Fast mode enabled - using minimal agents and no debates
+2025-07-19 17:47:06,761 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 17:47:06,761 - backtest.simulator - ERROR - [simulator.py:154] - Failed to initialize TradingAgentsGraph: Config error
+2025-07-19 17:47:06,761 - backtest.simulator - ERROR - [simulator.py:155] - Config used: {'project_dir': '/Users/y-sato/TradingAgents2/TradingMultiAgents/tradingagents', 'results_dir': '/Users/y-sato/TradingAgents2/backtest/results', 'data_dir': '/Users/y-sato/TradingAgents2/data', 'data_cache_dir': '/Users/y-sato/TradingAgents2/TradingMultiAgents/tradingagents/dataflows/data_cache', 'llm_provider': 'openai', 'deep_think_llm': 'gpt-4o-mini', 'quick_think_llm': 'gpt-4o-mini', 'backend_url': 'https://api.openai.com/v1', 'max_debate_rounds': 1, 'max_risk_discuss_rounds': 1, 'max_recur_limit': 100, 'online_tools': False}
+2025-07-19 17:47:06,763 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for AAPL
+2025-07-19 17:47:06,764 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-03
+2025-07-19 17:47:06,764 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 17:47:06,764 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 17:47:06,764 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 17:47:06,764 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-03
+2025-07-19 17:47:06,765 - backtest.simulator - ERROR - [simulator.py:190] - Error fetching data for AAPL: No valid price data for ticker AAPL
+2025-07-19 17:47:06,768 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for AAPL
+2025-07-19 17:47:06,768 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-03
+2025-07-19 17:47:06,768 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 17:47:06,768 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 17:47:06,768 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 17:47:06,768 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-03
+2025-07-19 17:47:06,769 - backtest.simulator - INFO - [simulator.py:332] - Processing 3 trading days. This may take several minutes...
+2025-07-19 17:47:06,769 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-01
+2025-07-19 17:47:06,769 - backtest.simulator - INFO - [simulator.py:219] - Executing BUY: 99.90 shares at $100.10
+2025-07-19 17:47:06,769 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-01: BUY @ $100.00, Portfolio: $9,990.01
+2025-07-19 17:47:06,769 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-02
+2025-07-19 17:47:06,769 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-02: HOLD @ $105.00, Portfolio: $10,489.51
+2025-07-19 17:47:06,770 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-03
+2025-07-19 17:47:06,770 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-03: HOLD @ $110.00, Portfolio: $10,989.01
+2025-07-19 17:47:06,770 - backtest.simulator - INFO - [simulator.py:406] - Closing final position at $110.00
+2025-07-19 17:47:06,770 - backtest.simulator - INFO - [simulator.py:411] - Backtest completed. Final value: $10,989.01
+2025-07-19 17:47:06,770 - backtest.simulator - INFO - [simulator.py:412] - Total return: 9.89%
+2025-07-19 17:47:06,777 - backtest.simulator - INFO - [simulator.py:446] - Running portfolio backtest for 2 tickers
+2025-07-19 17:47:06,777 - backtest.simulator - INFO - [simulator.py:447] - Capital per ticker: $5,000.00
+2025-07-19 17:47:06,777 - backtest.simulator - ERROR - [simulator.py:457] - Failed to backtest INVALID: Data error
+2025-07-19 17:47:06,778 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for TEST
+2025-07-19 17:47:06,779 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-02
+2025-07-19 17:47:06,779 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 17:47:06,779 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 17:47:06,779 - backtest.simulator - INFO - [simulator.py:332] - Processing 2 trading days. This may take several minutes...
+2025-07-19 17:47:06,779 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for TEST on 2023-01-01
+2025-07-19 17:47:06,779 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-01: HOLD @ $100.00, Portfolio: $10,000.00
+2025-07-19 17:47:06,780 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for TEST on 2023-01-02
+2025-07-19 17:47:06,780 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-02: HOLD @ $105.00, Portfolio: $10,000.00
+2025-07-19 17:47:06,780 - backtest.simulator - INFO - [simulator.py:411] - Backtest completed. Final value: $10,000.00
+2025-07-19 17:47:06,780 - backtest.simulator - INFO - [simulator.py:412] - Total return: 0.00%
+2025-07-19 18:05:29,083 - backtest.runner - INFO - [runner.py:178] - Metrics saved to: /output/dir/AAPL_metrics_20250719_180529.json
+2025-07-19 18:05:29,089 - backtest.runner - INFO - [runner.py:149] - Trade log saved to: trades.csv
+2025-07-19 18:05:29,091 - backtest.runner - INFO - [runner.py:183] - 
+============================================================
+2025-07-19 18:05:29,091 - backtest.runner - INFO - [runner.py:184] - Running backtest for AAPL
+2025-07-19 18:05:29,091 - backtest.runner - INFO - [runner.py:185] - ============================================================
+2025-07-19 18:05:29,092 - backtest.runner - INFO - [runner.py:219] - Backtest completed successfully for AAPL
+2025-07-19 18:05:29,097 - backtest.runner - INFO - [runner.py:183] - 
+============================================================
+2025-07-19 18:05:29,097 - backtest.runner - INFO - [runner.py:184] - Running backtest for AAPL
+2025-07-19 18:05:29,097 - backtest.runner - INFO - [runner.py:185] - ============================================================
+2025-07-19 18:05:29,098 - backtest.runner - INFO - [runner.py:219] - Backtest completed successfully for AAPL
+2025-07-19 18:05:29,100 - backtest.runner - INFO - [runner.py:260] - Initializing backtest simulator...
+2025-07-19 18:05:29,100 - backtest.runner - INFO - [runner.py:269] - Running portfolio backtest for 3 tickers
+2025-07-19 18:05:29,100 - backtest.runner - INFO - [runner.py:275] - 
+Portfolio backtest completed
+2025-07-19 18:05:29,100 - backtest.runner - INFO - [runner.py:277] - 
+All results saved to: <Mock name='parse_arguments().output' id='5086491184'>
+2025-07-19 18:05:29,102 - backtest.runner - INFO - [runner.py:260] - Initializing backtest simulator...
+2025-07-19 18:05:29,102 - backtest.runner - INFO - [runner.py:277] - 
+All results saved to: <Mock name='parse_arguments().output' id='5086489840'>
+2025-07-19 18:05:29,104 - backtest.runner - INFO - [runner.py:260] - Initializing backtest simulator...
+2025-07-19 18:05:29,104 - backtest.runner - INFO - [runner.py:277] - 
+All results saved to: <Mock name='parse_arguments().output' id='5086482784'>
+2025-07-19 18:05:29,178 - backtest.runner - INFO - [runner.py:260] - Initializing backtest simulator...
+2025-07-19 18:05:29,179 - backtest.runner - INFO - [runner.py:277] - 
+All results saved to: <Mock name='parse_arguments().output' id='5080645712'>
+2025-07-19 18:05:29,180 - backtest.simulator - INFO - [simulator.py:121] - Fast mode enabled - using minimal agents and no debates
+2025-07-19 18:05:29,181 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Invalid date format. Use YYYY-MM-DD. Error: time data 'invalid-date' does not match format '%Y-%m-%d'
+2025-07-19 18:05:29,229 - backtest.simulator - INFO - [simulator.py:121] - Fast mode enabled - using minimal agents and no debates
+2025-07-19 18:05:29,229 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Start date must be before end date
+2025-07-19 18:05:29,279 - backtest.simulator - INFO - [simulator.py:219] - Executing BUY: 9.90 shares at $101.00
+2025-07-19 18:05:29,281 - backtest.simulator - INFO - [simulator.py:229] - Executing SELL: 10.00 shares at $108.90
+2025-07-19 18:05:29,284 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for INVALID from 2023-01-01 to 2023-01-05
+2025-07-19 18:05:29,284 - backtest.simulator - ERROR - [simulator.py:190] - Error fetching data for INVALID: No data found for ticker INVALID in the specified date range
+2025-07-19 18:05:29,309 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-05
+2025-07-19 18:05:29,315 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for AAPL
+2025-07-19 18:05:29,315 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-03
+2025-07-19 18:05:29,315 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 18:05:29,315 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 18:05:29,315 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 18:05:29,315 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-03
+2025-07-19 18:05:29,316 - backtest.simulator - INFO - [simulator.py:332] - Processing 3 trading days. This may take several minutes...
+2025-07-19 18:05:29,318 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-01
+2025-07-19 18:05:29,318 - backtest.simulator - INFO - [simulator.py:219] - Executing BUY: 99.90 shares at $100.10
+2025-07-19 18:05:29,318 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-01: BUY @ $100.00, Portfolio: $9,990.01
+2025-07-19 18:05:29,318 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-02
+2025-07-19 18:05:29,318 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-02: HOLD @ $101.00, Portfolio: $10,089.91
+2025-07-19 18:05:29,318 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-03
+2025-07-19 18:05:29,319 - backtest.simulator - INFO - [simulator.py:229] - Executing SELL: 99.90 shares at $98.90
+2025-07-19 18:05:29,319 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-03: SELL @ $99.00, Portfolio: $9,880.22
+2025-07-19 18:05:29,319 - backtest.simulator - INFO - [simulator.py:411] - Backtest completed. Final value: $9,880.22
+2025-07-19 18:05:29,319 - backtest.simulator - INFO - [simulator.py:412] - Total return: -1.20%
+2025-07-19 18:05:29,320 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Invalid ticker format: INVALID-TICKER-TOO-LONG. Must be 1-10 characters, alphanumeric with dots/dashes allowed.
+2025-07-19 18:05:29,320 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Start date must be before end date
+2025-07-19 18:05:29,320 - backtest.simulator - ERROR - [simulator.py:292] - Validation error: Initial capital must be at least $100.0
+2025-07-19 18:05:29,322 - backtest.simulator - INFO - [simulator.py:446] - Running portfolio backtest for 2 tickers
+2025-07-19 18:05:29,322 - backtest.simulator - INFO - [simulator.py:447] - Capital per ticker: $5,000.00
+2025-07-19 18:05:29,324 - backtest.simulator - INFO - [simulator.py:121] - Fast mode enabled - using minimal agents and no debates
+2025-07-19 18:05:29,329 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 18:05:29,330 - backtest.simulator - ERROR - [simulator.py:154] - Failed to initialize TradingAgentsGraph: Config error
+2025-07-19 18:05:29,330 - backtest.simulator - ERROR - [simulator.py:155] - Config used: {'project_dir': '/Users/y-sato/TradingAgents2/TradingMultiAgents/tradingagents', 'results_dir': '/Users/y-sato/TradingAgents2/backtest/results', 'data_dir': '/Users/y-sato/TradingAgents2/data', 'data_cache_dir': '/Users/y-sato/TradingAgents2/TradingMultiAgents/tradingagents/dataflows/data_cache', 'llm_provider': 'openai', 'deep_think_llm': 'gpt-4o-mini', 'quick_think_llm': 'gpt-4o-mini', 'backend_url': 'https://api.openai.com/v1', 'max_debate_rounds': 1, 'max_risk_discuss_rounds': 1, 'max_recur_limit': 100, 'online_tools': False}
+2025-07-19 18:05:29,331 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for AAPL
+2025-07-19 18:05:29,332 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-03
+2025-07-19 18:05:29,332 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 18:05:29,332 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 18:05:29,332 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 18:05:29,332 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-03
+2025-07-19 18:05:29,332 - backtest.simulator - ERROR - [simulator.py:190] - Error fetching data for AAPL: No valid price data for ticker AAPL
+2025-07-19 18:05:29,334 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for AAPL
+2025-07-19 18:05:29,334 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-03
+2025-07-19 18:05:29,334 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 18:05:29,334 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 18:05:29,334 - backtest.simulator - INFO - [simulator.py:141] - Initializing TradingAgents graph...
+2025-07-19 18:05:29,334 - backtest.simulator - INFO - [simulator.py:170] - Fetching historical data for AAPL from 2023-01-01 to 2023-01-03
+2025-07-19 18:05:29,335 - backtest.simulator - INFO - [simulator.py:332] - Processing 3 trading days. This may take several minutes...
+2025-07-19 18:05:29,335 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-01
+2025-07-19 18:05:29,335 - backtest.simulator - INFO - [simulator.py:219] - Executing BUY: 99.90 shares at $100.10
+2025-07-19 18:05:29,335 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-01: BUY @ $100.00, Portfolio: $9,990.01
+2025-07-19 18:05:29,335 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-02
+2025-07-19 18:05:29,336 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-02: HOLD @ $105.00, Portfolio: $10,489.51
+2025-07-19 18:05:29,336 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for AAPL on 2023-01-03
+2025-07-19 18:05:29,336 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-03: HOLD @ $110.00, Portfolio: $10,989.01
+2025-07-19 18:05:29,336 - backtest.simulator - INFO - [simulator.py:406] - Closing final position at $110.00
+2025-07-19 18:05:29,336 - backtest.simulator - INFO - [simulator.py:411] - Backtest completed. Final value: $10,989.01
+2025-07-19 18:05:29,336 - backtest.simulator - INFO - [simulator.py:412] - Total return: 9.89%
+2025-07-19 18:05:29,342 - backtest.simulator - INFO - [simulator.py:446] - Running portfolio backtest for 2 tickers
+2025-07-19 18:05:29,342 - backtest.simulator - INFO - [simulator.py:447] - Capital per ticker: $5,000.00
+2025-07-19 18:05:29,343 - backtest.simulator - ERROR - [simulator.py:457] - Failed to backtest INVALID: Data error
+2025-07-19 18:05:29,344 - backtest.simulator - INFO - [simulator.py:295] - Starting backtest for TEST
+2025-07-19 18:05:29,344 - backtest.simulator - INFO - [simulator.py:296] - Period: 2023-01-01 to 2023-01-02
+2025-07-19 18:05:29,344 - backtest.simulator - INFO - [simulator.py:297] - Initial capital: $10,000.00
+2025-07-19 18:05:29,344 - backtest.simulator - INFO - [simulator.py:298] - Slippage: 0.10%
+2025-07-19 18:05:29,344 - backtest.simulator - INFO - [simulator.py:332] - Processing 2 trading days. This may take several minutes...
+2025-07-19 18:05:29,345 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for TEST on 2023-01-01
+2025-07-19 18:05:29,345 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-01: HOLD @ $100.00, Portfolio: $10,000.00
+2025-07-19 18:05:29,345 - backtest.simulator - DEBUG - [simulator.py:345] - Getting agent decision for TEST on 2023-01-02
+2025-07-19 18:05:29,345 - backtest.simulator - INFO - [simulator.py:398] - 2023-01-02: HOLD @ $105.00, Portfolio: $10,000.00
+2025-07-19 18:05:29,345 - backtest.simulator - INFO - [simulator.py:411] - Backtest completed. Final value: $10,000.00
+2025-07-19 18:05:29,345 - backtest.simulator - INFO - [simulator.py:412] - Total return: 0.00%

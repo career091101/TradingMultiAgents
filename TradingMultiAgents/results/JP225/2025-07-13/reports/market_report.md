@@ -1,0 +1,1 @@
+It seems there is no data available for the JP225 index for the date range specified. This might be due to a data provider issue or incorrect ticker symbol usage. Would you like me to attempt using a different symbol or date range, or is there something specific about JP225 that you are interested in?

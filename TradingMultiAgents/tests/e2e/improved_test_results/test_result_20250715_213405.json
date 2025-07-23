@@ -1,0 +1,113 @@
+{
+  "test_result": {
+    "test_id": "improved_20250715_213405",
+    "start_time": "2025-07-15T21:34:05.264391",
+    "ticker": "SPY",
+    "depth": 1,
+    "status": "success",
+    "analysis_start": "2025-07-15T21:34:19.054005",
+    "end_time": "2025-07-15T21:37:30.233962",
+    "duration": 191.17996406555176
+  },
+  "event_log": [
+    {
+      "timestamp": "2025-07-15T21:34:05.264093",
+      "event_type": "info",
+      "message": "ディスク容量: 24.0GB空き / 228GB総容量 (使用率: 90%)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:34:08.879546",
+      "event_type": "start",
+      "message": "WebUIアクセス",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:34:12.990673",
+      "event_type": "info",
+      "message": "設定ページで分析設定",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:34:15.674220",
+      "event_type": "info",
+      "message": "ティッカー: SPY",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:34:16.103210",
+      "event_type": "info",
+      "message": "プリセット: 総合分析",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:34:16.224079",
+      "event_type": "info",
+      "message": "実行ページへ移動",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:34:18.687153",
+      "event_type": "start",
+      "message": "分析実行開始",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:34:24.165713",
+      "event_type": "info",
+      "message": "進捗モニタリング（最大3分）",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:35:24.760460",
+      "event_type": "info",
+      "message": "60秒経過...",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:36:25.495704",
+      "event_type": "info",
+      "message": "120秒経過...",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:37:26.198357",
+      "event_type": "info",
+      "message": "180秒経過...",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:37:26.367056",
+      "event_type": "info",
+      "message": "結果ページへ移動",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:37:30.233745",
+      "event_type": "complete",
+      "message": "分析結果確認",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:37:30.233969",
+      "event_type": "info",
+      "message": "ブラウザ設定情報:",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-07-15T21:37:30.234148",
+      "event_type": "info",
+      "message": "ビューポート: 1536x1024",
+      "details": {}
+    }
+  ],
+  "browser_config": {
+    "viewport": {
+      "width": 1536,
+      "height": 1024
+    },
+    "window_size": "1600x1200",
+    "scale_factor": 1.0,
+    "zoom": 0.9
+  }
+}

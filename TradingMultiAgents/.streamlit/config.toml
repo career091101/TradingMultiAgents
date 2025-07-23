@@ -1,0 +1,44 @@
+[global]
+# Streamlit UI設定
+developmentMode = false
+
+[server]
+# サーバー設定
+port = 8501
+enableCORS = true  # XSRFプロテクションとの互換性のため true に変更
+enableXsrfProtection = true
+maxUploadSize = 200
+
+[browser]
+# ブラウザ設定
+gatherUsageStats = false
+
+[theme]
+# UI テーマ設定
+primaryColor = "#FF6B6B"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F0F2F6"
+textColor = "#262730"
+font = "sans serif"
+
+[logger]
+# ログ設定
+level = "info"
+messageFormat = "%(asctime)s %(message)s"
+
+[client]
+# クライアント設定
+showErrorDetails = "stacktrace"  # 推奨: "full", "stacktrace", "type", "none"
+
+[runner]
+# 実行設定
+magicEnabled = true
+postScriptGC = true
+fastReruns = true
+enforceSerializableSessionState = false
+
+# 以下のセクションは削除
+# [mapbox] - 環境変数 MAPBOX_API_KEY を使用
+# [deprecation] - 非推奨オプションはすべて削除
+# [s3] - 削除されたセクション
+# [sharing] - 削除されたセクション

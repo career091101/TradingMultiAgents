@@ -14,19 +14,31 @@ from dataclasses import dataclass, field
 import sys
 import os
 
-# Import constants and validation
-from .constants import (
-    DEFAULT_INITIAL_CAPITAL, DEFAULT_SLIPPAGE, 
-    TRADING_DAYS_PER_YEAR
-)
-from .validation import (
-    validate_ticker, validate_date_range, 
-    validate_capital, validate_slippage, ValidationError
-)
-
-# Import project utilities
-from .path_utils import get_tradingagents_config, get_project_paths
-from .logging_config import get_logger, get_structured_logger
+# Handle import based on execution context
+try:
+    # Try relative imports first (when run as module)
+    from .constants import (
+        DEFAULT_INITIAL_CAPITAL, DEFAULT_SLIPPAGE, 
+        TRADING_DAYS_PER_YEAR
+    )
+    from .validation import (
+        validate_ticker, validate_date_range, 
+        validate_capital, validate_slippage, ValidationError
+    )
+    from .path_utils import get_tradingagents_config, get_project_paths
+    from .logging_config import get_logger, get_structured_logger
+except ImportError:
+    # Fall back to absolute imports (when run directly)
+    from constants import (
+        DEFAULT_INITIAL_CAPITAL, DEFAULT_SLIPPAGE, 
+        TRADING_DAYS_PER_YEAR
+    )
+    from validation import (
+        validate_ticker, validate_date_range, 
+        validate_capital, validate_slippage, ValidationError
+    )
+    from path_utils import get_tradingagents_config, get_project_paths
+    from logging_config import get_logger, get_structured_logger
 
 # Add parent directory to path to import tradingagents
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

@@ -1,0 +1,100 @@
+name: Auto Pull Request
+
+on:
+  push:
+    branches:
+      - '**'
+      - '!main'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  create-pull-request:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Check if PR already exists
+      id: check-pr
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/})
+        EXISTING_PR=$(gh pr list --head "$BRANCH_NAME" --json number --jq '.[0].number' || echo "")
+        if [ -n "$EXISTING_PR" ]; then
+          echo "PR already exists: #$EXISTING_PR"
+          echo "pr_exists=true" >> $GITHUB_OUTPUT
+          echo "pr_number=$EXISTING_PR" >> $GITHUB_OUTPUT
+        else
+          echo "No existing PR found"
+          echo "pr_exists=false" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Get commit information
+      id: commit-info
+      if: steps.check-pr.outputs.pr_exists == 'false'
+      run: |
+        COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+        COMMIT_SHA=$(git log -1 --pretty=%H)
+        BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/})
+        
+        # Extract title (first line)
+        TITLE=$(echo "$COMMIT_MESSAGE" | head -n 1)
+        
+        # Extract body (remaining lines)
+        BODY=$(echo "$COMMIT_MESSAGE" | tail -n +2)
+        
+        # Create PR description
+        PR_BODY="## 🤖 Auto-generated Pull Request
+
+### Branch: \`$BRANCH_NAME\`
+### Commit: \`$COMMIT_SHA\`
+
+$BODY
+
+---
+*This PR was automatically created by GitHub Actions*"
+        
+        # Save to files to handle multiline content
+        echo "$TITLE" > pr_title.txt
+        echo "$PR_BODY" > pr_body.txt
+        
+        echo "branch=$BRANCH_NAME" >> $GITHUB_OUTPUT
+    
+    - name: Create Pull Request
+      if: steps.check-pr.outputs.pr_exists == 'false'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        TITLE=$(cat pr_title.txt)
+        BODY=$(cat pr_body.txt)
+        BRANCH=$(echo ${GITHUB_REF#refs/heads/})
+        
+        gh pr create \
+          --title "$TITLE" \
+          --body "$BODY" \
+          --head "$BRANCH" \
+          --base main
+    
+    - name: Update existing PR
+      if: steps.check-pr.outputs.pr_exists == 'true'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        PR_NUMBER=${{ steps.check-pr.outputs.pr_number }}
+        echo "Updating existing PR #$PR_NUMBER"
+        
+        # Get latest commit info
+        COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+        COMMIT_SHA=$(git log -1 --pretty=%H)
+        
+        # Update PR with comment about new commit
+        gh pr comment $PR_NUMBER --body "🔄 New commit pushed: \`$COMMIT_SHA\`
+
+$COMMIT_MESSAGE"
