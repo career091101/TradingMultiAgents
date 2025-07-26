@@ -1,0 +1,146 @@
+2025-07-25 22:59:56,693 - WARNING - TradingMultiAgents dataflows not available
+2025-07-25 22:59:56,870 - INFO - Initializing LLM client with models: deep=gpt-3.5-turbo, quick=gpt-3.5-turbo
+2025-07-25 22:59:59,769 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 22:59:59,797 - WARNING - Function calling failed, falling back to prompt-based: 
+2025-07-25 23:00:01,303 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:01,309 - INFO - Saved LLM response to: logs/llm_debug/20250725_230001_0001_Risk Manager.json
+2025-07-25 23:00:01,309 - INFO - [LLM DEBUG] Response for Risk Manager: 255 chars
+2025-07-25 23:00:02,138 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:02,143 - WARNING - Function calling failed, falling back to prompt-based: 
+2025-07-25 23:00:03,532 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:03,535 - INFO - Saved LLM response to: logs/llm_debug/20250725_230003_0002_Research Manager.json
+2025-07-25 23:00:03,535 - INFO - [LLM DEBUG] Response for Research Manager: 344 chars
+2025-07-25 23:00:03,537 - WARNING - Parsed text response to: {'investment_decision': 'HOLD', 'investment_plan': {'action': 'HOLD', 'target_allocation': 0.0}, 'confidence_level': 0.5}
+2025-07-25 23:00:03,540 - INFO - DataManager initialized with Yahoo Finance
+2025-07-25 23:00:03,540 - INFO - Starting backtest execution 9043c614-d3ea-4f32-b7ba-ae0283fa2dd6
+2025-07-25 23:00:03,540 - INFO - Initializing backtest environment
+2025-07-25 23:00:03,544 - INFO - Initializing data manager
+2025-07-25 23:00:03,545 - INFO - Initializing LLM client with models: deep=gpt-3.5-turbo, quick=gpt-3.5-turbo
+2025-07-25 23:00:03,547 - INFO - Initializing LLM client with models: deep=gpt-3.5-turbo, quick=gpt-3.5-turbo
+2025-07-25 23:00:03,548 - INFO - Initializing LLM client with models: deep=gpt-3.5-turbo, quick=gpt-3.5-turbo
+2025-07-25 23:00:03,549 - INFO - Initializing LLM client with models: deep=gpt-3.5-turbo, quick=gpt-3.5-turbo
+2025-07-25 23:00:03,550 - INFO - Initializing LLM client with models: deep=gpt-3.5-turbo, quick=gpt-3.5-turbo
+2025-07-25 23:00:03,550 - INFO - Initializing LLM client with models: deep=gpt-3.5-turbo, quick=gpt-3.5-turbo
+2025-07-25 23:00:03,551 - INFO - Initializing LLM client with models: deep=gpt-3.5-turbo, quick=gpt-3.5-turbo
+2025-07-25 23:00:03,552 - INFO - Initializing LLM client with models: deep=gpt-3.5-turbo, quick=gpt-3.5-turbo
+2025-07-25 23:00:03,552 - INFO - Initializing LLM client with models: deep=gpt-3.5-turbo, quick=gpt-3.5-turbo
+2025-07-25 23:00:03,553 - INFO - Initializing LLM client with models: deep=gpt-3.5-turbo, quick=gpt-3.5-turbo
+2025-07-25 23:00:03,554 - INFO - Initializing LLM client with models: deep=gpt-3.5-turbo, quick=gpt-3.5-turbo
+2025-07-25 23:00:03,554 - INFO - Initializing LLM client with models: deep=gpt-3.5-turbo, quick=gpt-3.5-turbo
+2025-07-25 23:00:03,555 - INFO - Initialized 12 agents
+2025-07-25 23:00:03,555 - INFO - Loading benchmark data for SPY
+2025-07-25 23:00:04,267 - INFO - Starting decision process ccf66650-2aff-4eec-bb91-229acc05a5d0 for AAPL on 2025-07-23 00:00:00
+2025-07-25 23:00:04,267 - INFO - Phase 1: Data Collection
+2025-07-25 23:00:06,935 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:06,939 - WARNING - Function calling failed, falling back to prompt-based: 
+2025-07-25 23:00:13,937 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:13,949 - INFO - Saved LLM response to: logs/llm_debug/20250725_230013_0001_Market Analyst.json
+2025-07-25 23:00:13,949 - INFO - [LLM DEBUG] Response for Market Analyst: 1853 chars
+2025-07-25 23:00:13,952 - WARNING - Parsed text response to: {'selected_indicators': [], 'price_trend': 'bullish', 'volume_analysis': '', 'technical_analysis': '', 'recommendation': 'HOLD', 'confidence': 0.5, 'rationale': '{\n  "selected_indicators": [\n    "close_50_sma",\n    "close_200_sma",\n    "macd",\n    "rsi",\n    "boll",\n    "boll_ub",\n    "boll_lb",\n    "atr"\n  ],\n  "price_trend": "The 50 SMA and 200 SMA indicate a potential long-term uptrend, with the 50 SMA providing dynamic support/resistance levels', 'summary_table': ''}
+2025-07-25 23:00:15,442 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:15,453 - WARNING - Function calling failed, falling back to prompt-based: 
+2025-07-25 23:00:17,000 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:17,003 - INFO - Saved LLM response to: logs/llm_debug/20250725_230017_0001_News Analyst.json
+2025-07-25 23:00:17,003 - INFO - [LLM DEBUG] Response for News Analyst: 554 chars
+2025-07-25 23:00:19,082 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:19,086 - WARNING - Function calling failed, falling back to prompt-based: 
+2025-07-25 23:00:20,245 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:20,249 - INFO - Saved LLM response to: logs/llm_debug/20250725_230020_0001_Social Media Analyst.json
+2025-07-25 23:00:20,249 - INFO - [LLM DEBUG] Response for Social Media Analyst: 344 chars
+2025-07-25 23:00:21,593 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:21,595 - WARNING - Function calling failed, falling back to prompt-based: 
+2025-07-25 23:00:24,472 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:24,485 - INFO - Saved LLM response to: logs/llm_debug/20250725_230024_0001_Fundamentals Analyst.json
+2025-07-25 23:00:24,485 - INFO - [LLM DEBUG] Response for Fundamentals Analyst: 298 chars
+2025-07-25 23:00:24,486 - WARNING - Parsed text response to: {'valuation': 'undervalued', 'financial_health': 'strong', 'growth_prospects': 'high', 'key_metrics': '', 'confidence': 0.5, 'rationale': '{\n  "valuation": "AAPLの現在価格は$214.15であり、過去の業績や将来のキャッシュフローを考慮すると割安とは言えない。",\n  "financial_health": "AAPLは財務面で強固であり、健全なバランスシートと安定した収益性を示している。",\n  "growth_prospects": "AAPLの成長見通しは引き続き高く、新製品の投入やサービス部門の成長が成長を牽引すると予想される。",\n  "confidence": 0.8,\n  "rationale": "AAPLは安定した財務基盤と成長の見通しを持ちつつも、現在の株価はやや高いと見ている。"\n}'}
+2025-07-25 23:00:24,486 - INFO - Phase 2: Investment Analysis
+2025-07-25 23:00:26,570 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:26,575 - WARNING - Function calling failed, falling back to prompt-based: 
+2025-07-25 23:00:28,809 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:28,811 - INFO - Saved LLM response to: logs/llm_debug/20250725_230028_0001_Bull Researcher.json
+2025-07-25 23:00:28,812 - INFO - [LLM DEBUG] Response for Bull Researcher: 506 chars
+2025-07-25 23:00:28,812 - WARNING - Parsed text response to: {'recommendation': 'BUY', 'confidence': 0.6, 'rationale': '{\n  "recommendation": "BUY",\n  "confidence": 0', 'key_points': [], 'target_price': 0.0, 'risk_factors': []}
+2025-07-25 23:00:35,093 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:35,096 - WARNING - Function calling failed, falling back to prompt-based: 
+2025-07-25 23:00:37,648 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:37,652 - INFO - Saved LLM response to: logs/llm_debug/20250725_230037_0001_Bear Researcher.json
+2025-07-25 23:00:37,652 - INFO - [LLM DEBUG] Response for Bear Researcher: 423 chars
+2025-07-25 23:00:37,653 - WARNING - Parsed text response to: {'recommendation': 'HOLD', 'confidence': 0.5, 'rationale': '{\n  "recommendation": "SELL",\n  "confidence": 0', 'key_points': [], 'downside_risk': 0.0, 'risk_factors': []}
+2025-07-25 23:00:37,653 - INFO - Phase 3: Investment Decision
+2025-07-25 23:00:37,653 - INFO - Debate round 1
+2025-07-25 23:00:40,215 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:40,218 - WARNING - Function calling failed, falling back to prompt-based: 
+2025-07-25 23:00:42,667 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:42,670 - INFO - Saved LLM response to: logs/llm_debug/20250725_230042_0001_Research Manager.json
+2025-07-25 23:00:42,670 - INFO - [LLM DEBUG] Response for Research Manager: 553 chars
+2025-07-25 23:00:42,670 - INFO - Phase 4: Trading Decision
+2025-07-25 23:00:44,462 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:44,472 - WARNING - Function calling failed, falling back to prompt-based: 
+2025-07-25 23:00:46,698 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:46,701 - INFO - Saved LLM response to: logs/llm_debug/20250725_230046_0001_Trader.json
+2025-07-25 23:00:46,701 - INFO - [LLM DEBUG] Response for Trader: 246 chars
+2025-07-25 23:00:46,703 - WARNING - Parsed text response to: {'action': 'HOLD', 'position_size': 0, 'stop_loss': 0.0, 'take_profit': 0.0, 'entry_strategy': '', 'confidence': 0.5, 'rationale': '{\n  "action": "HOLD",\n  "confidence": 0', 'final_decision': 'HOLD'}
+2025-07-25 23:00:46,703 - INFO - Phase 5: Risk Assessment
+2025-07-25 23:00:46,902 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-07-25 23:00:46,905 - WARNING - Function calling failed, falling back to prompt-based: Error code: 400 - {'error': {'message': "Invalid schema for function 'aggressive_risk_debator_output': 'string' is not of type 'object', 'boolean'.", 'type': 'invalid_request_error', 'param': 'functions[0].parameters', 'code': 'invalid_function_parameters'}}
+2025-07-25 23:00:47,949 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:47,953 - INFO - Saved LLM response to: logs/llm_debug/20250725_230047_0001_Aggressive Risk Debator.json
+2025-07-25 23:00:47,953 - INFO - [LLM DEBUG] Response for Aggressive Risk Debator: 239 chars
+2025-07-25 23:00:47,953 - WARNING - Parsed text response to: {'analysis': 'string', 'confidence': 0.5, 'rationale': '5,\n  "rationale": "The HOLD action with a confidence level of 0'}
+2025-07-25 23:00:47,953 - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-25 23:00:48,201 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-07-25 23:00:48,202 - WARNING - Function calling failed, falling back to prompt-based: Error code: 400 - {'error': {'message': "Invalid schema for function 'conservative_risk_debator_output': 'string' is not of type 'object', 'boolean'.", 'type': 'invalid_request_error', 'param': 'functions[0].parameters', 'code': 'invalid_function_parameters'}}
+2025-07-25 23:00:49,429 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:49,450 - INFO - Saved LLM response to: logs/llm_debug/20250725_230049_0001_Conservative Risk Debator.json
+2025-07-25 23:00:49,450 - INFO - [LLM DEBUG] Response for Conservative Risk Debator: 119 chars
+2025-07-25 23:00:49,451 - WARNING - Parsed text response to: {'analysis': 'string', 'confidence': 0.5, 'rationale': '{\n  "confidence": 0.5,\n  "rationale": "Conservative risk management approach with cash preservation as the priority."\n}'}
+2025-07-25 23:00:49,451 - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-25 23:00:49,725 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-07-25 23:00:49,726 - WARNING - Function calling failed, falling back to prompt-based: Error code: 400 - {'error': {'message': "Invalid schema for function 'neutral_risk_debator_output': 'string' is not of type 'object', 'boolean'.", 'type': 'invalid_request_error', 'param': 'functions[0].parameters', 'code': 'invalid_function_parameters'}}
+2025-07-25 23:00:50,554 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:50,556 - INFO - Saved LLM response to: logs/llm_debug/20250725_230050_0001_Neutral Risk Debator.json
+2025-07-25 23:00:50,556 - INFO - [LLM DEBUG] Response for Neutral Risk Debator: 57 chars
+2025-07-25 23:00:50,557 - WARNING - Parsed text response to: {'analysis': 'string', 'confidence': 0.5, 'rationale': '{\n  "confidence": 0.5,\n  "rationale": "Analysis result"\n}'}
+2025-07-25 23:00:50,557 - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-25 23:00:50,557 - INFO - Risk discussion round 1
+2025-07-25 23:00:50,786 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-07-25 23:00:50,788 - WARNING - Function calling failed, falling back to prompt-based: Error code: 400 - {'error': {'message': "Invalid schema for function 'aggressive_risk_debator_output': 'string' is not of type 'object', 'boolean'.", 'type': 'invalid_request_error', 'param': 'functions[0].parameters', 'code': 'invalid_function_parameters'}}
+2025-07-25 23:00:52,296 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:52,299 - INFO - Saved LLM response to: logs/llm_debug/20250725_230052_0002_Aggressive Risk Debator.json
+2025-07-25 23:00:52,299 - INFO - [LLM DEBUG] Response for Aggressive Risk Debator: 439 chars
+2025-07-25 23:00:52,299 - WARNING - Parsed text response to: {'analysis': 'string', 'confidence': 0.5, 'rationale': '{\n  "confidence": 0.8,\n  "rationale": "The proposed trade has no action specified, and the confidence level is 0, indicating uncertainty. Given the current portfolio status with 100% cash ratio and no unrealized P&L, there is no immediate need or benefit to execute a trade without a clear rationale or direction. It is advisable to maintain the current position and wait for more favorable opportunities with a higher confidence level."\n}'}
+2025-07-25 23:00:52,601 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-07-25 23:00:52,602 - WARNING - Function calling failed, falling back to prompt-based: Error code: 400 - {'error': {'message': "Invalid schema for function 'conservative_risk_debator_output': 'string' is not of type 'object', 'boolean'.", 'type': 'invalid_request_error', 'param': 'functions[0].parameters', 'code': 'invalid_function_parameters'}}
+2025-07-25 23:00:53,522 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:53,524 - INFO - Saved LLM response to: logs/llm_debug/20250725_230053_0002_Conservative Risk Debator.json
+2025-07-25 23:00:53,524 - INFO - [LLM DEBUG] Response for Conservative Risk Debator: 119 chars
+2025-07-25 23:00:53,524 - WARNING - Parsed text response to: {'analysis': 'string', 'confidence': 0.5, 'rationale': '{\n  "confidence": 0.5,\n  "rationale": "Conservative risk management approach with cash preservation as the priority."\n}'}
+2025-07-25 23:00:53,764 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-07-25 23:00:53,766 - WARNING - Function calling failed, falling back to prompt-based: Error code: 400 - {'error': {'message': "Invalid schema for function 'neutral_risk_debator_output': 'string' is not of type 'object', 'boolean'.", 'type': 'invalid_request_error', 'param': 'functions[0].parameters', 'code': 'invalid_function_parameters'}}
+2025-07-25 23:00:56,285 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:00:56,288 - INFO - Saved LLM response to: logs/llm_debug/20250725_230056_0002_Neutral Risk Debator.json
+2025-07-25 23:00:56,288 - INFO - [LLM DEBUG] Response for Neutral Risk Debator: 439 chars
+2025-07-25 23:00:56,288 - WARNING - Parsed text response to: {'analysis': 'string', 'confidence': 0.5, 'rationale': '{\n  "confidence": 0.8,\n  "rationale": "The proposed trade has no action specified, and the confidence level is 0, indicating uncertainty. Given the current portfolio status with 100% cash ratio and no unrealized P&L, there is no immediate need or benefit to execute a trade without a clear rationale or direction. It is advisable to maintain the current position and wait for more favorable opportunities with a higher confidence level."\n}'}
+2025-07-25 23:00:56,288 - INFO - Phase 6: Final Decision
+2025-07-25 23:01:00,994 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:01:01,003 - WARNING - Function calling failed, falling back to prompt-based: 
+2025-07-25 23:01:04,800 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:01:04,804 - INFO - Saved LLM response to: logs/llm_debug/20250725_230104_0001_Risk Manager.json
+2025-07-25 23:01:04,804 - INFO - [LLM DEBUG] Response for Risk Manager: 774 chars
+2025-07-25 23:01:04,806 - INFO - [DECISION DEBUG] Final decision: HOLD with confidence 0.8
+2025-07-25 23:01:04,806 - INFO - Final decision for AAPL: HOLD with confidence 0.80
+2025-07-25 23:01:05,071 - INFO - Starting decision process e3d34a48-97d3-4276-bf47-fe534b9d89d0 for AAPL on 2025-07-24 00:00:00
+2025-07-25 23:01:05,071 - INFO - Phase 1: Data Collection
+2025-07-25 23:01:13,938 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:01:13,949 - WARNING - Function calling failed, falling back to prompt-based: 
+2025-07-25 23:01:18,211 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:01:18,225 - INFO - Saved LLM response to: logs/llm_debug/20250725_230118_0002_Market Analyst.json
+2025-07-25 23:01:18,225 - INFO - [LLM DEBUG] Response for Market Analyst: 1817 chars
+2025-07-25 23:01:18,226 - WARNING - Parsed text response to: {'selected_indicators': [], 'price_trend': 'bullish', 'volume_analysis': '', 'technical_analysis': '', 'recommendation': 'HOLD', 'confidence': 0.5, 'rationale': '{\n  "selected_indicators": [\n    "close_50_sma",\n    "close_200_sma",\n    "macd",\n    "rsi",\n    "boll",\n    "atr",\n    "vwma"\n  ],\n  "price_trend": "The 50 SMA and 200 SMA suggest a potential long-term uptrend, with the 50 SMA providing dynamic support and resistance levels', 'summary_table': ''}
+2025-07-25 23:01:19,620 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:01:19,622 - WARNING - Function calling failed, falling back to prompt-based: 
+2025-07-25 23:01:21,991 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:01:21,993 - INFO - Saved LLM response to: logs/llm_debug/20250725_230121_0002_News Analyst.json
+2025-07-25 23:01:21,993 - INFO - [LLM DEBUG] Response for News Analyst: 480 chars
+2025-07-25 23:01:23,733 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-25 23:01:23,735 - WARNING - Function calling failed, falling back to prompt-based: 

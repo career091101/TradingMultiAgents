@@ -1,0 +1,22 @@
+{
+  "name": "test_mock_mode",
+  "symbols": [
+    "AAPL"
+  ],
+  "initial_capital": 10000,
+  "start_date": "2025-07-01",
+  "end_date": "2025-07-14",
+  "agent_config": {
+    "llm_config": {
+      "deep_think_model": "mock",
+      "quick_think_model": "mock",
+      "temperature": 0.0,
+      "timeout": 600
+    },
+    "max_debate_rounds": 1,
+    "max_risk_discuss_rounds": 1,
+    "use_japanese_prompts": true
+  },
+  "debug": true,
+  "mock_mode": true
+}

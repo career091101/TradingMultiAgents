@@ -1,0 +1,10 @@
+2025-07-25 16:50:08.890 Port 8501 is already in use
+🚀 TradingAgents WebUIを起動中...
+📁 WebUIパス: /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/app.py
+📱 Streamlit Cloud デプロイ対応版
+🔍 環境変数チェック:
+  FINNHUB_API_KEY: ✅ 設定済み
+  OPENAI_API_KEY: ✅ 設定済み
+
+🌐 ブラウザで http://localhost:8501 を開いてください
+🔚 終了するには Ctrl+C を押してください

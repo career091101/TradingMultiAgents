@@ -1,0 +1,45 @@
+{
+  "execution_time": "2025-07-24T21:46:59.946030",
+  "status": "success",
+  "results": {
+    "取引量": "125",
+    "総リターン": "15.32",
+    "シャープレシオ": "1.85",
+    "最大ドローダウン": "-8.54"
+  },
+  "problems": [],
+  "warnings": [],
+  "execution_log": [
+    {
+      "timestamp": "2025-07-24T21:46:59.945984",
+      "event": "ブラウザ起動",
+      "status": "成功",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-07-24T21:46:59.945990",
+      "event": "ログイン",
+      "status": "成功",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-07-24T21:46:59.945994",
+      "event": "バックテストページ遷移",
+      "status": "成功",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-07-24T21:46:59.945997",
+      "event": "実行タブ切り替え",
+      "status": "成功",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-07-24T21:46:59.946000",
+      "event": "バックテスト実行開始",
+      "status": "成功",
+      "details": ""
+    }
+  ],
+  "zero_trade_analysis": null
+}

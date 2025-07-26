@@ -1,0 +1,76 @@
+{
+  "total_files": 30,
+  "successful_json": 28,
+  "failed_json": 2,
+  "decisions": {
+    "BUY": 4,
+    "SELL": 2,
+    "HOLD": 4
+  },
+  "agents": {
+    "Bull Researcher": 2,
+    "Bear Researcher": 2,
+    "Research Manager": 3,
+    "Trader": 2,
+    "Aggressive Risk Debator": 4,
+    "Conservative Risk Debator": 4,
+    "Neutral Risk Debator": 4,
+    "Risk Manager": 3,
+    "Market Analyst": 2,
+    "News Analyst": 2,
+    "Social Media Analyst": 1,
+    "Fundamentals Analyst": 1
+  },
+  "errors": [],
+  "json_examples": {
+    "success": [
+      {
+        "agent": "Bull Researcher",
+        "response": {
+          "recommendation": "BUY",
+          "confidence": 0.8,
+          "rationale": "Strong growth prospects, undervaluation, and solid financial health of MSFT support a bullish investment stance. The company's current price of $510.05 is considered fair based on historical performance and financial metrics. With high growth potential in cloud and AI sectors, MSFT is well-positioned for future revenue growth. The slightly negative sentiment score and stable trending level in social media do not outweigh the positive fundamental outlook. The bear arguments lack substantial evidence to counter the compelling case for investing in MSFT at this time."
+        }
+      },
+      {
+        "agent": "Bear Researcher",
+        "response": {
+          "recommendation": "SELL",
+          "confidence": 0.7,
+          "rationale": "The market analyst's signal to sell based on technical indicators such as the closing price being below the 50-day Simple Moving Average (SMA) suggests a potential short-term bearish trend. Additionally, the slightly negative sentiment score from social media and stable trending level with mixed community sentiment further support a bearish outlook. The undervalued valuation combined with strong financial health and high growth prospects may not be sustainable in the current market conditions, indicating a possible overvaluation and unrealistic growth expectations. It is important to consider these factors and exercise caution in the face of potential risks and market headwinds."
+        }
+      },
+      {
+        "agent": "Research Manager",
+        "response": {
+          "investment_decision": "HOLD",
+          "confidence_level": 0.6,
+          "investment_plan": {
+            "allocation": {
+              "MSFT": 0.5,
+              "AAPL": 0.3,
+              "GOOGL": 0.2
+            }
+          },
+          "key_factors": [
+            "Both Bull and Bear analysts have equal confidence in their recommendations",
+            "Market conditions are uncertain and require a cautious approach"
+          ],
+          "rationale": "Given the conflicting recommendations and uncertain market conditions, it is advisable to hold current positions with a diversified portfolio allocation."
+        }
+      }
+    ],
+    "failure": [
+      {
+        "agent": "Market Analyst",
+        "error": "Unterminated string starting at: line 18 column 20 (char 1670)",
+        "response_preview": "{\n  \"selected_indicators\": [\n    \"close_50_sma\",\n    \"close_200_sma\",\n    \"macd\",\n    \"rsi\",\n    \"boll\",\n    \"boll_ub\",\n    \"boll_lb\",\n    \"atr\"\n  ],\n  \"price_trend\": \"The 50 SMA and 200 SMA indicate "
+      },
+      {
+        "agent": "Market Analyst",
+        "error": "Unterminated string starting at: line 16 column 16 (char 1557)",
+        "response_preview": "{\n  \"selected_indicators\": [\n    \"close_50_sma\",\n    \"close_200_sma\",\n    \"macd\",\n    \"rsi\",\n    \"boll\",\n    \"atr\",\n    \"vwma\"\n  ],\n  \"price_trend\": \"The 50 SMA and 200 SMA suggest a potential long-te"
+      }
+    ]
+  }
+}

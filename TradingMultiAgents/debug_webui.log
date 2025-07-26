@@ -1,0 +1,2231 @@
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.50.9:8501
+
+WARNING:root:TradingMultiAgents dataflows not available
+INFO:webui.backend.backtest2_wrapper:Successfully imported backtest2 modules
+INFO:webui.backend.backtest2_wrapper:Creating BacktestConfig - class type: <class 'type'>
+INFO:webui.backend.backtest2_wrapper:BacktestConfig module: backtest2.core.config
+INFO:webui.backend.backtest2_wrapper:BacktestConfig MRO: (<class 'backtest2.core.config.BacktestConfig'>, <class 'object'>)
+INFO:webui.backend.backtest2_wrapper:Is dataclass: True
+INFO:webui.backend.backtest2_wrapper:Dataclass fields: ['name', 'symbols', 'time_range', 'initial_capital', 'random_seed', 'max_positions', 'position_limits', 'llm_config', 'data_sources', 'reflection_config', 'result_dir', 'slippage', 'commission', 'risk_free_rate', 'benchmark', 'start_date', 'end_date', 'agent_config', 'data_config', 'risk_config', 'enable_parallel', 'max_workers', 'cache_size', 'log_level', 'save_results', 'results_path', 'enable_monitoring', 'debug']
+INFO:webui.backend.backtest2_wrapper:Has random_seed attr: True
+INFO:webui.backend.backtest2_wrapper:BacktestConfig.__init__ signature: {'name': <class 'str'>, 'symbols': typing.List[str], 'time_range': typing.Optional[backtest2.core.config.TimeRange], 'initial_capital': <class 'float'>, 'random_seed': <class 'int'>, 'max_positions': <class 'int'>, 'position_limits': typing.Dict[backtest2.core.config.RiskProfile, float], 'llm_config': <class 'backtest2.core.config.LLMConfig'>, 'data_sources': typing.List[str], 'reflection_config': typing.Optional[typing.Dict[str, typing.Any]], 'result_dir': typing.Optional[pathlib._local.Path], 'slippage': <class 'float'>, 'commission': <class 'float'>, 'risk_free_rate': <class 'float'>, 'benchmark': <class 'str'>, 'start_date': typing.Optional[datetime.datetime], 'end_date': typing.Optional[datetime.datetime], 'agent_config': typing.Optional[backtest2.core.config.AgentConfig], 'data_config': typing.Optional[backtest2.core.config.DataConfig], 'risk_config': typing.Optional[backtest2.core.config.RiskConfig], 'enable_parallel': <class 'bool'>, 'max_workers': <class 'int'>, 'cache_size': <class 'int'>, 'log_level': <class 'str'>, 'save_results': <class 'bool'>, 'results_path': <class 'str'>, 'enable_monitoring': <class 'bool'>, 'debug': <class 'bool'>, 'return': None}
+INFO:backtest2.core.engine:Starting backtest execution 6ce49b79-4161-4e54-93eb-d896c70fd506
+INFO:backtest2.core.engine:Initializing backtest environment
+INFO:backtest2.data.manager_simple:Initializing data manager
+INFO:backtest2.agents.orchestrator:Initialized 12 agents
+INFO:backtest2.core.engine:Loading benchmark data for SPY
+INFO:backtest2.agents.orchestrator:Starting decision process 0b098554-73df-4f9d-a68b-e79ffb1d9ab8 for AAPL on 2025-04-24 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 5790a0ea-44ee-4bd4-accd-a0434880f3db for AAPL on 2025-04-25 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process b2c3c02d-09c1-4b47-bc83-0a06f71ab6a6 for AAPL on 2025-04-28 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process f2d916c3-3d35-4a7c-8a53-ebe1d0a3f3b8 for AAPL on 2025-04-29 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process fa5749c0-f3b0-49a0-8443-933545d0cb24 for AAPL on 2025-04-30 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process f5f0949a-119c-4a7f-9af9-82214d3210c5 for AAPL on 2025-05-01 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 2e5ef9f4-b8cb-47ab-ae80-d464af5f5340 for AAPL on 2025-05-02 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 168d6646-2ec6-48ee-b2dc-8606c6532645 for AAPL on 2025-05-05 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process d7f9bd90-415a-4ede-a0ef-80251c4804f2 for AAPL on 2025-05-06 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 2b75d030-3460-4e80-a841-bdd3570a98dc for AAPL on 2025-05-07 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 94ae871e-f1b2-4855-8ed0-cb3b80f512cb for AAPL on 2025-05-08 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process cc02da23-9f8e-4dcf-9363-4270ebe7033c for AAPL on 2025-05-09 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 27d2394e-ba4d-4049-842f-4964bf2f5e5b for AAPL on 2025-05-12 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 9b4e4ebb-ba13-4622-b21b-2d66fbc20052 for AAPL on 2025-05-13 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 09d019c4-6404-472e-af8d-b8ccaaafc08a for AAPL on 2025-05-14 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process cbca22bd-40ef-446c-a7ce-6d4c4d15be5e for AAPL on 2025-05-15 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process ed289f91-264b-480b-8163-c398f1eae8e9 for AAPL on 2025-05-16 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 0c96b080-2208-414f-adfa-897cea5b78a7 for AAPL on 2025-05-19 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 696d0df0-56d2-4bdb-8304-32419e154eef for AAPL on 2025-05-20 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 5f964888-d74d-4cac-8820-8d6ffb51e9f7 for AAPL on 2025-05-21 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 98a86489-7e4c-4bb3-a780-bf74b3bb2a6b for AAPL on 2025-05-22 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process b846981e-b6e9-48b3-a900-f13189ad39a4 for AAPL on 2025-05-23 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process cd629031-da7f-4e54-a75a-d86a20a6b1ff for AAPL on 2025-05-26 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 216b4f0f-704b-41c5-9ca0-ef75d0cdfb37 for AAPL on 2025-05-27 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 11d30bab-9768-41c5-b40a-e5a26c9ad768 for AAPL on 2025-05-28 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process ca8397eb-11de-418b-b335-98051de35223 for AAPL on 2025-05-29 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 8417cde9-d5b0-4f15-ab8d-43959186a69d for AAPL on 2025-05-30 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 91b1d5be-79bb-481b-9ac9-9a32a0d9c176 for AAPL on 2025-06-02 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 9cf7b77a-4497-4821-ad5e-25ae74824592 for AAPL on 2025-06-03 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process cc761ef5-fd66-4c7b-a17d-09b051ee44a6 for AAPL on 2025-06-04 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 67f82210-43ab-4006-9dde-7973be749c85 for AAPL on 2025-06-05 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 6eb8298b-8fc8-471b-8bf6-6eb527aada12 for AAPL on 2025-06-06 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process c40196da-0f83-480c-8e2c-e72c61a9d2fe for AAPL on 2025-06-09 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process c60b369d-cd7e-4abc-919b-9810bb1ac2df for AAPL on 2025-06-10 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process f6907421-ef03-4592-9023-16fbdaabbfcf for AAPL on 2025-06-11 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 58cac36e-a957-4449-86ee-8f5425401f0c for AAPL on 2025-06-12 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 4e0207b9-fbb3-44af-8b4f-a0f9f078d5f9 for AAPL on 2025-06-13 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process a39a4da1-1f46-4195-b9d8-820b20ddcabe for AAPL on 2025-06-16 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 6dea19ae-0c92-44cb-a60b-771d7c664d4e for AAPL on 2025-06-17 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process f2760288-d310-4c95-b970-8f7e2c7412b9 for AAPL on 2025-06-18 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 76f6917d-b129-40ad-8b0c-31007f15e98b for AAPL on 2025-06-19 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 0f59d72b-dd4e-4467-8a25-d38020924948 for AAPL on 2025-06-20 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 3f4500f2-dfec-46e4-9c9b-9f3c5cd99bd7 for AAPL on 2025-06-23 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process c83ef747-682c-4ef2-aff5-b0efffbd4277 for AAPL on 2025-06-24 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process b84f7de9-08fe-4dc0-972f-994de0fd0e96 for AAPL on 2025-06-25 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process ea7551c9-e07d-4cb0-9cd3-4318dedd8807 for AAPL on 2025-06-26 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 41b4ab9c-e0d6-41fd-b43d-c7b168e8e409 for AAPL on 2025-06-27 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 6f5c5fcd-ba8d-41cb-aec5-8bf8e0811be2 for AAPL on 2025-06-30 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 6ddcca56-3687-4c52-8f64-b70f51872c73 for AAPL on 2025-07-01 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 228d6c88-502d-4c57-94f6-08737b6724f3 for AAPL on 2025-07-02 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 138079fd-fb94-44c9-b2d0-f63a49c5d8db for AAPL on 2025-07-03 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 6133a701-15e6-43a5-b953-96fd15489ab9 for AAPL on 2025-07-04 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 2088b618-f09d-4791-b854-93e7566a4473 for AAPL on 2025-07-07 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 551158e5-551a-426f-b5ee-d401d4159f9d for AAPL on 2025-07-08 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 21a35109-fb69-4f0b-9fb8-d7d754b61c98 for AAPL on 2025-07-09 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 37d05191-c6e9-43e8-b07f-f088038e9aa8 for AAPL on 2025-07-10 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 21172e26-4ad9-412c-9993-11d1721f5952 for AAPL on 2025-07-11 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 639f7f50-643b-469e-b72a-dc26739ccd3a for AAPL on 2025-07-14 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 1135a6e2-96e2-4add-ae61-059034891a4f for AAPL on 2025-07-15 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process a09622a4-7466-47ba-bdd5-89e548e64f2e for AAPL on 2025-07-16 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 08b4593e-5456-44ea-a2be-e5d07da80851 for AAPL on 2025-07-17 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process f41cf37a-9123-4e77-a872-0b320736f81f for AAPL on 2025-07-18 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 9c924696-4668-4ac2-8cfc-9231a3f10c86 for AAPL on 2025-07-21 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 527be046-7aab-401e-b2a3-21f2d6ae6420 for AAPL on 2025-07-22 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.core.engine:Calculating backtest results
+INFO:backtest2.analysis.benchmark:Loading benchmark data for SPY
+INFO:backtest2.analysis.benchmark:Loaded 64 benchmark data points
+INFO:BacktestLogger:Results saved to results/backtest2_20250723_123732/AAPL
+INFO:backtest2.core.engine:Cleaning up backtest resources
+INFO:backtest2.data.manager_simple:Closing data manager
+INFO:backtest2.agents.orchestrator:Cleaning up orchestrator resources
+INFO:backtest2.agents.orchestrator:Orchestrator cleanup completed
+INFO:MemoryStore:Saved memories to results/backtest2_20250723_123732/AAPL/memories.json
+INFO:webui.backend.backtest2_wrapper:Result agent_performance type: <class 'dict'>
+INFO:webui.backend.backtest2_wrapper:Result agent_performance content: {'total_decisions': 0, 'memory_entries': 0}
+INFO:backtest2.core.engine:Starting backtest execution 2b8f7cea-9d97-4dd6-b55c-7e62dd817fe8
+INFO:backtest2.core.engine:Initializing backtest environment
+INFO:backtest2.data.manager_simple:Initializing data manager
+INFO:backtest2.agents.orchestrator:Initialized 12 agents
+INFO:backtest2.core.engine:Loading benchmark data for SPY
+INFO:backtest2.agents.orchestrator:Starting decision process e4d2e730-96c3-47af-9210-47e58872ed16 for MSFT on 2025-04-24 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process de2fe774-3f9c-4143-aeca-f979e82f7cb0 for MSFT on 2025-04-25 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process ef65617f-fb11-4228-9deb-ca2bd10570b9 for MSFT on 2025-04-28 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 1499728d-2228-4f9e-b2a7-8be2f062aac3 for MSFT on 2025-04-29 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process ce63cb11-8414-4b45-ad19-4227e698d2e9 for MSFT on 2025-04-30 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process b61bd3d3-9e4d-491f-b73d-e0a451696f6b for MSFT on 2025-05-01 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process b4677ee4-9412-43a4-b8db-6f627fe3ef96 for MSFT on 2025-05-02 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process d51e57e8-2302-4702-acbf-f57d524102d0 for MSFT on 2025-05-05 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 1e703915-34ac-4fe8-9ffd-5c53c10fc5ad for MSFT on 2025-05-06 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process f25c9dc8-b244-44b5-bb57-590d433852a8 for MSFT on 2025-05-07 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process cdffbbf8-578c-4521-9afd-3c3de54f86a3 for MSFT on 2025-05-08 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 1309b267-de52-4102-81b8-6c0cb0cd92a9 for MSFT on 2025-05-09 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 5122d8aa-8531-4504-b546-9fa866077036 for MSFT on 2025-05-12 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 60e02680-8e54-4360-9b71-38e72b41823a for MSFT on 2025-05-13 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process f566e330-297e-4732-b200-5487bc84d700 for MSFT on 2025-05-14 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 80e46f5d-502d-48d8-8967-b8b3cd8bc07f for MSFT on 2025-05-15 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 7d388ada-2335-41bb-8be2-688ac2d39463 for MSFT on 2025-05-16 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process fed20674-c56e-4904-8e9b-961fea688dbe for MSFT on 2025-05-19 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 16a4c3b7-b708-475f-9c6d-96f1bbad0707 for MSFT on 2025-05-20 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process d71f84d8-eb71-4785-907c-0a001c529883 for MSFT on 2025-05-21 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 6eab1a8c-8097-4226-8de7-b6fdf0b412d4 for MSFT on 2025-05-22 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 078fce70-ead0-40f5-9481-70fec7da99e1 for MSFT on 2025-05-23 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 13816d40-e899-4c3c-b49e-f78ab4adc6e9 for MSFT on 2025-05-26 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 04c77942-a815-4378-8df3-dc056a4da8a7 for MSFT on 2025-05-27 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process fff4835e-7971-49bf-831e-100bb8395600 for MSFT on 2025-05-28 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 42fdfa24-bc98-484e-b03f-2ed088d3d134 for MSFT on 2025-05-29 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 8222d424-51f9-4ac7-b33c-e7f6d5366c40 for MSFT on 2025-05-30 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 9e7f5875-dd3b-483a-bc76-dfe65aab4a40 for MSFT on 2025-06-02 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 2c874e46-b0f0-49a9-b4fc-bb9887f27cf3 for MSFT on 2025-06-03 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 1d77d94c-56ca-4ffc-a10d-56ad44e5c5c7 for MSFT on 2025-06-04 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 5e6d15a2-2edc-4910-943a-3349c6722af5 for MSFT on 2025-06-05 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process a2e0e3d1-c743-426e-831d-c3ea54a213fa for MSFT on 2025-06-06 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 637baa4c-5914-4186-ba5c-3feb29084420 for MSFT on 2025-06-09 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 5aa16f63-ba91-4e66-8a65-4d19898c6e37 for MSFT on 2025-06-10 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process e94d8808-425d-4e75-b086-c158e38869af for MSFT on 2025-06-11 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process ad18e25a-68fa-44b1-a655-b07c9cd83f8e for MSFT on 2025-06-12 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 4fca5239-2b92-4a71-9329-6f56e4183379 for MSFT on 2025-06-13 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process fc048ead-12bb-42f3-95ac-c52bd261c2b6 for MSFT on 2025-06-16 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 150fede5-5a84-4172-b733-234135b2a830 for MSFT on 2025-06-17 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 073001ba-9814-4069-a98e-f893eb542c37 for MSFT on 2025-06-18 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 8c5c663f-adae-4fdd-a313-f5d57510e60b for MSFT on 2025-06-19 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 2988aef7-3bfd-4a0f-ab04-3901ca71c403 for MSFT on 2025-06-20 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 2ec72116-3a06-4500-b494-b445d888d5fc for MSFT on 2025-06-23 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process f78c4fa4-b1af-49e1-9006-daaaa5bd328b for MSFT on 2025-06-24 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process d1ee1f73-fd6f-4dad-aecb-53d02cdfab63 for MSFT on 2025-06-25 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process b43d27a1-b402-4b98-b630-0c7f4f181dd4 for MSFT on 2025-06-26 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process acb1d84b-9eb5-41e9-aec6-88ff423e36a6 for MSFT on 2025-06-27 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 54fee5ec-386d-4175-a518-feaa6eba2c3f for MSFT on 2025-06-30 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 3511d195-6b98-46cb-9fe2-151422393081 for MSFT on 2025-07-01 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process c6f363c8-8ca6-4259-9a51-6a0126e9b7a2 for MSFT on 2025-07-02 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 7ec5a6ed-0ff3-49f2-9f86-42c8e2cb46ed for MSFT on 2025-07-03 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process e4c3983e-4bed-4d05-9e31-55cfb695a276 for MSFT on 2025-07-04 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 7ed54a74-212e-4b9e-b4f8-328f15a00dbf for MSFT on 2025-07-07 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process f2596174-a8d1-40d0-a83b-50bbf05452fc for MSFT on 2025-07-08 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 9d70533e-9a3f-4b59-92a1-2bae8a5c2c61 for MSFT on 2025-07-09 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 3d7cba28-495a-4dc6-88fc-8d5604e7d352 for MSFT on 2025-07-10 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 403b3d6c-a6ee-43b4-9410-397d05fef411 for MSFT on 2025-07-11 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process f462b518-e13e-4cdc-a917-5bfe30ec22c6 for MSFT on 2025-07-14 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 5a2c0552-e147-4ea4-b5bd-838e3c19c2c9 for MSFT on 2025-07-15 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 0b06d98c-69c4-4a46-a4dd-7fb0b6a46cef for MSFT on 2025-07-16 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 93e7e8d8-2288-436a-937f-f229144b2c1e for MSFT on 2025-07-17 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process b8fc1267-205d-4cf3-bffa-002ec40811f0 for MSFT on 2025-07-18 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process d9de5b9e-5cd4-44cd-ab6f-8c206e62b983 for MSFT on 2025-07-21 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.agents.orchestrator:Starting decision process 142451a6-064a-4119-8f13-dac130cf49ae for MSFT on 2025-07-22 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+ERROR:backtest2.agents.orchestrator:Decision process failed: 'DecisionContext' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 241, in run_backtest
+    loop = asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 257, in make_decision
+    analyst_reports = await self._data_collection_phase(market_data, context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 306, in _data_collection_phase
+    # Get symbol from context safely
+AttributeError: 'DecisionContext' object has no attribute 'symbol'
+INFO:backtest2.core.engine:Calculating backtest results
+INFO:backtest2.analysis.benchmark:Loading benchmark data for SPY
+INFO:backtest2.analysis.benchmark:Loaded 64 benchmark data points
+INFO:BacktestLogger:Results saved to results/backtest2_20250723_123732/MSFT
+INFO:backtest2.core.engine:Cleaning up backtest resources
+INFO:backtest2.data.manager_simple:Closing data manager
+INFO:backtest2.agents.orchestrator:Cleaning up orchestrator resources
+INFO:backtest2.agents.orchestrator:Orchestrator cleanup completed
+INFO:MemoryStore:Saved memories to results/backtest2_20250723_123732/MSFT/memories.json
+INFO:webui.backend.backtest2_wrapper:Result agent_performance type: <class 'dict'>
+INFO:webui.backend.backtest2_wrapper:Result agent_performance content: {'total_decisions': 0, 'memory_entries': 0}
+INFO:webui.components.backtest2:Results type: <class 'dict'>
+INFO:webui.components.backtest2:AAPL result type: <class 'dict'>
+INFO:webui.components.backtest2:AAPL keys: ['ticker', 'metrics', 'initial_capital', 'final_value', 'files', 'charts', 'agent_performance', 'trade_count', 'start_date', 'end_date']
+INFO:webui.components.backtest2:AAPL metrics type: <class 'dict'>
+INFO:webui.components.backtest2:MSFT result type: <class 'dict'>
+INFO:webui.components.backtest2:MSFT keys: ['ticker', 'metrics', 'initial_capital', 'final_value', 'files', 'charts', 'agent_performance', 'trade_count', 'start_date', 'end_date']
+INFO:webui.components.backtest2:MSFT metrics type: <class 'dict'>
+  Stopping...

@@ -1,0 +1,12 @@
+{
+  "timestamp": "20250725_230020",
+  "agent": "Social Media Analyst",
+  "prompt": "\nAAPLのソーシャルメディア動向を分析してください。\n\n価格変動: -0.40%\n\nソーシャルメディアでの注目度や感情を評価してください。\n\n\nIMPORTANT: You must respond with valid JSON only. No explanations, no markdown, just JSON.\n\nExample of the EXACT format you must use:\n{\n  \"sentiment_score\": 0.5,\n  \"trending_level\": \"Analysis result\",\n  \"community_sentiment\": \"Analysis result\",\n  \"confidence\": 0.5,\n  \"rationale\": \"Analysis result\"\n}\n\nYour response must follow this exact structure with appropriate values based on the context.\n",
+  "response": "{\n  \"sentiment_score\": 0.2,\n  \"trending_level\": \"Mild\",\n  \"community_sentiment\": \"Neutral\",\n  \"confidence\": 0.6,\n  \"rationale\": \"There is a mild level of social media activity around AAPL with a neutral community sentiment. The sentiment score is low, indicating mixed opinions among users. The confidence level in this analysis is moderate.\"\n}",
+  "response_length": 344,
+  "context_keys": [
+    "market_data",
+    "context"
+  ],
+  "use_japanese": false
+}

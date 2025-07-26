@@ -1,0 +1,12 @@
+{
+  "timestamp": "20250725_224111",
+  "agent": "Fundamentals Analyst",
+  "prompt": "\nMSFTのファンダメンタル分析を行ってください。\n\n現在価格: $510.05\n\n財務指標とバリュエーションを評価してください。\n\n\nIMPORTANT: You must respond with valid JSON only. No explanations, no markdown, just JSON.\n\nExample of the EXACT format you must use:\n{\n  \"valuation\": \"Analysis result\",\n  \"financial_health\": \"Analysis result\",\n  \"growth_prospects\": \"Analysis result\",\n  \"confidence\": 0.5,\n  \"rationale\": \"Analysis result\"\n}\n\nYour response must follow this exact structure with appropriate values based on the context.\n",
+  "response": "{\n  \"valuation\": \"MSFTの現在価格は$510.05であり、過去の株価動向や業績に基づいて適正に評価されていると言えます。\",\n  \"financial_health\": \"MSFTは財務面でも強固であり、安定した収益性と効率的な資産運用が見られます。\",\n  \"growth_prospects\": \"MSFTは成長性においても期待されており、クラウド事業やAI分野での展開が今後の収益を牽引すると考えられます。\",\n  \"confidence\": 0.8,\n  \"rationale\": \"MSFTは総合的に見て、安定した企業価値を持ちつつ成長性も兼ね備えているため、投資家の信頼を得ていると言えます。\"\n}",
+  "response_length": 315,
+  "context_keys": [
+    "market_data",
+    "context"
+  ],
+  "use_japanese": false
+}

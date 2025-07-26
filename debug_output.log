@@ -1,0 +1,105 @@
+2025-07-24 09:29:40,616 - TradingMultiAgents.webui.backend.backtest2_wrapper - DEBUG - Current file: /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py
+2025-07-24 09:29:40,616 - TradingMultiAgents.webui.backend.backtest2_wrapper - DEBUG - Project root: /Users/y-sato/TradingAgents2
+2025-07-24 09:29:40,616 - TradingMultiAgents.webui.backend.backtest2_wrapper - DEBUG - Alt root: /Users/y-sato
+2025-07-24 09:29:40,616 - TradingMultiAgents.webui.backend.backtest2_wrapper - DEBUG - Python path: ['/Users/y-sato/TradingAgents2', '/Users/y-sato/TradingAgents2', '/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python312.zip']
+2025-07-24 09:29:43,042 - root - WARNING - TradingMultiAgents dataflows not available
+2025-07-24 09:29:43,060 - TradingMultiAgents.webui.backend.backtest2_wrapper - INFO - Successfully imported backtest2 modules
+2025-07-24 09:29:43,060 - TradingMultiAgents.webui.backend.backtest2_wrapper - DEBUG - BacktestConfig type: <class 'type'>
+2025-07-24 09:29:43,061 - TradingMultiAgents.webui.backend.backtest2_wrapper - DEBUG - BacktestConfig module: backtest2.core.config
+2025-07-24 09:29:43,061 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-07-24 09:29:43,061 - TradingMultiAgents.webui.backend.backtest2_wrapper - WARNING - OpenAI API key is NOT set in environment
+2025-07-24 09:29:43,061 - TradingMultiAgents.webui.backend.backtest2_wrapper - ERROR - Backtest2 failed: Start date must be before end date
+2025-07-24 09:29:43,063 - TradingMultiAgents.webui.backend.backtest2_wrapper - ERROR - Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 141, in run_backtest_async
+    backtest_config = self._create_backtest_config(config)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 312, in _create_backtest_config
+    time_range = TimeRange(start=start_date, end=end_date)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 5, in __init__
+  File "/Users/y-sato/TradingAgents2/backtest2/core/config.py", line 36, in __post_init__
+    raise ValueError("Start date must be before end date")
+ValueError: Start date must be before end date
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/debug_data_collection.py", line 110, in test_data_collection
+    results = await asyncio.wait_for(
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 141, in run_backtest_async
+    backtest_config = self._create_backtest_config(config)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 312, in _create_backtest_config
+    time_range = TimeRange(start=start_date, end=end_date)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 5, in __init__
+  File "/Users/y-sato/TradingAgents2/backtest2/core/config.py", line 36, in __post_init__
+    raise ValueError("Start date must be before end date")
+ValueError: Start date must be before end date
+Starting debug session...
+Python: 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
+Working directory: /Users/y-sato/TradingAgents2
+OPENAI_API_KEY set: No
+============================================================
+DEBUGGING DATA COLLECTION PHASE
+============================================================
+
+[WARNING] OPENAI_API_KEY not set - will use mock mode
+
+Starting backtest...
+[09:29:43.061] Starting Backtest2 (Paper-compliant version)
+[09:29:43.061] Configuration: {
+  "tickers": [
+    "AAPL"
+  ],
+  "start_date": "2024-01-02",
+  "end_date": "2024-01-02",
+  "initial_capital": 100000.0,
+  "llm_provider": "openai",
+  "agent_settings": {
+    "debate_rounds": 1,
+    "risk_rounds": 1,
+    "enable_memory": false,
+    "enable_reflection": false
+  },
+  "agent_config": {
+    "llm_provider": "openai",
+    "deep_model": "gpt-4-turbo-preview",
+    "fast_model": "gpt-3.5-turbo",
+    "temperature": 0.7,
+    "max_tokens": 500,
+    "timeout": 15,
+    "max_debate_rounds": 1,
+    "max_risk_rounds": 1,
+    "use_japanese": false,
+    "online_tools": false
+  },
+  "debug": true,
+  "use_mock": true
+}
+[09:29:43.063] Error: Start date must be before end date
+
+[ERROR] ValueError: Start date must be before end date
+
+============================================================
+TESTING INDIVIDUAL ANALYST
+============================================================
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/debug_data_collection.py", line 236, in <module>
+    asyncio.run(main())
+  File "/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/debug_data_collection.py", line 228, in main
+    await test_individual_analyst()
+  File "/Users/y-sato/TradingAgents2/debug_data_collection.py", line 160, in test_individual_analyst
+    from backtest2.agents.llm_client import LLMClientConfig, OpenAILLMClient
+ImportError: cannot import name 'LLMClientConfig' from 'backtest2.agents.llm_client' (/Users/y-sato/TradingAgents2/backtest2/agents/llm_client.py)

@@ -1,7 +1,0 @@
-CLI Command: /usr/local/Caskroom/miniconda/base/bin/python -m cli.main --ticker SPY --date 2025-07-13 --depth 1 --provider openai --shallow-model gpt-4o-mini --deep-model o4-mini-2025-04-16 --analyst market --analyst social --analyst news --analyst fundamentals --debate-rounds 1 --trading-strategy Balanced --risk-tolerance Medium
-Environment variables:
-  OPENAI_API_KEY: set
-  FINNHUB_API_KEY: set
-Working directory: /Users/y-sato/TradingAgents2/TradingMultiAgents
-Analysis started at: 2025-07-16 22:20:05.683520
-

@@ -1,0 +1,42 @@
+{
+  "start_time": "2025-07-25T15:10:48.023337",
+  "tests": [
+    {
+      "test": "login",
+      "status": "passed",
+      "timestamp": "2025-07-25T15:10:59.910742"
+    },
+    {
+      "test": "navigate_to_backtest",
+      "status": "passed",
+      "timestamp": "2025-07-25T15:11:03.133261"
+    }
+  ],
+  "errors": [
+    {
+      "test": "full_backtest_flow",
+      "error": "Page.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"text=\\\"結果\\\"\")\n",
+      "timestamp": "2025-07-25T15:12:16.735978"
+    }
+  ],
+  "warnings": [
+    {
+      "test": "backtest_execution",
+      "warning": "実行中の警告: 詳細を表示",
+      "timestamp": "2025-07-25T15:11:46.319187"
+    },
+    {
+      "test": "backtest_execution",
+      "warning": "実行中の警告: 詳細を表示",
+      "timestamp": "2025-07-25T15:11:46.322008"
+    }
+  ],
+  "success": false,
+  "analysis": {
+    "metrics_found": 0,
+    "charts_found": 0,
+    "tables_found": 0,
+    "timestamp": "2025-07-25T15:12:16.774889"
+  },
+  "end_time": "2025-07-25T15:12:17.622959"
+}

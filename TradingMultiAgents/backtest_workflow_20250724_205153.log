@@ -1,0 +1,36 @@
+2025-07-24 20:51:53,024 - INFO - Attempt 1 of 3
+2025-07-24 20:51:53,024 - INFO - Setting up browser...
+2025-07-24 20:51:58,533 - INFO - Browser setup completed
+2025-07-24 20:51:58,533 - INFO - Connecting to WebUI at http://localhost:8501
+2025-07-24 20:52:02,339 - INFO - Login required, attempting to authenticate...
+2025-07-24 20:52:04,517 - INFO - Login successful
+2025-07-24 20:52:05,169 - INFO - Screenshot saved: backtest_screenshots/01_connected_20250724_205204.png
+2025-07-24 20:52:05,169 - INFO - Navigating to backtest page...
+2025-07-24 20:52:05,189 - WARNING - Backtest link not found in navigation
+2025-07-24 20:52:06,400 - INFO - Browser closed
+2025-07-24 20:52:06,400 - WARNING - Attempt 1 failed
+2025-07-24 20:52:06,401 - INFO - Retrying in 5 seconds...
+2025-07-24 20:52:11,405 - INFO - Attempt 2 of 3
+2025-07-24 20:52:11,407 - INFO - Setting up browser...
+2025-07-24 20:52:20,522 - INFO - Browser setup completed
+2025-07-24 20:52:20,535 - INFO - Connecting to WebUI at http://localhost:8501
+2025-07-24 20:52:24,156 - INFO - Login required, attempting to authenticate...
+2025-07-24 20:52:26,368 - INFO - Login successful
+2025-07-24 20:52:26,680 - INFO - Screenshot saved: backtest_screenshots/01_connected_20250724_205226.png
+2025-07-24 20:52:26,681 - INFO - Navigating to backtest page...
+2025-07-24 20:52:26,690 - WARNING - Backtest link not found in navigation
+2025-07-24 20:52:27,090 - INFO - Browser closed
+2025-07-24 20:52:27,090 - WARNING - Attempt 2 failed
+2025-07-24 20:52:27,090 - INFO - Retrying in 5 seconds...
+2025-07-24 20:52:32,093 - INFO - Attempt 3 of 3
+2025-07-24 20:52:32,094 - INFO - Setting up browser...
+2025-07-24 20:52:36,135 - INFO - Browser setup completed
+2025-07-24 20:52:36,136 - INFO - Connecting to WebUI at http://localhost:8501
+2025-07-24 20:52:39,889 - INFO - Login required, attempting to authenticate...
+2025-07-24 20:52:42,097 - INFO - Login successful
+2025-07-24 20:52:42,172 - INFO - Screenshot saved: backtest_screenshots/01_connected_20250724_205242.png
+2025-07-24 20:52:42,172 - INFO - Navigating to backtest page...
+2025-07-24 20:52:42,182 - WARNING - Backtest link not found in navigation
+2025-07-24 20:52:42,500 - INFO - Browser closed
+2025-07-24 20:52:42,500 - WARNING - Attempt 3 failed
+2025-07-24 20:52:42,500 - ERROR - All attempts failed. Please check the logs and reports.

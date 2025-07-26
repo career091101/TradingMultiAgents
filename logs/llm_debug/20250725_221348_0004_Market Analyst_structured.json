@@ -1,0 +1,12 @@
+{
+  "timestamp": "20250725_221348",
+  "agent": "Market Analyst_structured",
+  "prompt": "\n参考として、現在の日付は 2025-07-24 です。調査対象の企業は AAPL です。\n\n価格データ:\n- 始値: $213.90\n- 高値: $215.69\n- 安値: $213.53\n- 終値: $213.76\n- 出来高: 45,987,000\n\n上記の指標リストから最も関連性の高い指標を選択し、詳細な分析レポートを作成してください。\n観察するトレンドの非常に詳細で細かい分析レポートを作成してください。\nレポートの最後に、重要なポイントを整理したMarkdownテーブルを追加してください。\n\n\nPlease respond in the following JSON format:\n{\n  \"selected_indicators\": {\n    \"type\": \"array\",\n    \"items\": {\n      \"type\": \"string\"\n    }\n  },\n  \"price_trend\": {\n    \"type\": \"string\",\n    \"enum\": [\n      \"bullish\",\n      \"bearish\",\n      \"neutral\"\n    ]\n  },\n  \"volume_analysis\": {\n    \"type\": \"string\"\n  },\n  \"technical_analysis\": {\n    \"type\": \"string\"\n  },\n  \"recommendation\": {\n    \"type\": \"string\",\n    \"enum\": [\n      \"BUY\",\n      \"HOLD\",\n      \"SELL\"\n    ]\n  },\n  \"confidence\": {\n    \"type\": \"number\",\n    \"minimum\": 0,\n    \"maximum\": 1\n  },\n  \"rationale\": {\n    \"type\": \"string\"\n  },\n  \"summary_table\": {\n    \"type\": \"string\",\n    \"description\": \"Markdown formatted table\"\n  }\n}",
+  "response": "{\n  \"selected_indicators\": [\n    \"close_50_sma\",\n    \"macd\",\n    \"rsi\",\n    \"boll\",\n    \"atr\"\n  ],\n  \"price_trend\": \"neutral\",\n  \"volume_analysis\": \"The volume analysis indicates average trading volume, suggesting no significant spikes or drops in interest. This implies stability in market participation.\",\n  \"technical_analysis\": \"The 50-day Simple Moving Average (SMA) shows a neutral short to mid-term trend. The Moving Average Convergence Divergence (MACD) indicates a balanced momentum with no clear direction. The Relative Strength Index (RSI) suggests a neutral sentiment without extreme overbought or oversold conditions. The Bollinger Middle Band provides a baseline for price volatility, showing stability. The Average True Range (ATR) reflects moderate volatility levels.\",\n  \"recommendation\": \"HOLD\",\n  \"confidence\": 0.7,\n  \"rationale\": \"The selected",
+  "response_length": 863,
+  "context_keys": [
+    "market_data",
+    "context"
+  ],
+  "use_japanese": false
+}

@@ -1,0 +1,35 @@
+{
+  "start_time": "2025-07-25T15:08:03.796177",
+  "tests": [
+    {
+      "test": "execution_tab",
+      "status": "passed",
+      "timestamp": "2025-07-25T15:08:23.708297"
+    },
+    {
+      "test": "backtest_execution",
+      "status": "started",
+      "timestamp": "2025-07-25T15:08:29.975210"
+    },
+    {
+      "test": "results_tab",
+      "status": "passed",
+      "metrics_found": 2,
+      "timestamp": "2025-07-25T15:08:43.112901"
+    }
+  ],
+  "errors": [
+    {
+      "test": "login",
+      "error": "ログイン後のダッシュボードが表示されません",
+      "timestamp": "2025-07-25T15:08:17.425180"
+    },
+    {
+      "test": "navigate_to_backtest",
+      "error": "バックテストページが表示されません",
+      "timestamp": "2025-07-25T15:08:20.585849"
+    }
+  ],
+  "success": false,
+  "end_time": "2025-07-25T15:08:46.578991"
+}

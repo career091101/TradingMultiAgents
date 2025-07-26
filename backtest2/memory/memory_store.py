@@ -152,18 +152,35 @@ class MemoryStore:
         # Filter for position closed events for this symbol
         closed_positions = []
         for memory in engine_memories:
-            if (memory.get('type') == 'position_closed' and 
-                memory.get('outcome', {}).get('position', {}).get('symbol') == symbol):
-                closed_positions.append(memory['outcome'])
+            if memory.get('type') == 'position_closed' and memory.get('outcome'):
+                outcome = memory['outcome']
+                # Check if outcome has position attribute and it matches the symbol
+                if hasattr(outcome, 'position') and hasattr(outcome.position, 'symbol'):
+                    if outcome.position.symbol == symbol:
+                        closed_positions.append(outcome)
+                # Handle case where position is stored directly in outcome dict
+                elif isinstance(outcome, dict) and 'position' in outcome:
+                    position = outcome['position']
+                    if hasattr(position, 'symbol') and position.symbol == symbol:
+                        closed_positions.append(outcome)
         
         if not closed_positions:
             return performance_metrics
         
         # Calculate metrics from closed positions
         total_trades = len(closed_positions)
-        winning_trades = sum(1 for p in closed_positions if p.get('pnl', 0) > 0)
-        total_pnl = sum(p.get('pnl', 0) for p in closed_positions)
-        total_return_pct = sum(p.get('return_pct', 0) for p in closed_positions)
+        
+        # Helper function to get attribute from object or dict
+        def get_value(obj, attr, default=0):
+            if hasattr(obj, attr):
+                return getattr(obj, attr, default)
+            elif isinstance(obj, dict):
+                return obj.get(attr, default)
+            return default
+        
+        winning_trades = sum(1 for p in closed_positions if get_value(p, 'pnl', 0) > 0)
+        total_pnl = sum(get_value(p, 'pnl', 0) for p in closed_positions)
+        total_return_pct = sum(get_value(p, 'return_pct', 0) for p in closed_positions)
         
         performance_metrics.update({
             'win_rate': winning_trades / total_trades if total_trades > 0 else 0.0,

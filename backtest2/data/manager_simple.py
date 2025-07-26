@@ -1,9 +1,10 @@
-"""Simplified data manager without pandas dependency"""
+"""Simplified data manager with real data sources"""
 
 import asyncio
 import logging
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Any
+import yfinance as yf
 
 from ..core.types import MarketData
 from .sources import MockDataSource
@@ -21,14 +22,13 @@ class DataManager:
         self.logger = logging.getLogger(__name__)
         self.config = config
         
-        # For minimal implementation, use mock data source
-        self.primary_source = MockDataSource()
+        # Use Yahoo Finance as primary source
         self.cache = {}
+        self.logger.info("DataManager initialized with Yahoo Finance")
         
     async def initialize(self) -> None:
         """Initialize data sources"""
         self.logger.info("Initializing data manager")
-        # Minimal implementation - no initialization needed for mock
         
     async def get_data(
         self,
@@ -50,18 +50,56 @@ class DataManager:
             return self.cache[cache_key]
         
         try:
-            # Get data from source
-            data = await self.primary_source.get_data(symbol, date)
+            # Get data from Yahoo Finance
+            ticker = yf.Ticker(symbol)
+            
+            # Get data for a range around the target date
+            start = date - timedelta(days=5)
+            end = date + timedelta(days=1)
+            
+            hist = ticker.history(start=start, end=end)
+            
+            if hist.empty:
+                self.logger.warning(f"No data available for {symbol} on {date}")
+                return None
+            
+            # Find the closest date
+            target_date = date.date()
+            available_dates = [d.date() for d in hist.index]
+            
+            if target_date in available_dates:
+                idx = available_dates.index(target_date)
+            else:
+                # Find closest previous date
+                prev_dates = [d for d in available_dates if d <= target_date]
+                if not prev_dates:
+                    self.logger.warning(f"No data available for {symbol} on or before {date}")
+                    return None
+                idx = available_dates.index(max(prev_dates))
+            
+            # Create MarketData object
+            row = hist.iloc[idx]
+            data = MarketData(
+                date=hist.index[idx].to_pydatetime().replace(tzinfo=None),
+                symbol=symbol,
+                open=float(row['Open']),
+                high=float(row['High']),
+                low=float(row['Low']),
+                close=float(row['Close']),
+                volume=int(row['Volume'])
+            )
             
             # Cache the result
-            if data:
-                self.cache[cache_key] = data
-                
+            self.cache[cache_key] = data
+            
+            self.logger.debug(f"Retrieved data for {symbol} on {date}: Close=${data.close:.2f}")
             return data
             
         except Exception as e:
             self.logger.error(f"Error getting data for {symbol} on {date}: {e}")
-            return None
+            # Fall back to mock data if real data fails
+            mock_source = MockDataSource()
+            return await mock_source.get_data(symbol, date)
     
     async def get_bulk_data(
         self,
@@ -96,11 +134,11 @@ class DataManager:
                     current_date = current_date + timedelta(days=1)
                     
             results[symbol] = symbol_data
+            self.logger.info(f"Retrieved {len(symbol_data)} days of data for {symbol}")
             
         return results
     
     async def close(self) -> None:
-        """Close data connections"""
+        """Close data manager and cleanup resources"""
         self.logger.info("Closing data manager")
-        # Clear cache
         self.cache.clear()

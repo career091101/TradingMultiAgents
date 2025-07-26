@@ -27,8 +27,8 @@ class SessionState:
             "selected_analysts": [AnalystType.MARKET, AnalystType.NEWS],
             "research_depth": 3,
             "llm_provider": "openai",
-            "shallow_thinker": "o4-mini-2025-04-16",  # 軽量モデル
-            "deep_thinker": "o3-2025-04-16",  # 高性能モデル
+            "shallow_thinker": "o4-mini",  # 軽量モデル（正しい形式）
+            "deep_thinker": "o3",  # 高性能モデル（正しい形式）
             
             # 分析実行状態
             "analysis_running": False,
@@ -178,7 +178,7 @@ class UIHelpers:
     def get_provider_models(provider: str) -> List[str]:
         """プロバイダーに対応するモデル一覧を取得"""
         model_map = {
-            "openai": ["o4-mini-2025-04-16", "o3-2025-04-16", "gpt-4o-mini", "gpt-4o", "o1-mini", "o4-mini"],
+            "openai": ["gpt-4o-mini", "gpt-4o", "gpt-4-turbo", "gpt-3.5-turbo"],
             "anthropic": ["claude-3-haiku-20240307", "claude-3-sonnet-20240229", "claude-3-5-sonnet-20241022"],
             "google": ["gemini-1.5-flash", "gemini-1.5-pro"],
             "openrouter": ["meta-llama/llama-3.1-8b-instruct", "anthropic/claude-3.5-sonnet"],

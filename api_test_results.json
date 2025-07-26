@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-07-25T18:37:34.868116",
+  "api_key_masked": "sk-proj-...GoYA",
+  "available_models": [],
+  "recommended_settings": {
+    "with_llm": {
+      "deep_think_model": "gpt-4-turbo",
+      "quick_think_model": "gpt-3.5-turbo"
+    },
+    "mock_mode": {
+      "deep_think_model": "mock",
+      "quick_think_model": "mock"
+    }
+  }
+}

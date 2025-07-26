@@ -1,0 +1,538 @@
+{
+  "engine": [
+    {
+      "type": "trade_execution",
+      "decision": {
+        "id": "bc5ee0a5-11e9-451e-aaf0-81d82b122c04",
+        "timestamp": "2024-01-01 00:00:00",
+        "action": "TradeAction.BUY",
+        "symbol": "AAPL",
+        "quantity": 0,
+        "order_type": "OrderType.MARKET",
+        "limit_price": null,
+        "stop_price": null,
+        "confidence": 0.5599999999999999,
+        "rationale": "Final decision: BUY with NEUTRAL risk stance",
+        "agent_outputs": {
+          "analyst_reports": {
+            "market_analyst": "AgentOutput(agent_name='Market Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199791), output_type='MarketAnalyst', content={'price_trend': 'bearish', 'volume_analysis': 'high_volume', 'technical_indicators': {'rsi': 54.263756699305155, 'macd': 0.9287258120149104, 'bollinger_position': 0.3128802557602186}, 'signal': 'SELL_SIGNAL'}, confidence=0.878674047900653, processing_time=5.9604644775390625e-06, rationale='Technical analysis for AAPL: SELL_SIGNAL', metadata=None)",
+            "news_analyst": "AgentOutput(agent_name='News Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199816), output_type='NewsAnalyst', content={'news_count': 1, 'overall_sentiment': -0.33487304102587234, 'key_topics': ['earnings'], 'sentiment_trend': 'deteriorating'}, confidence=0.7, processing_time=5.7220458984375e-06, rationale='Analyzed 1 news items', metadata=None)",
+            "social_analyst": "AgentOutput(agent_name='Social Media Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199834), output_type='SocialMediaAnalyst', content={'reddit_sentiment': 0.2552651966358055, 'twitter_mentions': 716, 'trending_score': 0.2011510633896959, 'community_sentiment': 'negative'}, confidence=0.7985448069982684, processing_time=8.106231689453125e-06, rationale='Social media sentiment analysis complete', metadata=None)",
+            "fundamentals_analyst": "AgentOutput(agent_name='Fundamentals Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199847), output_type='FundamentalsAnalyst', content={'pe_ratio': 22.997561152789068, 'revenue_growth': 0.07524003356580164, 'profit_margin': 0.15351516820711814, 'debt_to_equity': 0.3573054546287454, 'fundamental_score': 0.48987893481262296, 'valuation': 'fairly_valued'}, confidence=0.7, processing_time=2.86102294921875e-06, rationale='Fundamental analysis shows fairly_valued valuation', metadata=None)"
+          },
+          "investment_thesis": {
+            "bull": "AgentOutput(agent_name='Bull Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199874), output_type='BullResearcher', content={'recommendation': 'BUY', 'key_points': ['General market conditions favorable'], 'confidence': 0.0, 'risk_factors': ['Market volatility', 'Execution risk'], 'target_return': 0.13824630776858501}, confidence=0.5, processing_time=3.0994415283203125e-06, rationale='Identified 0 bullish factors', metadata=None)",
+            "bear": "AgentOutput(agent_name='Bear Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199881), output_type='BearResearcher', content={'recommendation': 'SELL', 'key_points': ['Technical sell signal', 'Negative price momentum', 'Negative news sentiment'], 'confidence': 0.6, 'risk_factors': ['Short squeeze risk', 'Market reversal'], 'downside_risk': -0.16548279011051345}, confidence=0.8, processing_time=4.0531158447265625e-06, rationale='Identified 3 bearish factors', metadata=None)"
+          },
+          "investment_plan": {
+            "recommendation": "SELL",
+            "position_size": 0.2,
+            "bull_score": 0.5,
+            "bear_score": 0.8,
+            "debate_summary": {
+              "bull_points": 1,
+              "bear_points": 3,
+              "key_decision_factors": [
+                "Technical indicators",
+                "Fundamental valuation",
+                "Market sentiment"
+              ]
+            },
+            "risk_assessment": {
+              "conviction_level": 0.30000000000000004,
+              "key_risks": [
+                "Market volatility",
+                "Execution risk",
+                "Short squeeze risk",
+                "Market reversal"
+              ]
+            },
+            "continue_debate": false
+          },
+          "initial_trade": "TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099})",
+          "risk_assessment": {
+            "perspectives": {
+              "aggressive_debator": "AgentOutput(agent_name='Aggressive Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199989), output_type='AggressiveDebator', content={'risk_stance': 'AGGRESSIVE', 'position_size_recommendation': 'INCREASE', 'key_arguments': ['High conviction trades should be sized appropriately', 'Current exposure is below optimal levels', 'Market conditions favor risk-taking', 'Opportunity cost of being underinvested'], 'suggested_adjustments': {'position_size_multiplier': 1.5, 'stop_loss_adjustment': 0.15, 'take_profit_adjustment': 0.3}, 'risk_metrics': {'acceptable_drawdown': 0.25, 'target_return': 0.3, 'recommended_leverage': 1.2}}, confidence=0.6, processing_time=1.9073486328125e-06, rationale='Aggressive stance: Maximize returns with calculated risks', metadata=None)",
+              "conservative_debator": "AgentOutput(agent_name='Conservative Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199999), output_type='ConservativeDebator', content={'risk_stance': 'CONSERVATIVE', 'position_size_recommendation': 'DECREASE', 'key_arguments': ['Capital preservation is paramount', 'Market uncertainty requires caution', 'Current portfolio exposure is adequate', 'Downside protection more important than upside'], 'suggested_adjustments': {'position_size_multiplier': 0.5, 'stop_loss_adjustment': 0.05, 'take_profit_adjustment': 0.1}, 'risk_metrics': {'acceptable_drawdown': 0.1, 'target_return': 0.1, 'recommended_leverage': 0.8}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Conservative stance: Protect capital, minimize drawdowns', metadata=None)",
+              "neutral_debator": "AgentOutput(agent_name='Neutral Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 200008), output_type='NeutralDebator', content={'risk_stance': 'NEUTRAL', 'position_size_recommendation': 'MAINTAIN', 'key_arguments': ['Balance risk and reward appropriately', 'Current allocation aligns with objectives', 'Diversification provides adequate protection', 'Steady returns preferred over volatility'], 'suggested_adjustments': {'position_size_multiplier': 1.0, 'stop_loss_adjustment': 0.1, 'take_profit_adjustment': 0.2}, 'risk_metrics': {'acceptable_drawdown': 0.15, 'target_return': 0.15, 'recommended_leverage': 1.0}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Neutral stance: Balanced approach to risk and return', metadata=None)"
+            },
+            "initial_trade": "TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099})"
+          }
+        },
+        "risk_assessment": {
+          "stance": "NEUTRAL",
+          "aggressive_score": 0.6,
+          "conservative_score": 0.7,
+          "neutral_score": 0.7,
+          "key_risks": [
+            "Market volatility",
+            "Execution risk",
+            "Liquidity risk"
+          ]
+        },
+        "position_size_pct": 0.2,
+        "stop_loss": 0.15,
+        "take_profit": 0.3
+      },
+      "transaction": {
+        "timestamp": "2024-01-01 00:00:00",
+        "symbol": "AAPL",
+        "action": "TradeAction.BUY",
+        "quantity": 78.9459732160329,
+        "price": 159.60282059631515,
+        "commission": 12.6,
+        "slippage": 12.6,
+        "total_cost": 12612.6,
+        "signal": "TradingDecision(id='bc5ee0a5-11e9-451e-aaf0-81d82b122c04', timestamp=datetime.datetime(2024, 1, 1, 0, 0), action=<TradeAction.BUY: 'BUY'>, symbol='AAPL', quantity=0, order_type=<OrderType.MARKET: 'market'>, limit_price=None, stop_price=None, confidence=0.5599999999999999, rationale='Final decision: BUY with NEUTRAL risk stance', agent_outputs={'analyst_reports': {'market_analyst': AgentOutput(agent_name='Market Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199791), output_type='MarketAnalyst', content={'price_trend': 'bearish', 'volume_analysis': 'high_volume', 'technical_indicators': {'rsi': 54.263756699305155, 'macd': 0.9287258120149104, 'bollinger_position': 0.3128802557602186}, 'signal': 'SELL_SIGNAL'}, confidence=0.878674047900653, processing_time=5.9604644775390625e-06, rationale='Technical analysis for AAPL: SELL_SIGNAL', metadata=None), 'news_analyst': AgentOutput(agent_name='News Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199816), output_type='NewsAnalyst', content={'news_count': 1, 'overall_sentiment': -0.33487304102587234, 'key_topics': ['earnings'], 'sentiment_trend': 'deteriorating'}, confidence=0.7, processing_time=5.7220458984375e-06, rationale='Analyzed 1 news items', metadata=None), 'social_analyst': AgentOutput(agent_name='Social Media Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199834), output_type='SocialMediaAnalyst', content={'reddit_sentiment': 0.2552651966358055, 'twitter_mentions': 716, 'trending_score': 0.2011510633896959, 'community_sentiment': 'negative'}, confidence=0.7985448069982684, processing_time=8.106231689453125e-06, rationale='Social media sentiment analysis complete', metadata=None), 'fundamentals_analyst': AgentOutput(agent_name='Fundamentals Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199847), output_type='FundamentalsAnalyst', content={'pe_ratio': 22.997561152789068, 'revenue_growth': 0.07524003356580164, 'profit_margin': 0.15351516820711814, 'debt_to_equity': 0.3573054546287454, 'fundamental_score': 0.48987893481262296, 'valuation': 'fairly_valued'}, confidence=0.7, processing_time=2.86102294921875e-06, rationale='Fundamental analysis shows fairly_valued valuation', metadata=None)}, 'investment_thesis': {'bull': AgentOutput(agent_name='Bull Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199874), output_type='BullResearcher', content={'recommendation': 'BUY', 'key_points': ['General market conditions favorable'], 'confidence': 0.0, 'risk_factors': ['Market volatility', 'Execution risk'], 'target_return': 0.13824630776858501}, confidence=0.5, processing_time=3.0994415283203125e-06, rationale='Identified 0 bullish factors', metadata=None), 'bear': AgentOutput(agent_name='Bear Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199881), output_type='BearResearcher', content={'recommendation': 'SELL', 'key_points': ['Technical sell signal', 'Negative price momentum', 'Negative news sentiment'], 'confidence': 0.6, 'risk_factors': ['Short squeeze risk', 'Market reversal'], 'downside_risk': -0.16548279011051345}, confidence=0.8, processing_time=4.0531158447265625e-06, rationale='Identified 3 bearish factors', metadata=None)}, 'investment_plan': {'recommendation': 'SELL', 'position_size': 0.2, 'bull_score': 0.5, 'bear_score': 0.8, 'debate_summary': {'bull_points': 1, 'bear_points': 3, 'key_decision_factors': ['Technical indicators', 'Fundamental valuation', 'Market sentiment']}, 'risk_assessment': {'conviction_level': 0.30000000000000004, 'key_risks': ['Market volatility', 'Execution risk', 'Short squeeze risk', 'Market reversal']}, 'continue_debate': False}, 'initial_trade': TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099}), 'risk_assessment': {'perspectives': {'aggressive_debator': AgentOutput(agent_name='Aggressive Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199989), output_type='AggressiveDebator', content={'risk_stance': 'AGGRESSIVE', 'position_size_recommendation': 'INCREASE', 'key_arguments': ['High conviction trades should be sized appropriately', 'Current exposure is below optimal levels', 'Market conditions favor risk-taking', 'Opportunity cost of being underinvested'], 'suggested_adjustments': {'position_size_multiplier': 1.5, 'stop_loss_adjustment': 0.15, 'take_profit_adjustment': 0.3}, 'risk_metrics': {'acceptable_drawdown': 0.25, 'target_return': 0.3, 'recommended_leverage': 1.2}}, confidence=0.6, processing_time=1.9073486328125e-06, rationale='Aggressive stance: Maximize returns with calculated risks', metadata=None), 'conservative_debator': AgentOutput(agent_name='Conservative Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199999), output_type='ConservativeDebator', content={'risk_stance': 'CONSERVATIVE', 'position_size_recommendation': 'DECREASE', 'key_arguments': ['Capital preservation is paramount', 'Market uncertainty requires caution', 'Current portfolio exposure is adequate', 'Downside protection more important than upside'], 'suggested_adjustments': {'position_size_multiplier': 0.5, 'stop_loss_adjustment': 0.05, 'take_profit_adjustment': 0.1}, 'risk_metrics': {'acceptable_drawdown': 0.1, 'target_return': 0.1, 'recommended_leverage': 0.8}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Conservative stance: Protect capital, minimize drawdowns', metadata=None), 'neutral_debator': AgentOutput(agent_name='Neutral Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 200008), output_type='NeutralDebator', content={'risk_stance': 'NEUTRAL', 'position_size_recommendation': 'MAINTAIN', 'key_arguments': ['Balance risk and reward appropriately', 'Current allocation aligns with objectives', 'Diversification provides adequate protection', 'Steady returns preferred over volatility'], 'suggested_adjustments': {'position_size_multiplier': 1.0, 'stop_loss_adjustment': 0.1, 'take_profit_adjustment': 0.2}, 'risk_metrics': {'acceptable_drawdown': 0.15, 'target_return': 0.15, 'recommended_leverage': 1.0}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Neutral stance: Balanced approach to risk and return', metadata=None)}, 'initial_trade': TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099})}}, risk_assessment={'stance': 'NEUTRAL', 'aggressive_score': 0.6, 'conservative_score': 0.7, 'neutral_score': 0.7, 'key_risks': ['Market volatility', 'Execution risk', 'Liquidity risk']}, position_size_pct=0.2, stop_loss=0.15, take_profit=0.3)",
+        "position_id": null,
+        "notes": null
+      },
+      "stored_at": "2025-07-23T18:08:47.178552"
+    },
+    {
+      "type": "trade_execution",
+      "decision": {
+        "id": "a46cb0d4-e1c3-4ef7-8672-7270fe129ac9",
+        "timestamp": "2024-01-02 00:00:00",
+        "action": "TradeAction.BUY",
+        "symbol": "AAPL",
+        "quantity": 0,
+        "order_type": "OrderType.MARKET",
+        "limit_price": null,
+        "stop_price": null,
+        "confidence": 0.5599999999999999,
+        "rationale": "Final decision: BUY with NEUTRAL risk stance",
+        "agent_outputs": {
+          "analyst_reports": {
+            "market_analyst": "AgentOutput(agent_name='Market Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199791), output_type='MarketAnalyst', content={'price_trend': 'bearish', 'volume_analysis': 'high_volume', 'technical_indicators': {'rsi': 54.263756699305155, 'macd': 0.9287258120149104, 'bollinger_position': 0.3128802557602186}, 'signal': 'SELL_SIGNAL'}, confidence=0.878674047900653, processing_time=5.9604644775390625e-06, rationale='Technical analysis for AAPL: SELL_SIGNAL', metadata=None)",
+            "news_analyst": "AgentOutput(agent_name='News Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199816), output_type='NewsAnalyst', content={'news_count': 1, 'overall_sentiment': -0.33487304102587234, 'key_topics': ['earnings'], 'sentiment_trend': 'deteriorating'}, confidence=0.7, processing_time=5.7220458984375e-06, rationale='Analyzed 1 news items', metadata=None)",
+            "social_analyst": "AgentOutput(agent_name='Social Media Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199834), output_type='SocialMediaAnalyst', content={'reddit_sentiment': 0.2552651966358055, 'twitter_mentions': 716, 'trending_score': 0.2011510633896959, 'community_sentiment': 'negative'}, confidence=0.7985448069982684, processing_time=8.106231689453125e-06, rationale='Social media sentiment analysis complete', metadata=None)",
+            "fundamentals_analyst": "AgentOutput(agent_name='Fundamentals Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199847), output_type='FundamentalsAnalyst', content={'pe_ratio': 22.997561152789068, 'revenue_growth': 0.07524003356580164, 'profit_margin': 0.15351516820711814, 'debt_to_equity': 0.3573054546287454, 'fundamental_score': 0.48987893481262296, 'valuation': 'fairly_valued'}, confidence=0.7, processing_time=2.86102294921875e-06, rationale='Fundamental analysis shows fairly_valued valuation', metadata=None)"
+          },
+          "investment_thesis": {
+            "bull": "AgentOutput(agent_name='Bull Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199874), output_type='BullResearcher', content={'recommendation': 'BUY', 'key_points': ['General market conditions favorable'], 'confidence': 0.0, 'risk_factors': ['Market volatility', 'Execution risk'], 'target_return': 0.13824630776858501}, confidence=0.5, processing_time=3.0994415283203125e-06, rationale='Identified 0 bullish factors', metadata=None)",
+            "bear": "AgentOutput(agent_name='Bear Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199881), output_type='BearResearcher', content={'recommendation': 'SELL', 'key_points': ['Technical sell signal', 'Negative price momentum', 'Negative news sentiment'], 'confidence': 0.6, 'risk_factors': ['Short squeeze risk', 'Market reversal'], 'downside_risk': -0.16548279011051345}, confidence=0.8, processing_time=4.0531158447265625e-06, rationale='Identified 3 bearish factors', metadata=None)"
+          },
+          "investment_plan": {
+            "recommendation": "SELL",
+            "position_size": 0.2,
+            "bull_score": 0.5,
+            "bear_score": 0.8,
+            "debate_summary": {
+              "bull_points": 1,
+              "bear_points": 3,
+              "key_decision_factors": [
+                "Technical indicators",
+                "Fundamental valuation",
+                "Market sentiment"
+              ]
+            },
+            "risk_assessment": {
+              "conviction_level": 0.30000000000000004,
+              "key_risks": [
+                "Market volatility",
+                "Execution risk",
+                "Short squeeze risk",
+                "Market reversal"
+              ]
+            },
+            "continue_debate": false
+          },
+          "initial_trade": "TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099})",
+          "risk_assessment": {
+            "perspectives": {
+              "aggressive_debator": "AgentOutput(agent_name='Aggressive Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199989), output_type='AggressiveDebator', content={'risk_stance': 'AGGRESSIVE', 'position_size_recommendation': 'INCREASE', 'key_arguments': ['High conviction trades should be sized appropriately', 'Current exposure is below optimal levels', 'Market conditions favor risk-taking', 'Opportunity cost of being underinvested'], 'suggested_adjustments': {'position_size_multiplier': 1.5, 'stop_loss_adjustment': 0.15, 'take_profit_adjustment': 0.3}, 'risk_metrics': {'acceptable_drawdown': 0.25, 'target_return': 0.3, 'recommended_leverage': 1.2}}, confidence=0.6, processing_time=1.9073486328125e-06, rationale='Aggressive stance: Maximize returns with calculated risks', metadata=None)",
+              "conservative_debator": "AgentOutput(agent_name='Conservative Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199999), output_type='ConservativeDebator', content={'risk_stance': 'CONSERVATIVE', 'position_size_recommendation': 'DECREASE', 'key_arguments': ['Capital preservation is paramount', 'Market uncertainty requires caution', 'Current portfolio exposure is adequate', 'Downside protection more important than upside'], 'suggested_adjustments': {'position_size_multiplier': 0.5, 'stop_loss_adjustment': 0.05, 'take_profit_adjustment': 0.1}, 'risk_metrics': {'acceptable_drawdown': 0.1, 'target_return': 0.1, 'recommended_leverage': 0.8}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Conservative stance: Protect capital, minimize drawdowns', metadata=None)",
+              "neutral_debator": "AgentOutput(agent_name='Neutral Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 200008), output_type='NeutralDebator', content={'risk_stance': 'NEUTRAL', 'position_size_recommendation': 'MAINTAIN', 'key_arguments': ['Balance risk and reward appropriately', 'Current allocation aligns with objectives', 'Diversification provides adequate protection', 'Steady returns preferred over volatility'], 'suggested_adjustments': {'position_size_multiplier': 1.0, 'stop_loss_adjustment': 0.1, 'take_profit_adjustment': 0.2}, 'risk_metrics': {'acceptable_drawdown': 0.15, 'target_return': 0.15, 'recommended_leverage': 1.0}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Neutral stance: Balanced approach to risk and return', metadata=None)"
+            },
+            "initial_trade": "TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099})"
+          }
+        },
+        "risk_assessment": {
+          "stance": "NEUTRAL",
+          "aggressive_score": 0.6,
+          "conservative_score": 0.7,
+          "neutral_score": 0.7,
+          "key_risks": [
+            "Market volatility",
+            "Execution risk",
+            "Liquidity risk"
+          ]
+        },
+        "position_size_pct": 0.2,
+        "stop_loss": 0.15,
+        "take_profit": 0.3
+      },
+      "transaction": {
+        "timestamp": "2024-01-02 00:00:00",
+        "symbol": "AAPL",
+        "action": "TradeAction.BUY",
+        "quantity": 67.08833334656725,
+        "price": 161.492102420135,
+        "commission": 10.834235999999999,
+        "slippage": 10.834235999999999,
+        "total_cost": 10845.070236,
+        "signal": "TradingDecision(id='a46cb0d4-e1c3-4ef7-8672-7270fe129ac9', timestamp=datetime.datetime(2024, 1, 2, 0, 0), action=<TradeAction.BUY: 'BUY'>, symbol='AAPL', quantity=0, order_type=<OrderType.MARKET: 'market'>, limit_price=None, stop_price=None, confidence=0.5599999999999999, rationale='Final decision: BUY with NEUTRAL risk stance', agent_outputs={'analyst_reports': {'market_analyst': AgentOutput(agent_name='Market Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199791), output_type='MarketAnalyst', content={'price_trend': 'bearish', 'volume_analysis': 'high_volume', 'technical_indicators': {'rsi': 54.263756699305155, 'macd': 0.9287258120149104, 'bollinger_position': 0.3128802557602186}, 'signal': 'SELL_SIGNAL'}, confidence=0.878674047900653, processing_time=5.9604644775390625e-06, rationale='Technical analysis for AAPL: SELL_SIGNAL', metadata=None), 'news_analyst': AgentOutput(agent_name='News Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199816), output_type='NewsAnalyst', content={'news_count': 1, 'overall_sentiment': -0.33487304102587234, 'key_topics': ['earnings'], 'sentiment_trend': 'deteriorating'}, confidence=0.7, processing_time=5.7220458984375e-06, rationale='Analyzed 1 news items', metadata=None), 'social_analyst': AgentOutput(agent_name='Social Media Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199834), output_type='SocialMediaAnalyst', content={'reddit_sentiment': 0.2552651966358055, 'twitter_mentions': 716, 'trending_score': 0.2011510633896959, 'community_sentiment': 'negative'}, confidence=0.7985448069982684, processing_time=8.106231689453125e-06, rationale='Social media sentiment analysis complete', metadata=None), 'fundamentals_analyst': AgentOutput(agent_name='Fundamentals Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199847), output_type='FundamentalsAnalyst', content={'pe_ratio': 22.997561152789068, 'revenue_growth': 0.07524003356580164, 'profit_margin': 0.15351516820711814, 'debt_to_equity': 0.3573054546287454, 'fundamental_score': 0.48987893481262296, 'valuation': 'fairly_valued'}, confidence=0.7, processing_time=2.86102294921875e-06, rationale='Fundamental analysis shows fairly_valued valuation', metadata=None)}, 'investment_thesis': {'bull': AgentOutput(agent_name='Bull Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199874), output_type='BullResearcher', content={'recommendation': 'BUY', 'key_points': ['General market conditions favorable'], 'confidence': 0.0, 'risk_factors': ['Market volatility', 'Execution risk'], 'target_return': 0.13824630776858501}, confidence=0.5, processing_time=3.0994415283203125e-06, rationale='Identified 0 bullish factors', metadata=None), 'bear': AgentOutput(agent_name='Bear Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199881), output_type='BearResearcher', content={'recommendation': 'SELL', 'key_points': ['Technical sell signal', 'Negative price momentum', 'Negative news sentiment'], 'confidence': 0.6, 'risk_factors': ['Short squeeze risk', 'Market reversal'], 'downside_risk': -0.16548279011051345}, confidence=0.8, processing_time=4.0531158447265625e-06, rationale='Identified 3 bearish factors', metadata=None)}, 'investment_plan': {'recommendation': 'SELL', 'position_size': 0.2, 'bull_score': 0.5, 'bear_score': 0.8, 'debate_summary': {'bull_points': 1, 'bear_points': 3, 'key_decision_factors': ['Technical indicators', 'Fundamental valuation', 'Market sentiment']}, 'risk_assessment': {'conviction_level': 0.30000000000000004, 'key_risks': ['Market volatility', 'Execution risk', 'Short squeeze risk', 'Market reversal']}, 'continue_debate': False}, 'initial_trade': TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099}), 'risk_assessment': {'perspectives': {'aggressive_debator': AgentOutput(agent_name='Aggressive Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199989), output_type='AggressiveDebator', content={'risk_stance': 'AGGRESSIVE', 'position_size_recommendation': 'INCREASE', 'key_arguments': ['High conviction trades should be sized appropriately', 'Current exposure is below optimal levels', 'Market conditions favor risk-taking', 'Opportunity cost of being underinvested'], 'suggested_adjustments': {'position_size_multiplier': 1.5, 'stop_loss_adjustment': 0.15, 'take_profit_adjustment': 0.3}, 'risk_metrics': {'acceptable_drawdown': 0.25, 'target_return': 0.3, 'recommended_leverage': 1.2}}, confidence=0.6, processing_time=1.9073486328125e-06, rationale='Aggressive stance: Maximize returns with calculated risks', metadata=None), 'conservative_debator': AgentOutput(agent_name='Conservative Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199999), output_type='ConservativeDebator', content={'risk_stance': 'CONSERVATIVE', 'position_size_recommendation': 'DECREASE', 'key_arguments': ['Capital preservation is paramount', 'Market uncertainty requires caution', 'Current portfolio exposure is adequate', 'Downside protection more important than upside'], 'suggested_adjustments': {'position_size_multiplier': 0.5, 'stop_loss_adjustment': 0.05, 'take_profit_adjustment': 0.1}, 'risk_metrics': {'acceptable_drawdown': 0.1, 'target_return': 0.1, 'recommended_leverage': 0.8}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Conservative stance: Protect capital, minimize drawdowns', metadata=None), 'neutral_debator': AgentOutput(agent_name='Neutral Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 200008), output_type='NeutralDebator', content={'risk_stance': 'NEUTRAL', 'position_size_recommendation': 'MAINTAIN', 'key_arguments': ['Balance risk and reward appropriately', 'Current allocation aligns with objectives', 'Diversification provides adequate protection', 'Steady returns preferred over volatility'], 'suggested_adjustments': {'position_size_multiplier': 1.0, 'stop_loss_adjustment': 0.1, 'take_profit_adjustment': 0.2}, 'risk_metrics': {'acceptable_drawdown': 0.15, 'target_return': 0.15, 'recommended_leverage': 1.0}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Neutral stance: Balanced approach to risk and return', metadata=None)}, 'initial_trade': TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099})}}, risk_assessment={'stance': 'NEUTRAL', 'aggressive_score': 0.6, 'conservative_score': 0.7, 'neutral_score': 0.7, 'key_risks': ['Market volatility', 'Execution risk', 'Liquidity risk']}, position_size_pct=0.2, stop_loss=0.15, take_profit=0.3)",
+        "position_id": null,
+        "notes": null
+      },
+      "stored_at": "2025-07-23T18:08:47.182217"
+    },
+    {
+      "type": "trade_execution",
+      "decision": {
+        "id": "ccdfd27e-1091-43ce-be9d-40c1da21412b",
+        "timestamp": "2024-01-03 00:00:00",
+        "action": "TradeAction.BUY",
+        "symbol": "AAPL",
+        "quantity": 0,
+        "order_type": "OrderType.MARKET",
+        "limit_price": null,
+        "stop_price": null,
+        "confidence": 0.5599999999999999,
+        "rationale": "Final decision: BUY with NEUTRAL risk stance",
+        "agent_outputs": {
+          "analyst_reports": {
+            "market_analyst": "AgentOutput(agent_name='Market Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199791), output_type='MarketAnalyst', content={'price_trend': 'bearish', 'volume_analysis': 'high_volume', 'technical_indicators': {'rsi': 54.263756699305155, 'macd': 0.9287258120149104, 'bollinger_position': 0.3128802557602186}, 'signal': 'SELL_SIGNAL'}, confidence=0.878674047900653, processing_time=5.9604644775390625e-06, rationale='Technical analysis for AAPL: SELL_SIGNAL', metadata=None)",
+            "news_analyst": "AgentOutput(agent_name='News Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199816), output_type='NewsAnalyst', content={'news_count': 1, 'overall_sentiment': -0.33487304102587234, 'key_topics': ['earnings'], 'sentiment_trend': 'deteriorating'}, confidence=0.7, processing_time=5.7220458984375e-06, rationale='Analyzed 1 news items', metadata=None)",
+            "social_analyst": "AgentOutput(agent_name='Social Media Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199834), output_type='SocialMediaAnalyst', content={'reddit_sentiment': 0.2552651966358055, 'twitter_mentions': 716, 'trending_score': 0.2011510633896959, 'community_sentiment': 'negative'}, confidence=0.7985448069982684, processing_time=8.106231689453125e-06, rationale='Social media sentiment analysis complete', metadata=None)",
+            "fundamentals_analyst": "AgentOutput(agent_name='Fundamentals Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199847), output_type='FundamentalsAnalyst', content={'pe_ratio': 22.997561152789068, 'revenue_growth': 0.07524003356580164, 'profit_margin': 0.15351516820711814, 'debt_to_equity': 0.3573054546287454, 'fundamental_score': 0.48987893481262296, 'valuation': 'fairly_valued'}, confidence=0.7, processing_time=2.86102294921875e-06, rationale='Fundamental analysis shows fairly_valued valuation', metadata=None)"
+          },
+          "investment_thesis": {
+            "bull": "AgentOutput(agent_name='Bull Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199874), output_type='BullResearcher', content={'recommendation': 'BUY', 'key_points': ['General market conditions favorable'], 'confidence': 0.0, 'risk_factors': ['Market volatility', 'Execution risk'], 'target_return': 0.13824630776858501}, confidence=0.5, processing_time=3.0994415283203125e-06, rationale='Identified 0 bullish factors', metadata=None)",
+            "bear": "AgentOutput(agent_name='Bear Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199881), output_type='BearResearcher', content={'recommendation': 'SELL', 'key_points': ['Technical sell signal', 'Negative price momentum', 'Negative news sentiment'], 'confidence': 0.6, 'risk_factors': ['Short squeeze risk', 'Market reversal'], 'downside_risk': -0.16548279011051345}, confidence=0.8, processing_time=4.0531158447265625e-06, rationale='Identified 3 bearish factors', metadata=None)"
+          },
+          "investment_plan": {
+            "recommendation": "SELL",
+            "position_size": 0.2,
+            "bull_score": 0.5,
+            "bear_score": 0.8,
+            "debate_summary": {
+              "bull_points": 1,
+              "bear_points": 3,
+              "key_decision_factors": [
+                "Technical indicators",
+                "Fundamental valuation",
+                "Market sentiment"
+              ]
+            },
+            "risk_assessment": {
+              "conviction_level": 0.30000000000000004,
+              "key_risks": [
+                "Market volatility",
+                "Execution risk",
+                "Short squeeze risk",
+                "Market reversal"
+              ]
+            },
+            "continue_debate": false
+          },
+          "initial_trade": "TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099})",
+          "risk_assessment": {
+            "perspectives": {
+              "aggressive_debator": "AgentOutput(agent_name='Aggressive Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199989), output_type='AggressiveDebator', content={'risk_stance': 'AGGRESSIVE', 'position_size_recommendation': 'INCREASE', 'key_arguments': ['High conviction trades should be sized appropriately', 'Current exposure is below optimal levels', 'Market conditions favor risk-taking', 'Opportunity cost of being underinvested'], 'suggested_adjustments': {'position_size_multiplier': 1.5, 'stop_loss_adjustment': 0.15, 'take_profit_adjustment': 0.3}, 'risk_metrics': {'acceptable_drawdown': 0.25, 'target_return': 0.3, 'recommended_leverage': 1.2}}, confidence=0.6, processing_time=1.9073486328125e-06, rationale='Aggressive stance: Maximize returns with calculated risks', metadata=None)",
+              "conservative_debator": "AgentOutput(agent_name='Conservative Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199999), output_type='ConservativeDebator', content={'risk_stance': 'CONSERVATIVE', 'position_size_recommendation': 'DECREASE', 'key_arguments': ['Capital preservation is paramount', 'Market uncertainty requires caution', 'Current portfolio exposure is adequate', 'Downside protection more important than upside'], 'suggested_adjustments': {'position_size_multiplier': 0.5, 'stop_loss_adjustment': 0.05, 'take_profit_adjustment': 0.1}, 'risk_metrics': {'acceptable_drawdown': 0.1, 'target_return': 0.1, 'recommended_leverage': 0.8}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Conservative stance: Protect capital, minimize drawdowns', metadata=None)",
+              "neutral_debator": "AgentOutput(agent_name='Neutral Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 200008), output_type='NeutralDebator', content={'risk_stance': 'NEUTRAL', 'position_size_recommendation': 'MAINTAIN', 'key_arguments': ['Balance risk and reward appropriately', 'Current allocation aligns with objectives', 'Diversification provides adequate protection', 'Steady returns preferred over volatility'], 'suggested_adjustments': {'position_size_multiplier': 1.0, 'stop_loss_adjustment': 0.1, 'take_profit_adjustment': 0.2}, 'risk_metrics': {'acceptable_drawdown': 0.15, 'target_return': 0.15, 'recommended_leverage': 1.0}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Neutral stance: Balanced approach to risk and return', metadata=None)"
+            },
+            "initial_trade": "TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099})"
+          }
+        },
+        "risk_assessment": {
+          "stance": "NEUTRAL",
+          "aggressive_score": 0.6,
+          "conservative_score": 0.7,
+          "neutral_score": 0.7,
+          "key_risks": [
+            "Market volatility",
+            "Execution risk",
+            "Liquidity risk"
+          ]
+        },
+        "position_size_pct": 0.2,
+        "stop_loss": 0.15,
+        "take_profit": 0.3
+      },
+      "transaction": {
+        "timestamp": "2024-01-03 00:00:00",
+        "symbol": "AAPL",
+        "action": "TradeAction.BUY",
+        "quantity": 57.35953115547285,
+        "price": 162.4128715715825,
+        "commission": 9.315926166959999,
+        "slippage": 9.315926166959999,
+        "total_cost": 9325.242093126959,
+        "signal": "TradingDecision(id='ccdfd27e-1091-43ce-be9d-40c1da21412b', timestamp=datetime.datetime(2024, 1, 3, 0, 0), action=<TradeAction.BUY: 'BUY'>, symbol='AAPL', quantity=0, order_type=<OrderType.MARKET: 'market'>, limit_price=None, stop_price=None, confidence=0.5599999999999999, rationale='Final decision: BUY with NEUTRAL risk stance', agent_outputs={'analyst_reports': {'market_analyst': AgentOutput(agent_name='Market Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199791), output_type='MarketAnalyst', content={'price_trend': 'bearish', 'volume_analysis': 'high_volume', 'technical_indicators': {'rsi': 54.263756699305155, 'macd': 0.9287258120149104, 'bollinger_position': 0.3128802557602186}, 'signal': 'SELL_SIGNAL'}, confidence=0.878674047900653, processing_time=5.9604644775390625e-06, rationale='Technical analysis for AAPL: SELL_SIGNAL', metadata=None), 'news_analyst': AgentOutput(agent_name='News Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199816), output_type='NewsAnalyst', content={'news_count': 1, 'overall_sentiment': -0.33487304102587234, 'key_topics': ['earnings'], 'sentiment_trend': 'deteriorating'}, confidence=0.7, processing_time=5.7220458984375e-06, rationale='Analyzed 1 news items', metadata=None), 'social_analyst': AgentOutput(agent_name='Social Media Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199834), output_type='SocialMediaAnalyst', content={'reddit_sentiment': 0.2552651966358055, 'twitter_mentions': 716, 'trending_score': 0.2011510633896959, 'community_sentiment': 'negative'}, confidence=0.7985448069982684, processing_time=8.106231689453125e-06, rationale='Social media sentiment analysis complete', metadata=None), 'fundamentals_analyst': AgentOutput(agent_name='Fundamentals Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199847), output_type='FundamentalsAnalyst', content={'pe_ratio': 22.997561152789068, 'revenue_growth': 0.07524003356580164, 'profit_margin': 0.15351516820711814, 'debt_to_equity': 0.3573054546287454, 'fundamental_score': 0.48987893481262296, 'valuation': 'fairly_valued'}, confidence=0.7, processing_time=2.86102294921875e-06, rationale='Fundamental analysis shows fairly_valued valuation', metadata=None)}, 'investment_thesis': {'bull': AgentOutput(agent_name='Bull Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199874), output_type='BullResearcher', content={'recommendation': 'BUY', 'key_points': ['General market conditions favorable'], 'confidence': 0.0, 'risk_factors': ['Market volatility', 'Execution risk'], 'target_return': 0.13824630776858501}, confidence=0.5, processing_time=3.0994415283203125e-06, rationale='Identified 0 bullish factors', metadata=None), 'bear': AgentOutput(agent_name='Bear Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199881), output_type='BearResearcher', content={'recommendation': 'SELL', 'key_points': ['Technical sell signal', 'Negative price momentum', 'Negative news sentiment'], 'confidence': 0.6, 'risk_factors': ['Short squeeze risk', 'Market reversal'], 'downside_risk': -0.16548279011051345}, confidence=0.8, processing_time=4.0531158447265625e-06, rationale='Identified 3 bearish factors', metadata=None)}, 'investment_plan': {'recommendation': 'SELL', 'position_size': 0.2, 'bull_score': 0.5, 'bear_score': 0.8, 'debate_summary': {'bull_points': 1, 'bear_points': 3, 'key_decision_factors': ['Technical indicators', 'Fundamental valuation', 'Market sentiment']}, 'risk_assessment': {'conviction_level': 0.30000000000000004, 'key_risks': ['Market volatility', 'Execution risk', 'Short squeeze risk', 'Market reversal']}, 'continue_debate': False}, 'initial_trade': TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099}), 'risk_assessment': {'perspectives': {'aggressive_debator': AgentOutput(agent_name='Aggressive Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199989), output_type='AggressiveDebator', content={'risk_stance': 'AGGRESSIVE', 'position_size_recommendation': 'INCREASE', 'key_arguments': ['High conviction trades should be sized appropriately', 'Current exposure is below optimal levels', 'Market conditions favor risk-taking', 'Opportunity cost of being underinvested'], 'suggested_adjustments': {'position_size_multiplier': 1.5, 'stop_loss_adjustment': 0.15, 'take_profit_adjustment': 0.3}, 'risk_metrics': {'acceptable_drawdown': 0.25, 'target_return': 0.3, 'recommended_leverage': 1.2}}, confidence=0.6, processing_time=1.9073486328125e-06, rationale='Aggressive stance: Maximize returns with calculated risks', metadata=None), 'conservative_debator': AgentOutput(agent_name='Conservative Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199999), output_type='ConservativeDebator', content={'risk_stance': 'CONSERVATIVE', 'position_size_recommendation': 'DECREASE', 'key_arguments': ['Capital preservation is paramount', 'Market uncertainty requires caution', 'Current portfolio exposure is adequate', 'Downside protection more important than upside'], 'suggested_adjustments': {'position_size_multiplier': 0.5, 'stop_loss_adjustment': 0.05, 'take_profit_adjustment': 0.1}, 'risk_metrics': {'acceptable_drawdown': 0.1, 'target_return': 0.1, 'recommended_leverage': 0.8}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Conservative stance: Protect capital, minimize drawdowns', metadata=None), 'neutral_debator': AgentOutput(agent_name='Neutral Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 200008), output_type='NeutralDebator', content={'risk_stance': 'NEUTRAL', 'position_size_recommendation': 'MAINTAIN', 'key_arguments': ['Balance risk and reward appropriately', 'Current allocation aligns with objectives', 'Diversification provides adequate protection', 'Steady returns preferred over volatility'], 'suggested_adjustments': {'position_size_multiplier': 1.0, 'stop_loss_adjustment': 0.1, 'take_profit_adjustment': 0.2}, 'risk_metrics': {'acceptable_drawdown': 0.15, 'target_return': 0.15, 'recommended_leverage': 1.0}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Neutral stance: Balanced approach to risk and return', metadata=None)}, 'initial_trade': TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099})}}, risk_assessment={'stance': 'NEUTRAL', 'aggressive_score': 0.6, 'conservative_score': 0.7, 'neutral_score': 0.7, 'key_risks': ['Market volatility', 'Execution risk', 'Liquidity risk']}, position_size_pct=0.2, stop_loss=0.15, take_profit=0.3)",
+        "position_id": null,
+        "notes": null
+      },
+      "stored_at": "2025-07-23T18:08:47.185448"
+    },
+    {
+      "type": "trade_execution",
+      "decision": {
+        "id": "25bc9e37-36aa-47a7-8519-74ad0a1310d6",
+        "timestamp": "2024-01-04 00:00:00",
+        "action": "TradeAction.SELL",
+        "symbol": "AAPL",
+        "quantity": 0,
+        "order_type": "OrderType.MARKET",
+        "limit_price": null,
+        "stop_price": null,
+        "confidence": 0.5599999999999999,
+        "rationale": "Final decision: SELL with NEUTRAL risk stance",
+        "agent_outputs": {
+          "analyst_reports": {
+            "market_analyst": "AgentOutput(agent_name='Market Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199791), output_type='MarketAnalyst', content={'price_trend': 'bearish', 'volume_analysis': 'high_volume', 'technical_indicators': {'rsi': 54.263756699305155, 'macd': 0.9287258120149104, 'bollinger_position': 0.3128802557602186}, 'signal': 'SELL_SIGNAL'}, confidence=0.878674047900653, processing_time=5.9604644775390625e-06, rationale='Technical analysis for AAPL: SELL_SIGNAL', metadata=None)",
+            "news_analyst": "AgentOutput(agent_name='News Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199816), output_type='NewsAnalyst', content={'news_count': 1, 'overall_sentiment': -0.33487304102587234, 'key_topics': ['earnings'], 'sentiment_trend': 'deteriorating'}, confidence=0.7, processing_time=5.7220458984375e-06, rationale='Analyzed 1 news items', metadata=None)",
+            "social_analyst": "AgentOutput(agent_name='Social Media Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199834), output_type='SocialMediaAnalyst', content={'reddit_sentiment': 0.2552651966358055, 'twitter_mentions': 716, 'trending_score': 0.2011510633896959, 'community_sentiment': 'negative'}, confidence=0.7985448069982684, processing_time=8.106231689453125e-06, rationale='Social media sentiment analysis complete', metadata=None)",
+            "fundamentals_analyst": "AgentOutput(agent_name='Fundamentals Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199847), output_type='FundamentalsAnalyst', content={'pe_ratio': 22.997561152789068, 'revenue_growth': 0.07524003356580164, 'profit_margin': 0.15351516820711814, 'debt_to_equity': 0.3573054546287454, 'fundamental_score': 0.48987893481262296, 'valuation': 'fairly_valued'}, confidence=0.7, processing_time=2.86102294921875e-06, rationale='Fundamental analysis shows fairly_valued valuation', metadata=None)"
+          },
+          "investment_thesis": {
+            "bull": "AgentOutput(agent_name='Bull Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199874), output_type='BullResearcher', content={'recommendation': 'BUY', 'key_points': ['General market conditions favorable'], 'confidence': 0.0, 'risk_factors': ['Market volatility', 'Execution risk'], 'target_return': 0.13824630776858501}, confidence=0.5, processing_time=3.0994415283203125e-06, rationale='Identified 0 bullish factors', metadata=None)",
+            "bear": "AgentOutput(agent_name='Bear Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199881), output_type='BearResearcher', content={'recommendation': 'SELL', 'key_points': ['Technical sell signal', 'Negative price momentum', 'Negative news sentiment'], 'confidence': 0.6, 'risk_factors': ['Short squeeze risk', 'Market reversal'], 'downside_risk': -0.16548279011051345}, confidence=0.8, processing_time=4.0531158447265625e-06, rationale='Identified 3 bearish factors', metadata=None)"
+          },
+          "investment_plan": {
+            "recommendation": "SELL",
+            "position_size": 0.2,
+            "bull_score": 0.5,
+            "bear_score": 0.8,
+            "debate_summary": {
+              "bull_points": 1,
+              "bear_points": 3,
+              "key_decision_factors": [
+                "Technical indicators",
+                "Fundamental valuation",
+                "Market sentiment"
+              ]
+            },
+            "risk_assessment": {
+              "conviction_level": 0.30000000000000004,
+              "key_risks": [
+                "Market volatility",
+                "Execution risk",
+                "Short squeeze risk",
+                "Market reversal"
+              ]
+            },
+            "continue_debate": false
+          },
+          "initial_trade": "TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099})",
+          "risk_assessment": {
+            "perspectives": {
+              "aggressive_debator": "AgentOutput(agent_name='Aggressive Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199989), output_type='AggressiveDebator', content={'risk_stance': 'AGGRESSIVE', 'position_size_recommendation': 'INCREASE', 'key_arguments': ['High conviction trades should be sized appropriately', 'Current exposure is below optimal levels', 'Market conditions favor risk-taking', 'Opportunity cost of being underinvested'], 'suggested_adjustments': {'position_size_multiplier': 1.5, 'stop_loss_adjustment': 0.15, 'take_profit_adjustment': 0.3}, 'risk_metrics': {'acceptable_drawdown': 0.25, 'target_return': 0.3, 'recommended_leverage': 1.2}}, confidence=0.6, processing_time=1.9073486328125e-06, rationale='Aggressive stance: Maximize returns with calculated risks', metadata=None)",
+              "conservative_debator": "AgentOutput(agent_name='Conservative Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199999), output_type='ConservativeDebator', content={'risk_stance': 'CONSERVATIVE', 'position_size_recommendation': 'DECREASE', 'key_arguments': ['Capital preservation is paramount', 'Market uncertainty requires caution', 'Current portfolio exposure is adequate', 'Downside protection more important than upside'], 'suggested_adjustments': {'position_size_multiplier': 0.5, 'stop_loss_adjustment': 0.05, 'take_profit_adjustment': 0.1}, 'risk_metrics': {'acceptable_drawdown': 0.1, 'target_return': 0.1, 'recommended_leverage': 0.8}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Conservative stance: Protect capital, minimize drawdowns', metadata=None)",
+              "neutral_debator": "AgentOutput(agent_name='Neutral Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 200008), output_type='NeutralDebator', content={'risk_stance': 'NEUTRAL', 'position_size_recommendation': 'MAINTAIN', 'key_arguments': ['Balance risk and reward appropriately', 'Current allocation aligns with objectives', 'Diversification provides adequate protection', 'Steady returns preferred over volatility'], 'suggested_adjustments': {'position_size_multiplier': 1.0, 'stop_loss_adjustment': 0.1, 'take_profit_adjustment': 0.2}, 'risk_metrics': {'acceptable_drawdown': 0.15, 'target_return': 0.15, 'recommended_leverage': 1.0}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Neutral stance: Balanced approach to risk and return', metadata=None)"
+            },
+            "initial_trade": "TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099})"
+          }
+        },
+        "risk_assessment": {
+          "stance": "NEUTRAL",
+          "aggressive_score": 0.6,
+          "conservative_score": 0.7,
+          "neutral_score": 0.7,
+          "key_risks": [
+            "Market volatility",
+            "Execution risk",
+            "Liquidity risk"
+          ]
+        },
+        "position_size_pct": 0,
+        "stop_loss": 0.15,
+        "take_profit": 0.3
+      },
+      "transaction": {
+        "timestamp": "2024-01-04 00:00:00",
+        "symbol": "AAPL",
+        "action": "TradeAction.SELL",
+        "quantity": 49.079312040918,
+        "price": 163.21321430186038,
+        "commission": 8.010392273922225,
+        "slippage": 8.010392273922225,
+        "total_cost": 8018.402666196148,
+        "signal": "TradingDecision(id='25bc9e37-36aa-47a7-8519-74ad0a1310d6', timestamp=datetime.datetime(2024, 1, 4, 0, 0), action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', quantity=0, order_type=<OrderType.MARKET: 'market'>, limit_price=None, stop_price=None, confidence=0.5599999999999999, rationale='Final decision: SELL with NEUTRAL risk stance', agent_outputs={'analyst_reports': {'market_analyst': AgentOutput(agent_name='Market Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199791), output_type='MarketAnalyst', content={'price_trend': 'bearish', 'volume_analysis': 'high_volume', 'technical_indicators': {'rsi': 54.263756699305155, 'macd': 0.9287258120149104, 'bollinger_position': 0.3128802557602186}, 'signal': 'SELL_SIGNAL'}, confidence=0.878674047900653, processing_time=5.9604644775390625e-06, rationale='Technical analysis for AAPL: SELL_SIGNAL', metadata=None), 'news_analyst': AgentOutput(agent_name='News Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199816), output_type='NewsAnalyst', content={'news_count': 1, 'overall_sentiment': -0.33487304102587234, 'key_topics': ['earnings'], 'sentiment_trend': 'deteriorating'}, confidence=0.7, processing_time=5.7220458984375e-06, rationale='Analyzed 1 news items', metadata=None), 'social_analyst': AgentOutput(agent_name='Social Media Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199834), output_type='SocialMediaAnalyst', content={'reddit_sentiment': 0.2552651966358055, 'twitter_mentions': 716, 'trending_score': 0.2011510633896959, 'community_sentiment': 'negative'}, confidence=0.7985448069982684, processing_time=8.106231689453125e-06, rationale='Social media sentiment analysis complete', metadata=None), 'fundamentals_analyst': AgentOutput(agent_name='Fundamentals Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199847), output_type='FundamentalsAnalyst', content={'pe_ratio': 22.997561152789068, 'revenue_growth': 0.07524003356580164, 'profit_margin': 0.15351516820711814, 'debt_to_equity': 0.3573054546287454, 'fundamental_score': 0.48987893481262296, 'valuation': 'fairly_valued'}, confidence=0.7, processing_time=2.86102294921875e-06, rationale='Fundamental analysis shows fairly_valued valuation', metadata=None)}, 'investment_thesis': {'bull': AgentOutput(agent_name='Bull Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199874), output_type='BullResearcher', content={'recommendation': 'BUY', 'key_points': ['General market conditions favorable'], 'confidence': 0.0, 'risk_factors': ['Market volatility', 'Execution risk'], 'target_return': 0.13824630776858501}, confidence=0.5, processing_time=3.0994415283203125e-06, rationale='Identified 0 bullish factors', metadata=None), 'bear': AgentOutput(agent_name='Bear Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199881), output_type='BearResearcher', content={'recommendation': 'SELL', 'key_points': ['Technical sell signal', 'Negative price momentum', 'Negative news sentiment'], 'confidence': 0.6, 'risk_factors': ['Short squeeze risk', 'Market reversal'], 'downside_risk': -0.16548279011051345}, confidence=0.8, processing_time=4.0531158447265625e-06, rationale='Identified 3 bearish factors', metadata=None)}, 'investment_plan': {'recommendation': 'SELL', 'position_size': 0.2, 'bull_score': 0.5, 'bear_score': 0.8, 'debate_summary': {'bull_points': 1, 'bear_points': 3, 'key_decision_factors': ['Technical indicators', 'Fundamental valuation', 'Market sentiment']}, 'risk_assessment': {'conviction_level': 0.30000000000000004, 'key_risks': ['Market volatility', 'Execution risk', 'Short squeeze risk', 'Market reversal']}, 'continue_debate': False}, 'initial_trade': TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099}), 'risk_assessment': {'perspectives': {'aggressive_debator': AgentOutput(agent_name='Aggressive Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199989), output_type='AggressiveDebator', content={'risk_stance': 'AGGRESSIVE', 'position_size_recommendation': 'INCREASE', 'key_arguments': ['High conviction trades should be sized appropriately', 'Current exposure is below optimal levels', 'Market conditions favor risk-taking', 'Opportunity cost of being underinvested'], 'suggested_adjustments': {'position_size_multiplier': 1.5, 'stop_loss_adjustment': 0.15, 'take_profit_adjustment': 0.3}, 'risk_metrics': {'acceptable_drawdown': 0.25, 'target_return': 0.3, 'recommended_leverage': 1.2}}, confidence=0.6, processing_time=1.9073486328125e-06, rationale='Aggressive stance: Maximize returns with calculated risks', metadata=None), 'conservative_debator': AgentOutput(agent_name='Conservative Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199999), output_type='ConservativeDebator', content={'risk_stance': 'CONSERVATIVE', 'position_size_recommendation': 'DECREASE', 'key_arguments': ['Capital preservation is paramount', 'Market uncertainty requires caution', 'Current portfolio exposure is adequate', 'Downside protection more important than upside'], 'suggested_adjustments': {'position_size_multiplier': 0.5, 'stop_loss_adjustment': 0.05, 'take_profit_adjustment': 0.1}, 'risk_metrics': {'acceptable_drawdown': 0.1, 'target_return': 0.1, 'recommended_leverage': 0.8}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Conservative stance: Protect capital, minimize drawdowns', metadata=None), 'neutral_debator': AgentOutput(agent_name='Neutral Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 200008), output_type='NeutralDebator', content={'risk_stance': 'NEUTRAL', 'position_size_recommendation': 'MAINTAIN', 'key_arguments': ['Balance risk and reward appropriately', 'Current allocation aligns with objectives', 'Diversification provides adequate protection', 'Steady returns preferred over volatility'], 'suggested_adjustments': {'position_size_multiplier': 1.0, 'stop_loss_adjustment': 0.1, 'take_profit_adjustment': 0.2}, 'risk_metrics': {'acceptable_drawdown': 0.15, 'target_return': 0.15, 'recommended_leverage': 1.0}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Neutral stance: Balanced approach to risk and return', metadata=None)}, 'initial_trade': TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099})}}, risk_assessment={'stance': 'NEUTRAL', 'aggressive_score': 0.6, 'conservative_score': 0.7, 'neutral_score': 0.7, 'key_risks': ['Market volatility', 'Execution risk', 'Liquidity risk']}, position_size_pct=0, stop_loss=0.15, take_profit=0.3)",
+        "position_id": null,
+        "notes": null
+      },
+      "stored_at": "2025-07-23T18:08:47.188418"
+    },
+    {
+      "type": "trade_execution",
+      "decision": {
+        "id": "18036b69-65c2-4904-affd-12c2303d967f",
+        "timestamp": "2024-01-09 00:00:00",
+        "action": "TradeAction.BUY",
+        "symbol": "AAPL",
+        "quantity": 0,
+        "order_type": "OrderType.MARKET",
+        "limit_price": null,
+        "stop_price": null,
+        "confidence": 0.5599999999999999,
+        "rationale": "Final decision: BUY with NEUTRAL risk stance",
+        "agent_outputs": {
+          "analyst_reports": {
+            "market_analyst": "AgentOutput(agent_name='Market Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199791), output_type='MarketAnalyst', content={'price_trend': 'bearish', 'volume_analysis': 'high_volume', 'technical_indicators': {'rsi': 54.263756699305155, 'macd': 0.9287258120149104, 'bollinger_position': 0.3128802557602186}, 'signal': 'SELL_SIGNAL'}, confidence=0.878674047900653, processing_time=5.9604644775390625e-06, rationale='Technical analysis for AAPL: SELL_SIGNAL', metadata=None)",
+            "news_analyst": "AgentOutput(agent_name='News Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199816), output_type='NewsAnalyst', content={'news_count': 1, 'overall_sentiment': -0.33487304102587234, 'key_topics': ['earnings'], 'sentiment_trend': 'deteriorating'}, confidence=0.7, processing_time=5.7220458984375e-06, rationale='Analyzed 1 news items', metadata=None)",
+            "social_analyst": "AgentOutput(agent_name='Social Media Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199834), output_type='SocialMediaAnalyst', content={'reddit_sentiment': 0.2552651966358055, 'twitter_mentions': 716, 'trending_score': 0.2011510633896959, 'community_sentiment': 'negative'}, confidence=0.7985448069982684, processing_time=8.106231689453125e-06, rationale='Social media sentiment analysis complete', metadata=None)",
+            "fundamentals_analyst": "AgentOutput(agent_name='Fundamentals Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199847), output_type='FundamentalsAnalyst', content={'pe_ratio': 22.997561152789068, 'revenue_growth': 0.07524003356580164, 'profit_margin': 0.15351516820711814, 'debt_to_equity': 0.3573054546287454, 'fundamental_score': 0.48987893481262296, 'valuation': 'fairly_valued'}, confidence=0.7, processing_time=2.86102294921875e-06, rationale='Fundamental analysis shows fairly_valued valuation', metadata=None)"
+          },
+          "investment_thesis": {
+            "bull": "AgentOutput(agent_name='Bull Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199874), output_type='BullResearcher', content={'recommendation': 'BUY', 'key_points': ['General market conditions favorable'], 'confidence': 0.0, 'risk_factors': ['Market volatility', 'Execution risk'], 'target_return': 0.13824630776858501}, confidence=0.5, processing_time=3.0994415283203125e-06, rationale='Identified 0 bullish factors', metadata=None)",
+            "bear": "AgentOutput(agent_name='Bear Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199881), output_type='BearResearcher', content={'recommendation': 'SELL', 'key_points': ['Technical sell signal', 'Negative price momentum', 'Negative news sentiment'], 'confidence': 0.6, 'risk_factors': ['Short squeeze risk', 'Market reversal'], 'downside_risk': -0.16548279011051345}, confidence=0.8, processing_time=4.0531158447265625e-06, rationale='Identified 3 bearish factors', metadata=None)"
+          },
+          "investment_plan": {
+            "recommendation": "SELL",
+            "position_size": 0.2,
+            "bull_score": 0.5,
+            "bear_score": 0.8,
+            "debate_summary": {
+              "bull_points": 1,
+              "bear_points": 3,
+              "key_decision_factors": [
+                "Technical indicators",
+                "Fundamental valuation",
+                "Market sentiment"
+              ]
+            },
+            "risk_assessment": {
+              "conviction_level": 0.30000000000000004,
+              "key_risks": [
+                "Market volatility",
+                "Execution risk",
+                "Short squeeze risk",
+                "Market reversal"
+              ]
+            },
+            "continue_debate": false
+          },
+          "initial_trade": "TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099})",
+          "risk_assessment": {
+            "perspectives": {
+              "aggressive_debator": "AgentOutput(agent_name='Aggressive Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199989), output_type='AggressiveDebator', content={'risk_stance': 'AGGRESSIVE', 'position_size_recommendation': 'INCREASE', 'key_arguments': ['High conviction trades should be sized appropriately', 'Current exposure is below optimal levels', 'Market conditions favor risk-taking', 'Opportunity cost of being underinvested'], 'suggested_adjustments': {'position_size_multiplier': 1.5, 'stop_loss_adjustment': 0.15, 'take_profit_adjustment': 0.3}, 'risk_metrics': {'acceptable_drawdown': 0.25, 'target_return': 0.3, 'recommended_leverage': 1.2}}, confidence=0.6, processing_time=1.9073486328125e-06, rationale='Aggressive stance: Maximize returns with calculated risks', metadata=None)",
+              "conservative_debator": "AgentOutput(agent_name='Conservative Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199999), output_type='ConservativeDebator', content={'risk_stance': 'CONSERVATIVE', 'position_size_recommendation': 'DECREASE', 'key_arguments': ['Capital preservation is paramount', 'Market uncertainty requires caution', 'Current portfolio exposure is adequate', 'Downside protection more important than upside'], 'suggested_adjustments': {'position_size_multiplier': 0.5, 'stop_loss_adjustment': 0.05, 'take_profit_adjustment': 0.1}, 'risk_metrics': {'acceptable_drawdown': 0.1, 'target_return': 0.1, 'recommended_leverage': 0.8}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Conservative stance: Protect capital, minimize drawdowns', metadata=None)",
+              "neutral_debator": "AgentOutput(agent_name='Neutral Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 200008), output_type='NeutralDebator', content={'risk_stance': 'NEUTRAL', 'position_size_recommendation': 'MAINTAIN', 'key_arguments': ['Balance risk and reward appropriately', 'Current allocation aligns with objectives', 'Diversification provides adequate protection', 'Steady returns preferred over volatility'], 'suggested_adjustments': {'position_size_multiplier': 1.0, 'stop_loss_adjustment': 0.1, 'take_profit_adjustment': 0.2}, 'risk_metrics': {'acceptable_drawdown': 0.15, 'target_return': 0.15, 'recommended_leverage': 1.0}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Neutral stance: Balanced approach to risk and return', metadata=None)"
+            },
+            "initial_trade": "TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099})"
+          }
+        },
+        "risk_assessment": {
+          "stance": "NEUTRAL",
+          "aggressive_score": 0.6,
+          "conservative_score": 0.7,
+          "neutral_score": 0.7,
+          "key_risks": [
+            "Market volatility",
+            "Execution risk",
+            "Liquidity risk"
+          ]
+        },
+        "position_size_pct": 0.2,
+        "stop_loss": 0.15,
+        "take_profit": 0.3
+      },
+      "transaction": {
+        "timestamp": "2024-01-09 00:00:00",
+        "symbol": "AAPL",
+        "action": "TradeAction.BUY",
+        "quantity": 53.226711708774076,
+        "price": 171.5440508012417,
+        "commission": 9.130725737352988,
+        "slippage": 9.130725737352988,
+        "total_cost": 9139.85646309034,
+        "signal": "TradingDecision(id='18036b69-65c2-4904-affd-12c2303d967f', timestamp=datetime.datetime(2024, 1, 9, 0, 0), action=<TradeAction.BUY: 'BUY'>, symbol='AAPL', quantity=0, order_type=<OrderType.MARKET: 'market'>, limit_price=None, stop_price=None, confidence=0.5599999999999999, rationale='Final decision: BUY with NEUTRAL risk stance', agent_outputs={'analyst_reports': {'market_analyst': AgentOutput(agent_name='Market Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199791), output_type='MarketAnalyst', content={'price_trend': 'bearish', 'volume_analysis': 'high_volume', 'technical_indicators': {'rsi': 54.263756699305155, 'macd': 0.9287258120149104, 'bollinger_position': 0.3128802557602186}, 'signal': 'SELL_SIGNAL'}, confidence=0.878674047900653, processing_time=5.9604644775390625e-06, rationale='Technical analysis for AAPL: SELL_SIGNAL', metadata=None), 'news_analyst': AgentOutput(agent_name='News Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199816), output_type='NewsAnalyst', content={'news_count': 1, 'overall_sentiment': -0.33487304102587234, 'key_topics': ['earnings'], 'sentiment_trend': 'deteriorating'}, confidence=0.7, processing_time=5.7220458984375e-06, rationale='Analyzed 1 news items', metadata=None), 'social_analyst': AgentOutput(agent_name='Social Media Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199834), output_type='SocialMediaAnalyst', content={'reddit_sentiment': 0.2552651966358055, 'twitter_mentions': 716, 'trending_score': 0.2011510633896959, 'community_sentiment': 'negative'}, confidence=0.7985448069982684, processing_time=8.106231689453125e-06, rationale='Social media sentiment analysis complete', metadata=None), 'fundamentals_analyst': AgentOutput(agent_name='Fundamentals Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199847), output_type='FundamentalsAnalyst', content={'pe_ratio': 22.997561152789068, 'revenue_growth': 0.07524003356580164, 'profit_margin': 0.15351516820711814, 'debt_to_equity': 0.3573054546287454, 'fundamental_score': 0.48987893481262296, 'valuation': 'fairly_valued'}, confidence=0.7, processing_time=2.86102294921875e-06, rationale='Fundamental analysis shows fairly_valued valuation', metadata=None)}, 'investment_thesis': {'bull': AgentOutput(agent_name='Bull Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199874), output_type='BullResearcher', content={'recommendation': 'BUY', 'key_points': ['General market conditions favorable'], 'confidence': 0.0, 'risk_factors': ['Market volatility', 'Execution risk'], 'target_return': 0.13824630776858501}, confidence=0.5, processing_time=3.0994415283203125e-06, rationale='Identified 0 bullish factors', metadata=None), 'bear': AgentOutput(agent_name='Bear Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199881), output_type='BearResearcher', content={'recommendation': 'SELL', 'key_points': ['Technical sell signal', 'Negative price momentum', 'Negative news sentiment'], 'confidence': 0.6, 'risk_factors': ['Short squeeze risk', 'Market reversal'], 'downside_risk': -0.16548279011051345}, confidence=0.8, processing_time=4.0531158447265625e-06, rationale='Identified 3 bearish factors', metadata=None)}, 'investment_plan': {'recommendation': 'SELL', 'position_size': 0.2, 'bull_score': 0.5, 'bear_score': 0.8, 'debate_summary': {'bull_points': 1, 'bear_points': 3, 'key_decision_factors': ['Technical indicators', 'Fundamental valuation', 'Market sentiment']}, 'risk_assessment': {'conviction_level': 0.30000000000000004, 'key_risks': ['Market volatility', 'Execution risk', 'Short squeeze risk', 'Market reversal']}, 'continue_debate': False}, 'initial_trade': TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099}), 'risk_assessment': {'perspectives': {'aggressive_debator': AgentOutput(agent_name='Aggressive Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199989), output_type='AggressiveDebator', content={'risk_stance': 'AGGRESSIVE', 'position_size_recommendation': 'INCREASE', 'key_arguments': ['High conviction trades should be sized appropriately', 'Current exposure is below optimal levels', 'Market conditions favor risk-taking', 'Opportunity cost of being underinvested'], 'suggested_adjustments': {'position_size_multiplier': 1.5, 'stop_loss_adjustment': 0.15, 'take_profit_adjustment': 0.3}, 'risk_metrics': {'acceptable_drawdown': 0.25, 'target_return': 0.3, 'recommended_leverage': 1.2}}, confidence=0.6, processing_time=1.9073486328125e-06, rationale='Aggressive stance: Maximize returns with calculated risks', metadata=None), 'conservative_debator': AgentOutput(agent_name='Conservative Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199999), output_type='ConservativeDebator', content={'risk_stance': 'CONSERVATIVE', 'position_size_recommendation': 'DECREASE', 'key_arguments': ['Capital preservation is paramount', 'Market uncertainty requires caution', 'Current portfolio exposure is adequate', 'Downside protection more important than upside'], 'suggested_adjustments': {'position_size_multiplier': 0.5, 'stop_loss_adjustment': 0.05, 'take_profit_adjustment': 0.1}, 'risk_metrics': {'acceptable_drawdown': 0.1, 'target_return': 0.1, 'recommended_leverage': 0.8}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Conservative stance: Protect capital, minimize drawdowns', metadata=None), 'neutral_debator': AgentOutput(agent_name='Neutral Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 200008), output_type='NeutralDebator', content={'risk_stance': 'NEUTRAL', 'position_size_recommendation': 'MAINTAIN', 'key_arguments': ['Balance risk and reward appropriately', 'Current allocation aligns with objectives', 'Diversification provides adequate protection', 'Steady returns preferred over volatility'], 'suggested_adjustments': {'position_size_multiplier': 1.0, 'stop_loss_adjustment': 0.1, 'take_profit_adjustment': 0.2}, 'risk_metrics': {'acceptable_drawdown': 0.15, 'target_return': 0.15, 'recommended_leverage': 1.0}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Neutral stance: Balanced approach to risk and return', metadata=None)}, 'initial_trade': TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099})}}, risk_assessment={'stance': 'NEUTRAL', 'aggressive_score': 0.6, 'conservative_score': 0.7, 'neutral_score': 0.7, 'key_risks': ['Market volatility', 'Execution risk', 'Liquidity risk']}, position_size_pct=0.2, stop_loss=0.15, take_profit=0.3)",
+        "position_id": null,
+        "notes": null
+      },
+      "stored_at": "2025-07-23T18:08:47.193858"
+    },
+    {
+      "type": "trade_execution",
+      "decision": {
+        "id": "ba61fc31-7998-4c81-9e23-a93f59865e09",
+        "timestamp": "2024-01-10 00:00:00",
+        "action": "TradeAction.SELL",
+        "symbol": "AAPL",
+        "quantity": 0,
+        "order_type": "OrderType.MARKET",
+        "limit_price": null,
+        "stop_price": null,
+        "confidence": 0.5599999999999999,
+        "rationale": "Final decision: SELL with NEUTRAL risk stance",
+        "agent_outputs": {
+          "analyst_reports": {
+            "market_analyst": "AgentOutput(agent_name='Market Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199791), output_type='MarketAnalyst', content={'price_trend': 'bearish', 'volume_analysis': 'high_volume', 'technical_indicators': {'rsi': 54.263756699305155, 'macd': 0.9287258120149104, 'bollinger_position': 0.3128802557602186}, 'signal': 'SELL_SIGNAL'}, confidence=0.878674047900653, processing_time=5.9604644775390625e-06, rationale='Technical analysis for AAPL: SELL_SIGNAL', metadata=None)",
+            "news_analyst": "AgentOutput(agent_name='News Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199816), output_type='NewsAnalyst', content={'news_count': 1, 'overall_sentiment': -0.33487304102587234, 'key_topics': ['earnings'], 'sentiment_trend': 'deteriorating'}, confidence=0.7, processing_time=5.7220458984375e-06, rationale='Analyzed 1 news items', metadata=None)",
+            "social_analyst": "AgentOutput(agent_name='Social Media Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199834), output_type='SocialMediaAnalyst', content={'reddit_sentiment': 0.2552651966358055, 'twitter_mentions': 716, 'trending_score': 0.2011510633896959, 'community_sentiment': 'negative'}, confidence=0.7985448069982684, processing_time=8.106231689453125e-06, rationale='Social media sentiment analysis complete', metadata=None)",
+            "fundamentals_analyst": "AgentOutput(agent_name='Fundamentals Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199847), output_type='FundamentalsAnalyst', content={'pe_ratio': 22.997561152789068, 'revenue_growth': 0.07524003356580164, 'profit_margin': 0.15351516820711814, 'debt_to_equity': 0.3573054546287454, 'fundamental_score': 0.48987893481262296, 'valuation': 'fairly_valued'}, confidence=0.7, processing_time=2.86102294921875e-06, rationale='Fundamental analysis shows fairly_valued valuation', metadata=None)"
+          },
+          "investment_thesis": {
+            "bull": "AgentOutput(agent_name='Bull Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199874), output_type='BullResearcher', content={'recommendation': 'BUY', 'key_points': ['General market conditions favorable'], 'confidence': 0.0, 'risk_factors': ['Market volatility', 'Execution risk'], 'target_return': 0.13824630776858501}, confidence=0.5, processing_time=3.0994415283203125e-06, rationale='Identified 0 bullish factors', metadata=None)",
+            "bear": "AgentOutput(agent_name='Bear Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199881), output_type='BearResearcher', content={'recommendation': 'SELL', 'key_points': ['Technical sell signal', 'Negative price momentum', 'Negative news sentiment'], 'confidence': 0.6, 'risk_factors': ['Short squeeze risk', 'Market reversal'], 'downside_risk': -0.16548279011051345}, confidence=0.8, processing_time=4.0531158447265625e-06, rationale='Identified 3 bearish factors', metadata=None)"
+          },
+          "investment_plan": {
+            "recommendation": "SELL",
+            "position_size": 0.2,
+            "bull_score": 0.5,
+            "bear_score": 0.8,
+            "debate_summary": {
+              "bull_points": 1,
+              "bear_points": 3,
+              "key_decision_factors": [
+                "Technical indicators",
+                "Fundamental valuation",
+                "Market sentiment"
+              ]
+            },
+            "risk_assessment": {
+              "conviction_level": 0.30000000000000004,
+              "key_risks": [
+                "Market volatility",
+                "Execution risk",
+                "Short squeeze risk",
+                "Market reversal"
+              ]
+            },
+            "continue_debate": false
+          },
+          "initial_trade": "TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099})",
+          "risk_assessment": {
+            "perspectives": {
+              "aggressive_debator": "AgentOutput(agent_name='Aggressive Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199989), output_type='AggressiveDebator', content={'risk_stance': 'AGGRESSIVE', 'position_size_recommendation': 'INCREASE', 'key_arguments': ['High conviction trades should be sized appropriately', 'Current exposure is below optimal levels', 'Market conditions favor risk-taking', 'Opportunity cost of being underinvested'], 'suggested_adjustments': {'position_size_multiplier': 1.5, 'stop_loss_adjustment': 0.15, 'take_profit_adjustment': 0.3}, 'risk_metrics': {'acceptable_drawdown': 0.25, 'target_return': 0.3, 'recommended_leverage': 1.2}}, confidence=0.6, processing_time=1.9073486328125e-06, rationale='Aggressive stance: Maximize returns with calculated risks', metadata=None)",
+              "conservative_debator": "AgentOutput(agent_name='Conservative Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199999), output_type='ConservativeDebator', content={'risk_stance': 'CONSERVATIVE', 'position_size_recommendation': 'DECREASE', 'key_arguments': ['Capital preservation is paramount', 'Market uncertainty requires caution', 'Current portfolio exposure is adequate', 'Downside protection more important than upside'], 'suggested_adjustments': {'position_size_multiplier': 0.5, 'stop_loss_adjustment': 0.05, 'take_profit_adjustment': 0.1}, 'risk_metrics': {'acceptable_drawdown': 0.1, 'target_return': 0.1, 'recommended_leverage': 0.8}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Conservative stance: Protect capital, minimize drawdowns', metadata=None)",
+              "neutral_debator": "AgentOutput(agent_name='Neutral Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 200008), output_type='NeutralDebator', content={'risk_stance': 'NEUTRAL', 'position_size_recommendation': 'MAINTAIN', 'key_arguments': ['Balance risk and reward appropriately', 'Current allocation aligns with objectives', 'Diversification provides adequate protection', 'Steady returns preferred over volatility'], 'suggested_adjustments': {'position_size_multiplier': 1.0, 'stop_loss_adjustment': 0.1, 'take_profit_adjustment': 0.2}, 'risk_metrics': {'acceptable_drawdown': 0.15, 'target_return': 0.15, 'recommended_leverage': 1.0}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Neutral stance: Balanced approach to risk and return', metadata=None)"
+            },
+            "initial_trade": "TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099})"
+          }
+        },
+        "risk_assessment": {
+          "stance": "NEUTRAL",
+          "aggressive_score": 0.6,
+          "conservative_score": 0.7,
+          "neutral_score": 0.7,
+          "key_risks": [
+            "Market volatility",
+            "Execution risk",
+            "Liquidity risk"
+          ]
+        },
+        "position_size_pct": 0,
+        "stop_loss": 0.15,
+        "take_profit": 0.3
+      },
+      "transaction": {
+        "timestamp": "2024-01-10 00:00:00",
+        "symbol": "AAPL",
+        "action": "TradeAction.SELL",
+        "quantity": 62.104089681432235,
+        "price": 126.41914361507274,
+        "commission": 7.851145832520339,
+        "slippage": 7.851145832520339,
+        "total_cost": 7858.996978352859,
+        "signal": "TradingDecision(id='ba61fc31-7998-4c81-9e23-a93f59865e09', timestamp=datetime.datetime(2024, 1, 10, 0, 0), action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', quantity=0, order_type=<OrderType.MARKET: 'market'>, limit_price=None, stop_price=None, confidence=0.5599999999999999, rationale='Final decision: SELL with NEUTRAL risk stance', agent_outputs={'analyst_reports': {'market_analyst': AgentOutput(agent_name='Market Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199791), output_type='MarketAnalyst', content={'price_trend': 'bearish', 'volume_analysis': 'high_volume', 'technical_indicators': {'rsi': 54.263756699305155, 'macd': 0.9287258120149104, 'bollinger_position': 0.3128802557602186}, 'signal': 'SELL_SIGNAL'}, confidence=0.878674047900653, processing_time=5.9604644775390625e-06, rationale='Technical analysis for AAPL: SELL_SIGNAL', metadata=None), 'news_analyst': AgentOutput(agent_name='News Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199816), output_type='NewsAnalyst', content={'news_count': 1, 'overall_sentiment': -0.33487304102587234, 'key_topics': ['earnings'], 'sentiment_trend': 'deteriorating'}, confidence=0.7, processing_time=5.7220458984375e-06, rationale='Analyzed 1 news items', metadata=None), 'social_analyst': AgentOutput(agent_name='Social Media Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199834), output_type='SocialMediaAnalyst', content={'reddit_sentiment': 0.2552651966358055, 'twitter_mentions': 716, 'trending_score': 0.2011510633896959, 'community_sentiment': 'negative'}, confidence=0.7985448069982684, processing_time=8.106231689453125e-06, rationale='Social media sentiment analysis complete', metadata=None), 'fundamentals_analyst': AgentOutput(agent_name='Fundamentals Analyst', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199847), output_type='FundamentalsAnalyst', content={'pe_ratio': 22.997561152789068, 'revenue_growth': 0.07524003356580164, 'profit_margin': 0.15351516820711814, 'debt_to_equity': 0.3573054546287454, 'fundamental_score': 0.48987893481262296, 'valuation': 'fairly_valued'}, confidence=0.7, processing_time=2.86102294921875e-06, rationale='Fundamental analysis shows fairly_valued valuation', metadata=None)}, 'investment_thesis': {'bull': AgentOutput(agent_name='Bull Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199874), output_type='BullResearcher', content={'recommendation': 'BUY', 'key_points': ['General market conditions favorable'], 'confidence': 0.0, 'risk_factors': ['Market volatility', 'Execution risk'], 'target_return': 0.13824630776858501}, confidence=0.5, processing_time=3.0994415283203125e-06, rationale='Identified 0 bullish factors', metadata=None), 'bear': AgentOutput(agent_name='Bear Researcher', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199881), output_type='BearResearcher', content={'recommendation': 'SELL', 'key_points': ['Technical sell signal', 'Negative price momentum', 'Negative news sentiment'], 'confidence': 0.6, 'risk_factors': ['Short squeeze risk', 'Market reversal'], 'downside_risk': -0.16548279011051345}, confidence=0.8, processing_time=4.0531158447265625e-06, rationale='Identified 3 bearish factors', metadata=None)}, 'investment_plan': {'recommendation': 'SELL', 'position_size': 0.2, 'bull_score': 0.5, 'bear_score': 0.8, 'debate_summary': {'bull_points': 1, 'bear_points': 3, 'key_decision_factors': ['Technical indicators', 'Fundamental valuation', 'Market sentiment']}, 'risk_assessment': {'conviction_level': 0.30000000000000004, 'key_risks': ['Market volatility', 'Execution risk', 'Short squeeze risk', 'Market reversal']}, 'continue_debate': False}, 'initial_trade': TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099}), 'risk_assessment': {'perspectives': {'aggressive_debator': AgentOutput(agent_name='Aggressive Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199989), output_type='AggressiveDebator', content={'risk_stance': 'AGGRESSIVE', 'position_size_recommendation': 'INCREASE', 'key_arguments': ['High conviction trades should be sized appropriately', 'Current exposure is below optimal levels', 'Market conditions favor risk-taking', 'Opportunity cost of being underinvested'], 'suggested_adjustments': {'position_size_multiplier': 1.5, 'stop_loss_adjustment': 0.15, 'take_profit_adjustment': 0.3}, 'risk_metrics': {'acceptable_drawdown': 0.25, 'target_return': 0.3, 'recommended_leverage': 1.2}}, confidence=0.6, processing_time=1.9073486328125e-06, rationale='Aggressive stance: Maximize returns with calculated risks', metadata=None), 'conservative_debator': AgentOutput(agent_name='Conservative Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 199999), output_type='ConservativeDebator', content={'risk_stance': 'CONSERVATIVE', 'position_size_recommendation': 'DECREASE', 'key_arguments': ['Capital preservation is paramount', 'Market uncertainty requires caution', 'Current portfolio exposure is adequate', 'Downside protection more important than upside'], 'suggested_adjustments': {'position_size_multiplier': 0.5, 'stop_loss_adjustment': 0.05, 'take_profit_adjustment': 0.1}, 'risk_metrics': {'acceptable_drawdown': 0.1, 'target_return': 0.1, 'recommended_leverage': 0.8}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Conservative stance: Protect capital, minimize drawdowns', metadata=None), 'neutral_debator': AgentOutput(agent_name='Neutral Risk Debator', timestamp=datetime.datetime(2025, 7, 23, 18, 8, 47, 200008), output_type='NeutralDebator', content={'risk_stance': 'NEUTRAL', 'position_size_recommendation': 'MAINTAIN', 'key_arguments': ['Balance risk and reward appropriately', 'Current allocation aligns with objectives', 'Diversification provides adequate protection', 'Steady returns preferred over volatility'], 'suggested_adjustments': {'position_size_multiplier': 1.0, 'stop_loss_adjustment': 0.1, 'take_profit_adjustment': 0.2}, 'risk_metrics': {'acceptable_drawdown': 0.15, 'target_return': 0.15, 'recommended_leverage': 1.0}}, confidence=0.7, processing_time=9.5367431640625e-07, rationale='Neutral stance: Balanced approach to risk and return', metadata=None)}, 'initial_trade': TradingSignal(action=<TradeAction.SELL: 'SELL'>, symbol='AAPL', confidence=0.7, size_recommendation=207.54123738592904, rationale='SELL decision: Investment thesis negative', risk_assessment={'portfolio_exposure': 0.3395857591676813, 'position_count': 1, 'cash_available': 66079.61308943099})}}, risk_assessment={'stance': 'NEUTRAL', 'aggressive_score': 0.6, 'conservative_score': 0.7, 'neutral_score': 0.7, 'key_risks': ['Market volatility', 'Execution risk', 'Liquidity risk']}, position_size_pct=0, stop_loss=0.15, take_profit=0.3)",
+        "position_id": null,
+        "notes": null
+      },
+      "stored_at": "2025-07-23T18:08:47.200167"
+    }
+  ]
+}

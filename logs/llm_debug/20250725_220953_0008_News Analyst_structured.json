@@ -1,0 +1,12 @@
+{
+  "timestamp": "20250725_220953",
+  "agent": "News Analyst_structured",
+  "prompt": "\nMSFTに関するニュースを分析してください。\n\n最新ニュース:\n現在ニュースはありません\n\nセンチメント分析と市場への影響を評価してください。\n\n\nPlease respond in the following JSON format:\n{\n  \"overall_sentiment\": {\n    \"type\": \"number\",\n    \"minimum\": -1,\n    \"maximum\": 1\n  },\n  \"key_topics\": {\n    \"type\": \"array\",\n    \"items\": {\n      \"type\": \"string\"\n    }\n  },\n  \"market_impact\": {\n    \"type\": \"string\",\n    \"enum\": [\n      \"positive\",\n      \"negative\",\n      \"neutral\"\n    ]\n  },\n  \"confidence\": {\n    \"type\": \"number\",\n    \"minimum\": 0,\n    \"maximum\": 1\n  },\n  \"rationale\": {\n    \"type\": \"string\"\n  }\n}",
+  "response": "{\n  \"overall_sentiment\": {\n    \"type\": \"number\",\n    \"minimum\": -1,\n    \"maximum\": 1\n  },\n  \"key_topics\": {\n    \"type\": \"array\",\n    \"items\": {\n      \"type\": \"string\"\n    }\n  },\n  \"market_impact\": {\n    \"type\": \"string\",\n    \"enum\": [\n      \"positive\",\n      \"negative\",\n      \"neutral\"\n    ]\n  },\n  \"confidence\": {\n    \"type\": \"number\",\n    \"minimum\": 0,\n    \"maximum\": 1\n  },\n  \"rationale\": {\n    \"type\": \"string\"\n  }\n}\n\nContext:\n{\n  \"market_data\": {\n    \"date\": \"2025-07-22T00:00:00\",\n    \"symbol\": \"MSFT\",\n    \"open\": 510.9700012207031,\n    \"high\": 511.20001220703125,\n    \"low\": 505.2699890136719,\n    \"close\": 505.2699890136719,\n    \"volume\": 13868600,\n    \"adjusted_close\": null,\n    \"news\": null,\n    \"fundamentals\": null,\n    \"technicals\": null,\n    \"sentiment\": null\n  },\n  \"context\": {\n    \"timestamp\": \"2025-07-22T00:00:00\",\n    \"market_state\": {\n      \"symbol\": \"MSFT\",\n      \"data\": {\n        \"date\": \"2025-07-22T00:00:00\",\n        \"symbol\": \"MSFT\",\n        \"open\": 510.9700012207031,\n        \"high\": 511.20001220703125,\n        \"low\": 505.2699890136719,\n        \"close\": 505.2699890136719,\n        \"volume\": 13868600,\n        \"adjusted_close\": null,\n        \"news\": null,\n        \"fundamentals\": null,\n        \"technicals\": null,\n        \"sentiment\": null\n      }\n    },\n    \"portfolio_state\": {\n      \"timestamp\": \"2025-07-25T22:09:42.512161\",\n      \"cash\": 100000.0,\n      \"total_value\": 100000.0,\n      \"position_count\": 0,\n      \"positions\": 0",
+  "response_length": 1462,
+  "context_keys": [
+    "market_data",
+    "context"
+  ],
+  "use_japanese": false
+}

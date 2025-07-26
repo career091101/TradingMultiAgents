@@ -1,0 +1,12 @@
+{
+  "timestamp": "20250725_223134",
+  "agent": "Trader",
+  "prompt": "Market is oversold, RSI at 25, what action?\n\nIMPORTANT: You must respond with valid JSON only. No explanations, no markdown, just JSON.\n\nExample of the EXACT format you must use:\n{\n  \"action\": \"BUY\",\n  \"confidence\": 0.75,\n  \"entry_strategy\": \"limit_order\",\n  \"rationale\": \"Bullish momentum confirmed\"\n}\n\nYour response must follow this exact structure with appropriate values based on the context.\n",
+  "response": "{\n  \"action\": \"BUY\",\n  \"confidence\": 0.8,\n  \"entry_strategy\": \"market_order\",\n  \"rationale\": \"Market is oversold with RSI at 25\"\n}",
+  "response_length": 130,
+  "context_keys": [
+    "test",
+    "market_data"
+  ],
+  "use_japanese": false
+}

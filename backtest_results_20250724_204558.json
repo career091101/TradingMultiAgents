@@ -1,0 +1,132 @@
+{
+  "timestamp": "20250724_204558",
+  "analysis": {
+    "execution_summary": {
+      "total_logs": 11,
+      "errors": 2,
+      "warnings": 0,
+      "progress_updates": 4
+    },
+    "problems": [
+      {
+        "type": "error",
+        "timestamp": "2025-07-24T20:45:54.416018",
+        "message": "Error processing AAPL: 'NoneType' object has no attribute 'get'"
+      },
+      {
+        "type": "error",
+        "timestamp": "2025-07-24T20:45:58.042970",
+        "message": "Error processing MSFT: 'NoneType' object has no attribute 'get'"
+      }
+    ],
+    "warnings": [],
+    "performance_metrics": {
+      "AAPL": {
+        "total_return": 0,
+        "sharpe_ratio": 0,
+        "max_drawdown": 0,
+        "win_rate": 0,
+        "total_trades": 0
+      },
+      "MSFT": {
+        "total_return": 0,
+        "sharpe_ratio": 0,
+        "max_drawdown": 0,
+        "win_rate": 0,
+        "total_trades": 0
+      }
+    },
+    "has_critical_issues": true,
+    "needs_attention": false
+  },
+  "results": {
+    "AAPL": {
+      "ticker": "AAPL",
+      "error": "'NoneType' object has no attribute 'get'",
+      "metrics": {},
+      "initial_capital": 100000.0,
+      "final_value": 100000.0,
+      "files": {}
+    },
+    "MSFT": {
+      "ticker": "MSFT",
+      "error": "'NoneType' object has no attribute 'get'",
+      "metrics": {},
+      "initial_capital": 100000.0,
+      "final_value": 100000.0,
+      "files": {}
+    }
+  },
+  "logs": [
+    {
+      "timestamp": "2025-07-24T20:45:49.794508",
+      "message": "Starting Backtest2 (Paper-compliant version)"
+    },
+    {
+      "timestamp": "2025-07-24T20:45:49.794679",
+      "message": "Configuration: {\n  \"tickers\": [\n    \"AAPL\",\n    \"MSFT\"\n  ],\n  \"start_date\": \"2025-04-25\",\n  \"end_date\": \"2025-07-23\",\n  \"initial_capital\": 100000.0,\n  \"position_limits\": {\n    \"aggressive\": 0.8,\n    \"neutral\": 0.5,\n    \"conservative\": 0.3\n  },\n  \"use_mock\": true,\n  \"llm_config\": {\n    \"provider\": \"openai\",\n    \"model\": \"gpt-4o-mini\",\n    \"temperature\": 0.7,\n    \"max_tokens\": 2000\n  },\n  \"agents\": {\n    \"trader\": {\n      \"enabled\": true,\n      \"role\": \"trader\"\n    },\n    \"risk_manager\": {\n      \"enabled\": true,\n      \"role\": \"risk_manager\"\n    },\n    \"fundamental_analyst\": {\n      \"enabled\": true,\n      \"role\": \"analyst\"\n    },\n    \"market_analyst\": {\n      \"enabled\": true,\n      \"role\": \"analyst\"\n    },\n    \"sentiment_analyst\": {\n      \"enabled\": true,\n      \"role\": \"analyst\"\n    },\n    \"technical_analyst\": {\n      \"enabled\": true,\n      \"role\": \"analyst\"\n    }\n  },\n  \"enable_reflection\": true,\n  \"enable_short_selling\": false,\n  \"max_iterations\": 10,\n  \"cache_enabled\": true\n}"
+    },
+    {
+      "timestamp": "2025-07-24T20:45:49.795613",
+      "message": "Starting backtest for AAPL"
+    },
+    {
+      "timestamp": "2025-07-24T20:45:49.795974",
+      "message": "Running 6-phase decision flow for AAPL"
+    },
+    {
+      "timestamp": "2025-07-24T20:45:54.416018",
+      "message": "Error processing AAPL: 'NoneType' object has no attribute 'get'"
+    },
+    {
+      "timestamp": "2025-07-24T20:45:54.416094",
+      "message": "Completed AAPL: Return=0.00%"
+    },
+    {
+      "timestamp": "2025-07-24T20:45:54.416234",
+      "message": "Starting backtest for MSFT"
+    },
+    {
+      "timestamp": "2025-07-24T20:45:54.416829",
+      "message": "Running 6-phase decision flow for MSFT"
+    },
+    {
+      "timestamp": "2025-07-24T20:45:58.042970",
+      "message": "Error processing MSFT: 'NoneType' object has no attribute 'get'"
+    },
+    {
+      "timestamp": "2025-07-24T20:45:58.043033",
+      "message": "Completed MSFT: Return=0.00%"
+    },
+    {
+      "timestamp": "2025-07-24T20:45:58.043119",
+      "message": "Backtest2 completed successfully"
+    }
+  ],
+  "progress": [
+    {
+      "timestamp": "2025-07-24T20:45:49.795419",
+      "progress": 0.0,
+      "status": "Processing AAPL",
+      "ticker": "AAPL"
+    },
+    {
+      "timestamp": "2025-07-24T20:45:54.416143",
+      "progress": 50.0,
+      "status": "Completed AAPL",
+      "ticker": "AAPL"
+    },
+    {
+      "timestamp": "2025-07-24T20:45:54.416194",
+      "progress": 50.0,
+      "status": "Processing MSFT",
+      "ticker": "MSFT"
+    },
+    {
+      "timestamp": "2025-07-24T20:45:58.043076",
+      "progress": 100.0,
+      "status": "Completed MSFT",
+      "ticker": "MSFT"
+    }
+  ]
+}

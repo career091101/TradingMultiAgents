@@ -1,0 +1,271 @@
+2025-07-24 18:33:22,966 - INFO - === バックテスト自動実行開始 ===
+2025-07-24 18:33:25,173 - WARNING - TradingMultiAgents dataflows not available
+2025-07-24 18:33:25,189 - INFO - 1. バックテスト設定を準備
+2025-07-24 18:33:25,189 - INFO - 設定内容: AutoBacktest_20250724_183325
+2025-07-24 18:33:25,189 - INFO - 銘柄: ['AAPL', 'MSFT']
+2025-07-24 18:33:25,190 - INFO - 期間: 2025-06-24 ~ 2025-07-24
+2025-07-24 18:33:25,190 - INFO - 2. バックテストエンジンを初期化
+2025-07-24 18:33:25,190 - INFO - DataManager initialized with Yahoo Finance
+2025-07-24 18:33:25,190 - INFO - 3. バックテスト実行開始
+2025-07-24 18:33:25,190 - INFO - Starting backtest execution 1cf28898-3096-4923-a7e5-212ce7739821
+2025-07-24 18:33:25,190 - INFO - Initializing backtest environment
+2025-07-24 18:33:25,190 - INFO - Initializing data manager
+2025-07-24 18:33:25,190 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 18:33:25,229 - ERROR - Backtest failed: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 102, in run
+    await self._initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 159, in _initialize
+    await self.agent_orchestrator.initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 156, in initialize
+    self.agents['market_analyst'] = MarketAnalystAdapter(
+                                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/agent_adapter.py", line 178, in __init__
+    super().__init__(
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/agent_adapter.py", line 29, in __init__
+    self.llm_client = OpenAILLMClient(llm_config)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/llm_client.py", line 106, in __init__
+    self.deep_llm = ChatOpenAI(
+                    ^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/venv_arm64/lib/python3.12/site-packages/langchain_core/load/serializable.py", line 130, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Users/y-sato/TradingAgents2/venv_arm64/lib/python3.12/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/venv_arm64/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 744, in validate_environment
+    self.root_client = openai.OpenAI(**client_params, **sync_specific)  # type: ignore[arg-type]
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/venv_arm64/lib/python3.12/site-packages/openai/_client.py", line 130, in __init__
+    raise OpenAIError(
+openai.OpenAIError: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+2025-07-24 18:33:25,240 - INFO - Cleaning up backtest resources
+2025-07-24 18:33:25,240 - INFO - Closing data manager
+2025-07-24 18:33:25,240 - INFO - Cleaning up orchestrator resources
+2025-07-24 18:33:25,240 - INFO - Orchestrator cleanup completed
+2025-07-24 18:33:25,241 - ERROR - === 予期しないエラーが発生しました ===
+2025-07-24 18:33:25,241 - ERROR - エラー: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+2025-07-24 18:33:25,241 - ERROR - エラータイプ: OpenAIError
+2025-07-24 18:33:25,241 - ERROR - スタックトレース:
+2025-07-24 18:33:25,243 - ERROR - Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/auto_backtest_runner.py", line 72, in run_backtest_directly
+    result = asyncio.run(engine.run())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 102, in run
+    await self._initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 159, in _initialize
+    await self.agent_orchestrator.initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 156, in initialize
+    self.agents['market_analyst'] = MarketAnalystAdapter(
+                                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/agent_adapter.py", line 178, in __init__
+    super().__init__(
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/agent_adapter.py", line 29, in __init__
+    self.llm_client = OpenAILLMClient(llm_config)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/llm_client.py", line 106, in __init__
+    self.deep_llm = ChatOpenAI(
+                    ^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/venv_arm64/lib/python3.12/site-packages/langchain_core/load/serializable.py", line 130, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Users/y-sato/TradingAgents2/venv_arm64/lib/python3.12/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/venv_arm64/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 744, in validate_environment
+    self.root_client = openai.OpenAI(**client_params, **sync_specific)  # type: ignore[arg-type]
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/venv_arm64/lib/python3.12/site-packages/openai/_client.py", line 130, in __init__
+    raise OpenAIError(
+openai.OpenAIError: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+
+2025-07-24 18:33:25,243 - ERROR - 
+根本原因分析:
+2025-07-24 18:33:25,243 - ERROR - - APIキーの問題です
+2025-07-24 18:33:25,243 - ERROR - 推奨: 環境変数OPENAI_API_KEYを確認
+2025-07-24 18:33:52,762 - INFO - === バックテスト自動実行開始 ===
+2025-07-24 18:33:55,026 - WARNING - TradingMultiAgents dataflows not available
+2025-07-24 18:33:55,041 - INFO - 1. バックテスト設定を準備
+2025-07-24 18:33:55,041 - INFO - 設定内容: AutoBacktest_20250724_183355
+2025-07-24 18:33:55,041 - INFO - 銘柄: ['AAPL', 'MSFT']
+2025-07-24 18:33:55,041 - INFO - 期間: 2025-06-24 ~ 2025-07-24
+2025-07-24 18:33:55,041 - INFO - 2. バックテストエンジンを初期化
+2025-07-24 18:33:55,042 - INFO - DataManager initialized with Yahoo Finance
+2025-07-24 18:33:55,042 - INFO - 3. バックテスト実行開始
+2025-07-24 18:33:55,042 - INFO - Starting backtest execution 18839007-0b07-4713-9d29-556b2ada9b7d
+2025-07-24 18:33:55,042 - INFO - Initializing backtest environment
+2025-07-24 18:33:55,042 - INFO - Initializing data manager
+2025-07-24 18:33:55,042 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 18:33:55,267 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 18:33:55,267 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 18:33:55,267 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 18:33:55,268 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 18:33:55,273 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 18:33:55,273 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 18:33:55,274 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 18:33:55,274 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 18:33:55,274 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 18:33:55,274 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 18:33:55,275 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 18:33:55,275 - INFO - Initialized 12 agents
+2025-07-24 18:33:55,275 - INFO - Loading benchmark data for SPY
+2025-07-24 18:33:55,717 - INFO - Starting decision process 88d5ddfc-77d9-47cb-a81c-5d53edd7c61c for AAPL on 2025-06-24 18:33:55.041797
+2025-07-24 18:33:55,717 - INFO - Phase 1: Data Collection
+2025-07-24 18:34:13,778 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 18:34:13,835 - INFO - [LLM DEBUG] Response for Market Analyst: 1311 chars
+2025-07-24 18:34:22,614 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 18:34:22,621 - INFO - [LLM DEBUG] Response for News Analyst: 437 chars
+2025-07-24 18:34:35,205 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 18:34:35,207 - INFO - [LLM DEBUG] Response for Social Media Analyst: 638 chars
+2025-07-24 18:34:43,229 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 18:34:43,230 - INFO - [LLM DEBUG] Response for Fundamentals Analyst: 1049 chars
+2025-07-24 18:34:43,231 - INFO - Phase 2: Investment Analysis
+2025-07-24 18:35:31,644 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 18:35:31,654 - INFO - [LLM DEBUG] Response for Bull Researcher: 2082 chars
+2025-07-24 18:36:29,173 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 18:36:29,185 - INFO - [LLM DEBUG] Response for Bear Researcher: 2055 chars
+2025-07-24 18:36:29,186 - INFO - Phase 3: Investment Decision
+2025-07-24 18:36:29,186 - INFO - Debate round 1
+2025-07-24 18:37:05,127 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 18:37:05,130 - INFO - [LLM DEBUG] Response for Research Manager: 1097 chars
+2025-07-24 18:37:05,131 - INFO - Phase 4: Trading Decision
+2025-07-24 18:37:19,901 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 18:37:19,902 - INFO - [LLM DEBUG] Response for Trader: 434 chars
+2025-07-24 18:37:19,903 - INFO - Phase 5: Risk Assessment
+2025-07-24 18:37:26,737 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 18:37:26,739 - INFO - [LLM DEBUG] Response for Aggressive Risk Debator: 1148 chars
+2025-07-24 18:37:39,202 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 18:37:39,204 - INFO - [LLM DEBUG] Response for Conservative Risk Debator: 581 chars
+2025-07-24 18:37:48,640 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 18:37:48,642 - INFO - [LLM DEBUG] Response for Neutral Risk Debator: 1112 chars
+2025-07-24 18:37:48,643 - INFO - Risk discussion round 1
+2025-07-24 18:38:03,074 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 18:38:03,076 - INFO - [LLM DEBUG] Response for Aggressive Risk Debator: 529 chars
+2025-07-24 18:38:16,168 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 18:38:16,170 - INFO - [LLM DEBUG] Response for Conservative Risk Debator: 610 chars
+2025-07-24 18:38:23,318 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 18:38:23,325 - INFO - [LLM DEBUG] Response for Neutral Risk Debator: 492 chars
+2025-07-24 18:38:23,326 - INFO - Phase 6: Final Decision
+2025-07-24 18:38:43,699 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 18:38:43,707 - INFO - [LLM DEBUG] Response for Risk Manager: 738 chars
+2025-07-24 18:38:43,709 - INFO - [DECISION DEBUG] Final decision: HOLD with confidence 0.7
+2025-07-24 18:38:43,709 - INFO - Final decision for AAPL: HOLD with confidence 0.70
+2025-07-24 18:38:44,049 - INFO - Starting decision process b440c9a0-a025-449e-b464-6eec8dda2861 for MSFT on 2025-06-24 18:33:55.041797
+2025-07-24 18:38:44,050 - INFO - Phase 1: Data Collection
+2025-07-24 19:20:34,021 - INFO - === バックテスト自動実行開始 ===
+2025-07-24 19:20:36,280 - WARNING - TradingMultiAgents dataflows not available
+2025-07-24 19:20:36,299 - INFO - 1. バックテスト設定を準備
+2025-07-24 19:20:36,299 - INFO - 設定内容: AutoBacktest_20250724_192036
+2025-07-24 19:20:36,299 - INFO - 銘柄: ['AAPL', 'MSFT']
+2025-07-24 19:20:36,299 - INFO - 期間: 2025-06-24 ~ 2025-07-24
+2025-07-24 19:20:36,299 - INFO - 2. バックテストエンジンを初期化
+2025-07-24 19:20:36,299 - INFO - DataManager initialized with Yahoo Finance
+2025-07-24 19:20:36,299 - INFO - 3. バックテスト実行開始
+2025-07-24 19:20:36,299 - INFO - Starting backtest execution 4ee507ca-ca33-493d-98cf-d40aa1f3aeff
+2025-07-24 19:20:36,299 - INFO - Initializing backtest environment
+2025-07-24 19:20:36,300 - INFO - Initializing data manager
+2025-07-24 19:20:36,300 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 19:20:36,558 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 19:20:36,559 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 19:20:36,559 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 19:20:36,559 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 19:20:36,560 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 19:20:36,560 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 19:20:36,560 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 19:20:36,560 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 19:20:36,561 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 19:20:36,561 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 19:20:36,561 - INFO - Initializing LLM client with models: deep=o3, quick=o4-mini
+2025-07-24 19:20:36,561 - INFO - Initialized 12 agents
+2025-07-24 19:20:36,561 - INFO - Loading benchmark data for SPY
+2025-07-24 19:20:37,031 - INFO - Starting decision process 637f5640-7183-4b80-94ec-473efdb098a1 for AAPL on 2025-06-24 19:20:36.299475
+2025-07-24 19:20:37,031 - INFO - Phase 1: Data Collection
+2025-07-24 19:20:57,119 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:20:57,128 - INFO - [LLM DEBUG] Response for Market Analyst: 2059 chars
+2025-07-24 19:21:07,606 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:21:07,610 - INFO - [LLM DEBUG] Response for News Analyst: 320 chars
+2025-07-24 19:21:18,702 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:21:18,704 - INFO - [LLM DEBUG] Response for Social Media Analyst: 417 chars
+2025-07-24 19:21:27,004 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:21:27,008 - INFO - [LLM DEBUG] Response for Fundamentals Analyst: 979 chars
+2025-07-24 19:21:27,009 - INFO - Phase 2: Investment Analysis
+2025-07-24 19:22:43,706 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:22:43,727 - INFO - [LLM DEBUG] Response for Bull Researcher: 2111 chars
+2025-07-24 19:23:49,258 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:23:49,288 - INFO - [LLM DEBUG] Response for Bear Researcher: 1896 chars
+2025-07-24 19:23:49,292 - INFO - Phase 3: Investment Decision
+2025-07-24 19:23:49,292 - INFO - Debate round 1
+2025-07-24 19:24:26,011 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:24:26,037 - INFO - [LLM DEBUG] Response for Research Manager: 822 chars
+2025-07-24 19:24:26,041 - INFO - Phase 4: Trading Decision
+2025-07-24 19:24:34,445 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:24:34,447 - INFO - [LLM DEBUG] Response for Trader: 426 chars
+2025-07-24 19:24:34,448 - INFO - Phase 5: Risk Assessment
+2025-07-24 19:24:44,840 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:24:44,841 - INFO - [LLM DEBUG] Response for Aggressive Risk Debator: 479 chars
+2025-07-24 19:24:59,520 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:24:59,527 - INFO - [LLM DEBUG] Response for Conservative Risk Debator: 499 chars
+2025-07-24 19:24:59,528 - ERROR - Failed to parse extracted JSON: Invalid control character at: line 2 column 199 (char 200)
+2025-07-24 19:24:59,528 - ERROR - JSON text was: {
+  "analysis": "現在のAAPL株価は提案されたエントリーレンジ（190–195ドル）を既に上回っており、割高での買いはリスクが大きい状況です。ポートフォリオは100%キャッシュでゼロエクスポージャーのため、資本保全を最優先とするならば、当面はHOLDを維持し、想定レンジに到達するまで待機するのが妥当です。もし限定的にエントリー機会を取りにいくなら、次の対策を併用してください：  
+1. 分割買い（190ドル→195ドルの間で小ロット複数回）  
+2. 明確な損切りライン設定（例：185ドル）  
+3. プットオプションやインバースETFなどで下落リスクをヘッジ  
+4. マクロ不確実性（利上げ・地政学リスク）が高まれば、さらに待機期間を延長  ",
+  "confidence": 0.70,
+  "rationale": "提案シグナルのHOLD判断は、現水準でのリスク・リワードが不利であるとの前提と整合的です。資本保全を重視する保守的な観点から、割安ゾーンまで待機しつつ、分割買い・損切り設定・ヘッジを組み合わせることで潜在的損失を最小化できると判断しました。"
+}
+2025-07-24 19:24:59,529 - WARNING - Parsed text response to: {'analysis': 'string', 'confidence': 0.0, 'rationale': '{\n  "analysis": "現在のAAPL株価は提案されたエントリーレンジ（190–195ドル）を既に上回っており、割高での買いはリスクが大きい状況です。ポートフォリオは100%キャッシュでゼロエクスポージャーのため、資本保全を最優先とするならば、当面はHOLDを維持し、想定レンジに到達するまで待機するのが妥当です。もし限定的にエントリー機会を取りにいくなら、次の対策を併用してください：  \n1. 分割買い（190ドル→195ドルの間で小ロット複数回）  \n2. 明確な損切りライン設定（例：185ドル）  \n3. プットオプションやインバースETFなどで下落リスクをヘッジ  \n4. マクロ不確実性（利上げ・地政学リスク）が高まれば、さらに待機期間を延長  ",\n  "confidence": 0.70,\n  "rationale": "提案シグナルのHOLD判断は、現水準でのリスク・リワードが不利であるとの前提と整合的です。資本保全を重視する保守的な観点から、割安ゾーンまで待機しつつ、分割買い・損切り設定・ヘッジを組み合わせることで潜在的損失を最小化できると判断しました。"\n}', 'action': 'BUY', 'recommendation': 'BUY', 'investment_decision': 'BUY', 'final_decision': 'BUY'}
+2025-07-24 19:25:13,512 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:25:13,515 - INFO - [LLM DEBUG] Response for Neutral Risk Debator: 489 chars
+2025-07-24 19:25:13,516 - INFO - Risk discussion round 1
+2025-07-24 19:25:25,032 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:25:25,034 - INFO - [LLM DEBUG] Response for Aggressive Risk Debator: 382 chars
+2025-07-24 19:25:40,397 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:25:40,403 - INFO - [LLM DEBUG] Response for Conservative Risk Debator: 595 chars
+2025-07-24 19:25:48,794 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:25:48,796 - INFO - [LLM DEBUG] Response for Neutral Risk Debator: 466 chars
+2025-07-24 19:25:48,796 - INFO - Phase 6: Final Decision
+2025-07-24 19:26:44,550 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:26:44,558 - INFO - [LLM DEBUG] Response for Risk Manager: 1101 chars
+2025-07-24 19:26:44,561 - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.6
+2025-07-24 19:26:44,562 - INFO - Final decision for AAPL: BUY with confidence 0.60
+2025-07-24 19:26:44,562 - INFO - Executing TradeAction.BUY for AAPL
+2025-07-24 19:26:44,563 - INFO - Transaction f3b48fbc-943d-498b-bd9f-418a2551b652 committed successfully
+2025-07-24 19:26:44,563 - INFO - Executed BUY 157.1069944537143 AAPL @ $200.50
+2025-07-24 19:26:44,563 - INFO - Executed BUY 157.11 shares of AAPL at $200.50
+2025-07-24 19:26:44,941 - INFO - Starting decision process 2d29d9f1-8eb8-4aa3-8f69-d340c4e9d582 for MSFT on 2025-06-24 19:20:36.299475
+2025-07-24 19:26:44,941 - INFO - Phase 1: Data Collection
+2025-07-24 19:27:11,543 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:27:11,569 - INFO - [LLM DEBUG] Response for Market Analyst: 1474 chars
+2025-07-24 19:27:17,831 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:27:17,832 - INFO - [LLM DEBUG] Response for News Analyst: 498 chars
+2025-07-24 19:27:24,738 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:27:24,744 - INFO - [LLM DEBUG] Response for Social Media Analyst: 1109 chars
+2025-07-24 19:27:33,472 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:27:33,474 - INFO - [LLM DEBUG] Response for Fundamentals Analyst: 963 chars
+2025-07-24 19:27:33,474 - INFO - Phase 2: Investment Analysis
+2025-07-24 19:28:23,016 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:28:23,024 - INFO - [LLM DEBUG] Response for Bull Researcher: 2162 chars
+2025-07-24 19:29:24,114 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:29:24,137 - INFO - [LLM DEBUG] Response for Bear Researcher: 2607 chars
+2025-07-24 19:29:24,143 - INFO - Phase 3: Investment Decision
+2025-07-24 19:29:24,143 - INFO - Debate round 1
+2025-07-24 19:29:57,675 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:29:57,699 - INFO - [LLM DEBUG] Response for Research Manager: 967 chars
+2025-07-24 19:29:57,704 - INFO - Phase 4: Trading Decision
+2025-07-24 19:30:11,491 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:30:11,503 - INFO - [LLM DEBUG] Response for Trader: 421 chars
+2025-07-24 19:30:11,504 - INFO - Phase 5: Risk Assessment
+2025-07-24 19:30:19,930 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:30:19,936 - INFO - [LLM DEBUG] Response for Aggressive Risk Debator: 580 chars
+2025-07-24 19:30:28,579 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 19:30:28,582 - INFO - [LLM DEBUG] Response for Conservative Risk Debator: 601 chars

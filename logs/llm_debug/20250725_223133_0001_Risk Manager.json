@@ -1,0 +1,12 @@
+{
+  "timestamp": "20250725_223133",
+  "agent": "Risk Manager",
+  "prompt": "Based on strong bullish signals, should we buy?\n\nIMPORTANT: You must respond with valid JSON only. No explanations, no markdown, just JSON.\n\nExample of the EXACT format you must use:\n{\n  \"action\": \"BUY\",\n  \"quantity\": 100,\n  \"position_size_pct\": 0.1,\n  \"stop_loss\": 95.0,\n  \"take_profit\": 110.0,\n  \"risk_assessment\": {\n    \"risk_level\": \"medium\",\n    \"risk_score\": 0.4\n  },\n  \"confidence\": 0.7,\n  \"rationale\": \"Strong technical indicators support entry\"\n}\n\nYour response must follow this exact structure with appropriate values based on the context.\n",
+  "response": "{\n  \"action\": \"BUY\",\n  \"quantity\": 100,\n  \"position_size_pct\": 0.1,\n  \"stop_loss\": 95.0,\n  \"take_profit\": 110.0,\n  \"risk_assessment\": {\n    \"risk_level\": \"medium\",\n    \"risk_score\": 0.4\n  },\n  \"confidence\": 0.8,\n  \"rationale\": \"Strong bullish signals indicate favorable market conditions\"\n}",
+  "response_length": 290,
+  "context_keys": [
+    "test",
+    "market_data"
+  ],
+  "use_japanese": false
+}

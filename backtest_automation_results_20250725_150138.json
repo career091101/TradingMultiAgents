@@ -1,0 +1,14 @@
+{
+  "start_time": "2025-07-25T14:59:45.797978",
+  "steps": [],
+  "errors": [
+    {
+      "step": "setup_driver",
+      "error": "Message: session not created: cannot connect to chrome at 127.0.0.1:9222\nfrom chrome not reachable; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception\nStacktrace:\n0   chromedriver                        0x000000010323f570 cxxbridge1$str$ptr + 2731064\n1   chromedriver                        0x0000000103237468 cxxbridge1$str$ptr + 2698032\n2   chromedriver                        0x0000000102d8626c cxxbridge1$string$len + 90268\n3   chromedriver                        0x0000000102d747ec cxxbridge1$string$len + 17948\n4   chromedriver                        0x0000000102dbdb94 cxxbridge1$string$len + 317892\n5   chromedriver                        0x0000000102db5520 cxxbridge1$string$len + 283472\n6   chromedriver                        0x0000000102dfad3c cxxbridge1$string$len + 568172\n7   chromedriver                        0x0000000102dfa5f0 cxxbridge1$string$len + 566304\n8   chromedriver                        0x0000000102dc1a0c cxxbridge1$string$len + 333884\n9   chromedriver                        0x00000001032025f4 cxxbridge1$str$ptr + 2481340\n10  chromedriver                        0x000000010320585c cxxbridge1$str$ptr + 2494244\n11  chromedriver                        0x00000001031e3248 cxxbridge1$str$ptr + 2353424\n12  chromedriver                        0x0000000103206118 cxxbridge1$str$ptr + 2496480\n13  chromedriver                        0x00000001031d42f8 cxxbridge1$str$ptr + 2292160\n14  chromedriver                        0x000000010322600c cxxbridge1$str$ptr + 2627284\n15  chromedriver                        0x0000000103226198 cxxbridge1$str$ptr + 2627680\n16  chromedriver                        0x00000001032370a4 cxxbridge1$str$ptr + 2697068\n17  libsystem_pthread.dylib             0x0000000183782c0c _pthread_start + 136\n18  libsystem_pthread.dylib             0x000000018377db80 thread_start + 8\n",
+      "timestamp": "2025-07-25T15:01:38.688061"
+    }
+  ],
+  "success": false,
+  "final_error": "Chrome接続失敗",
+  "end_time": "2025-07-25T15:01:38.688670"
+}

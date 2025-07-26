@@ -1,0 +1,1031 @@
+2025-07-24 20:45:49,758 - root - WARNING - TradingMultiAgents dataflows not available
+2025-07-24 20:45:49,793 - TradingMultiAgents.webui.backend.backtest2_wrapper - INFO - Successfully imported backtest2 modules
+2025-07-24 20:45:49,794 - __main__ - INFO - バックテスト実行を開始します
+2025-07-24 20:45:49,794 - __main__ - INFO - 設定: {
+  "tickers": [
+    "AAPL",
+    "MSFT"
+  ],
+  "start_date": "2025-04-25",
+  "end_date": "2025-07-23",
+  "initial_capital": 100000.0,
+  "position_limits": {
+    "aggressive": 0.8,
+    "neutral": 0.5,
+    "conservative": 0.3
+  },
+  "use_mock": true,
+  "llm_config": {
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "temperature": 0.7,
+    "max_tokens": 2000
+  },
+  "agents": {
+    "trader": {
+      "enabled": true,
+      "role": "trader"
+    },
+    "risk_manager": {
+      "enabled": true,
+      "role": "risk_manager"
+    },
+    "fundamental_analyst": {
+      "enabled": true,
+      "role": "analyst"
+    },
+    "market_analyst": {
+      "enabled": true,
+      "role": "analyst"
+    },
+    "sentiment_analyst": {
+      "enabled": true,
+      "role": "analyst"
+    },
+    "technical_analyst": {
+      "enabled": true,
+      "role": "analyst"
+    }
+  },
+  "enable_reflection": true,
+  "enable_short_selling": false,
+  "max_iterations": 10,
+  "cache_enabled": true
+}
+2025-07-24 20:45:49,794 - __main__ - INFO - Backtest Log: Starting Backtest2 (Paper-compliant version)
+2025-07-24 20:45:49,794 - __main__ - INFO - Backtest Log: Configuration: {
+  "tickers": [
+    "AAPL",
+    "MSFT"
+  ],
+  "start_date": "2025-04-25",
+  "end_date": "2025-07-23",
+  "initial_capital": 100000.0,
+  "position_limits": {
+    "aggressive": 0.8,
+    "neutral": 0.5,
+    "conservative": 0.3
+  },
+  "use_mock": true,
+  "llm_config": {
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "temperature": 0.7,
+    "max_tokens": 2000
+  },
+  "agents": {
+    "trader": {
+      "enabled": true,
+      "role": "trader"
+    },
+    "risk_manager": {
+      "enabled": true,
+      "role": "risk_manager"
+    },
+    "fundamental_analyst": {
+      "enabled": true,
+      "role": "analyst"
+    },
+    "market_analyst": {
+      "enabled": true,
+      "role": "analyst"
+    },
+    "sentiment_analyst": {
+      "enabled": true,
+      "role": "analyst"
+    },
+    "technical_analyst": {
+      "enabled": true,
+      "role": "analyst"
+    }
+  },
+  "enable_reflection": true,
+  "enable_short_selling": false,
+  "max_iterations": 10,
+  "cache_enabled": true
+}
+2025-07-24 20:45:49,795 - TradingMultiAgents.webui.backend.backtest2_wrapper - INFO - Creating BacktestConfig - class type: <class 'type'>
+2025-07-24 20:45:49,795 - TradingMultiAgents.webui.backend.backtest2_wrapper - INFO - BacktestConfig module: backtest2.core.config
+2025-07-24 20:45:49,795 - TradingMultiAgents.webui.backend.backtest2_wrapper - INFO - BacktestConfig MRO: (<class 'backtest2.core.config.BacktestConfig'>, <class 'object'>)
+2025-07-24 20:45:49,795 - TradingMultiAgents.webui.backend.backtest2_wrapper - INFO - Is dataclass: True
+2025-07-24 20:45:49,795 - TradingMultiAgents.webui.backend.backtest2_wrapper - INFO - Dataclass fields: ['name', 'symbols', 'time_range', 'initial_capital', 'random_seed', 'max_positions', 'position_limits', 'llm_config', 'data_sources', 'reflection_config', 'result_dir', 'slippage', 'commission', 'risk_free_rate', 'benchmark', 'start_date', 'end_date', 'agent_config', 'data_config', 'risk_config', 'enable_parallel', 'max_workers', 'cache_size', 'log_level', 'save_results', 'results_path', 'enable_monitoring', 'debug']
+2025-07-24 20:45:49,795 - TradingMultiAgents.webui.backend.backtest2_wrapper - INFO - Has random_seed attr: True
+2025-07-24 20:45:49,795 - TradingMultiAgents.webui.backend.backtest2_wrapper - INFO - BacktestConfig.__init__ signature: {'name': <class 'str'>, 'symbols': typing.List[str], 'time_range': typing.Optional[backtest2.core.config.TimeRange], 'initial_capital': <class 'float'>, 'random_seed': <class 'int'>, 'max_positions': <class 'int'>, 'position_limits': typing.Dict[backtest2.core.config.RiskProfile, float], 'llm_config': <class 'backtest2.core.config.LLMConfig'>, 'data_sources': typing.List[str], 'reflection_config': typing.Optional[typing.Dict[str, typing.Any]], 'result_dir': typing.Optional[pathlib._local.Path], 'slippage': <class 'float'>, 'commission': <class 'float'>, 'risk_free_rate': <class 'float'>, 'benchmark': <class 'str'>, 'start_date': typing.Optional[datetime.datetime], 'end_date': typing.Optional[datetime.datetime], 'agent_config': typing.Optional[backtest2.core.config.AgentConfig], 'data_config': typing.Optional[backtest2.core.config.DataConfig], 'risk_config': typing.Optional[backtest2.core.config.RiskConfig], 'enable_parallel': <class 'bool'>, 'max_workers': <class 'int'>, 'cache_size': <class 'int'>, 'log_level': <class 'str'>, 'save_results': <class 'bool'>, 'results_path': <class 'str'>, 'enable_monitoring': <class 'bool'>, 'debug': <class 'bool'>, 'return': None}
+2025-07-24 20:45:49,795 - __main__ - INFO - Progress: 0.0% - Processing AAPL (AAPL)
+2025-07-24 20:45:49,795 - __main__ - INFO - Backtest Log: Starting backtest for AAPL
+2025-07-24 20:45:49,795 - backtest2.data.manager_simple - INFO - DataManager initialized with Yahoo Finance
+2025-07-24 20:45:49,795 - __main__ - INFO - Backtest Log: Running 6-phase decision flow for AAPL
+2025-07-24 20:45:49,796 - backtest2.core.engine - INFO - Starting backtest execution ef60fbee-19b7-4ec7-9ad1-8fea9d097793
+2025-07-24 20:45:49,796 - backtest2.core.engine - INFO - Initializing backtest environment
+2025-07-24 20:45:49,796 - backtest2.data.manager_simple - INFO - Initializing data manager
+2025-07-24 20:45:49,806 - backtest2.agents.orchestrator - INFO - Initialized 12 agents
+2025-07-24 20:45:49,806 - backtest2.core.engine - INFO - Loading benchmark data for SPY
+2025-07-24 20:45:50,492 - backtest2.agents.orchestrator - INFO - Starting decision process 26486eed-d61a-44dd-9ad5-1859563a1e1a for AAPL on 2025-04-25 00:00:00
+2025-07-24 20:45:50,492 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:50,492 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:50,493 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:50,493 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:50,493 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:50,493 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:50,493 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:50,493 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:50,493 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:50,493 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:50,493 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:50,493 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:50,494 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: BUY with confidence 0.56
+2025-07-24 20:45:50,494 - backtest2.core.engine - INFO - Executing TradeAction.BUY for AAPL
+2025-07-24 20:45:50,494 - backtest2.utils.transaction_manager - INFO - Transaction ac4cebf4-0814-4cc3-874c-68e8fefe7d0d committed successfully
+2025-07-24 20:45:50,494 - backtest2.risk.position_manager - INFO - Executed BUY 60.22514846809539 AAPL @ $209.21
+2025-07-24 20:45:50,494 - backtest2.core.engine - INFO - Executed BUY 60.23 shares of AAPL at $209.21
+2025-07-24 20:45:50,497 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:50,660 - backtest2.agents.orchestrator - INFO - Starting decision process 44a51cde-e59a-49fc-827b-18e6a541bec5 for AAPL on 2025-04-28 00:00:00
+2025-07-24 20:45:50,660 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:50,660 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:50,660 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:50,660 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:50,660 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:50,660 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:50,660 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:50,660 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:50,660 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:50,661 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:50,661 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:50,661 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:50,661 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: BUY with confidence 0.56
+2025-07-24 20:45:50,661 - backtest2.core.engine - INFO - Executing TradeAction.BUY for AAPL
+2025-07-24 20:45:50,661 - backtest2.utils.transaction_manager - INFO - Transaction 1cc9fc99-4162-4a8f-a317-d5bfedd4ff27 committed successfully
+2025-07-24 20:45:50,661 - backtest2.risk.position_manager - INFO - Executed BUY 51.57326529602482 AAPL @ $210.07
+2025-07-24 20:45:50,661 - backtest2.core.engine - INFO - Executed BUY 51.57 shares of AAPL at $210.07
+2025-07-24 20:45:50,664 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:50,840 - backtest2.agents.orchestrator - INFO - Starting decision process 7ba5b608-7094-4f06-9495-8dbb37f2db0d for AAPL on 2025-04-29 00:00:00
+2025-07-24 20:45:50,840 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:50,840 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:50,841 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:50,841 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:50,841 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:50,841 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:50,841 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:50,841 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:50,841 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:50,841 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:50,841 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:50,841 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:50,841 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: BUY with confidence 0.56
+2025-07-24 20:45:50,841 - backtest2.core.engine - INFO - Executing TradeAction.BUY for AAPL
+2025-07-24 20:45:50,841 - backtest2.utils.transaction_manager - INFO - Transaction 3aaf4d3e-6444-4c8b-944b-e603d87936a1 committed successfully
+2025-07-24 20:45:50,841 - backtest2.risk.position_manager - INFO - Executed BUY 44.12112899616111 AAPL @ $211.14
+2025-07-24 20:45:50,841 - backtest2.core.engine - INFO - Executed BUY 44.12 shares of AAPL at $211.14
+2025-07-24 20:45:50,844 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:51,000 - backtest2.agents.orchestrator - INFO - Starting decision process 23e0c8f7-3e03-4a3a-9d30-026cc8cb976f for AAPL on 2025-04-30 00:00:00
+2025-07-24 20:45:51,000 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:51,001 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:51,001 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:51,001 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:51,001 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:51,001 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:51,001 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:51,001 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:51,001 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:51,001 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:51,001 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:51,001 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:51,001 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: BUY with confidence 0.56
+2025-07-24 20:45:51,001 - backtest2.core.engine - INFO - Executing TradeAction.BUY for AAPL
+2025-07-24 20:45:51,001 - backtest2.utils.transaction_manager - INFO - Transaction 98862460-c1c1-419b-ae46-51eca6adde88 committed successfully
+2025-07-24 20:45:51,001 - backtest2.risk.position_manager - INFO - Executed BUY 37.70768728753136 AAPL @ $212.43
+2025-07-24 20:45:51,001 - backtest2.core.engine - INFO - Executed BUY 37.71 shares of AAPL at $212.43
+2025-07-24 20:45:51,004 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:51,169 - backtest2.agents.orchestrator - INFO - Starting decision process a41a34c5-768c-4284-af99-d3a97051ed59 for AAPL on 2025-05-01 00:00:00
+2025-07-24 20:45:51,169 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:51,169 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:51,169 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:51,169 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:51,169 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:51,170 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:51,170 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:51,170 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:51,170 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:51,170 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:51,170 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:51,170 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:51,170 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: BUY with confidence 0.56
+2025-07-24 20:45:51,170 - backtest2.core.engine - INFO - Executing TradeAction.BUY for AAPL
+2025-07-24 20:45:51,171 - backtest2.utils.transaction_manager - INFO - Transaction 4ac8a646-e455-4b65-8ff4-1290d72ac9eb committed successfully
+2025-07-24 20:45:51,171 - backtest2.risk.position_manager - INFO - Executed BUY 32.298697349323255 AAPL @ $213.25
+2025-07-24 20:45:51,171 - backtest2.core.engine - INFO - Executed BUY 32.30 shares of AAPL at $213.25
+2025-07-24 20:45:51,175 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:51,347 - backtest2.agents.orchestrator - INFO - Starting decision process 9000dda1-9ef8-4a9e-a21b-04aa80721ac1 for AAPL on 2025-05-02 00:00:00
+2025-07-24 20:45:51,347 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:51,348 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:51,348 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:51,348 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:51,348 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:51,348 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:51,348 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:51,348 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:51,348 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:51,348 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:51,348 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:51,348 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:51,348 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: BUY with confidence 0.56
+2025-07-24 20:45:51,348 - backtest2.core.engine - INFO - Executing TradeAction.BUY for AAPL
+2025-07-24 20:45:51,348 - backtest2.utils.transaction_manager - INFO - Transaction d2591a4e-79ad-4021-bc3c-3a0049f3aa15 committed successfully
+2025-07-24 20:45:51,348 - backtest2.risk.position_manager - INFO - Executed BUY 28.850252932398796 AAPL @ $205.29
+2025-07-24 20:45:51,349 - backtest2.core.engine - INFO - Executed BUY 28.85 shares of AAPL at $205.29
+2025-07-24 20:45:51,352 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:51,529 - backtest2.agents.orchestrator - INFO - Starting decision process 7a778362-b32b-4835-b13c-19b93c37f071 for AAPL on 2025-05-05 00:00:00
+2025-07-24 20:45:51,529 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:51,529 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:51,529 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:51,529 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:51,529 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:51,529 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:51,529 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:51,529 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:51,529 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:51,529 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:51,529 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:51,530 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: SELL with confidence 0.5599999999999999
+2025-07-24 20:45:51,530 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: SELL with confidence 0.56
+2025-07-24 20:45:51,530 - backtest2.core.engine - INFO - Executing TradeAction.SELL for AAPL
+2025-07-24 20:45:51,530 - backtest2.utils.transaction_manager - INFO - Transaction bf209f86-0ddd-48f3-bca8-06ee2ecdbd5f committed successfully
+2025-07-24 20:45:51,530 - backtest2.risk.position_manager - INFO - Executed SELL 25.66419912068995 AAPL @ $198.43
+2025-07-24 20:45:51,530 - backtest2.core.engine - INFO - Executed SELL 25.66 shares of AAPL at $198.43
+2025-07-24 20:45:51,533 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:51,684 - backtest2.agents.orchestrator - INFO - Starting decision process b5787ba5-d820-4485-99b9-498707321b10 for AAPL on 2025-05-06 00:00:00
+2025-07-24 20:45:51,684 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:51,684 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:51,684 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:51,684 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:51,684 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:51,684 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:51,684 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:51,684 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:51,684 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:51,684 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:51,685 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:51,685 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: SELL with confidence 0.5599999999999999
+2025-07-24 20:45:51,685 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: SELL with confidence 0.56
+2025-07-24 20:45:51,685 - backtest2.core.engine - INFO - Executing TradeAction.SELL for AAPL
+2025-07-24 20:45:51,685 - backtest2.utils.transaction_manager - INFO - Transaction ba2940eb-01d7-40f5-9298-fd29870d9e6b committed successfully
+2025-07-24 20:45:51,685 - backtest2.risk.position_manager - INFO - Executed SELL 29.309595138221855 AAPL @ $198.05
+2025-07-24 20:45:51,685 - backtest2.core.engine - INFO - Executed SELL 29.31 shares of AAPL at $198.05
+2025-07-24 20:45:51,689 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:51,931 - backtest2.agents.orchestrator - INFO - Starting decision process bd32bd4a-6ec5-4f45-8d20-7cbe58503954 for AAPL on 2025-05-07 00:00:00
+2025-07-24 20:45:51,931 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:51,931 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:51,931 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:51,931 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:51,932 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:51,932 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:51,932 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:51,932 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:51,932 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:51,932 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:51,932 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:51,932 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:51,932 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: BUY with confidence 0.56
+2025-07-24 20:45:51,932 - backtest2.core.engine - INFO - Executing TradeAction.BUY for AAPL
+2025-07-24 20:45:51,932 - backtest2.utils.transaction_manager - INFO - Transaction 78a8e833-1109-47ee-861d-d03c1a797b9a committed successfully
+2025-07-24 20:45:51,932 - backtest2.risk.position_manager - INFO - Executed BUY 33.72604808667468 AAPL @ $196.19
+2025-07-24 20:45:51,932 - backtest2.core.engine - INFO - Executed BUY 33.73 shares of AAPL at $196.19
+2025-07-24 20:45:51,938 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:52,114 - backtest2.agents.orchestrator - INFO - Starting decision process b8ec3877-8eb6-44c4-b1fb-d215f08d2346 for AAPL on 2025-05-08 00:00:00
+2025-07-24 20:45:52,114 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:52,114 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:52,114 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:52,114 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:52,114 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:52,114 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:52,114 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:52,114 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:52,114 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:52,114 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:52,114 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:52,114 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:52,114 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: BUY with confidence 0.56
+2025-07-24 20:45:52,114 - backtest2.core.engine - INFO - Executing TradeAction.BUY for AAPL
+2025-07-24 20:45:52,114 - backtest2.utils.transaction_manager - INFO - Transaction 6ad7e51e-454b-459e-b02e-63c8fbb5b819 committed successfully
+2025-07-24 20:45:52,115 - backtest2.risk.position_manager - INFO - Executed BUY 28.817594792427442 AAPL @ $197.43
+2025-07-24 20:45:52,115 - backtest2.core.engine - INFO - Executed BUY 28.82 shares of AAPL at $197.43
+2025-07-24 20:45:52,120 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:52,282 - backtest2.agents.orchestrator - INFO - Starting decision process 0ddf6e7f-bba3-460c-9f66-57f3472bd541 for AAPL on 2025-05-09 00:00:00
+2025-07-24 20:45:52,283 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:52,283 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:52,283 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:52,283 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:52,283 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:52,283 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:52,283 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:52,283 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:52,283 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:52,283 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:52,283 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:52,283 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: SELL with confidence 0.5599999999999999
+2025-07-24 20:45:52,283 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: SELL with confidence 0.56
+2025-07-24 20:45:52,283 - backtest2.core.engine - INFO - Executing TradeAction.SELL for AAPL
+2025-07-24 20:45:52,283 - backtest2.utils.transaction_manager - INFO - Transaction 26c5c1ad-145a-413d-874b-6f04155d2d91 committed successfully
+2025-07-24 20:45:52,283 - backtest2.risk.position_manager - INFO - Executed SELL 24.6986399606501 AAPL @ $198.07
+2025-07-24 20:45:52,283 - backtest2.core.engine - INFO - Executed SELL 24.70 shares of AAPL at $198.07
+2025-07-24 20:45:52,290 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:52,458 - backtest2.agents.orchestrator - INFO - Starting decision process b1df5f4a-3c19-425a-a056-187f37b0edef for AAPL on 2025-05-12 00:00:00
+2025-07-24 20:45:52,470 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:52,470 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:52,470 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:52,470 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:52,470 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:52,471 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:52,471 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:52,471 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:52,471 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:52,471 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:52,471 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:52,471 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: SELL with confidence 0.5599999999999999
+2025-07-24 20:45:52,471 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: SELL with confidence 0.56
+2025-07-24 20:45:52,471 - backtest2.core.engine - INFO - Executing TradeAction.SELL for AAPL
+2025-07-24 20:45:52,472 - backtest2.utils.transaction_manager - INFO - Transaction a621ba20-c560-4136-80d6-a9393f8e931e committed successfully
+2025-07-24 20:45:52,472 - backtest2.risk.position_manager - INFO - Executed SELL 26.480829125958806 AAPL @ $210.58
+2025-07-24 20:45:52,472 - backtest2.core.engine - INFO - Executed SELL 26.48 shares of AAPL at $210.58
+2025-07-24 20:45:52,484 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:52,636 - backtest2.agents.orchestrator - INFO - Starting decision process c0b34350-ea78-4c21-94fa-aafac55834ae for AAPL on 2025-05-13 00:00:00
+2025-07-24 20:45:52,637 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:52,637 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:52,637 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:52,637 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:52,637 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:52,637 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:52,637 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:52,637 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:52,637 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:52,637 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:52,637 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:52,638 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:52,638 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: BUY with confidence 0.56
+2025-07-24 20:45:52,638 - backtest2.core.engine - INFO - Executing TradeAction.BUY for AAPL
+2025-07-24 20:45:52,638 - backtest2.utils.transaction_manager - INFO - Transaction f8092f93-c675-4b23-80f0-699e4a931998 committed successfully
+2025-07-24 20:45:52,638 - backtest2.risk.position_manager - INFO - Executed BUY 29.821374327696912 AAPL @ $213.14
+2025-07-24 20:45:52,638 - backtest2.core.engine - INFO - Executed BUY 29.82 shares of AAPL at $213.14
+2025-07-24 20:45:52,651 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:52,813 - backtest2.agents.orchestrator - INFO - Starting decision process 21544925-b062-41c4-98a3-0cf998316027 for AAPL on 2025-05-14 00:00:00
+2025-07-24 20:45:52,813 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:52,813 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:52,813 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:52,813 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:52,813 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:52,813 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:52,814 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:52,814 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:52,814 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:52,814 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:52,814 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:52,814 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: SELL with confidence 0.5599999999999999
+2025-07-24 20:45:52,814 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: SELL with confidence 0.56
+2025-07-24 20:45:52,814 - backtest2.core.engine - INFO - Executing TradeAction.SELL for AAPL
+2025-07-24 20:45:52,814 - backtest2.utils.transaction_manager - INFO - Transaction 74713347-15b8-46bd-8cc6-24fb5599613d committed successfully
+2025-07-24 20:45:52,814 - backtest2.risk.position_manager - INFO - Executed SELL 25.766146127630492 AAPL @ $212.12
+2025-07-24 20:45:52,814 - backtest2.core.engine - INFO - Executed SELL 25.77 shares of AAPL at $212.12
+2025-07-24 20:45:52,868 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:53,031 - backtest2.agents.orchestrator - INFO - Starting decision process 2b2084e1-f584-40f9-a383-a7a94ce27c97 for AAPL on 2025-05-15 00:00:00
+2025-07-24 20:45:53,031 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:53,031 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:53,031 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:53,031 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:53,031 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:53,031 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:53,031 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:53,031 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:53,031 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:53,031 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:53,031 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:53,032 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:53,032 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: BUY with confidence 0.56
+2025-07-24 20:45:53,032 - backtest2.core.engine - INFO - Executing TradeAction.BUY for AAPL
+2025-07-24 20:45:53,032 - backtest2.utils.transaction_manager - INFO - Transaction 4e9d9a65-77b3-4701-a4af-75cb84ef4199 committed successfully
+2025-07-24 20:45:53,032 - backtest2.risk.position_manager - INFO - Executed BUY 29.433104350516864 AAPL @ $211.66
+2025-07-24 20:45:53,032 - backtest2.core.engine - INFO - Executed BUY 29.43 shares of AAPL at $211.66
+2025-07-24 20:45:53,043 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:53,212 - backtest2.agents.orchestrator - INFO - Starting decision process 00183fb7-2e8c-4430-98db-b8dc47f8f949 for AAPL on 2025-05-16 00:00:00
+2025-07-24 20:45:53,212 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:53,212 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:53,212 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:53,212 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:53,212 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:53,212 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:53,212 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:53,212 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:53,212 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:53,212 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:53,212 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:53,212 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: SELL with confidence 0.5599999999999999
+2025-07-24 20:45:53,213 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: SELL with confidence 0.56
+2025-07-24 20:45:53,213 - backtest2.core.engine - INFO - Executing TradeAction.SELL for AAPL
+2025-07-24 20:45:53,213 - backtest2.utils.transaction_manager - INFO - Transaction db0c3fe4-499b-4964-80ad-a6510d4abce1 committed successfully
+2025-07-24 20:45:53,213 - backtest2.risk.position_manager - INFO - Executed SELL 25.38182379593406 AAPL @ $211.05
+2025-07-24 20:45:53,213 - backtest2.core.engine - INFO - Executed SELL 25.38 shares of AAPL at $211.05
+2025-07-24 20:45:53,222 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:53,396 - backtest2.agents.orchestrator - INFO - Starting decision process a5b6daf6-0fa7-40b2-b63f-ee6dc14ec8ce for AAPL on 2025-05-19 00:00:00
+2025-07-24 20:45:53,397 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:53,397 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:53,397 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:53,397 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:53,397 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:53,397 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:53,397 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:53,397 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:53,398 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:53,398 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:53,398 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:53,398 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: SELL with confidence 0.5599999999999999
+2025-07-24 20:45:53,398 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: SELL with confidence 0.56
+2025-07-24 20:45:53,398 - backtest2.core.engine - INFO - Executing TradeAction.SELL for AAPL
+2025-07-24 20:45:53,398 - backtest2.utils.transaction_manager - INFO - Transaction 357fd339-9605-4774-bc47-5b78ded3af19 committed successfully
+2025-07-24 20:45:53,398 - backtest2.risk.position_manager - INFO - Executed SELL 29.275391523534935 AAPL @ $208.57
+2025-07-24 20:45:53,398 - backtest2.core.engine - INFO - Executed SELL 29.28 shares of AAPL at $208.57
+2025-07-24 20:45:53,408 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:53,573 - backtest2.agents.orchestrator - INFO - Starting decision process b2dcf9a9-a433-4fe5-98b2-0d82dfd9ee6d for AAPL on 2025-05-20 00:00:00
+2025-07-24 20:45:53,574 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:53,574 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:53,574 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:53,574 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:53,574 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:53,574 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:53,574 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:53,574 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:53,574 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:53,574 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:53,574 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:53,574 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: SELL with confidence 0.5599999999999999
+2025-07-24 20:45:53,574 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: SELL with confidence 0.56
+2025-07-24 20:45:53,574 - backtest2.core.engine - INFO - Executing TradeAction.SELL for AAPL
+2025-07-24 20:45:53,575 - backtest2.utils.transaction_manager - INFO - Transaction fdc89424-c34a-4fa2-8788-af7432449671 committed successfully
+2025-07-24 20:45:53,575 - backtest2.risk.position_manager - INFO - Executed SELL 33.67957439156122 AAPL @ $206.65
+2025-07-24 20:45:53,575 - backtest2.core.engine - INFO - Executed SELL 33.68 shares of AAPL at $206.65
+2025-07-24 20:45:53,586 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:53,749 - backtest2.agents.orchestrator - INFO - Starting decision process 39b32164-480b-46e3-8a9f-8bf1bf1731fd for AAPL on 2025-05-21 00:00:00
+2025-07-24 20:45:53,749 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:53,749 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:53,749 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:53,749 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:53,750 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:53,750 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:53,750 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:53,750 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:53,750 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:53,750 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:53,750 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:53,750 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:53,750 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: BUY with confidence 0.56
+2025-07-24 20:45:53,750 - backtest2.core.engine - INFO - Executing TradeAction.BUY for AAPL
+2025-07-24 20:45:53,750 - backtest2.utils.transaction_manager - INFO - Transaction 53610396-2c95-4e58-a7c8-9e5cbf52ba95 committed successfully
+2025-07-24 20:45:53,750 - backtest2.risk.position_manager - INFO - Executed BUY 39.2176191503158 AAPL @ $202.29
+2025-07-24 20:45:53,750 - backtest2.core.engine - INFO - Executed BUY 39.22 shares of AAPL at $202.29
+2025-07-24 20:45:53,768 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:53,945 - backtest2.agents.orchestrator - INFO - Starting decision process d49b4ba5-5f3c-4621-9521-3564ed85e5bf for AAPL on 2025-05-22 00:00:00
+2025-07-24 20:45:53,945 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:53,945 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:53,946 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:53,946 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:53,946 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:53,946 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:53,946 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:53,946 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:53,946 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:53,946 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:53,946 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:53,946 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:53,946 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: BUY with confidence 0.56
+2025-07-24 20:45:53,946 - backtest2.core.engine - INFO - Executing TradeAction.BUY for AAPL
+2025-07-24 20:45:53,946 - backtest2.utils.transaction_manager - INFO - Transaction 79498b6f-b877-4cc4-8fcb-6e2e7fd0aa82 committed successfully
+2025-07-24 20:45:53,946 - backtest2.risk.position_manager - INFO - Executed BUY 33.8439140343386 AAPL @ $201.56
+2025-07-24 20:45:53,946 - backtest2.core.engine - INFO - Executed BUY 33.84 shares of AAPL at $201.56
+2025-07-24 20:45:53,957 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:54,130 - backtest2.agents.orchestrator - INFO - Starting decision process f74a9719-81dc-4900-bb7a-44e4aa0fd53e for AAPL on 2025-05-23 00:00:00
+2025-07-24 20:45:54,131 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:54,131 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:54,131 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:54,131 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:54,131 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:54,131 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:54,132 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:54,132 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:54,132 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:54,132 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:54,132 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:54,132 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: SELL with confidence 0.5599999999999999
+2025-07-24 20:45:54,132 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: SELL with confidence 0.56
+2025-07-24 20:45:54,132 - backtest2.core.engine - INFO - Executing TradeAction.SELL for AAPL
+2025-07-24 20:45:54,132 - backtest2.utils.transaction_manager - INFO - Transaction f51018f6-1767-46dc-bc4e-c6940d283c57 committed successfully
+2025-07-24 20:45:54,132 - backtest2.risk.position_manager - INFO - Executed SELL 30.068695492797318 AAPL @ $195.07
+2025-07-24 20:45:54,132 - backtest2.core.engine - INFO - Executed SELL 30.07 shares of AAPL at $195.07
+2025-07-24 20:45:54,142 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:54,362 - backtest2.agents.orchestrator - INFO - Starting decision process 73d0acbf-1cfb-4044-8466-fd4128fe595a for AAPL on 2025-05-26 00:00:00
+2025-07-24 20:45:54,362 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:54,362 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:54,362 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:54,362 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:54,363 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:54,363 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:54,363 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:54,363 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:54,363 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:54,363 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:54,363 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:54,363 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:54,363 - backtest2.agents.orchestrator - INFO - Final decision for AAPL: BUY with confidence 0.56
+2025-07-24 20:45:54,363 - backtest2.core.engine - INFO - Executing TradeAction.BUY for AAPL
+2025-07-24 20:45:54,363 - backtest2.utils.transaction_manager - INFO - Transaction ca760aea-0496-43b1-85c4-80642777b2bc committed successfully
+2025-07-24 20:45:54,363 - backtest2.risk.position_manager - INFO - Executed BUY 34.205623517657884 AAPL @ $195.47
+2025-07-24 20:45:54,363 - backtest2.core.engine - INFO - Executed BUY 34.21 shares of AAPL at $195.47
+2025-07-24 20:45:54,393 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:54,394 - backtest2.core.engine - ERROR - Backtest failed: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 113, in run
+    await self._update_portfolio(current_date)
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 309, in _update_portfolio
+    decision_id=position.agent_decisions.get('decision_id'),
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-07-24 20:45:54,402 - backtest2.core.engine - ERROR - Failed at date: 2025-05-26 00:00:00
+2025-07-24 20:45:54,402 - backtest2.core.engine - ERROR - Config: symbols=['AAPL'], period=None to None
+2025-07-24 20:45:54,402 - backtest2.core.engine - INFO - Cleaning up backtest resources
+2025-07-24 20:45:54,402 - backtest2.data.manager_simple - INFO - Closing data manager
+2025-07-24 20:45:54,402 - backtest2.agents.orchestrator - INFO - Cleaning up orchestrator resources
+2025-07-24 20:45:54,402 - backtest2.agents.orchestrator - INFO - Orchestrator cleanup completed
+2025-07-24 20:45:54,413 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/AAPL/memories.json
+2025-07-24 20:45:54,414 - TradingMultiAgents.webui.backend.backtest2_wrapper - ERROR - Error processing AAPL: 'NoneType' object has no attribute 'get'
+2025-07-24 20:45:54,415 - TradingMultiAgents.webui.backend.backtest2_wrapper - ERROR - Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 184, in run_backtest_async
+    result = await engine.run()
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 113, in run
+    await self._update_portfolio(current_date)
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 309, in _update_portfolio
+    decision_id=position.agent_decisions.get('decision_id'),
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+
+2025-07-24 20:45:54,416 - __main__ - INFO - Backtest Log: Error processing AAPL: 'NoneType' object has no attribute 'get'
+2025-07-24 20:45:54,416 - __main__ - INFO - Backtest Log: Completed AAPL: Return=0.00%
+2025-07-24 20:45:54,416 - __main__ - INFO - Progress: 50.0% - Completed AAPL (AAPL)
+2025-07-24 20:45:54,416 - __main__ - INFO - Progress: 50.0% - Processing MSFT (MSFT)
+2025-07-24 20:45:54,416 - __main__ - INFO - Backtest Log: Starting backtest for MSFT
+2025-07-24 20:45:54,416 - backtest2.data.manager_simple - INFO - DataManager initialized with Yahoo Finance
+2025-07-24 20:45:54,416 - __main__ - INFO - Backtest Log: Running 6-phase decision flow for MSFT
+2025-07-24 20:45:54,416 - backtest2.core.engine - INFO - Starting backtest execution 5df1d5e3-3cb5-40e2-bd7c-3a770f9e178d
+2025-07-24 20:45:54,416 - backtest2.core.engine - INFO - Initializing backtest environment
+2025-07-24 20:45:54,417 - backtest2.data.manager_simple - INFO - Initializing data manager
+2025-07-24 20:45:54,417 - backtest2.agents.orchestrator - INFO - Initialized 12 agents
+2025-07-24 20:45:54,417 - backtest2.core.engine - INFO - Loading benchmark data for SPY
+2025-07-24 20:45:54,563 - backtest2.agents.orchestrator - INFO - Starting decision process 34ea75ce-e4b2-428c-b96a-545adeb40ef5 for MSFT on 2025-04-25 00:00:00
+2025-07-24 20:45:54,563 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:54,563 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:54,563 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:54,563 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:54,563 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:54,563 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:54,563 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:54,563 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:54,563 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:54,563 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:54,563 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:54,563 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:54,564 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: BUY with confidence 0.56
+2025-07-24 20:45:54,564 - backtest2.core.engine - INFO - Executing TradeAction.BUY for MSFT
+2025-07-24 20:45:54,564 - backtest2.utils.transaction_manager - INFO - Transaction 05d8671f-0fd9-4271-87dd-011089899d7b committed successfully
+2025-07-24 20:45:54,564 - backtest2.risk.position_manager - INFO - Executed BUY 32.18201000891154 MSFT @ $391.52
+2025-07-24 20:45:54,564 - backtest2.core.engine - INFO - Executed BUY 32.18 shares of MSFT at $391.52
+2025-07-24 20:45:54,565 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:54,761 - backtest2.agents.orchestrator - INFO - Starting decision process 5654ea53-4fee-4096-9c7a-8fa27c750cba for MSFT on 2025-04-28 00:00:00
+2025-07-24 20:45:54,762 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:54,762 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:54,772 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:54,772 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:54,772 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:54,772 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:54,772 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:54,772 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:54,772 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:54,773 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:54,773 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:54,773 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: SELL with confidence 0.5599999999999999
+2025-07-24 20:45:54,773 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: SELL with confidence 0.56
+2025-07-24 20:45:54,773 - backtest2.core.engine - INFO - Executing TradeAction.SELL for MSFT
+2025-07-24 20:45:54,774 - backtest2.utils.transaction_manager - INFO - Transaction 2983926f-fc3f-4ef5-8d0c-3bdc45d89f4b committed successfully
+2025-07-24 20:45:54,774 - backtest2.risk.position_manager - INFO - Executed SELL 27.77633441320033 MSFT @ $390.05
+2025-07-24 20:45:54,774 - backtest2.core.engine - INFO - Executed SELL 27.78 shares of MSFT at $390.05
+2025-07-24 20:45:54,775 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:55,019 - backtest2.agents.orchestrator - INFO - Starting decision process 8f95e2ac-5397-4ca7-a9bc-1db81dd96edd for MSFT on 2025-04-29 00:00:00
+2025-07-24 20:45:55,019 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:55,019 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:55,019 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:55,019 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:55,019 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:55,019 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:55,019 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:55,020 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:55,020 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:55,020 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:55,020 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:55,020 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:55,020 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: BUY with confidence 0.56
+2025-07-24 20:45:55,020 - backtest2.core.engine - INFO - Executing TradeAction.BUY for MSFT
+2025-07-24 20:45:55,021 - backtest2.utils.transaction_manager - INFO - Transaction dffd9f7b-9d35-4c62-a371-b5c21a583a91 committed successfully
+2025-07-24 20:45:55,021 - backtest2.risk.position_manager - INFO - Executed BUY 31.36692752631659 MSFT @ $393.71
+2025-07-24 20:45:55,021 - backtest2.core.engine - INFO - Executed BUY 31.37 shares of MSFT at $393.71
+2025-07-24 20:45:55,023 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:55,182 - backtest2.agents.orchestrator - INFO - Starting decision process 738beb11-f5cd-44ae-a9ab-750acb2bbfca for MSFT on 2025-04-30 00:00:00
+2025-07-24 20:45:55,182 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:55,182 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:55,182 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:55,182 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:55,182 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:55,182 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:55,182 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:55,182 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:55,182 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:55,182 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:55,182 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:55,183 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:55,183 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: BUY with confidence 0.56
+2025-07-24 20:45:55,183 - backtest2.core.engine - INFO - Executing TradeAction.BUY for MSFT
+2025-07-24 20:45:55,183 - backtest2.utils.transaction_manager - INFO - Transaction c2741339-6251-4cfb-b656-0bc4674724ac committed successfully
+2025-07-24 20:45:55,183 - backtest2.risk.position_manager - INFO - Executed BUY 26.887917133087427 MSFT @ $394.93
+2025-07-24 20:45:55,183 - backtest2.core.engine - INFO - Executed BUY 26.89 shares of MSFT at $394.93
+2025-07-24 20:45:55,185 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:55,335 - backtest2.agents.orchestrator - INFO - Starting decision process 5bdc64dc-aa4b-49d9-859d-af788f68fdbf for MSFT on 2025-05-01 00:00:00
+2025-07-24 20:45:55,335 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:55,335 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:55,335 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:55,335 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:55,335 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:55,335 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:55,335 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:55,335 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:55,335 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:55,335 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:55,335 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:55,336 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:55,336 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: BUY with confidence 0.56
+2025-07-24 20:45:55,336 - backtest2.core.engine - INFO - Executing TradeAction.BUY for MSFT
+2025-07-24 20:45:55,336 - backtest2.utils.transaction_manager - INFO - Transaction 3b38bc89-9cf2-4d75-9402-185ce34f49f7 committed successfully
+2025-07-24 20:45:55,336 - backtest2.risk.position_manager - INFO - Executed BUY 21.481782310140208 MSFT @ $425.05
+2025-07-24 20:45:55,336 - backtest2.core.engine - INFO - Executed BUY 21.48 shares of MSFT at $425.05
+2025-07-24 20:45:55,339 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:55,505 - backtest2.agents.orchestrator - INFO - Starting decision process ae73a3ab-81c9-40e9-8b3f-e4ecbaa35e4d for MSFT on 2025-05-02 00:00:00
+2025-07-24 20:45:55,505 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:55,505 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:55,505 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:55,505 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:55,506 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:55,506 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:55,506 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:55,506 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:55,506 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:55,506 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:55,506 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:55,506 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:55,506 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: BUY with confidence 0.56
+2025-07-24 20:45:55,506 - backtest2.core.engine - INFO - Executing TradeAction.BUY for MSFT
+2025-07-24 20:45:55,506 - backtest2.utils.transaction_manager - INFO - Transaction 00df2303-80f3-4386-9fdb-2e8f85af92e4 committed successfully
+2025-07-24 20:45:55,506 - backtest2.risk.position_manager - INFO - Executed BUY 18.052062032689744 MSFT @ $434.92
+2025-07-24 20:45:55,506 - backtest2.core.engine - INFO - Executed BUY 18.05 shares of MSFT at $434.92
+2025-07-24 20:45:55,509 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:55,670 - backtest2.agents.orchestrator - INFO - Starting decision process ae10da31-ce24-48bd-be37-d85966dc500b for MSFT on 2025-05-05 00:00:00
+2025-07-24 20:45:55,670 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:55,671 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:55,671 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:55,671 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:55,671 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:55,671 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:55,671 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:55,671 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:55,671 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:55,671 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:55,671 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:55,671 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: SELL with confidence 0.5599999999999999
+2025-07-24 20:45:55,671 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: SELL with confidence 0.56
+2025-07-24 20:45:55,671 - backtest2.core.engine - INFO - Executing TradeAction.SELL for MSFT
+2025-07-24 20:45:55,671 - backtest2.utils.transaction_manager - INFO - Transaction 95da0ad0-1af9-49ad-8c2e-82efba15372e committed successfully
+2025-07-24 20:45:55,671 - backtest2.risk.position_manager - INFO - Executed SELL 15.521585334062399 MSFT @ $434.94
+2025-07-24 20:45:55,671 - backtest2.core.engine - INFO - Executed SELL 15.52 shares of MSFT at $434.94
+2025-07-24 20:45:55,675 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:55,813 - backtest2.agents.orchestrator - INFO - Starting decision process ca59a694-31d4-4a9b-8f0a-5202b45b0e36 for MSFT on 2025-05-06 00:00:00
+2025-07-24 20:45:55,814 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:55,814 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:55,814 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:55,814 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:55,814 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:55,814 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:55,814 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:55,814 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:55,814 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:55,814 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:55,814 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:55,814 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: SELL with confidence 0.5599999999999999
+2025-07-24 20:45:55,815 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: SELL with confidence 0.56
+2025-07-24 20:45:55,815 - backtest2.core.engine - INFO - Executing TradeAction.SELL for MSFT
+2025-07-24 20:45:55,815 - backtest2.utils.transaction_manager - INFO - Transaction 15ddabb2-afd3-4cd9-82c1-9d791f437b66 committed successfully
+2025-07-24 20:45:55,815 - backtest2.risk.position_manager - INFO - Executed SELL 17.809210931497965 MSFT @ $432.08
+2025-07-24 20:45:55,815 - backtest2.core.engine - INFO - Executed SELL 17.81 shares of MSFT at $432.08
+2025-07-24 20:45:55,819 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:55,952 - backtest2.agents.orchestrator - INFO - Starting decision process e92a7bb6-86c6-4a16-b917-f9d598fbb64c for MSFT on 2025-05-07 00:00:00
+2025-07-24 20:45:55,952 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:55,952 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:55,952 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:55,952 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:55,952 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:55,953 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:55,953 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:55,953 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:55,953 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:55,953 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:55,953 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:55,953 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:55,953 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: BUY with confidence 0.56
+2025-07-24 20:45:55,953 - backtest2.core.engine - INFO - Executing TradeAction.BUY for MSFT
+2025-07-24 20:45:55,953 - backtest2.utils.transaction_manager - INFO - Transaction 8940e12d-029f-4ad2-8f7b-397b1de60bad committed successfully
+2025-07-24 20:45:55,953 - backtest2.risk.position_manager - INFO - Executed BUY 20.257576711982242 MSFT @ $432.99
+2025-07-24 20:45:55,953 - backtest2.core.engine - INFO - Executed BUY 20.26 shares of MSFT at $432.99
+2025-07-24 20:45:55,958 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:56,100 - backtest2.agents.orchestrator - INFO - Starting decision process 7dd96b5b-1d09-4015-a340-9cbddb292a3b for MSFT on 2025-05-08 00:00:00
+2025-07-24 20:45:56,100 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:56,101 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:56,101 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:56,101 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:56,101 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:56,101 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:56,101 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:56,101 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:56,101 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:56,101 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:56,101 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:56,101 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:56,101 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: BUY with confidence 0.56
+2025-07-24 20:45:56,101 - backtest2.core.engine - INFO - Executing TradeAction.BUY for MSFT
+2025-07-24 20:45:56,102 - backtest2.utils.transaction_manager - INFO - Transaction c4f78ea8-360b-46e8-8059-d23a36545a95 committed successfully
+2025-07-24 20:45:56,102 - backtest2.risk.position_manager - INFO - Executed BUY 17.227069673031494 MSFT @ $437.80
+2025-07-24 20:45:56,102 - backtest2.core.engine - INFO - Executed BUY 17.23 shares of MSFT at $437.80
+2025-07-24 20:45:56,108 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:56,257 - backtest2.agents.orchestrator - INFO - Starting decision process 143cb88e-0752-46b8-bcfa-e13a44c9184b for MSFT on 2025-05-09 00:00:00
+2025-07-24 20:45:56,257 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:56,257 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:56,257 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:56,257 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:56,257 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:56,258 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:56,258 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:56,258 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:56,258 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:56,258 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:56,258 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:56,258 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: SELL with confidence 0.5599999999999999
+2025-07-24 20:45:56,258 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: SELL with confidence 0.56
+2025-07-24 20:45:56,258 - backtest2.core.engine - INFO - Executing TradeAction.SELL for MSFT
+2025-07-24 20:45:56,258 - backtest2.utils.transaction_manager - INFO - Transaction 33058fdc-1279-41aa-8bd7-ae3ea8e3a438 committed successfully
+2025-07-24 20:45:56,258 - backtest2.risk.position_manager - INFO - Executed SELL 14.823577789537998 MSFT @ $437.49
+2025-07-24 20:45:56,258 - backtest2.core.engine - INFO - Executed SELL 14.82 shares of MSFT at $437.49
+2025-07-24 20:45:56,264 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:56,406 - backtest2.agents.orchestrator - INFO - Starting decision process 48a9471e-8ad9-493e-99a2-aa1f14d4d605 for MSFT on 2025-05-12 00:00:00
+2025-07-24 20:45:56,407 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:56,407 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:56,407 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:56,407 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:56,407 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:56,407 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:56,407 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:56,407 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:56,407 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:56,407 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:56,407 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:56,407 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: SELL with confidence 0.5599999999999999
+2025-07-24 20:45:56,407 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: SELL with confidence 0.56
+2025-07-24 20:45:56,407 - backtest2.core.engine - INFO - Executing TradeAction.SELL for MSFT
+2025-07-24 20:45:56,408 - backtest2.utils.transaction_manager - INFO - Transaction 6a507df3-8a36-4bb9-a875-13f1bcd89d5a committed successfully
+2025-07-24 20:45:56,408 - backtest2.risk.position_manager - INFO - Executed SELL 16.50076777787018 MSFT @ $447.99
+2025-07-24 20:45:56,408 - backtest2.core.engine - INFO - Executed SELL 16.50 shares of MSFT at $447.99
+2025-07-24 20:45:56,413 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:56,554 - backtest2.agents.orchestrator - INFO - Starting decision process df1e8468-3ede-4248-a4f8-20ab1606038b for MSFT on 2025-05-13 00:00:00
+2025-07-24 20:45:56,554 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:56,554 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:56,554 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:56,554 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:56,554 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:56,554 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:56,554 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:56,555 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:56,555 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:56,555 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:56,555 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:56,555 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:56,555 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: BUY with confidence 0.56
+2025-07-24 20:45:56,555 - backtest2.core.engine - INFO - Executing TradeAction.BUY for MSFT
+2025-07-24 20:45:56,555 - backtest2.utils.transaction_manager - INFO - Transaction 3ab98f9b-70ce-4166-8884-70360a686070 committed successfully
+2025-07-24 20:45:56,555 - backtest2.risk.position_manager - INFO - Executed BUY 18.775999569456864 MSFT @ $448.77
+2025-07-24 20:45:56,555 - backtest2.core.engine - INFO - Executed BUY 18.78 shares of MSFT at $448.77
+2025-07-24 20:45:56,561 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:56,708 - backtest2.agents.orchestrator - INFO - Starting decision process bd33b5f1-fd59-4fcf-9d56-563097b536c8 for MSFT on 2025-05-14 00:00:00
+2025-07-24 20:45:56,708 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:56,708 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:56,708 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:56,708 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:56,708 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:56,708 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:56,708 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:56,708 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:56,708 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:56,708 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:56,708 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:56,708 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: SELL with confidence 0.5599999999999999
+2025-07-24 20:45:56,708 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: SELL with confidence 0.56
+2025-07-24 20:45:56,709 - backtest2.core.engine - INFO - Executing TradeAction.SELL for MSFT
+2025-07-24 20:45:56,709 - backtest2.utils.transaction_manager - INFO - Transaction ebede681-502b-45b5-83d1-53e2e7f8e65b committed successfully
+2025-07-24 20:45:56,709 - backtest2.risk.position_manager - INFO - Executed SELL 16.041334582608012 MSFT @ $451.66
+2025-07-24 20:45:56,709 - backtest2.core.engine - INFO - Executed SELL 16.04 shares of MSFT at $451.66
+2025-07-24 20:45:56,727 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:56,880 - backtest2.agents.orchestrator - INFO - Starting decision process 77bab7a0-1260-4aec-ac18-4de4f70b728f for MSFT on 2025-05-15 00:00:00
+2025-07-24 20:45:56,881 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:56,881 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:56,881 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:56,881 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:56,881 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:56,881 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:56,881 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:56,881 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:56,881 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:56,881 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:56,881 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:56,881 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:56,881 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: BUY with confidence 0.56
+2025-07-24 20:45:56,881 - backtest2.core.engine - INFO - Executing TradeAction.BUY for MSFT
+2025-07-24 20:45:56,881 - backtest2.utils.transaction_manager - INFO - Transaction 3616d49c-af54-48a1-962c-648ac1bd39b5 committed successfully
+2025-07-24 20:45:56,881 - backtest2.risk.position_manager - INFO - Executed BUY 18.207264438386428 MSFT @ $453.58
+2025-07-24 20:45:56,881 - backtest2.core.engine - INFO - Executed BUY 18.21 shares of MSFT at $453.58
+2025-07-24 20:45:56,889 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:57,041 - backtest2.agents.orchestrator - INFO - Starting decision process 60ca9bee-f761-4bc0-b3c0-c7a8eb9499ad for MSFT on 2025-05-16 00:00:00
+2025-07-24 20:45:57,041 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:57,041 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:57,042 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:57,042 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:57,042 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:57,042 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:57,042 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:57,042 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:57,042 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:57,042 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:57,042 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:57,042 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: SELL with confidence 0.5599999999999999
+2025-07-24 20:45:57,042 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: SELL with confidence 0.56
+2025-07-24 20:45:57,042 - backtest2.core.engine - INFO - Executing TradeAction.SELL for MSFT
+2025-07-24 20:45:57,042 - backtest2.utils.transaction_manager - INFO - Transaction 9b580740-ff6d-4c6e-9859-a2ab64012e9b committed successfully
+2025-07-24 20:45:57,042 - backtest2.risk.position_manager - INFO - Executed SELL 15.64767473102519 MSFT @ $453.82
+2025-07-24 20:45:57,042 - backtest2.core.engine - INFO - Executed SELL 15.65 shares of MSFT at $453.82
+2025-07-24 20:45:57,051 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:57,206 - backtest2.agents.orchestrator - INFO - Starting decision process dc48a137-0807-45c7-b872-03246d2ce380 for MSFT on 2025-05-19 00:00:00
+2025-07-24 20:45:57,207 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:57,207 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:57,207 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:57,207 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:57,207 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:57,207 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:57,207 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:57,207 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:57,207 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:57,207 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:57,207 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:57,207 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: SELL with confidence 0.5599999999999999
+2025-07-24 20:45:57,207 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: SELL with confidence 0.56
+2025-07-24 20:45:57,208 - backtest2.core.engine - INFO - Executing TradeAction.SELL for MSFT
+2025-07-24 20:45:57,208 - backtest2.utils.transaction_manager - INFO - Transaction e857377f-747e-4221-8d83-4be9695b4596 committed successfully
+2025-07-24 20:45:57,208 - backtest2.risk.position_manager - INFO - Executed SELL 17.65735746648784 MSFT @ $458.41
+2025-07-24 20:45:57,214 - backtest2.core.engine - INFO - Executed SELL 17.66 shares of MSFT at $458.41
+2025-07-24 20:45:57,234 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:57,383 - backtest2.agents.orchestrator - INFO - Starting decision process 6cc421d9-f409-40d8-be98-02c1c26b86b9 for MSFT on 2025-05-20 00:00:00
+2025-07-24 20:45:57,383 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:57,384 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:57,384 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:57,384 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:57,384 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:57,384 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:57,384 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:57,384 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:57,384 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:57,384 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:57,384 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:57,384 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:57,384 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: BUY with confidence 0.56
+2025-07-24 20:45:57,384 - backtest2.core.engine - INFO - Executing TradeAction.BUY for MSFT
+2025-07-24 20:45:57,384 - backtest2.utils.transaction_manager - INFO - Transaction cb27990b-3010-4c2c-8a02-7bb4d4e06d67 committed successfully
+2025-07-24 20:45:57,384 - backtest2.risk.position_manager - INFO - Executed BUY 20.117389869063462 MSFT @ $458.63
+2025-07-24 20:45:57,384 - backtest2.core.engine - INFO - Executed BUY 20.12 shares of MSFT at $458.63
+2025-07-24 20:45:57,393 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:57,548 - backtest2.agents.orchestrator - INFO - Starting decision process 5e26e0a0-82a7-4bcd-8a0e-bd9cb8e306f0 for MSFT on 2025-05-21 00:00:00
+2025-07-24 20:45:57,548 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:57,548 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:57,548 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:57,548 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:57,548 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:57,548 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:57,549 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:57,549 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:57,549 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:57,549 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:57,549 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:57,549 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:57,549 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: BUY with confidence 0.56
+2025-07-24 20:45:57,549 - backtest2.core.engine - INFO - Executing TradeAction.BUY for MSFT
+2025-07-24 20:45:57,549 - backtest2.utils.transaction_manager - INFO - Transaction 8b80738d-2273-4445-9154-19d9123c331a committed successfully
+2025-07-24 20:45:57,549 - backtest2.risk.position_manager - INFO - Executed BUY 17.512182385498487 MSFT @ $453.02
+2025-07-24 20:45:57,549 - backtest2.core.engine - INFO - Executed BUY 17.51 shares of MSFT at $453.02
+2025-07-24 20:45:57,558 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:57,704 - backtest2.agents.orchestrator - INFO - Starting decision process 05f497c8-fd9b-451a-9493-7c6e84db3431 for MSFT on 2025-05-22 00:00:00
+2025-07-24 20:45:57,704 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:57,704 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:57,704 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:57,704 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:57,704 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:57,704 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:57,704 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:57,704 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:57,704 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:57,704 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:57,705 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:57,705 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:57,705 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: BUY with confidence 0.56
+2025-07-24 20:45:57,705 - backtest2.core.engine - INFO - Executing TradeAction.BUY for MSFT
+2025-07-24 20:45:57,705 - backtest2.utils.transaction_manager - INFO - Transaction b6d5daa8-03a1-4693-a117-493405c02586 committed successfully
+2025-07-24 20:45:57,705 - backtest2.risk.position_manager - INFO - Executed BUY 14.982216000697266 MSFT @ $455.31
+2025-07-24 20:45:57,705 - backtest2.core.engine - INFO - Executed BUY 14.98 shares of MSFT at $455.31
+2025-07-24 20:45:57,714 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:57,871 - backtest2.agents.orchestrator - INFO - Starting decision process b0855785-e994-459c-a23b-b06a25d91785 for MSFT on 2025-05-23 00:00:00
+2025-07-24 20:45:57,872 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:57,872 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:57,872 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:57,872 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:57,872 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:57,872 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:57,872 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:57,872 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:57,872 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:57,872 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:57,872 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:57,873 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: SELL with confidence 0.5599999999999999
+2025-07-24 20:45:57,873 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: SELL with confidence 0.56
+2025-07-24 20:45:57,873 - backtest2.core.engine - INFO - Executing TradeAction.SELL for MSFT
+2025-07-24 20:45:57,873 - backtest2.utils.transaction_manager - INFO - Transaction e138b986-94cc-4c44-9557-4bb676782652 committed successfully
+2025-07-24 20:45:57,873 - backtest2.risk.position_manager - INFO - Executed SELL 13.042592724849307 MSFT @ $449.73
+2025-07-24 20:45:57,873 - backtest2.core.engine - INFO - Executed SELL 13.04 shares of MSFT at $449.73
+2025-07-24 20:45:57,883 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:58,019 - backtest2.agents.orchestrator - INFO - Starting decision process 885cc43b-4afa-4c7e-bb17-60a5611b0754 for MSFT on 2025-05-26 00:00:00
+2025-07-24 20:45:58,019 - backtest2.agents.orchestrator - INFO - Phase 1: Data Collection
+2025-07-24 20:45:58,019 - backtest2.agents.orchestrator - INFO - Phase 2: Investment Analysis
+2025-07-24 20:45:58,019 - backtest2.agents.orchestrator - INFO - Phase 3: Investment Decision
+2025-07-24 20:45:58,019 - backtest2.agents.orchestrator - INFO - Debate round 1
+2025-07-24 20:45:58,019 - backtest2.agents.orchestrator - INFO - Phase 4: Trading Decision
+2025-07-24 20:45:58,019 - backtest2.agents.orchestrator - INFO - Phase 5: Risk Assessment
+2025-07-24 20:45:58,019 - backtest2.agents.orchestrator - INFO - Risk perspective from aggressive_debator collected successfully
+2025-07-24 20:45:58,019 - backtest2.agents.orchestrator - INFO - Risk perspective from conservative_debator collected successfully
+2025-07-24 20:45:58,019 - backtest2.agents.orchestrator - INFO - Risk perspective from neutral_debator collected successfully
+2025-07-24 20:45:58,019 - backtest2.agents.orchestrator - INFO - Risk discussion round 1
+2025-07-24 20:45:58,019 - backtest2.agents.orchestrator - INFO - Phase 6: Final Decision
+2025-07-24 20:45:58,020 - backtest2.agents.orchestrator - INFO - [DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+2025-07-24 20:45:58,020 - backtest2.agents.orchestrator - INFO - Final decision for MSFT: BUY with confidence 0.56
+2025-07-24 20:45:58,020 - backtest2.core.engine - INFO - Executing TradeAction.BUY for MSFT
+2025-07-24 20:45:58,020 - backtest2.utils.transaction_manager - INFO - Transaction 558b8895-ef83-48b3-9658-729d896fbe0f committed successfully
+2025-07-24 20:45:58,020 - backtest2.risk.position_manager - INFO - Executed BUY 14.837025987615768 MSFT @ $450.63
+2025-07-24 20:45:58,020 - backtest2.core.engine - INFO - Executed BUY 14.84 shares of MSFT at $450.63
+2025-07-24 20:45:58,030 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:58,031 - backtest2.core.engine - ERROR - Backtest failed: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 113, in run
+    await self._update_portfolio(current_date)
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 309, in _update_portfolio
+    decision_id=position.agent_decisions.get('decision_id'),
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-07-24 20:45:58,031 - backtest2.core.engine - ERROR - Failed at date: 2025-05-26 00:00:00
+2025-07-24 20:45:58,031 - backtest2.core.engine - ERROR - Config: symbols=['MSFT'], period=None to None
+2025-07-24 20:45:58,031 - backtest2.core.engine - INFO - Cleaning up backtest resources
+2025-07-24 20:45:58,031 - backtest2.data.manager_simple - INFO - Closing data manager
+2025-07-24 20:45:58,031 - backtest2.agents.orchestrator - INFO - Cleaning up orchestrator resources
+2025-07-24 20:45:58,031 - backtest2.agents.orchestrator - INFO - Orchestrator cleanup completed
+2025-07-24 20:45:58,042 - MemoryStore - INFO - Saved memories to results/backtest2_20250724_204549/MSFT/memories.json
+2025-07-24 20:45:58,042 - TradingMultiAgents.webui.backend.backtest2_wrapper - ERROR - Error processing MSFT: 'NoneType' object has no attribute 'get'
+2025-07-24 20:45:58,042 - TradingMultiAgents.webui.backend.backtest2_wrapper - ERROR - Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 184, in run_backtest_async
+    result = await engine.run()
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 113, in run
+    await self._update_portfolio(current_date)
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 309, in _update_portfolio
+    decision_id=position.agent_decisions.get('decision_id'),
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+
+2025-07-24 20:45:58,042 - __main__ - INFO - Backtest Log: Error processing MSFT: 'NoneType' object has no attribute 'get'
+2025-07-24 20:45:58,043 - __main__ - INFO - Backtest Log: Completed MSFT: Return=0.00%
+2025-07-24 20:45:58,043 - __main__ - INFO - Progress: 100.0% - Completed MSFT (MSFT)
+2025-07-24 20:45:58,043 - __main__ - INFO - Backtest Log: Backtest2 completed successfully
+2025-07-24 20:45:58,043 - __main__ - INFO - バックテストが完了しました
+2025-07-24 20:45:58,043 - __main__ - INFO - レポートを保存しました: backtest_report_20250724_204558.txt
+2025-07-24 20:45:58,043 - __main__ - INFO - 詳細結果を保存しました: backtest_results_20250724_204558.json

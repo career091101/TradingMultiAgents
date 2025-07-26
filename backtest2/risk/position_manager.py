@@ -63,6 +63,9 @@ class PositionManager:
         # Determine risk profile based on signal
         risk_profile = self._determine_risk_profile(signal, confidence)
         
+        if hasattr(self, 'logger'):
+            self.logger.debug(f"Risk profile: {risk_profile}, Confidence: {confidence:.2f}")
+        
         # Get maximum allocation for risk profile
         max_allocation = self.risk_config.position_limits.get(
             risk_profile,
@@ -76,18 +79,32 @@ class PositionManager:
             size_multiplier = 0.7
         else:
             size_multiplier = 0.4
+        
+        if hasattr(self, 'logger'):
+            self.logger.debug(f"Max allocation: {max_allocation:.2%}, Size multiplier: {size_multiplier}")
             
         # Calculate available capital
         available_capital = self._calculate_available_capital()
         
+        if hasattr(self, 'logger'):
+            self.logger.debug(f"Available capital: ${available_capital:.2f}, Cash: ${self.cash:.2f}")
+        
         # Base position size
         base_size = available_capital * max_allocation * size_multiplier
+        
+        if hasattr(self, 'logger'):
+            self.logger.debug(f"Base position size: ${base_size:.2f}")
         
         # Apply constraints
         position_size = self._apply_constraints(base_size, signal)
         
+        if hasattr(self, 'logger'):
+            self.logger.debug(f"Position size after constraints: ${position_size:.2f}")
+        
         # Ensure minimum trade size
         if position_size < self.risk_config.min_trade_size:
+            if hasattr(self, 'logger'):
+                self.logger.debug(f"Position size ${position_size:.2f} below minimum ${self.risk_config.min_trade_size}, returning 0")
             return 0.0
             
         return position_size
@@ -423,7 +440,10 @@ class PositionManager:
                 return True, "Take profit triggered"
                 
         # Time-based exit (hold for max 30 days for now)
-        if (current_date - position.entry_date).days > 30:
+        # Ensure both dates are timezone-naive for comparison
+        current_date_naive = current_date.replace(tzinfo=None) if hasattr(current_date, 'tzinfo') else current_date
+        entry_date_naive = position.entry_date.replace(tzinfo=None) if hasattr(position.entry_date, 'tzinfo') else position.entry_date
+        if (current_date_naive - entry_date_naive).days > 30:
             return True, "Maximum holding period reached"
             
         return False, None

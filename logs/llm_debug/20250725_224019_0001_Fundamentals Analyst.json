@@ -1,0 +1,12 @@
+{
+  "timestamp": "20250725_224019",
+  "agent": "Fundamentals Analyst",
+  "prompt": "\nAAPLのファンダメンタル分析を行ってください。\n\n現在価格: $211.18\n\n財務指標とバリュエーションを評価してください。\n\n\nIMPORTANT: You must respond with valid JSON only. No explanations, no markdown, just JSON.\n\nExample of the EXACT format you must use:\n{\n  \"valuation\": \"Analysis result\",\n  \"financial_health\": \"Analysis result\",\n  \"growth_prospects\": \"Analysis result\",\n  \"confidence\": 0.5,\n  \"rationale\": \"Analysis result\"\n}\n\nYour response must follow this exact structure with appropriate values based on the context.\n",
+  "response": "{\n  \"valuation\": \"AAPLの現在価格は$211.18である。株価は過去1年間で堅調に推移しており、適正価格に対してやや上回っている。\",\n  \"financial_health\": \"AAPLは財務面でも健全であり、負債比率が低く、安定した収益性を維持している。\",\n  \"growth_prospects\": \"AAPLの成長見通しは良好であり、新製品の開発やサービス部門の拡大により収益性が向上する見込みがある。\",\n  \"confidence\": 0.8,\n  \"rationale\": \"AAPLは市場リーダーの地位を保ちつつ、新たな成長分野にも注力しており、投資家にとって魅力的な選択肢と言える。\"\n}",
+  "response_length": 315,
+  "context_keys": [
+    "market_data",
+    "context"
+  ],
+  "use_japanese": false
+}

@@ -1,0 +1,37 @@
+{
+  "execution_timestamp": "2025-07-24T22:48:52.693407",
+  "workflow_status": "completed",
+  "retry_count": 0,
+  "results": {},
+  "problems": [
+    "ワークフローエラー: バックテストページ遷移失敗"
+  ],
+  "warnings": [],
+  "execution_log": [
+    {
+      "timestamp": "2025-07-24T22:48:01.543764",
+      "event": "環境準備",
+      "status": "完了",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-07-24T22:48:41.487675",
+      "event": "ログイン",
+      "status": "成功",
+      "details": ""
+    },
+    {
+      "timestamp": "2025-07-24T22:48:52.685003",
+      "event": "バックテスト遷移",
+      "status": "失敗",
+      "details": "ボタンが見つからない"
+    },
+    {
+      "timestamp": "2025-07-24T22:48:52.693319",
+      "event": "ワークフロー",
+      "status": "エラー",
+      "details": "バックテストページ遷移失敗"
+    }
+  ],
+  "zero_trade_analysis": null
+}

@@ -1,0 +1,73 @@
+{
+  "test_date": "2025-07-24T15:04:56.558514",
+  "successful_tests": [
+    {
+      "test": "o3 - With max_completion_tokens",
+      "model": "o3",
+      "response": "2 + 2 = 4"
+    },
+    {
+      "test": "o4-mini - With max_completion_tokens",
+      "model": "o4-mini",
+      "response": ""
+    },
+    {
+      "test": "o3 - Minimal params",
+      "model": "o3",
+      "response": "Hello! How can I help you today?"
+    },
+    {
+      "test": "o1-mini - Comparison test",
+      "model": "o1-mini",
+      "response": ""
+    }
+  ],
+  "failed_tests": [
+    {
+      "test": "o3 - Basic",
+      "model": "o3",
+      "error": "Error code: 400 - {'error': {'message': \"Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.\", 'type': 'invalid_request_error', 'param': 'max_tokens', 'code': 'unsupported_parameter'}}"
+    },
+    {
+      "test": "o4-mini - Basic",
+      "model": "o4-mini",
+      "error": "Error code: 400 - {'error': {'message': \"Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.\", 'type': 'invalid_request_error', 'param': 'max_tokens', 'code': 'unsupported_parameter'}}"
+    },
+    {
+      "test": "o3-2025-04-16 - Date format",
+      "model": "o3-2025-04-16",
+      "error": "Error code: 400 - {'error': {'message': \"Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.\", 'type': 'invalid_request_error', 'param': 'max_tokens', 'code': 'unsupported_parameter'}}"
+    },
+    {
+      "test": "o4-mini-2025-04-16 - Date format",
+      "model": "o4-mini-2025-04-16",
+      "error": "Error code: 400 - {'error': {'message': \"Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.\", 'type': 'invalid_request_error', 'param': 'max_tokens', 'code': 'unsupported_parameter'}}"
+    },
+    {
+      "test": "o3 - With reasoning_effort low",
+      "model": "o3",
+      "error": "Error code: 400 - {'error': {'message': \"Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.\", 'type': 'invalid_request_error', 'param': 'max_tokens', 'code': 'unsupported_parameter'}}"
+    },
+    {
+      "test": "o4-mini - With reasoning_effort medium",
+      "model": "o4-mini",
+      "error": "Error code: 400 - {'error': {'message': \"Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.\", 'type': 'invalid_request_error', 'param': 'max_tokens', 'code': 'unsupported_parameter'}}"
+    },
+    {
+      "test": "o3 - With developer message",
+      "model": "o3",
+      "error": "Error code: 400 - {'error': {'message': \"Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.\", 'type': 'invalid_request_error', 'param': 'max_tokens', 'code': 'unsupported_parameter'}}"
+    },
+    {
+      "test": "o3-mini - Basic test",
+      "model": "o3-mini",
+      "error": "Error code: 400 - {'error': {'message': \"Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.\", 'type': 'invalid_request_error', 'param': 'max_tokens', 'code': 'unsupported_parameter'}}"
+    },
+    {
+      "test": "o3-mini-2025-01-31 - Date format",
+      "model": "o3-mini-2025-01-31",
+      "error": "Error code: 400 - {'error': {'message': \"Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.\", 'type': 'invalid_request_error', 'param': 'max_tokens', 'code': 'unsupported_parameter'}}"
+    }
+  ],
+  "total_tests": 13
+}

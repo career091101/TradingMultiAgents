@@ -82,6 +82,13 @@ class BacktestEngine:
         self.execution_id = str(uuid.uuid4())
         # Use circular buffer to prevent memory leak
         self.transactions = CircularBuffer(max_size=50000)  # Keep last 50k transactions
+        self.all_decisions = []  # Track all decisions including HOLD  # Keep last 50k transactions
+        self.decision_stats = {  # Track decision statistics
+            'total': 0,
+            'buy': 0,
+            'sell': 0,
+            'hold': 0
+        }
         
         # Initialize metrics and tracing
         self.metrics = BacktestMetrics()
@@ -129,6 +136,10 @@ class BacktestEngine:
             
         except Exception as e:
             self.logger.error(f"Backtest failed: {str(e)}", exc_info=True)
+            self.logger.error(f"Failed at date: {self.time_manager.current_date if hasattr(self, 'time_manager') else 'Unknown'}")
+            self.logger.error(f"Config: symbols={self.config.symbols}, period={self.config.start_date} to {self.config.end_date}")
+            if hasattr(self, 'portfolio'):
+                self.logger.error(f"Portfolio state: cash={self.portfolio.cash}, positions={list(self.portfolio.positions.keys())}")
             raise
         finally:
             self.is_running = False
@@ -170,9 +181,16 @@ class BacktestEngine:
             if market_data is None:
                 self.logger.warning(f"No data available for {symbol} on {current_date}")
                 return
+            
+            # Safe debug logging
+            if getattr(self.config, 'debug', False):
+                self.logger.debug(f"Market data for {symbol}: Price=${market_data.close:.2f}, Volume={market_data.volume}")
                 
             # Get current portfolio state
             portfolio_state = self.position_manager.get_portfolio_state()
+            
+            if getattr(self.config, 'debug', False):
+                self.logger.debug(f"Portfolio state: Cash=${portfolio_state.cash:.2f}, Positions={len(portfolio_state.positions)}")
             
             # Make trading decision
             decision = await self.agent_orchestrator.make_decision(
@@ -182,15 +200,44 @@ class BacktestEngine:
                 portfolio=portfolio_state
             )
             
+            if getattr(self.config, 'debug', False):
+                self.logger.debug(f"Decision for {symbol}: Action={decision.action}, Confidence={decision.confidence:.2f}, Quantity={decision.quantity}")
+                self.logger.debug(f"Decision rationale: {decision.rationale}")
+            
+            # Track all decisions for metrics
+            self.all_decisions.append(decision)
+            
+            # Update decision statistics
+            self.decision_stats['total'] += 1
+            if decision.action == TradeAction.BUY:
+                self.decision_stats['buy'] += 1
+            elif decision.action == TradeAction.SELL:
+                self.decision_stats['sell'] += 1
+            else:  # HOLD
+                self.decision_stats['hold'] += 1
+            
             # Execute trade if not HOLD
             if decision.action != TradeAction.HOLD:
+                self.logger.info(f"Executing {decision.action} for {symbol}")
                 await self._execute_trade(decision, market_data)
                 
                 # Reflection will be added in full implementation
                 pass
+            else:
+                if getattr(self.config, 'debug', False):
+                    self.logger.debug(f"HOLD decision for {symbol}, no trade executed")
                     
         except Exception as e:
-            self.logger.error(f"Error processing {symbol} on {current_date}: {str(e)}")
+            # Safe error logging to prevent cascading errors
+            try:
+                self.logger.error(f"Error processing {symbol} on {current_date}: {str(e)}")
+                if getattr(self.config, 'debug', False):
+                    import traceback
+                    self.logger.error(f"Traceback:\n{traceback.format_exc()}")
+            except Exception as log_error:
+                # Fallback to print if logging fails
+                print(f"ERROR: Error processing {symbol} on {current_date}: {str(e)}")
+                print(f"Logging error: {str(log_error)}")
             raise
             
     async def _execute_trade(self, decision: TradingDecision, market_data: MarketData) -> None:
@@ -273,13 +320,25 @@ class BacktestEngine:
         
         # Process closed positions
         for position in closed_positions:
+            # Handle case where agent_decisions might be None
+            decision_id = None
+            max_drawdown = 0
+            if position.agent_decisions:
+                decision_id = position.agent_decisions.get('decision_id')
+                max_drawdown = position.agent_decisions.get('max_drawdown', 0)
+            
+            # Calculate holding period safely
+            holding_period = 0
+            if position.exit_date and position.entry_date:
+                holding_period = (position.exit_date - position.entry_date).days
+            
             outcome = TradingOutcome(
-                decision_id=position.agent_decisions.get('decision_id'),
+                decision_id=decision_id,
                 position=position,
                 pnl=position.realized_pnl,
-                holding_period=(position.exit_date - position.entry_date).days,
-                return_pct=position.realized_pnl / (position.entry_price * position.quantity),
-                max_drawdown=position.agent_decisions.get('max_drawdown', 0),
+                holding_period=holding_period,
+                return_pct=position.realized_pnl / (position.entry_price * position.quantity) if position.entry_price and position.quantity else 0,
+                max_drawdown=max_drawdown,
                 success=position.realized_pnl > 0
             )
             
@@ -381,10 +440,29 @@ class BacktestEngine:
         if not self.memory_store:
             return {}
             
-        # Simple performance summary
+        # Use decision stats for accurate counting
+        total_decisions = self.decision_stats['total']
+        total_trades = len(self.transactions)
+        
+        # Also count from all_decisions for validation
+        all_decisions_count = len(self.all_decisions)
+        if total_decisions != all_decisions_count:
+            self.logger.warning(f"Decision count mismatch: stats={total_decisions}, list={all_decisions_count}")
+        
         return {
-            "total_decisions": len(self.transactions),
-            "memory_entries": len(self.memory_store.memories)
+            "total_decisions": total_decisions,
+            "total_trades": total_trades,
+            "hold_decisions": self.decision_stats['hold'],
+            "buy_decisions": self.decision_stats['buy'],
+            "sell_decisions": self.decision_stats['sell'],
+            "decision_breakdown": {
+                "HOLD": self.decision_stats['hold'],
+                "BUY": self.decision_stats['buy'],
+                "SELL": self.decision_stats['sell']
+            },
+            "trade_execution_rate": total_trades / total_decisions if total_decisions > 0 else 0,
+            "memory_entries": len(self.memory_store.memories),
+            "decision_stats": self.decision_stats  # Include raw stats for debugging
         }
         
     async def _cleanup(self) -> None:

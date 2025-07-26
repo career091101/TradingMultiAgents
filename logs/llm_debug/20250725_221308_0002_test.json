@@ -1,0 +1,9 @@
+{
+  "timestamp": "20250725_221308",
+  "agent": "test",
+  "prompt": "The company reported lower than expected earnings and the stock dropped 5%. Should I BUY, SELL, or HOLD?\n\nRespond with only one word: BUY, SELL, or HOLD.",
+  "response": "SELL",
+  "response_length": 4,
+  "context_keys": [],
+  "use_japanese": false
+}

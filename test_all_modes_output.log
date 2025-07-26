@@ -1,0 +1,5 @@
+WARNING:root:TradingMultiAgents dataflows not available
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/test_all_modes.py", line 18, in <module>
+    from backtest2.core.results import Results
+ImportError: cannot import name 'Results' from 'backtest2.core.results' (/Users/y-sato/TradingAgents2/backtest2/core/results.py)

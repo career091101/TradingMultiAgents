@@ -130,6 +130,21 @@ class Backtest2Wrapper:
                 log_callback("Starting Backtest2 (Paper-compliant version)")
                 log_callback(f"Configuration: {json.dumps(config, indent=2)}")
             
+            # Ensure environment variables are set
+            import os
+            if 'OPENAI_API_KEY' in os.environ:
+                logger.debug("OpenAI API key is set in environment")
+            else:
+                logger.warning("OpenAI API key is NOT set in environment")
+                
+                # Check if trying to use real LLM without API key
+                if not config.get('use_mock', False):
+                    error_msg = "ERROR: OpenAI API key is not set but trying to use real LLM mode. Please either:\n1. Set OPENAI_API_KEY environment variable\n2. Enable mock mode in the settings"
+                    logger.error(error_msg)
+                    if log_callback:
+                        log_callback(error_msg)
+                    raise ValueError(error_msg)
+            
             # Convert WebUI config to Backtest2Config
             backtest_config = self._create_backtest_config(config)
             
@@ -162,6 +177,9 @@ class Backtest2Wrapper:
                 if log_callback:
                     log_callback(f"Running 6-phase decision flow for {ticker}")
                 
+                # Initialize ticker_results for proper error handling
+                ticker_results = None
+                
                 try:
                     result = await engine.run()
                     
@@ -172,7 +190,7 @@ class Backtest2Wrapper:
                     logger.error(f"Error processing {ticker}: {str(e)}")
                     logger.error(traceback.format_exc())
                     # Store error result
-                    results[ticker] = {
+                    ticker_results = {
                         "ticker": ticker,
                         "error": str(e),
                         "metrics": {},
@@ -180,6 +198,7 @@ class Backtest2Wrapper:
                         "final_value": ticker_config.initial_capital,
                         "files": {}
                     }
+                    results[ticker] = ticker_results
                     if log_callback:
                         log_callback(f"Error processing {ticker}: {str(e)}")
                 finally:
@@ -189,7 +208,7 @@ class Backtest2Wrapper:
                     elif hasattr(engine, 'close'):
                         await engine.close()
                 
-                if log_callback:
+                if log_callback and ticker_results:
                     # Safe access to nested dictionary values
                     return_value = 0.0
                     logger.debug(f"ticker_results type: {type(ticker_results)}")
@@ -296,8 +315,27 @@ class Backtest2Wrapper:
     def _create_backtest_config(self, webui_config: Dict[str, Any]) -> BacktestConfig:
         """Convert WebUI configuration to Backtest2Config."""
         # Time range
-        start_date = datetime.strptime(webui_config.get("start_date", "2024-01-01"), "%Y-%m-%d")
-        end_date = datetime.strptime(webui_config.get("end_date", "2024-12-31"), "%Y-%m-%d")
+        # Handle both date strings and datetime objects
+        start_date_input = webui_config.get("start_date", "2024-01-01")
+        end_date_input = webui_config.get("end_date", "2024-12-31")
+        
+        if isinstance(start_date_input, str):
+            # Handle ISO format with time (e.g., "2025-07-14T09:16:33.079983")
+            if "T" in start_date_input:
+                start_date = datetime.fromisoformat(start_date_input.split('T')[0])
+            else:
+                start_date = datetime.strptime(start_date_input, "%Y-%m-%d")
+        else:
+            start_date = start_date_input
+            
+        if isinstance(end_date_input, str):
+            # Handle ISO format with time
+            if "T" in end_date_input:
+                end_date = datetime.fromisoformat(end_date_input.split('T')[0])
+            else:
+                end_date = datetime.strptime(end_date_input, "%Y-%m-%d")
+        else:
+            end_date = end_date_input
         time_range = TimeRange(start=start_date, end=end_date)
         
         # LLM configuration with safe dictionary access
@@ -313,7 +351,8 @@ class Backtest2Wrapper:
             deep_think_model="mock" if webui_config.get("use_mock", False) else (deep_model or self._get_deep_model(llm_provider)),
             quick_think_model="mock" if webui_config.get("use_mock", False) else (fast_model or self._get_quick_model(llm_provider)),
             temperature=webui_config.get("temperature", 0.7),
-            max_tokens=webui_config.get("max_tokens", 2000)
+            max_tokens=webui_config.get("max_tokens", 2000),
+            timeout=webui_config.get("timeout", 120)  # Default 2 minutes timeout
         )
         
         # Agent configuration
@@ -390,7 +429,8 @@ class Backtest2Wrapper:
             "risk_config": risk_config,
             "benchmark": "SPY",
             "save_results": True,
-            "log_level": "INFO"
+            "log_level": "INFO",
+            "debug": webui_config.get("debug", False)  # Add debug from WebUI config
         }
         
         # Add optional fields if they exist in the dataclass
@@ -400,6 +440,10 @@ class Backtest2Wrapper:
                 config_kwargs['random_seed'] = webui_config.get("random_seed", 42)
             if 'reflection_config' in fields:
                 config_kwargs['reflection_config'] = reflection_config
+            # Ensure debug field is handled properly
+            if 'debug' not in fields:
+                self.logger.warning("BacktestConfig does not have 'debug' field - removing from kwargs")
+                config_kwargs.pop('debug', None)
         
         try:
             config = BacktestConfig(**config_kwargs)
@@ -477,22 +521,22 @@ class Backtest2Wrapper:
     def _get_deep_model(self, provider: str) -> str:
         """Get deep thinking model based on provider."""
         models = {
-            "openai": "o1-preview",
+            "openai": "gpt-4o",  # Use gpt-4o for deep thinking
             "anthropic": "claude-3-opus",
             "google": "gemini-ultra",
             "ollama": "llama2:70b"
         }
-        return models.get(provider, "o1-preview")
+        return models.get(provider, "gpt-4o")
     
     def _get_quick_model(self, provider: str) -> str:
         """Get quick thinking model based on provider."""
         models = {
-            "openai": "gpt-4o",
+            "openai": "gpt-4o-mini",  # Use gpt-4o-mini for quick thinking
             "anthropic": "claude-3-sonnet",
             "google": "gemini-pro",
             "ollama": "llama2:7b"
         }
-        return models.get(provider, "gpt-4o")
+        return models.get(provider, "gpt-4o-mini")
     
     def _process_results(self, result: 'BacktestResult', ticker: str, config: 'BacktestConfig') -> Dict[str, Any]:
         """Process backtest results for WebUI display with enhanced null safety."""

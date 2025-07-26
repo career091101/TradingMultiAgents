@@ -1,0 +1,22 @@
+{
+  "name": "test_with_extended_timeout",
+  "symbols": [
+    "AAPL"
+  ],
+  "initial_capital": 10000,
+  "start_date": "2025-07-01",
+  "end_date": "2025-07-14",
+  "agent_config": {
+    "llm_config": {
+      "deep_think_model": "o3",
+      "quick_think_model": "o4-mini",
+      "temperature": 0.0,
+      "timeout": 1200
+    },
+    "max_debate_rounds": 1,
+    "max_risk_discuss_rounds": 1,
+    "use_japanese_prompts": true
+  },
+  "debug": true,
+  "mock_mode": false
+}

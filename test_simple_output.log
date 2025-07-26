@@ -1,0 +1,232 @@
+WARNING:root:TradingMultiAgents dataflows not available
+WARNING:TradingMultiAgents.webui.backend.backtest2_wrapper:OpenAI API key is NOT set in environment
+INFO:backtest2.data.manager_simple:DataManager initialized with Yahoo Finance
+INFO:backtest2.core.engine:Starting backtest execution 597296f0-ae40-4930-9887-1119834cd138
+INFO:backtest2.core.engine:Initializing backtest environment
+INFO:backtest2.data.manager_simple:Initializing data manager
+INFO:backtest2.agents.orchestrator:Initialized 12 agents
+INFO:backtest2.core.engine:Loading benchmark data for SPY
+DEBUG:backtest2.data.manager_simple:Retrieved data for AAPL on 2024-01-01 00:00:00: Close=$191.13
+DEBUG:backtest2.core.engine:Market data for AAPL: Price=$191.13, Volume=42672100
+DEBUG:backtest2.core.engine:Portfolio state: Cash=$100000.00, Positions=0
+INFO:backtest2.agents.orchestrator:Starting decision process 3f7c4c2e-d69d-45b1-bf0c-ed50a9d5add7 for AAPL on 2024-01-01 00:00:00
+DEBUG:backtest2.agents.orchestrator:Created context: <class 'backtest2.core.types.DecisionContext'>, portfolio_state: <class 'backtest2.core.types.PortfolioState'>
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+DEBUG:backtest2.agents.orchestrator:Starting data collection for AAPL at price $191.13
+DEBUG:backtest2.agents.orchestrator:market_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:market_analyst output: {'price_trend': 'bearish', 'volume_analysis': 'high_volume', 'technical_indicators': {'rsi': 55.57707193831535, 'macd': -0.9499784895546661, 'bollinger_position': 0.2996268166258113}, 'signal': 'SELL_SIGNAL'}
+DEBUG:backtest2.agents.orchestrator:news_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:news_analyst output: {'news_count': 0, 'overall_sentiment': 0.0, 'key_topics': [], 'sentiment_trend': 'stable'}
+DEBUG:backtest2.agents.orchestrator:social_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:social_analyst output: {'reddit_sentiment': -0.27678926185117725, 'twitter_mentions': 764, 'trending_score': 0.1024951761715075, 'community_sentiment': 'positive'}
+DEBUG:backtest2.agents.orchestrator:fundamentals_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:fundamentals_analyst output: {'pe_ratio': 21.809850248980794, 'revenue_growth': -0.08728692820728656, 'profit_margin': 0.0687390479723185, 'debt_to_equity': 0.5024591614079614, 'fundamental_score': 0.6408074916199922, 'valuation': 'fairly_valued'}
+INFO:backtest2.agents.orchestrator:Phase 2: Investment Analysis
+INFO:backtest2.agents.orchestrator:Phase 3: Investment Decision
+INFO:backtest2.agents.orchestrator:Debate round 1
+INFO:backtest2.agents.orchestrator:Phase 4: Trading Decision
+DEBUG:backtest2.agents.orchestrator:Trade decision: action=HOLD, confidence=0.5
+DEBUG:backtest2.agents.orchestrator:Trade content: {'action': 'HOLD', 'position_size': 0, 'confidence': 0.5, 'reason': 'No clear signal or position constraints', 'risk_assessment': {'portfolio_exposure': 0.0, 'position_count': 0, 'cash_available': 100000.0}, 'execution_params': {'order_type': 'MARKET', 'time_in_force': 'DAY', 'slippage_tolerance': 0.01}}
+INFO:backtest2.agents.orchestrator:Phase 5: Risk Assessment
+INFO:backtest2.agents.orchestrator:Risk discussion round 1
+INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
+INFO:backtest2.agents.orchestrator:[DECISION DEBUG] Final decision: HOLD with confidence 0.5599999999999999
+DEBUG:backtest2.agents.orchestrator:[DECISION DEBUG] Full output: {'action': 'HOLD', 'risk_stance': 'NEUTRAL', 'position_size_pct': 0, 'quantity': 0, 'confidence': 0.45, 'risk_assessment': {'stance': 'NEUTRAL', 'aggressive_score': 0.6, 'conservative_score': 0.7, 'neutral_score': 0.7, 'key_risks': ['Market volatility', 'Execution risk', 'Liquidity risk']}, 'stop_loss': 0.15, 'take_profit': 0.3}
+INFO:backtest2.agents.orchestrator:Final decision for AAPL: HOLD with confidence 0.56
+DEBUG:backtest2.agents.orchestrator:Memory store error (non-critical): 'TradingDecision' object has no attribute 'reasoning'
+DEBUG:backtest2.core.engine:Decision for AAPL: Action=TradeAction.HOLD, Confidence=0.56, Quantity=0
+DEBUG:backtest2.core.engine:Decision rationale: Final decision: HOLD with NEUTRAL risk stance
+DEBUG:backtest2.core.engine:HOLD decision for AAPL, no trade executed
+DEBUG:backtest2.data.manager_simple:Retrieved data for AAPL on 2024-01-02 00:00:00: Close=$184.29
+DEBUG:backtest2.core.engine:Market data for AAPL: Price=$184.29, Volume=82488700
+DEBUG:backtest2.core.engine:Portfolio state: Cash=$100000.00, Positions=0
+INFO:backtest2.agents.orchestrator:Starting decision process f062084d-8bab-4dfd-9794-13474a3eac25 for AAPL on 2024-01-02 00:00:00
+DEBUG:backtest2.agents.orchestrator:Created context: <class 'backtest2.core.types.DecisionContext'>, portfolio_state: <class 'backtest2.core.types.PortfolioState'>
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+DEBUG:backtest2.agents.orchestrator:Starting data collection for AAPL at price $184.29
+DEBUG:backtest2.agents.orchestrator:market_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:market_analyst output: {'price_trend': 'bearish', 'volume_analysis': 'high_volume', 'technical_indicators': {'rsi': 47.968361851354146, 'macd': -0.44361858353867456, 'bollinger_position': 0.38461512664786507}, 'signal': 'SELL_SIGNAL'}
+DEBUG:backtest2.agents.orchestrator:news_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:news_analyst output: {'news_count': 0, 'overall_sentiment': 0.0, 'key_topics': [], 'sentiment_trend': 'stable'}
+DEBUG:backtest2.agents.orchestrator:social_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:social_analyst output: {'reddit_sentiment': 0.25880736712976726, 'twitter_mentions': 173, 'trending_score': 0.6981393949882269, 'community_sentiment': 'negative'}
+DEBUG:backtest2.agents.orchestrator:fundamentals_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:fundamentals_analyst output: {'pe_ratio': 29.144261444135623, 'revenue_growth': 0.0346378180450507, 'profit_margin': 0.06854916867602959, 'debt_to_equity': 0.3257312898835032, 'fundamental_score': 0.738997746538984, 'valuation': 'fairly_valued'}
+INFO:backtest2.agents.orchestrator:Phase 2: Investment Analysis
+INFO:backtest2.agents.orchestrator:Phase 3: Investment Decision
+INFO:backtest2.agents.orchestrator:Debate round 1
+INFO:backtest2.agents.orchestrator:Phase 4: Trading Decision
+DEBUG:backtest2.agents.orchestrator:Trade decision: action=HOLD, confidence=0.5
+DEBUG:backtest2.agents.orchestrator:Trade content: {'action': 'HOLD', 'position_size': 0, 'confidence': 0.5, 'reason': 'No clear signal or position constraints', 'risk_assessment': {'portfolio_exposure': 0.0, 'position_count': 0, 'cash_available': 100000.0}, 'execution_params': {'order_type': 'MARKET', 'time_in_force': 'DAY', 'slippage_tolerance': 0.01}}
+INFO:backtest2.agents.orchestrator:Phase 5: Risk Assessment
+INFO:backtest2.agents.orchestrator:Risk discussion round 1
+INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
+INFO:backtest2.agents.orchestrator:[DECISION DEBUG] Final decision: HOLD with confidence 0.5599999999999999
+DEBUG:backtest2.agents.orchestrator:[DECISION DEBUG] Full output: {'action': 'HOLD', 'risk_stance': 'NEUTRAL', 'position_size_pct': 0, 'quantity': 0, 'confidence': 0.45, 'risk_assessment': {'stance': 'NEUTRAL', 'aggressive_score': 0.6, 'conservative_score': 0.7, 'neutral_score': 0.7, 'key_risks': ['Market volatility', 'Execution risk', 'Liquidity risk']}, 'stop_loss': 0.15, 'take_profit': 0.3}
+INFO:backtest2.agents.orchestrator:Final decision for AAPL: HOLD with confidence 0.56
+DEBUG:backtest2.agents.orchestrator:Memory store error (non-critical): 'TradingDecision' object has no attribute 'reasoning'
+DEBUG:backtest2.core.engine:Decision for AAPL: Action=TradeAction.HOLD, Confidence=0.56, Quantity=0
+DEBUG:backtest2.core.engine:Decision rationale: Final decision: HOLD with NEUTRAL risk stance
+DEBUG:backtest2.core.engine:HOLD decision for AAPL, no trade executed
+DEBUG:backtest2.data.manager_simple:Retrieved data for AAPL on 2024-01-03 00:00:00: Close=$182.91
+DEBUG:backtest2.core.engine:Market data for AAPL: Price=$182.91, Volume=58414500
+DEBUG:backtest2.core.engine:Portfolio state: Cash=$100000.00, Positions=0
+INFO:backtest2.agents.orchestrator:Starting decision process 8eb2bdfd-34ad-4c21-9ed6-069a3f0d7617 for AAPL on 2024-01-03 00:00:00
+DEBUG:backtest2.agents.orchestrator:Created context: <class 'backtest2.core.types.DecisionContext'>, portfolio_state: <class 'backtest2.core.types.PortfolioState'>
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+DEBUG:backtest2.agents.orchestrator:Starting data collection for AAPL at price $182.91
+DEBUG:backtest2.agents.orchestrator:market_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:market_analyst output: {'price_trend': 'bullish', 'volume_analysis': 'high_volume', 'technical_indicators': {'rsi': 68.92463055917483, 'macd': -0.24293124558329304, 'bollinger_position': 0.3346951994220343}, 'signal': 'BUY_SIGNAL'}
+DEBUG:backtest2.agents.orchestrator:news_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:news_analyst output: {'news_count': 0, 'overall_sentiment': 0.0, 'key_topics': [], 'sentiment_trend': 'stable'}
+DEBUG:backtest2.agents.orchestrator:social_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:social_analyst output: {'reddit_sentiment': 0.32940466425299486, 'twitter_mentions': 643, 'trending_score': 0.8854517479368068, 'community_sentiment': 'negative'}
+DEBUG:backtest2.agents.orchestrator:fundamentals_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:fundamentals_analyst output: {'pe_ratio': 11.39110297647482, 'revenue_growth': 0.16450532742708404, 'profit_margin': 0.2046136681577384, 'debt_to_equity': 1.4807879768589851, 'fundamental_score': 0.7421270884060588, 'valuation': 'overvalued'}
+INFO:backtest2.agents.orchestrator:Phase 2: Investment Analysis
+INFO:backtest2.agents.orchestrator:Phase 3: Investment Decision
+INFO:backtest2.agents.orchestrator:Debate round 1
+INFO:backtest2.agents.orchestrator:Phase 4: Trading Decision
+DEBUG:backtest2.agents.orchestrator:Trade decision: action=BUY, confidence=0.7
+DEBUG:backtest2.agents.orchestrator:Trade content: {'action': 'BUY', 'position_size': 18000.0, 'confidence': 0.8, 'reason': 'Investment thesis positive', 'risk_assessment': {'portfolio_exposure': 0.0, 'position_count': 0, 'cash_available': 100000.0}, 'execution_params': {'order_type': 'MARKET', 'time_in_force': 'DAY', 'slippage_tolerance': 0.01}}
+INFO:backtest2.agents.orchestrator:Phase 5: Risk Assessment
+INFO:backtest2.agents.orchestrator:Risk discussion round 1
+INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
+INFO:backtest2.agents.orchestrator:[DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+DEBUG:backtest2.agents.orchestrator:[DECISION DEBUG] Full output: {'action': 'BUY', 'risk_stance': 'NEUTRAL', 'position_size_pct': 0.2, 'quantity': 0, 'confidence': 0.63, 'risk_assessment': {'stance': 'NEUTRAL', 'aggressive_score': 0.6, 'conservative_score': 0.7, 'neutral_score': 0.7, 'key_risks': ['Market volatility', 'Execution risk', 'Liquidity risk']}, 'stop_loss': 0.15, 'take_profit': 0.3}
+INFO:backtest2.agents.orchestrator:Final decision for AAPL: BUY with confidence 0.56
+DEBUG:backtest2.agents.orchestrator:Memory store error (non-critical): 'TradingDecision' object has no attribute 'reasoning'
+DEBUG:backtest2.core.engine:Decision for AAPL: Action=TradeAction.BUY, Confidence=0.56, Quantity=0
+DEBUG:backtest2.core.engine:Decision rationale: Final decision: BUY with NEUTRAL risk stance
+INFO:backtest2.core.engine:Executing TradeAction.BUY for AAPL
+DEBUG:backtest2.risk.position_manager:Risk profile: RiskProfile.NEUTRAL, Confidence: 0.56
+DEBUG:backtest2.risk.position_manager:Max allocation: 20.00%, Size multiplier: 0.7
+DEBUG:backtest2.risk.position_manager:Available capital: $90000.00, Cash: $100000.00
+DEBUG:backtest2.risk.position_manager:Base position size: $12600.00
+DEBUG:backtest2.risk.position_manager:Position size after constraints: $12600.00
+INFO:backtest2.utils.transaction_manager:Transaction 5e7d6979-6103-4ab9-87fd-e806e50169d4 committed successfully
+INFO:backtest2.risk.position_manager:Executed BUY 68.8173234544271 AAPL @ $183.09
+INFO:backtest2.core.engine:Executed BUY 68.82 shares of AAPL at $183.09
+DEBUG:backtest2.data.manager_simple:Retrieved data for AAPL on 2024-01-04 00:00:00: Close=$180.59
+DEBUG:backtest2.core.engine:Market data for AAPL: Price=$180.59, Volume=71983600
+DEBUG:backtest2.core.engine:Portfolio state: Cash=$87387.40, Positions=1
+INFO:backtest2.agents.orchestrator:Starting decision process 42354e4a-04b7-4cbc-8565-2eb0f1b9f636 for AAPL on 2024-01-04 00:00:00
+DEBUG:backtest2.agents.orchestrator:Created context: <class 'backtest2.core.types.DecisionContext'>, portfolio_state: <class 'backtest2.core.types.PortfolioState'>
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+DEBUG:backtest2.agents.orchestrator:Starting data collection for AAPL at price $180.59
+DEBUG:backtest2.agents.orchestrator:market_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:market_analyst output: {'price_trend': 'bearish', 'volume_analysis': 'high_volume', 'technical_indicators': {'rsi': 36.50616388624339, 'macd': -0.289458599544957, 'bollinger_position': 0.4660645980916111}, 'signal': 'SELL_SIGNAL'}
+DEBUG:backtest2.agents.orchestrator:news_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:news_analyst output: {'news_count': 0, 'overall_sentiment': 0.0, 'key_topics': [], 'sentiment_trend': 'stable'}
+DEBUG:backtest2.agents.orchestrator:social_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:social_analyst output: {'reddit_sentiment': 0.20182031345855134, 'twitter_mentions': 709, 'trending_score': 0.6480353852465935, 'community_sentiment': 'positive'}
+DEBUG:backtest2.agents.orchestrator:fundamentals_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:fundamentals_analyst output: {'pe_ratio': 24.582535959006982, 'revenue_growth': -0.03463900249522865, 'profit_margin': 0.12589108835152957, 'debt_to_equity': 1.4863803558275739, 'fundamental_score': 0.6559999039416371, 'valuation': 'fairly_valued'}
+INFO:backtest2.agents.orchestrator:Phase 2: Investment Analysis
+INFO:backtest2.agents.orchestrator:Phase 3: Investment Decision
+INFO:backtest2.agents.orchestrator:Debate round 1
+INFO:backtest2.agents.orchestrator:Phase 4: Trading Decision
+DEBUG:backtest2.agents.orchestrator:Trade decision: action=BUY, confidence=0.7
+DEBUG:backtest2.agents.orchestrator:Trade content: {'action': 'BUY', 'position_size': 15729.732000000002, 'confidence': 0.5, 'reason': 'Investment thesis positive', 'risk_assessment': {'portfolio_exposure': 0.12601587800062808, 'position_count': 1, 'cash_available': 87387.4}, 'execution_params': {'order_type': 'MARKET', 'time_in_force': 'DAY', 'slippage_tolerance': 0.01}}
+INFO:backtest2.agents.orchestrator:Phase 5: Risk Assessment
+INFO:backtest2.agents.orchestrator:Risk discussion round 1
+INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
+INFO:backtest2.agents.orchestrator:[DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+DEBUG:backtest2.agents.orchestrator:[DECISION DEBUG] Full output: {'action': 'BUY', 'risk_stance': 'NEUTRAL', 'position_size_pct': 0.2, 'quantity': 0, 'confidence': 0.63, 'risk_assessment': {'stance': 'NEUTRAL', 'aggressive_score': 0.6, 'conservative_score': 0.7, 'neutral_score': 0.7, 'key_risks': ['Market volatility', 'Execution risk', 'Liquidity risk']}, 'stop_loss': 0.15, 'take_profit': 0.3}
+INFO:backtest2.agents.orchestrator:Final decision for AAPL: BUY with confidence 0.56
+DEBUG:backtest2.agents.orchestrator:Memory store error (non-critical): 'TradingDecision' object has no attribute 'reasoning'
+DEBUG:backtest2.core.engine:Decision for AAPL: Action=TradeAction.BUY, Confidence=0.56, Quantity=0
+DEBUG:backtest2.core.engine:Decision rationale: Final decision: BUY with NEUTRAL risk stance
+INFO:backtest2.core.engine:Executing TradeAction.BUY for AAPL
+DEBUG:backtest2.risk.position_manager:Risk profile: RiskProfile.NEUTRAL, Confidence: 0.56
+DEBUG:backtest2.risk.position_manager:Max allocation: 20.00%, Size multiplier: 0.7
+DEBUG:backtest2.risk.position_manager:Available capital: $77387.40, Cash: $87387.40
+DEBUG:backtest2.risk.position_manager:Base position size: $10834.24
+DEBUG:backtest2.risk.position_manager:Position size after constraints: $10834.24
+INFO:backtest2.utils.transaction_manager:Transaction c5a0205b-abb1-4f35-8547-0a467e7eaa61 committed successfully
+INFO:backtest2.risk.position_manager:Executed BUY 59.93443737602298 AAPL @ $180.77
+INFO:backtest2.core.engine:Executed BUY 59.93 shares of AAPL at $180.77
+DEBUG:backtest2.data.manager_simple:Retrieved data for AAPL on 2024-01-05 00:00:00: Close=$179.86
+DEBUG:backtest2.core.engine:Market data for AAPL: Price=$179.86, Volume=62379700
+DEBUG:backtest2.core.engine:Portfolio state: Cash=$76542.33, Positions=1
+INFO:backtest2.agents.orchestrator:Starting decision process 270a5dec-31ae-469c-a4a6-3d1116b624d1 for AAPL on 2024-01-05 00:00:00
+DEBUG:backtest2.agents.orchestrator:Created context: <class 'backtest2.core.types.DecisionContext'>, portfolio_state: <class 'backtest2.core.types.PortfolioState'>
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+DEBUG:backtest2.agents.orchestrator:Starting data collection for AAPL at price $179.86
+DEBUG:backtest2.agents.orchestrator:market_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:market_analyst output: {'price_trend': 'bearish', 'volume_analysis': 'high_volume', 'technical_indicators': {'rsi': 39.16192287856418, 'macd': -0.9357995121919245, 'bollinger_position': 0.3899598204291287}, 'signal': 'SELL_SIGNAL'}
+DEBUG:backtest2.agents.orchestrator:news_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:news_analyst output: {'news_count': 0, 'overall_sentiment': 0.0, 'key_topics': [], 'sentiment_trend': 'stable'}
+DEBUG:backtest2.agents.orchestrator:social_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:social_analyst output: {'reddit_sentiment': -0.23225912402429727, 'twitter_mentions': 226, 'trending_score': 0.913136124185545, 'community_sentiment': 'positive'}
+DEBUG:backtest2.agents.orchestrator:fundamentals_analyst completed analysis
+DEBUG:backtest2.agents.orchestrator:fundamentals_analyst output: {'pe_ratio': 14.252530881082812, 'revenue_growth': 0.09969250379691094, 'profit_margin': 0.2269366307773405, 'debt_to_equity': 1.0357074312605514, 'fundamental_score': 0.4571486361768251, 'valuation': 'undervalued'}
+INFO:backtest2.agents.orchestrator:Phase 2: Investment Analysis
+INFO:backtest2.agents.orchestrator:Phase 3: Investment Decision
+INFO:backtest2.agents.orchestrator:Debate round 1
+INFO:backtest2.agents.orchestrator:Phase 4: Trading Decision
+DEBUG:backtest2.agents.orchestrator:Trade decision: action=BUY, confidence=0.7
+DEBUG:backtest2.agents.orchestrator:Trade content: {'action': 'BUY', 'position_size': 13777.61935752, 'confidence': 0.6, 'reason': 'Investment thesis positive', 'risk_assessment': {'portfolio_exposure': 0.23439728921393205, 'position_count': 1, 'cash_available': 76542.329764}, 'execution_params': {'order_type': 'MARKET', 'time_in_force': 'DAY', 'slippage_tolerance': 0.01}}
+INFO:backtest2.agents.orchestrator:Phase 5: Risk Assessment
+INFO:backtest2.agents.orchestrator:Risk discussion round 1
+INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
+INFO:backtest2.agents.orchestrator:[DECISION DEBUG] Final decision: BUY with confidence 0.5599999999999999
+DEBUG:backtest2.agents.orchestrator:[DECISION DEBUG] Full output: {'action': 'BUY', 'risk_stance': 'NEUTRAL', 'position_size_pct': 0.2, 'quantity': 0, 'confidence': 0.63, 'risk_assessment': {'stance': 'NEUTRAL', 'aggressive_score': 0.6, 'conservative_score': 0.7, 'neutral_score': 0.7, 'key_risks': ['Market volatility', 'Execution risk', 'Liquidity risk']}, 'stop_loss': 0.15, 'take_profit': 0.3}
+INFO:backtest2.agents.orchestrator:Final decision for AAPL: BUY with confidence 0.56
+DEBUG:backtest2.agents.orchestrator:Memory store error (non-critical): 'TradingDecision' object has no attribute 'reasoning'
+DEBUG:backtest2.core.engine:Decision for AAPL: Action=TradeAction.BUY, Confidence=0.56, Quantity=0
+DEBUG:backtest2.core.engine:Decision rationale: Final decision: BUY with NEUTRAL risk stance
+INFO:backtest2.core.engine:Executing TradeAction.BUY for AAPL
+DEBUG:backtest2.risk.position_manager:Risk profile: RiskProfile.NEUTRAL, Confidence: 0.56
+DEBUG:backtest2.risk.position_manager:Max allocation: 20.00%, Size multiplier: 0.7
+DEBUG:backtest2.risk.position_manager:Available capital: $66542.33, Cash: $76542.33
+DEBUG:backtest2.risk.position_manager:Base position size: $9315.93
+DEBUG:backtest2.risk.position_manager:Position size after constraints: $9315.93
+INFO:backtest2.utils.transaction_manager:Transaction 222352c1-8e6f-42b8-ab26-b2fde5047769 committed successfully
+INFO:backtest2.risk.position_manager:Executed BUY 51.74287474765462 AAPL @ $180.04
+INFO:backtest2.core.engine:Executed BUY 51.74 shares of AAPL at $180.04
+INFO:backtest2.core.engine:Calculating backtest results
+INFO:backtest2.analysis.benchmark:Loading benchmark data for SPY
+INFO:backtest2.analysis.benchmark:Loaded 5 benchmark data points
+INFO:backtest2.core.engine:Cleaning up backtest resources
+INFO:backtest2.data.manager_simple:Closing data manager
+INFO:backtest2.agents.orchestrator:Cleaning up orchestrator resources
+INFO:backtest2.agents.orchestrator:Orchestrator cleanup completed
+============================================================
+TESTING BACKTEST2 WITH MOCK MODE
+============================================================
+[LOG] Starting Backtest2 (Paper-compliant version)
+[LOG] Configuration: {
+  "tickers": [
+    "AAPL"
+  ],
+  "start_date": "2024-01-01",
+  "end_date": "2024-01-05",
+  "initial_capital": 100000.0,
+  "llm_provider": "openai",
+  "agent_settings": {
+    "debate_rounds": 1,
+    "risk_rounds": 1,
+    "enable_memory": true,
+    "enable_reflection": true
+  },
+  "use_mock": true,
+  "debug": true
+}
+[PROGRESS] 0% - Processing AAPL - AAPL
+[LOG] Starting backtest for AAPL
+[LOG] Running 6-phase decision flow for AAPL
+[LOG] Completed AAPL: Return=-0.03%
+[PROGRESS] 100% - Completed AAPL - AAPL
+[LOG] Backtest2 completed successfully
+
+============================================================
+RESULTS:
+============================================================
+
+AAPL:
+  Total Trades: 0
+  Total Return: -3.28%
+  Agent Decisions: 5
+  Decision Breakdown: {'HOLD': 2, 'BUY': 3, 'SELL': 0}
+  Trade Execution Rate: 60.00%

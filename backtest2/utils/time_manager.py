@@ -20,6 +20,8 @@ class TimeManager:
     def _generate_trading_days(self):
         """Generate list of trading days (weekdays only for now)"""
         current = self.start_date
+        # Ensure timezone-naive dates
+        current = current.replace(tzinfo=None) if hasattr(current, 'tzinfo') else current
         while current <= self.end_date:
             # Skip weekends (simplified - real implementation would check market calendar)
             if current.weekday() < 5:  # Monday = 0, Friday = 4

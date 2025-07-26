@@ -1,0 +1,26 @@
+2025-07-24 21:16:08,983 - INFO - === WebUIバックテスト自動実行開始 ===
+2025-07-24 21:16:08,983 - INFO - 1. 環境準備: Chromeドライバーのセットアップ
+2025-07-24 21:16:08,983 - INFO - ====== WebDriver manager ======
+2025-07-24 21:17:12,015 - INFO - Get LATEST chromedriver version for google-chrome
+2025-07-24 21:17:12,236 - INFO - Get LATEST chromedriver version for google-chrome
+2025-07-24 21:17:12,266 - INFO - There is no [mac64] chromedriver "138.0.7204.168" for browser google-chrome "138.0.7204" in cache
+2025-07-24 21:17:12,440 - INFO - Get LATEST chromedriver version for google-chrome
+2025-07-24 21:17:12,776 - INFO - WebDriver version 138.0.7204.168 selected
+2025-07-24 21:17:12,780 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/138.0.7204.168/mac-x64/chromedriver-mac-x64.zip
+2025-07-24 21:17:12,780 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/138.0.7204.168/mac-x64/chromedriver-mac-x64.zip
+2025-07-24 21:17:12,861 - INFO - Driver downloading response is 200
+2025-07-24 21:17:13,170 - INFO - Get LATEST chromedriver version for google-chrome
+2025-07-24 21:17:13,369 - INFO - Driver has been saved in cache [/Users/y-sato/.wdm/drivers/chromedriver/mac64/138.0.7204.168]
+2025-07-24 21:17:25,451 - INFO - ✓ Chromeドライバー起動成功
+2025-07-24 21:17:25,451 - INFO - 2. WebUI接続
+2025-07-24 21:17:58,402 - INFO - ✓ WebUI接続成功: http://localhost:8501
+2025-07-24 21:18:00,287 - INFO - ログイン不要（既にログイン済み）
+2025-07-24 21:18:00,288 - INFO - 3. バックテストページへの遷移
+2025-07-24 21:18:07,620 - INFO - メニューボタンをクリック
+2025-07-24 21:18:07,758 - WARNING - バックテスト2タブが見つからない - 既に表示されている可能性
+2025-07-24 21:18:10,768 - INFO - 4. バックテスト実行タブへの移動
+2025-07-24 21:18:10,833 - INFO - 実行タブが見つからない - 既に実行画面の可能性
+2025-07-24 21:18:10,834 - INFO - 5. バックテスト実行
+2025-07-24 21:18:10,834 - INFO - 設定値を確認中...
+2025-07-24 21:18:10,910 - ERROR - ✗ 実行ボタンが見つかりません
+2025-07-24 21:18:11,033 - INFO - ブラウザを閉じました

@@ -1,0 +1,9 @@
+{
+  "timestamp": "20250725_221309",
+  "agent": "test",
+  "prompt": "The stock has been trading sideways for a month with no clear trend. Should I BUY, SELL, or HOLD?\n\nRespond with only one word: BUY, SELL, or HOLD.",
+  "response": "HOLD",
+  "response_length": 4,
+  "context_keys": [],
+  "use_japanese": false
+}

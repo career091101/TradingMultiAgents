@@ -1,0 +1,46 @@
+2025-07-23 23:01:58,012 - __main__ - INFO - Starting analysis of zero trades issue...
+2025-07-23 23:01:58,012 - __main__ - INFO - === Analyzing Agent Performance Calculation ===
+2025-07-23 23:02:02,442 - root - WARNING - TradingMultiAgents dataflows not available
+2025-07-23 23:02:02,466 - __main__ - INFO - Found issue: total_decisions is calculated from len(self.transactions)
+2025-07-23 23:02:02,467 - __main__ - INFO - This counts the number of executed transactions, not decisions made
+2025-07-23 23:02:02,467 - __main__ - INFO - If all decisions are HOLD, transactions list will be empty, resulting in total_decisions=0
+2025-07-23 23:02:02,467 - __main__ - INFO - 
+=== Analyzing Decision Making Flow ===
+2025-07-23 23:02:02,467 - __main__ - INFO - Decision flow:
+2025-07-23 23:02:02,467 - __main__ - INFO - 1. Engine calls orchestrator.make_decision()
+2025-07-23 23:02:02,467 - __main__ - INFO - 2. Orchestrator runs 6-phase decision flow
+2025-07-23 23:02:02,467 - __main__ - INFO - 3. Final decision is returned to engine
+2025-07-23 23:02:02,467 - __main__ - INFO - 4. Engine only executes trade if action != HOLD (line 197)
+2025-07-23 23:02:02,467 - __main__ - INFO - 5. Only executed trades are added to transactions list
+2025-07-23 23:02:02,467 - __main__ - INFO - 
+=== Analyzing Mock Agent Behavior ===
+2025-07-23 23:02:02,467 - __main__ - INFO - 
+Mock agent detection:
+2025-07-23 23:02:02,467 - __main__ - INFO - 1. If use_mock=True in WebUI config, mock agents are used
+2025-07-23 23:02:02,468 - __main__ - INFO - 2. Mock agents may always return HOLD decisions
+2025-07-23 23:02:02,468 - __main__ - INFO - 3. This would result in zero trades
+2025-07-23 23:02:02,468 - __main__ - INFO - 
+=== Checking Mock Agent Implementation ===
+2025-07-23 23:02:02,468 - __main__ - INFO - Checking Trader mock implementation...
+2025-07-23 23:02:02,468 - __main__ - INFO - 
+=== Proposed Solutions ===
+2025-07-23 23:02:02,468 - __main__ - INFO - 1. Fix agent performance calculation:
+2025-07-23 23:02:02,468 - __main__ - INFO -    - Count all decisions made, not just executed trades
+2025-07-23 23:02:02,468 - __main__ - INFO -    - Track decisions in orchestrator or engine
+2025-07-23 23:02:02,468 - __main__ - INFO - 
+2. Fix mock agents:
+2025-07-23 23:02:02,468 - __main__ - INFO -    - Ensure mock agents return varied decisions (BUY/SELL/HOLD)
+2025-07-23 23:02:02,468 - __main__ - INFO -    - Add realistic mock decision logic
+2025-07-23 23:02:02,469 - __main__ - INFO - 
+3. Add decision tracking:
+2025-07-23 23:02:02,469 - __main__ - INFO -    - Store all decisions, not just trades
+2025-07-23 23:02:02,469 - __main__ - INFO -    - Include HOLD decisions in metrics
+2025-07-23 23:02:02,469 - __main__ - INFO - 
+4. Enable debug logging:
+2025-07-23 23:02:02,469 - __main__ - INFO -    - Set debug=True in config
+2025-07-23 23:02:02,469 - __main__ - INFO -    - Log decision details in engine
+2025-07-23 23:02:02,469 - __main__ - INFO - 
+=== Analysis Complete ===
+2025-07-23 23:02:02,469 - __main__ - INFO - Root cause: Agent performance tracks executed trades, not decisions
+2025-07-23 23:02:02,469 - __main__ - INFO - If all decisions are HOLD, total_decisions will be 0
+2025-07-23 23:02:02,469 - __main__ - INFO - Check analyze_zero_trades.log for full details

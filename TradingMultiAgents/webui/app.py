@@ -33,21 +33,13 @@ from webui.components.settings import SettingsPage
 from webui.components.execution import ExecutionPage
 from webui.components.results import ResultsPage
 from webui.components.logs import LogsPage
-# Lazy import for backtest to avoid architecture issues
-BacktestPage = None
+# Lazy import for backtest2 to avoid architecture issues
 Backtest2Page = None
-
-try:
-    from webui.components.backtest import BacktestPage
-except ImportError as e:
-    logger.error(f"バックテスト機能のインポートに失敗しました: {e}")
-    import traceback
-    logger.error(traceback.format_exc())
 
 try:
     from webui.components.backtest2 import Backtest2Page
 except ImportError as e:
-    logger.error(f"バックテスト2機能のインポートに失敗しました: {e}")
+    logger.error(f"バックテスト機能のインポートに失敗しました: {e}")
     import traceback
     logger.error(traceback.format_exc())
 from webui.backend.cli_wrapper import CLIWrapper
@@ -135,11 +127,6 @@ class WebUIApp:
                 st.rerun()
             
             if st.button("📊 バックテスト", use_container_width=True,
-                        type="primary" if current_page == "backtest" else "secondary", key="nav_backtest"):
-                SessionState.navigate_to("backtest")
-                st.rerun()
-            
-            if st.button("🧪 バックテスト2", use_container_width=True,
                         type="primary" if current_page == "backtest2" else "secondary", key="nav_backtest2"):
                 SessionState.navigate_to("backtest2")
                 st.rerun()
@@ -234,29 +221,19 @@ export OPENAI_API_KEY=your_key_here
             logs = LogsPage()
             logs.render()
         
-        elif current_page == "backtest":
-            if BacktestPage is not None:
-                backtest = BacktestPage(SessionState)
-                backtest.render()
-            else:
-                st.error("バックテスト機能は現在利用できません。代わりにバックテスト2をご利用ください。")
-                if st.button("バックテスト2に移動"):
-                    SessionState.navigate_to("backtest2")
-                    st.rerun()
-        
         elif current_page == "backtest2":
             if Backtest2Page:
                 try:
                     backtest2 = Backtest2Page(SessionState)
                     backtest2.render()
                 except Exception as e:
-                    logger.error(f"バックテスト2ページのレンダリングエラー: {e}")
+                    logger.error(f"バックテストページのレンダリングエラー: {e}")
                     import traceback
                     logger.error(traceback.format_exc())
-                    st.error(f"バックテスト2機能でエラーが発生しました: {str(e)}")
+                    st.error(f"バックテスト機能でエラーが発生しました: {str(e)}")
                     st.error("詳細はログをご確認ください。")
             else:
-                st.error("バックテスト2機能は現在利用できません。")
+                st.error("バックテスト機能は現在利用できません。")
                 st.info("インポートエラーの詳細はログをご確認ください。")
         
         else:

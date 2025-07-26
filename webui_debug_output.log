@@ -1,0 +1,80 @@
+2025-07-24 11:31:31.544 WARNING streamlit.web.cli: Setting the log level using the --log_level flag is unsupported.
+Use the --logger.level flag (after your streamlit command) instead.
+2025-07-24 11:31:31.561 No singleton. Registering one.
+2025-07-24 11:31:31.562 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/.streamlit/config.toml
+2025-07-24 11:31:31.578 Starting server...
+2025-07-24 11:31:31.579 Serving static content from /Users/y-sato/TradingAgents2/venv_arm64/lib/python3.12/site-packages/streamlit/static
+2025-07-24 11:31:31.605 Server started on port 8501
+2025-07-24 11:31:31.605 Runtime state: RuntimeState.INITIAL -> RuntimeState.NO_SESSIONS_CONNECTED
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.50.9:8501
+
+2025-07-24 11:31:32.174 Setting up signal handler
+2025-07-24 11:31:35.718 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/app.py
+2025-07-24 11:31:35.719 AppSession initialized (id=9372f04d-153f-4090-b16d-2da8f22c03d6)
+2025-07-24 11:31:35.720 Created new session for client 4428262880. Session ID: 9372f04d-153f-4090-b16d-2da8f22c03d6
+2025-07-24 11:31:35.720 Runtime state: RuntimeState.NO_SESSIONS_CONNECTED -> RuntimeState.ONE_OR_MORE_SESSIONS_CONNECTED
+2025-07-24 11:31:35.903 Received the following back message:
+rerun_script {
+  widget_states {
+  }
+  context_info {
+    timezone: "Asia/Tokyo"
+    timezone_offset: -540
+    locale: "ja"
+    url: "http://localhost:8501/"
+    is_embedded: false
+    color_scheme: "light"
+  }
+}
+
+2025-07-24 11:31:35.905 Beginning script thread
+2025-07-24 11:31:35.905 Running script RerunData(widget_states=, context_info=timezone: "Asia/Tokyo"
+timezone_offset: -540
+locale: "ja"
+url: "http://localhost:8501/"
+is_embedded: false
+color_scheme: "light"
+)
+2025-07-24 11:31:35.908 Disconnecting files for session with ID 9372f04d-153f-4090-b16d-2da8f22c03d6
+2025-07-24 11:31:35.908 Sessions still active: dict_keys([])
+2025-07-24 11:31:35.908 Files: 0; Sessions with files: 0
+2025-07-24 11:31:36.242 Ignoring changed path /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/__pycache__/backtest2.cpython-312.pyc.4661298208.
+Watched_paths: {'/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/app.py': WatchedPath(md5='1fec04ff1aa43e17bf94d310575532ae', modification_time=1753234427.0059824, on_changed=<blinker.base.Signal object at 0x107f1f440>)}
+2025-07-24 11:31:36.242 Ignoring changed path /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/__pycache__.
+Watched_paths: {'/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/app.py': WatchedPath(md5='1fec04ff1aa43e17bf94d310575532ae', modification_time=1753234427.0059824, on_changed=<blinker.base.Signal object at 0x107f1f440>)}
+2025-07-24 11:31:36.242 Ignoring changed path /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/__pycache__/backtest2.cpython-312.pyc.4661298208.
+Watched_paths: {'/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/app.py': WatchedPath(md5='1fec04ff1aa43e17bf94d310575532ae', modification_time=1753234427.0059824, on_changed=<blinker.base.Signal object at 0x107f1f440>)}
+2025-07-24 11:31:36.242 Move event: src /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/__pycache__/backtest2.cpython-312.pyc.4661298208; dest /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/__pycache__/backtest2.cpython-312.pyc
+2025-07-24 11:31:36.242 Ignoring changed path /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/__pycache__/backtest2.cpython-312.pyc.
+Watched_paths: {'/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/app.py': WatchedPath(md5='1fec04ff1aa43e17bf94d310575532ae', modification_time=1753234427.0059824, on_changed=<blinker.base.Signal object at 0x107f1f440>)}
+2025-07-24 11:31:36.242 Ignoring changed path /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/__pycache__.
+Watched_paths: {'/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/app.py': WatchedPath(md5='1fec04ff1aa43e17bf94d310575532ae', modification_time=1753234427.0059824, on_changed=<blinker.base.Signal object at 0x107f1f440>)}
+2025-07-24 11:31:36.242 Ignoring changed path /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/__pycache__.
+Watched_paths: {'/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/app.py': WatchedPath(md5='1fec04ff1aa43e17bf94d310575532ae', modification_time=1753234427.0059824, on_changed=<blinker.base.Signal object at 0x107f1f440>)}
+WARNING:root:TradingMultiAgents dataflows not available
+INFO:webui.backend.backtest2_wrapper:Successfully imported backtest2 modules
+2025-07-24 11:31:38.540 Removing orphaned files...
+2025-07-24 11:31:38.809 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/utils/__init__.py
+2025-07-24 11:31:38.810 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/__init__.py
+2025-07-24 11:31:38.810 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/cli_wrapper.py
+2025-07-24 11:31:38.811 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/utils/state.py
+2025-07-24 11:31:38.811 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/utils/mobile_responsive.py
+2025-07-24 11:31:38.811 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/utils/auth.py
+2025-07-24 11:31:38.812 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/__init__.py
+2025-07-24 11:31:38.812 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/login.py
+2025-07-24 11:31:38.813 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/dashboard.py
+2025-07-24 11:31:38.813 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/notification_handler.py
+2025-07-24 11:31:38.813 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/settings.py
+2025-07-24 11:31:38.814 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/execution.py
+2025-07-24 11:31:38.815 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/utils/pdf_generator.py
+2025-07-24 11:31:38.816 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/results.py
+2025-07-24 11:31:38.817 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/utils/log_translator.py
+2025-07-24 11:31:38.817 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/utils/log_parser.py
+2025-07-24 11:31:38.818 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/utils/log_streamer.py
+2025-07-24 11:31:38.818 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/logs.py
+2025-07-24 11:31:38.819 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py
+2025-07-24 11:31:38.819 Watcher created for /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/backtest2.py

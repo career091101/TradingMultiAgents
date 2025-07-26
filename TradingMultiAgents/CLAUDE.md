@@ -39,6 +39,9 @@ python -m cli.main
 python run_webui.py
 # または
 streamlit run webui/app.py
+
+# WebUIをブラウザで開く (MCP経由でChrome起動)
+open -a "Google Chrome" http://localhost:8501
 ````
 
 ## 3. コードスタイルガイドライン
@@ -78,7 +81,22 @@ streamlit run webui/app.py
 * 推奨: `conda` + `pyenv`
 * `README.md` に記載の手順に従い、環境変数設定を忘れずに
 
-## 8. 既知の注意点\$1
+## 8. 既知の注意点
+
+### ARM64環境での実行（M1/M2 Mac）
+* **重要**: ユーザーの環境がM1/M2 MacのためARM64で実行すること
+* ARM64のパッケージで導入し、x86_64モードやx86_64のライブラリーを使わないようにしてください
+* 仮想環境: `source .venv_arm64/bin/activate` でARM64環境をアクティベート
+* WebUI起動: `python TradingMultiAgents/run_webui.py`
+
+### WebUI アクセス方法
+* **重要**: WebUIを開く際は、必ずMCP (Model Context Protocol) 経由でChromeブラウザを起動してください
+* コマンド: `open -a "Google Chrome" http://localhost:8501`
+* 理由: MCPを使用することで、ブラウザとの統合が適切に行われ、デバッグやトラブルシューティングが容易になります
+
+### その他の注意点
+* メモリ制限設定（ulimit）はmacOSでは非対応のため使用しない
+* ARM64環境では `venv_arm64` 仮想環境を使用すること
 
 ## 9. LLM選定ガイドライン
 

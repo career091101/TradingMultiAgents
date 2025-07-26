@@ -13,12 +13,12 @@ INFO:webui.backend.backtest2_wrapper:Is dataclass: True
 INFO:webui.backend.backtest2_wrapper:Dataclass fields: ['name', 'symbols', 'time_range', 'initial_capital', 'random_seed', 'max_positions', 'position_limits', 'llm_config', 'data_sources', 'reflection_config', 'result_dir', 'slippage', 'commission', 'risk_free_rate', 'benchmark', 'start_date', 'end_date', 'agent_config', 'data_config', 'risk_config', 'enable_parallel', 'max_workers', 'cache_size', 'log_level', 'save_results', 'results_path', 'enable_monitoring']
 INFO:webui.backend.backtest2_wrapper:Has random_seed attr: True
 INFO:webui.backend.backtest2_wrapper:BacktestConfig.__init__ signature: {'name': <class 'str'>, 'symbols': typing.List[str], 'time_range': typing.Optional[backtest2.core.config.TimeRange], 'initial_capital': <class 'float'>, 'random_seed': <class 'int'>, 'max_positions': <class 'int'>, 'position_limits': typing.Dict[backtest2.core.config.RiskProfile, float], 'llm_config': <class 'backtest2.core.config.LLMConfig'>, 'data_sources': typing.List[str], 'reflection_config': typing.Optional[typing.Dict[str, typing.Any]], 'result_dir': typing.Optional[pathlib._local.Path], 'slippage': <class 'float'>, 'commission': <class 'float'>, 'risk_free_rate': <class 'float'>, 'benchmark': <class 'str'>, 'start_date': typing.Optional[datetime.datetime], 'end_date': typing.Optional[datetime.datetime], 'agent_config': typing.Optional[backtest2.core.config.AgentConfig], 'data_config': typing.Optional[backtest2.core.config.DataConfig], 'risk_config': typing.Optional[backtest2.core.config.RiskConfig], 'enable_parallel': <class 'bool'>, 'max_workers': <class 'int'>, 'cache_size': <class 'int'>, 'log_level': <class 'str'>, 'save_results': <class 'bool'>, 'results_path': <class 'str'>, 'enable_monitoring': <class 'bool'>, 'return': None}
-INFO:backtest2.core.engine:Starting backtest execution d03faeb6-a768-47bc-9bca-8511711692a9
+INFO:backtest2.core.engine:Starting backtest execution f8bb71cb-be9e-464d-9a8a-2fff503ca0d3
 INFO:backtest2.core.engine:Initializing backtest environment
 INFO:backtest2.data.manager_simple:Initializing data manager
 INFO:backtest2.agents.orchestrator:Initialized 12 agents
 INFO:backtest2.core.engine:Loading benchmark data for SPY
-INFO:backtest2.agents.orchestrator:Starting decision process ac748c14-ecbd-49e2-8ad8-deeb5d1383ed for AAPL on 2025-04-23 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 833a4cd3-4f24-4879-a80d-bdf12771a694 for AAPL on 2025-04-24 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -42,7 +42,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 4a4c768d-4f69-4f33-aa54-6d5fa2acf11e for AAPL on 2025-04-24 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 61d06df3-8f45-47f3-a648-5deb751eb5ed for AAPL on 2025-04-25 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -66,7 +66,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 6cd5e206-07c7-4755-be13-ee7909e42a02 for AAPL on 2025-04-25 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 3940eb56-dabc-4cc4-a532-a958fe5cf8c7 for AAPL on 2025-04-28 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -90,7 +90,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 5ecd6dce-2523-4e6e-a9a4-49b6adb8313f for AAPL on 2025-04-28 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 03932ec0-5185-4755-b52d-425305c942e3 for AAPL on 2025-04-29 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -114,7 +114,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process bebf474b-9561-4b0e-9c51-566b4213eb33 for AAPL on 2025-04-29 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 34e7e751-ed1b-48bb-a1c4-538b19d859e9 for AAPL on 2025-04-30 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -138,7 +138,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 7da30673-e246-43ce-bd9a-8d9a260876b9 for AAPL on 2025-04-30 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process f73216a6-781c-46b6-84ad-495c09941084 for AAPL on 2025-05-01 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -162,7 +162,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process a92a44fa-dfd6-4271-bda5-12c3d9e5302f for AAPL on 2025-05-01 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 74d82f2f-8f69-4e15-862f-454eae2aa896 for AAPL on 2025-05-02 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -186,7 +186,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 79025a0e-794c-4dbf-8bb0-0826fc4fff46 for AAPL on 2025-05-02 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 3933533a-15d6-41a8-b602-de58ffb33ab4 for AAPL on 2025-05-05 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -210,7 +210,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 6a08d0d3-aaed-4948-8340-5e4b5d7acc55 for AAPL on 2025-05-05 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process b1e812d9-8b8d-484d-9c7d-3780496e4ff2 for AAPL on 2025-05-06 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -234,7 +234,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process d4ae7fb8-38a2-4e0e-beab-4ec6d3c108de for AAPL on 2025-05-06 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 4dd2b4cb-672c-402c-ac09-58b2c96e9034 for AAPL on 2025-05-07 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -258,7 +258,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 41cd7f89-f3e7-452f-b595-e97aad300be8 for AAPL on 2025-05-07 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process c8f292e9-1a52-4042-a579-6bf5b1fd574c for AAPL on 2025-05-08 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -282,7 +282,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process d27556fe-45c5-42a3-aa1d-19caef48d31f for AAPL on 2025-05-08 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 3900c1d5-61fa-4351-84da-0e6a1b8bbec4 for AAPL on 2025-05-09 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -306,7 +306,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process a24f9095-2caf-481a-911b-897069760eea for AAPL on 2025-05-09 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process e65f58eb-9724-42f2-bd5b-c97ac9007d37 for AAPL on 2025-05-12 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -330,7 +330,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 052163e8-f42c-4c9c-9c5d-9a5c662dd48f for AAPL on 2025-05-12 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process aaee4a8f-188d-429e-adda-ddcf23342fca for AAPL on 2025-05-13 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -354,7 +354,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process db7cdff2-9a3a-4366-bb94-0de38a54df71 for AAPL on 2025-05-13 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process b4f2da36-9f64-444a-839a-c5d0fae1b151 for AAPL on 2025-05-14 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -378,7 +378,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 636c3926-aca7-4e35-ad6b-99888562e8b3 for AAPL on 2025-05-14 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process ba4f3f0b-f30f-48e6-aead-d8ae1889406a for AAPL on 2025-05-15 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -402,7 +402,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process cff3ed6f-5e86-4896-b98e-2e9da0b62ce3 for AAPL on 2025-05-15 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process ccd80e1d-b4d6-4627-95e4-c52413c2845f for AAPL on 2025-05-16 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -426,7 +426,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 247005b6-2a26-43c5-b846-f7aa7c58f827 for AAPL on 2025-05-16 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 226b6274-30e8-48b5-a791-19b0d86e3258 for AAPL on 2025-05-19 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -450,7 +450,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 33d001b6-c6a3-418a-845f-04c3a05556af for AAPL on 2025-05-19 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 6b91d15a-16e3-4fbf-b144-ae2bc92d8f0a for AAPL on 2025-05-20 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -474,7 +474,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 8ee290da-441b-4611-8ec0-a4e4cc847ef0 for AAPL on 2025-05-20 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 1c6e88a3-99ce-42d1-adab-b3217afeea5c for AAPL on 2025-05-21 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -498,7 +498,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process d0e5c5fa-a6cc-427d-a98f-2eb191191d2d for AAPL on 2025-05-21 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process bec89a2e-8cb2-4edf-ba04-159e7f68d360 for AAPL on 2025-05-22 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -522,7 +522,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 663c1f71-1c65-4b01-a864-8e48780e0300 for AAPL on 2025-05-22 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 236cd870-57c9-4b5a-9957-92897dc6d4c2 for AAPL on 2025-05-23 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -546,7 +546,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process b3774d4c-fa24-41db-bcd9-d3c44edf6b51 for AAPL on 2025-05-23 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 2b01d3f2-8397-4f69-827f-2d14644b6b34 for AAPL on 2025-05-26 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -570,7 +570,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process e9475928-4418-4ab0-8e8e-437a60ad516c for AAPL on 2025-05-26 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process d53faa05-78e0-4038-9dbf-3e10a7ee5380 for AAPL on 2025-05-27 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -594,7 +594,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 40c14edd-a5e4-4701-993d-9946096e30d9 for AAPL on 2025-05-27 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 605e2df4-8f5a-4e63-bc6c-23aedc552dae for AAPL on 2025-05-28 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -618,7 +618,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 1d1b99b2-b8ec-4f36-a31c-10caca5ae07e for AAPL on 2025-05-28 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 9207b968-d963-4a2a-bfd0-df65fbb55e73 for AAPL on 2025-05-29 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -642,7 +642,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 96910c63-9240-4c45-bff7-4e31bad0d254 for AAPL on 2025-05-29 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 86e92e10-f298-4ea2-be12-ee93bbc222cc for AAPL on 2025-05-30 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -666,7 +666,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process b4f499f4-cc11-49c5-a924-ddb3819febe4 for AAPL on 2025-05-30 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 8e0ef7a5-5097-4dc6-a437-119d39fc71d6 for AAPL on 2025-06-02 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -690,7 +690,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 8a92ceed-7385-4174-b69a-714aaddfc20d for AAPL on 2025-06-02 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process f76a5bf9-b14f-42e9-81c8-c6a1e9b67357 for AAPL on 2025-06-03 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -714,7 +714,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 38d6a646-b10f-4749-98d7-874d2e424b3c for AAPL on 2025-06-03 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 43f7149d-85cb-471f-bd87-941a84c66a06 for AAPL on 2025-06-04 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -738,7 +738,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 871a0b41-b79e-4d52-bdf2-59ca044461da for AAPL on 2025-06-04 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 594583a9-4941-43fa-9028-025d4c5fcb6b for AAPL on 2025-06-05 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -762,7 +762,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process de601b88-a061-4d1a-ab18-a0e12a723593 for AAPL on 2025-06-05 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 2d6ad221-5ca6-41d1-b866-abf83cd6836a for AAPL on 2025-06-06 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -786,7 +786,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 67209cb4-e2b4-4f87-a3f9-4e2aa061cc12 for AAPL on 2025-06-06 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process dec294cf-7c8a-465e-b3b9-f548e8faeb39 for AAPL on 2025-06-09 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -810,7 +810,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process de702ae2-be9a-4bee-98ae-b0ba7f60ff5b for AAPL on 2025-06-09 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 7a603d91-3340-476e-a418-6772e80c2d5f for AAPL on 2025-06-10 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -834,7 +834,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process f183a7f9-a4a6-4640-8355-7f83459d464c for AAPL on 2025-06-10 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 565c6148-f916-4fde-981d-bcca32505441 for AAPL on 2025-06-11 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -858,7 +858,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 99651db0-f19a-4162-b216-9173abbaeb2d for AAPL on 2025-06-11 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 4417d0fd-f6c5-4f4c-8222-467230afeae5 for AAPL on 2025-06-12 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -882,7 +882,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process b32c1cb7-7560-44e8-9bf3-566f1d9175b9 for AAPL on 2025-06-12 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 7b3330e2-bf06-48d7-ba7b-6e376fa393ed for AAPL on 2025-06-13 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -906,7 +906,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process b7338043-e0a2-41ea-bb4a-bda67cbf2322 for AAPL on 2025-06-13 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 71ff8baf-9a20-4e8d-a6b0-25b579c5b764 for AAPL on 2025-06-16 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -930,7 +930,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process f182319f-24a6-41af-8e03-ddbceb60d2a1 for AAPL on 2025-06-16 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process aa52b160-b217-4c57-88dd-4c6d96182ccb for AAPL on 2025-06-17 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -954,7 +954,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 50a82c6c-1d96-44ce-a2df-f79b22a43bd1 for AAPL on 2025-06-17 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 76ae8573-62f5-4139-aa81-947b0f339b7d for AAPL on 2025-06-18 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -978,7 +978,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 85e2776f-011d-4c76-b7ad-3b696942596a for AAPL on 2025-06-18 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 2c6795c6-a173-4a2b-afa6-2cee9d4a9122 for AAPL on 2025-06-19 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1002,7 +1002,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process d596a71a-538f-4c98-9d3b-de8719bc28e2 for AAPL on 2025-06-19 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 46d405f1-5d14-4bc0-806b-fc57bab83664 for AAPL on 2025-06-20 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1026,7 +1026,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 06d0ff09-8eee-4138-b542-d5fda6840009 for AAPL on 2025-06-20 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 22d337dd-c8d2-4261-b758-231617990c31 for AAPL on 2025-06-23 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1050,7 +1050,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process f0ad8e5b-258b-46d6-9fd8-891b84c47a5d for AAPL on 2025-06-23 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 0c346dc9-9264-4496-a0e1-76f72462ab9e for AAPL on 2025-06-24 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1074,7 +1074,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process f81504d1-76d5-4112-b100-c06bb1c3ec58 for AAPL on 2025-06-24 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process df5e5c07-799a-440d-9ad4-7aff2f3ef149 for AAPL on 2025-06-25 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1098,7 +1098,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process ffc94bc5-5f4c-461a-92e0-245da7b78a8d for AAPL on 2025-06-25 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 39f0dfad-1e89-4461-8af3-67702996cc8f for AAPL on 2025-06-26 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1122,7 +1122,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process ea305fc4-b82b-4e92-aeff-1332e18b38b6 for AAPL on 2025-06-26 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 0669e248-d71d-485d-b368-17f1e2f49297 for AAPL on 2025-06-27 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1146,7 +1146,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process e66fc004-6054-4292-b84a-f74ad2441fb7 for AAPL on 2025-06-27 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 9917c12c-a99b-4695-bf4b-2a531ce89a2e for AAPL on 2025-06-30 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1170,7 +1170,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 053cb7fb-665d-4bd2-a0eb-ded3af6d8010 for AAPL on 2025-06-30 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 9207b24f-2bf7-4ba0-b115-dd4c70a69bda for AAPL on 2025-07-01 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1194,7 +1194,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 01fc2f3d-c585-4290-961a-a52890bcfddb for AAPL on 2025-07-01 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 63747f53-8420-49a3-97d3-2e2cebe904b2 for AAPL on 2025-07-02 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1218,7 +1218,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process ce2a901e-aac4-45df-bfd9-61964d9fc0d7 for AAPL on 2025-07-02 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process e07481be-f4aa-4458-8e53-d294a54d43ea for AAPL on 2025-07-03 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1242,7 +1242,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process b3d89999-4259-497a-8ee7-16da55939294 for AAPL on 2025-07-03 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 7f7ba383-ee53-404a-aa19-1fa90e0740d1 for AAPL on 2025-07-04 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1266,7 +1266,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 4c889dc0-6e16-49d3-9bda-2a7bef4fee01 for AAPL on 2025-07-04 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process d2a628bc-dc0e-4d9d-af1e-80652908a791 for AAPL on 2025-07-07 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1290,7 +1290,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process dc81c432-8a0b-4bb7-bc41-ea9d43130e8f for AAPL on 2025-07-07 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process f46dc202-9ec7-457c-887e-58a4226192a3 for AAPL on 2025-07-08 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1314,7 +1314,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 65605085-b0ab-4e11-bd9a-5ec46b0d00f4 for AAPL on 2025-07-08 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 6b580b76-5614-4408-9b93-abdfb08da926 for AAPL on 2025-07-09 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1338,7 +1338,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 9730c068-f830-4b7a-8ae1-dd7da2109833 for AAPL on 2025-07-09 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 346de713-7eab-4166-b521-ef623a7b24f6 for AAPL on 2025-07-10 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1362,7 +1362,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 6417e7c6-3867-4ada-979c-b260cf4230f8 for AAPL on 2025-07-10 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 3d3b15cb-0d95-4235-ae00-01664d4576e3 for AAPL on 2025-07-11 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1386,7 +1386,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process ce698de9-3a36-4470-b8b7-f25e6a12e5f2 for AAPL on 2025-07-11 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 539c71cd-1a5b-4de1-93b2-fa863f73f28d for AAPL on 2025-07-14 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1410,7 +1410,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 74dd88fb-b6e8-4200-98b4-7e1d039ef5cf for AAPL on 2025-07-14 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process dccce10f-69aa-4b47-823d-636516932990 for AAPL on 2025-07-15 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1434,7 +1434,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 81381194-3ee8-4197-9fb4-0f7315bcb60f for AAPL on 2025-07-15 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process e96c1bc3-088b-434f-9153-2c1ee34b5856 for AAPL on 2025-07-16 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1458,7 +1458,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 97b9f40e-25b2-4350-8c9e-c612e6a58998 for AAPL on 2025-07-16 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 0a210f5c-d059-42fc-b182-1e4f46e79835 for AAPL on 2025-07-17 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1482,7 +1482,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 63ccaca3-d912-4f76-a775-3db0a94e2013 for AAPL on 2025-07-17 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 89582e0c-3049-41c0-abbb-4435cd62e8a1 for AAPL on 2025-07-18 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1506,7 +1506,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 98fa2644-2cb3-40dc-911b-f0b26103d494 for AAPL on 2025-07-18 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 5cb6a1c1-da8d-4e91-945d-8dfd91f1c1bc for AAPL on 2025-07-21 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1530,7 +1530,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 0bfee329-48b9-4192-b04a-d71ac05c0a23 for AAPL on 2025-07-21 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 62cdde61-8969-478e-bb32-bb79c9a18f2d for AAPL on 2025-07-22 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1557,20 +1557,20 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 INFO:backtest2.core.engine:Calculating backtest results
 INFO:backtest2.analysis.benchmark:Loading benchmark data for SPY
 INFO:backtest2.analysis.benchmark:Loaded 64 benchmark data points
-INFO:BacktestLogger:Results saved to results/backtest2_20250722_204749/AAPL
+INFO:BacktestLogger:Results saved to results/backtest2_20250723_102302/AAPL
 INFO:backtest2.core.engine:Cleaning up backtest resources
 INFO:backtest2.data.manager_simple:Closing data manager
 INFO:backtest2.agents.orchestrator:Cleaning up orchestrator resources
 INFO:backtest2.agents.orchestrator:Orchestrator cleanup completed
-INFO:MemoryStore:Saved memories to results/backtest2_20250722_204749/AAPL/memories.json
+INFO:MemoryStore:Saved memories to results/backtest2_20250723_102302/AAPL/memories.json
 INFO:webui.backend.backtest2_wrapper:Result agent_performance type: <class 'dict'>
 INFO:webui.backend.backtest2_wrapper:Result agent_performance content: {'total_decisions': 0, 'memory_entries': 0}
-INFO:backtest2.core.engine:Starting backtest execution a674557f-cd9c-46fb-83a8-2e5a5706ac10
+INFO:backtest2.core.engine:Starting backtest execution 70fca4d6-ce16-4e7c-8a10-19c69f46de0f
 INFO:backtest2.core.engine:Initializing backtest environment
 INFO:backtest2.data.manager_simple:Initializing data manager
 INFO:backtest2.agents.orchestrator:Initialized 12 agents
 INFO:backtest2.core.engine:Loading benchmark data for SPY
-INFO:backtest2.agents.orchestrator:Starting decision process 5ef1feea-3579-41f1-838c-a8de7453c4ac for MSFT on 2025-04-23 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 0fa8beb1-8bbd-4daf-8db9-0b5232b172e8 for MSFT on 2025-04-24 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1594,7 +1594,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process c065d2e4-570a-4415-9bc2-8292b3dd5e36 for MSFT on 2025-04-24 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 3c2d14fc-bcdf-4f2e-b763-01fd8372a793 for MSFT on 2025-04-25 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1618,7 +1618,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 2f46ff70-8f94-43f8-87f3-2a8b9fe0c342 for MSFT on 2025-04-25 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 77322e26-e5b1-4fe9-b3e8-48bf049469d2 for MSFT on 2025-04-28 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1642,7 +1642,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 99831785-6b01-4964-9a87-88bf2a823f84 for MSFT on 2025-04-28 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 21c23aaf-432b-480a-ab0b-e880d377d8b0 for MSFT on 2025-04-29 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1666,7 +1666,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 8ab1362e-f326-4714-bbdf-e7a529d7354a for MSFT on 2025-04-29 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process a51de9b0-c972-4931-8483-a0688c5a63d0 for MSFT on 2025-04-30 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1690,7 +1690,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 2d72b599-65b1-4042-90c6-eefae11a56ec for MSFT on 2025-04-30 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 5104b82c-07b8-4649-a257-0cc7a2f8a9f2 for MSFT on 2025-05-01 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1714,7 +1714,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process c0052c3c-1227-42dc-bfe4-1cfb860e95e4 for MSFT on 2025-05-01 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process e97d8d47-0afc-4c8c-9576-7a4cdc917f82 for MSFT on 2025-05-02 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1738,7 +1738,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 217a1f8d-479b-434b-a267-9e9a999854f8 for MSFT on 2025-05-02 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process f3a9c915-7414-4527-8096-487b74db376c for MSFT on 2025-05-05 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1762,7 +1762,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process cdad9078-a4fd-4170-8df6-00c50ab9c516 for MSFT on 2025-05-05 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 323b6419-3cbe-49a3-82e7-8a4b8380f0db for MSFT on 2025-05-06 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1786,7 +1786,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 6259a4ae-8c69-4191-b967-f6a31e4ce491 for MSFT on 2025-05-06 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 1845e52c-2f25-4a02-bdfc-c907493b7714 for MSFT on 2025-05-07 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1810,7 +1810,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 2d51edc6-3247-4e8d-89d3-4afa102179f9 for MSFT on 2025-05-07 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 660a8bb9-dc66-4ccd-8763-92721f241ce4 for MSFT on 2025-05-08 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1834,7 +1834,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process c836ec13-7213-4da1-a6aa-d0faefe45731 for MSFT on 2025-05-08 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process aca1b9d5-0052-4605-ad00-b66cfbdfda51 for MSFT on 2025-05-09 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1858,7 +1858,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 6ee323b5-dd64-49c4-acaa-1733937ac3da for MSFT on 2025-05-09 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process ed91bd93-68d2-407e-9fcf-2baed3a8691e for MSFT on 2025-05-12 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1882,7 +1882,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 42135c48-3fd4-4cb4-9e20-8290f9c79aa0 for MSFT on 2025-05-12 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process c0f3812a-52db-42c4-b31c-03f7bcb014eb for MSFT on 2025-05-13 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1906,7 +1906,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 8663b98d-69d5-42eb-9bba-96ab0c486826 for MSFT on 2025-05-13 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 8e128ec6-ae9b-45e3-b4bf-deb315a3f22b for MSFT on 2025-05-14 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1930,7 +1930,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process fc5c8cc9-a35b-4905-9c55-7990140f8578 for MSFT on 2025-05-14 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 5d149127-dc5a-481a-b394-424f804e8f56 for MSFT on 2025-05-15 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1954,7 +1954,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process b1434c30-6396-4e79-aa58-4d42635fbf9b for MSFT on 2025-05-15 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process c8d7d794-db4e-4af1-8c64-bd1679316c1c for MSFT on 2025-05-16 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -1978,7 +1978,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process cae619e3-6b17-4a7b-8b3c-597cbac848e7 for MSFT on 2025-05-16 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 9baa1b3c-60c9-49f8-ad69-ed39cfe6ba97 for MSFT on 2025-05-19 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2002,7 +2002,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 593d01f3-6138-4b32-a97f-0fd133de4064 for MSFT on 2025-05-19 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process e5cf53be-0742-4592-a231-e04bd7a98cd6 for MSFT on 2025-05-20 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2026,7 +2026,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process b407370b-7b2d-4c13-b386-390d8e1ea420 for MSFT on 2025-05-20 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process efc9901d-ced2-4825-a22a-20c146d72e96 for MSFT on 2025-05-21 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2050,7 +2050,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process c03c9ca3-8fc3-4d0d-84e2-c6ebab4d6bf4 for MSFT on 2025-05-21 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 72bad467-56f7-43eb-89d6-85bdf481669d for MSFT on 2025-05-22 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2074,7 +2074,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 592fbb2b-ec3f-40a9-b4c2-c63bfa9a631a for MSFT on 2025-05-22 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process ee40d84c-b53e-484a-b3f4-3ce755b633b5 for MSFT on 2025-05-23 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2098,7 +2098,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process e8b0e354-4d6e-41de-ab9d-04b71f28031c for MSFT on 2025-05-23 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 3d2bac2d-8f45-4932-8f42-39320ce841f6 for MSFT on 2025-05-26 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2122,7 +2122,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 8cb2f9a5-800e-49b1-bbd6-7e0a4a5913d8 for MSFT on 2025-05-26 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 3adada7a-a039-42da-b184-f68471a6e52a for MSFT on 2025-05-27 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2146,7 +2146,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process f9c72ddc-769e-44b2-b770-9dd26fbf96d8 for MSFT on 2025-05-27 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process d61d683a-453d-497d-ad7a-0d83f3d7acdd for MSFT on 2025-05-28 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2170,7 +2170,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process f7c6dba1-fb30-48c1-9a09-30f37626e83a for MSFT on 2025-05-28 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 6b019d84-cefc-4e2d-9ecf-a91a099bcf11 for MSFT on 2025-05-29 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2194,7 +2194,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 2290a272-30b9-480f-ba5e-cc83d050afcf for MSFT on 2025-05-29 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process afee07c4-d86d-44fa-bb94-37dba7457e53 for MSFT on 2025-05-30 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2218,7 +2218,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process ee3b14d1-3b86-4db9-92ab-52ef68b54ffe for MSFT on 2025-05-30 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process e66d6d3e-a713-4933-aa11-e61d609455ea for MSFT on 2025-06-02 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2242,7 +2242,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process df61432b-9f41-4823-9bbb-b5e31627ebec for MSFT on 2025-06-02 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 96cbddf3-3b4f-4af4-bbf6-373210a96378 for MSFT on 2025-06-03 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2266,7 +2266,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process ccd6fbcb-5457-4455-b4fd-85556bb9c21e for MSFT on 2025-06-03 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 6de8161e-6063-466c-b6c6-d8241055d282 for MSFT on 2025-06-04 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2290,7 +2290,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process ace60053-f935-46cc-afbd-6ed03c88a4ae for MSFT on 2025-06-04 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process f01de2a8-8ece-42e0-867a-0d86a851c838 for MSFT on 2025-06-05 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2314,7 +2314,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 7e5fd332-b076-4d62-8ef4-aef99ed587c3 for MSFT on 2025-06-05 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 11f65d1e-2cfc-483a-abb3-b6f63c5fdf87 for MSFT on 2025-06-06 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2338,7 +2338,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 049ae2a9-9bbb-4bd2-a1c6-4c6fcb746645 for MSFT on 2025-06-06 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process b13cf217-e596-450a-ba42-cb7eaa7f03b1 for MSFT on 2025-06-09 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2362,7 +2362,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 43437689-8cec-41ab-acfe-70f3eb026591 for MSFT on 2025-06-09 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process e789259c-2899-4dc5-820b-75d31386ed6b for MSFT on 2025-06-10 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2386,7 +2386,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 6372ee66-97f0-459e-8ef0-33415e897df9 for MSFT on 2025-06-10 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process dcf9b7fe-7504-4ab3-b3a6-71af4a2e8f9a for MSFT on 2025-06-11 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2410,7 +2410,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process b4e58396-28cb-4d8b-a2fe-c93e8307fd41 for MSFT on 2025-06-11 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 12eb3d84-891a-4eec-92a6-08032f361540 for MSFT on 2025-06-12 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2434,7 +2434,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process d2699ac7-577e-4e1f-b1e7-3529c2ff09aa for MSFT on 2025-06-12 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process e050871c-c785-40d1-af46-fbb7626d832d for MSFT on 2025-06-13 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2458,7 +2458,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 58e9d5fc-981f-4346-8a90-30d1a485d492 for MSFT on 2025-06-13 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process d856b68c-307f-4c60-8ac9-0b19c6ba3ba0 for MSFT on 2025-06-16 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2482,7 +2482,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process d7034f87-c5a3-4e43-b68d-4389a6527413 for MSFT on 2025-06-16 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 8c73a443-f00b-4ba9-95b1-3544e4d80570 for MSFT on 2025-06-17 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2506,7 +2506,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 24c0ad72-bdc5-4cf2-b32b-caaa832e9b4f for MSFT on 2025-06-17 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process e441941b-2ace-4922-aef8-d03239c1a9de for MSFT on 2025-06-18 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2530,7 +2530,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 600a0415-f7f7-4ed7-9642-d17d320ad10f for MSFT on 2025-06-18 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process cff0fd33-4446-441a-922b-e661ee9ed341 for MSFT on 2025-06-19 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2554,7 +2554,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 057a4045-2671-4193-901e-ffc80cd8b66e for MSFT on 2025-06-19 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 37daaadc-f2c4-47d8-89ac-c07ccfae7d9d for MSFT on 2025-06-20 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2578,7 +2578,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 9d789a76-6b4e-4587-ba71-272257d83bda for MSFT on 2025-06-20 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process ccfc9700-052f-45f7-9dd6-488f7be070a4 for MSFT on 2025-06-23 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2602,7 +2602,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 82661084-1399-4e0c-ae49-535d8badfbb7 for MSFT on 2025-06-23 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 7c20afbc-e5a1-4bbc-8788-fd933ea5ae84 for MSFT on 2025-06-24 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2626,7 +2626,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process d61a9ad6-b4a9-4aca-b02d-7795aaba6c58 for MSFT on 2025-06-24 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process c0cd68c1-ce39-4f93-9161-223ebf3ae4ec for MSFT on 2025-06-25 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2650,7 +2650,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 0bd06527-9c28-45db-9045-51e6c2a9b301 for MSFT on 2025-06-25 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 207455a8-f79a-46c0-87fc-b376b8f1c16a for MSFT on 2025-06-26 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2674,7 +2674,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process b49d5361-8cb8-4077-8932-595c701796ee for MSFT on 2025-06-26 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 4f475ee6-254a-4e77-8591-00256006042d for MSFT on 2025-06-27 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2698,7 +2698,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 43c0d9a9-d5ca-428e-8260-e6771847534a for MSFT on 2025-06-27 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 5a4ca5c7-959e-4b10-8afa-aa076b4fdc97 for MSFT on 2025-06-30 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2722,7 +2722,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 64e143de-8eed-4200-bb7d-419a2db9a487 for MSFT on 2025-06-30 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 161c2fb7-2038-4809-bb39-55fbd8838a07 for MSFT on 2025-07-01 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2746,7 +2746,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process c85394ad-049e-4ee6-bc2e-6745bd4cc525 for MSFT on 2025-07-01 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 9784ef5d-f28e-4daf-ba17-1bd59bac61aa for MSFT on 2025-07-02 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2770,7 +2770,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 5ff29bdf-92d6-4601-b0ff-6ba8f06e89d7 for MSFT on 2025-07-02 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process f6bd54c0-b583-46be-8375-ab5b85756bc4 for MSFT on 2025-07-03 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2794,7 +2794,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 2429b13e-7f36-4050-8ec7-62d63814e782 for MSFT on 2025-07-03 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 83e833cd-4db4-4eb4-a7c9-69340fc9f494 for MSFT on 2025-07-04 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2818,7 +2818,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process d20c74f4-3e73-4b5f-b762-4da10bdcd8f1 for MSFT on 2025-07-04 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 5e1d2309-01a9-4dc2-82f0-e87c6be59ecc for MSFT on 2025-07-07 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2842,7 +2842,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 25e3cef9-666c-403b-b0c6-73144673a06b for MSFT on 2025-07-07 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 9176b396-a5ef-498b-80f8-8510da5bf8a3 for MSFT on 2025-07-08 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2866,7 +2866,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 11b24031-b431-4e26-8ec5-4427de26f1b9 for MSFT on 2025-07-08 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 68067a81-7663-4036-b3a6-b44d748aaa98 for MSFT on 2025-07-09 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2890,7 +2890,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 5bd9caf6-4c05-4426-87bc-621127a2362e for MSFT on 2025-07-09 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process d80487b9-c6ef-40c6-8af1-748880c6b9c3 for MSFT on 2025-07-10 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2914,7 +2914,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 613c6e9a-1a95-44db-9c06-57ad36c874b7 for MSFT on 2025-07-10 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 6a2f866e-19ec-49c1-b10a-a187b9fd8b1b for MSFT on 2025-07-11 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2938,7 +2938,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 5e4e14a5-3aaf-437c-a288-05e2a58e456b for MSFT on 2025-07-11 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 6213a65d-1da5-45ac-93ee-eb761b8c1fda for MSFT on 2025-07-14 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2962,7 +2962,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 88effe94-1b3b-4ca8-b728-c03056bbc229 for MSFT on 2025-07-14 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 67fd5a7e-1c6a-4426-b3e8-3867815f8ea0 for MSFT on 2025-07-15 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -2986,7 +2986,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process fb924654-2fd1-4fb6-9950-758287fd706e for MSFT on 2025-07-15 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process ca7ee66b-91dd-40c0-8ca4-28b41eaee791 for MSFT on 2025-07-16 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -3010,7 +3010,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 5624f6d3-2522-4ff4-8b00-6232ed9022ee for MSFT on 2025-07-16 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 462161c4-abb1-494f-8967-bad6d9a8aafc for MSFT on 2025-07-17 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -3034,7 +3034,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process d1fce3e9-61fe-494e-91bd-46fc1bff8c2d for MSFT on 2025-07-17 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 462305c9-ead5-4b83-89c7-b95bc8cafb47 for MSFT on 2025-07-18 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -3058,7 +3058,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 463442f7-1a2a-49ca-b775-4e316933662c for MSFT on 2025-07-18 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 8e721761-db34-4edd-92fc-162e4477102a for MSFT on 2025-07-21 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -3082,7 +3082,7 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type AgentOutput is not JSON serializable
 INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
-INFO:backtest2.agents.orchestrator:Starting decision process 2bd7e5ab-9982-4d7e-8881-42d3304c60d4 for MSFT on 2025-07-21 00:00:00
+INFO:backtest2.agents.orchestrator:Starting decision process 63f261bb-4dee-49fe-894e-3e86a34f443e for MSFT on 2025-07-22 00:00:00
 INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
 ERROR:Agent.Market Analyst:Agent Market Analyst processing failed: 'str' object has no attribute 'strftime'
 ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type MarketData is not JSON serializable
@@ -3109,12 +3109,12 @@ ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object
 INFO:backtest2.core.engine:Calculating backtest results
 INFO:backtest2.analysis.benchmark:Loading benchmark data for SPY
 INFO:backtest2.analysis.benchmark:Loaded 64 benchmark data points
-INFO:BacktestLogger:Results saved to results/backtest2_20250722_204749/MSFT
+INFO:BacktestLogger:Results saved to results/backtest2_20250723_102302/MSFT
 INFO:backtest2.core.engine:Cleaning up backtest resources
 INFO:backtest2.data.manager_simple:Closing data manager
 INFO:backtest2.agents.orchestrator:Cleaning up orchestrator resources
 INFO:backtest2.agents.orchestrator:Orchestrator cleanup completed
-INFO:MemoryStore:Saved memories to results/backtest2_20250722_204749/MSFT/memories.json
+INFO:MemoryStore:Saved memories to results/backtest2_20250723_102302/MSFT/memories.json
 INFO:webui.backend.backtest2_wrapper:Result agent_performance type: <class 'dict'>
 INFO:webui.backend.backtest2_wrapper:Result agent_performance content: {'total_decisions': 0, 'memory_entries': 0}
 INFO:webui.components.backtest2:Results type: <class 'dict'>
@@ -3125,3 +3125,12 @@ INFO:webui.components.backtest2:MSFT result type: <class 'dict'>
 INFO:webui.components.backtest2:MSFT keys: ['ticker', 'metrics', 'initial_capital', 'final_value', 'files', 'charts', 'agent_performance', 'trade_count', 'start_date', 'end_date']
 INFO:webui.components.backtest2:MSFT metrics type: <class 'dict'>
   Stopping...
+🚀 TradingAgents WebUIを起動中...
+📁 WebUIパス: /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/app.py
+📱 Streamlit Cloud デプロイ対応版
+🔍 環境変数チェック:
+  FINNHUB_API_KEY: ✅ 設定済み
+  OPENAI_API_KEY: ✅ 設定済み
+
+🌐 ブラウザで http://localhost:8501 を開いてください
+🔚 終了するには Ctrl+C を押してください

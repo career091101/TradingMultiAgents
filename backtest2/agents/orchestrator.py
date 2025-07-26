@@ -62,8 +62,11 @@ class AgentOrchestrator:
     async def initialize(self):
         """Initialize all agents"""
         
+        # Get the correct LLM config from agent_config if available
+        llm_config = self.config.agent_config.llm_config if self.config.agent_config else self.config.llm_config
+        
         # Check if we should use real LLM or mock agents
-        use_mock = self.config.llm_config.deep_think_model == "mock"
+        use_mock = llm_config.deep_think_model == "mock"
         
         if use_mock:
             # Use mock agents for testing
@@ -74,76 +77,76 @@ class AgentOrchestrator:
             
             self.agents['market_analyst'] = MarketAnalyst(
                 "Market Analyst",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("market_analyst")
             )
             
             self.agents['news_analyst'] = NewsAnalyst(
                 "News Analyst",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("news_analyst")
             )
             
             self.agents['social_analyst'] = SocialMediaAnalyst(
                 "Social Media Analyst",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("social_analyst")
             )
             
             self.agents['fundamentals_analyst'] = FundamentalsAnalyst(
                 "Fundamentals Analyst",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("fundamentals_analyst")
             )
             
             self.agents['bull_researcher'] = BullResearcher(
                 "Bull Researcher",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("bull_researcher"),
                 use_deep_thinking=True
             )
             
             self.agents['bear_researcher'] = BearResearcher(
                 "Bear Researcher",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("bear_researcher"),
                 use_deep_thinking=True
             )
             
             self.agents['research_manager'] = ResearchManager(
                 "Research Manager",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("research_manager"),
                 use_deep_thinking=True
             )
             
             self.agents['trader'] = Trader(
                 "Trader",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("trader")
             )
             
             self.agents['aggressive_debator'] = AggressiveDebator(
                 "Aggressive Risk Debator",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("aggressive_debator")
             )
             
             self.agents['conservative_debator'] = ConservativeDebator(
                 "Conservative Risk Debator",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("conservative_debator")
             )
             
             self.agents['neutral_debator'] = NeutralDebator(
                 "Neutral Risk Debator",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("neutral_debator")
             )
             
             self.agents['risk_manager'] = RiskManager(
                 "Risk Manager",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("risk_manager"),
                 use_deep_thinking=True
             )
@@ -152,76 +155,76 @@ class AgentOrchestrator:
             # Initialize analysts (quick thinking)
             self.agents['market_analyst'] = MarketAnalystAdapter(
                 "Market Analyst",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("market_analyst")
             )
             
             self.agents['news_analyst'] = NewsAnalystAdapter(
                 "News Analyst",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("news_analyst")
             )
             
             self.agents['social_analyst'] = SocialMediaAnalystAdapter(
                 "Social Media Analyst",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("social_analyst")
             )
             
             self.agents['fundamentals_analyst'] = FundamentalsAnalystAdapter(
                 "Fundamentals Analyst",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("fundamentals_analyst")
             )
             
             # Initialize researchers (deep thinking)
             self.agents['bull_researcher'] = BullResearcherAdapter(
                 "Bull Researcher",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("bull_researcher")
             )
             
             self.agents['bear_researcher'] = BearResearcherAdapter(
                 "Bear Researcher",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("bear_researcher")
             )
             
             self.agents['research_manager'] = ResearchManagerAdapter(
                 "Research Manager",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("research_manager")
             )
             
             # Initialize trader
             self.agents['trader'] = TraderAdapter(
                 "Trader",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("trader")
             )
             
             # Initialize risk debators
             self.agents['aggressive_debator'] = AggressiveDebatorAdapter(
                 "Aggressive Risk Debator",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("aggressive_debator")
             )
             
             self.agents['conservative_debator'] = ConservativeDebatorAdapter(
                 "Conservative Risk Debator",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("conservative_debator")
             )
             
             self.agents['neutral_debator'] = NeutralDebatorAdapter(
                 "Neutral Risk Debator",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("neutral_debator")
             )
             
             self.agents['risk_manager'] = RiskManagerAdapter(
                 "Risk Manager",
-                self.config.llm_config,
+                llm_config,
                 self.memory_store.get_agent_memory("risk_manager")
             )
         
@@ -254,22 +257,34 @@ class AgentOrchestrator:
         
         try:
             # Phase 1: Data Collection
+            self.logger.debug(f"[PHASE 1] Starting data collection for {symbol}")
             analyst_reports = await self._data_collection_phase(market_data, context)
+            self.logger.debug(f"[PHASE 1] Completed with {len(analyst_reports)} reports")
             
             # Phase 2: Investment Analysis
+            self.logger.debug(f"[PHASE 2] Starting investment analysis")
             investment_thesis = await self._investment_analysis_phase(analyst_reports, context)
+            self.logger.debug(f"[PHASE 2] Investment thesis: {investment_thesis.get('recommendation', 'N/A')}")
             
             # Phase 3: Investment Decision
+            self.logger.debug(f"[PHASE 3] Starting investment decision")
             investment_plan = await self._investment_decision_phase(investment_thesis, context)
+            self.logger.debug(f"[PHASE 3] Investment plan: action={investment_plan.get('action', 'N/A')}, recommendation={investment_plan.get('recommendation', 'N/A')}")
             
             # Phase 4: Trading Decision
+            self.logger.debug(f"[PHASE 4] Starting trading decision")
             initial_trade = await self._trading_decision_phase(investment_plan, portfolio, context)
+            self.logger.debug(f"[PHASE 4] Initial trade: {initial_trade}")
             
             # Phase 5: Risk Assessment
+            self.logger.debug(f"[PHASE 5] Starting risk assessment")
             risk_assessment = await self._risk_assessment_phase(initial_trade, portfolio, context)
+            self.logger.debug(f"[PHASE 5] Risk assessment complete")
             
             # Phase 6: Final Decision
+            self.logger.debug(f"[PHASE 6] Making final decision")
             final_decision = await self._final_decision_phase(risk_assessment, context)
+            self.logger.debug(f"[PHASE 6] Final decision: action={final_decision.action}, quantity={final_decision.quantity}")
             
             # Set metadata
             final_decision.id = decision_id
@@ -302,6 +317,11 @@ class AgentOrchestrator:
         """Phase 1: Collect data from all analysts"""
         self.logger.info("Phase 1: Data Collection")
         
+        if getattr(self.config, 'debug', False):
+            # Get symbol from context safely
+            symbol = context.symbol if hasattr(context, 'symbol') else context.market_state.get('symbol', 'Unknown')
+            self.logger.debug(f"Starting data collection for {symbol} at price ${market_data.close:.2f}")
+        
         # Run analysts in parallel
         analyst_tasks = []
         for analyst_name in ['market_analyst', 'news_analyst', 'social_analyst', 'fundamentals_analyst']:
@@ -319,8 +339,16 @@ class AgentOrchestrator:
                 report = await task
                 reports[name] = report
                 self.logger.debug(f"{name} completed analysis")
+                
+                if getattr(self.config, 'debug', False) and hasattr(report, 'content'):
+                    self.logger.debug(f"{name} output: {report.content}")
+                    
             except Exception as e:
                 self.logger.error(f"{name} failed: {str(e)}")
+                if getattr(self.config, 'debug', False):
+                    import traceback
+                    self.logger.error(f"Traceback:\n{traceback.format_exc()}")
+                    
                 reports[name] = AgentOutput(
                     agent_name=name,
                     timestamp=context.timestamp,
@@ -409,7 +437,31 @@ class AgentOrchestrator:
                 break
                 
         # Final investment plan
-        investment_plan = debate_result.content.get('investment_plan', {})
+        # Extract investment plan from debate result
+        if hasattr(debate_result, 'content'):
+            content = debate_result.content
+            # Check if investment_plan is nested
+            if 'investment_plan' in content and isinstance(content['investment_plan'], dict):
+                investment_plan = content['investment_plan']
+            else:
+                # Create investment plan from available fields
+                investment_plan = {
+                    'action': content.get('investment_decision', 'HOLD'),
+                    'recommendation': content.get('investment_decision', 'HOLD'),
+                    'confidence': content.get('confidence_level', 0.5),
+                    'target_allocation': content.get('investment_plan', {}).get('target_allocation', 0.1) if isinstance(content.get('investment_plan'), dict) else 0.1,
+                    'rationale': content.get('rationale', '')
+                }
+        else:
+            # Fallback
+            investment_plan = {
+                'action': 'HOLD',
+                'recommendation': 'HOLD',
+                'confidence': 0.5,
+                'target_allocation': 0.0,
+                'rationale': 'Unable to process investment plan'
+            }
+            
         self.decision_flow.store_phase_result('investment_plan', investment_plan)
         return investment_plan
         
@@ -431,6 +483,11 @@ class AgentOrchestrator:
         
         # Convert to trading signal
         action_str = trade_decision.content.get('action', 'HOLD')
+        
+        if getattr(self.config, 'debug', False):
+            self.logger.debug(f"Trade decision: action={action_str}, confidence={trade_decision.confidence}")
+            self.logger.debug(f"Trade content: {trade_decision.content}")
+        
         signal = TradingSignal(
             action=TradeAction.from_string(action_str),
             symbol=context.market_state['symbol'],
@@ -468,8 +525,14 @@ class AgentOrchestrator:
         # Collect risk perspectives
         risk_perspectives = {}
         for name, task in risk_tasks:
-            perspective = await task
-            risk_perspectives[name] = perspective
+            try:
+                perspective = await task
+                risk_perspectives[name] = perspective
+                self.logger.info(f"Risk perspective from {name} collected successfully")
+            except Exception as e:
+                self.logger.error(f"Failed to get perspective from {name}: {str(e)}")
+                self.logger.error(f"Risk input: {risk_input}")
+                raise
             
         # Risk discussion rounds
         # Use default value if agent_config is not set
@@ -512,10 +575,14 @@ class AgentOrchestrator:
         })
         
         # Create final trading decision
+        action_str = final_output.content.get('action', 'HOLD')
+        self.logger.info(f"[DECISION DEBUG] Final decision: {action_str} with confidence {final_output.confidence}")
+        self.logger.debug(f"[DECISION DEBUG] Full output: {final_output.content}")
+        
         decision = TradingDecision(
             id='',  # Will be set by caller
             timestamp=context.timestamp,
-            action=TradeAction.from_string(final_output.content.get('action', 'HOLD')),
+            action=TradeAction.from_string(action_str),
             symbol='',  # Will be set by caller
             quantity=final_output.content.get('quantity', 0),
             confidence=final_output.confidence,
@@ -527,6 +594,7 @@ class AgentOrchestrator:
             take_profit=final_output.content.get('take_profit')
         )
         
+        self.logger.info(f"Final decision for {context.market_state.get('symbol', 'Unknown')}: {decision.action.value} with confidence {decision.confidence:.2f}")
         return decision
         
     async def _get_recent_performance(self, symbol: str) -> Dict[str, float]:

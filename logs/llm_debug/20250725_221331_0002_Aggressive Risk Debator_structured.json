@@ -1,0 +1,13 @@
+{
+  "timestamp": "20250725_221331",
+  "agent": "Aggressive Risk Debator_structured",
+  "prompt": "\n以下の取引提案を評価してください。\n\n取引提案:\n- アクション: SELL\n- 確信度: 0.8\n- 理由: Based on the current market state and short-term outlook, selling AAPL with a 20% position size is recommended.\n\nポートフォリオ状況:\n- 現金比率: 100.0%\n- 含み損益: $0.00\n\nあなたの立場からリスク評価を行ってください。\n\n\nPlease respond in the following JSON format:\n{\n  \"analysis\": \"string\",\n  \"confidence\": {\n    \"type\": \"number\",\n    \"minimum\": 0,\n    \"maximum\": 1\n  },\n  \"rationale\": {\n    \"type\": \"string\"\n  }\n}",
+  "response": "{\n  \"analysis\": \"I recommend proceeding with the SELL action on AAPL with a 20% position size.\",\n  \"confidence\": {\n    \"type\": \"number\",\n    \"minimum\": 0.8,\n    \"maximum\": 1\n  },\n  \"rationale\": {\n    \"type\": \"string\",\n    \"content\": \"The recommendation is based on a high confidence level of 0.8, indicating a strong belief in the trade signal. Additionally, the decision is supported by the current market state and short-term outlook, which suggest a potential opportunity for profit through this calculated risk.\"\n  }\n}",
+  "response_length": 522,
+  "context_keys": [
+    "trade_signal",
+    "portfolio",
+    "context"
+  ],
+  "use_japanese": false
+}

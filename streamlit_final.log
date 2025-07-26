@@ -1,0 +1,56 @@
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.50.9:8501
+
+WARNING:root:streamlit-push-notifications package not available
+[31m──[0m[31m────────────────────────[0m[31m [0m[1;31mTraceback [0m[1;2;31m(most recent call last)[0m[31m [0m[31m─────────────────────────[0m[31m──[0m
+[31m [0m [2m/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/streamlit/runtime/sc[0m [31m [0m
+[31m [0m [2mriptrunner/[0m[1mexec_code.py[0m:128 in exec_func_with_error_handling                         [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2m/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/streamlit/runtime/sc[0m [31m [0m
+[31m [0m [2mriptrunner/[0m[1mscript_runner.py[0m:669 in code_to_exec                                      [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2m/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/[0m[1mapp.py[0m:34 in <module>          [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m 31 [0m[94mfrom[0m[90m [0m[4;96mwebui[0m[4;96m.[0m[4;96mcomponents[0m[4;96m.[0m[4;96mdashboard[0m[90m [0m[94mimport[0m Dashboard                               [31m [0m
+[31m [0m   [2m 32 [0m[94mfrom[0m[90m [0m[4;96mwebui[0m[4;96m.[0m[4;96mcomponents[0m[4;96m.[0m[4;96msettings[0m[90m [0m[94mimport[0m SettingsPage                             [31m [0m
+[31m [0m   [2m 33 [0m[94mfrom[0m[90m [0m[4;96mwebui[0m[4;96m.[0m[4;96mcomponents[0m[4;96m.[0m[4;96mexecution[0m[90m [0m[94mimport[0m ExecutionPage                           [31m [0m
+[31m [0m [31m❱ [0m 34 [1;4;94mfrom[0m[1;4;90m [0m[1;4;96mwebui[0m[1;4;96m.[0m[1;4;96mcomponents[0m[1;4;96m.[0m[1;4;96mresults[0m[1;4;90m [0m[1;4;94mimport[0m[1;4m ResultsPage[0m                               [31m [0m
+[31m [0m   [2m 35 [0m[94mfrom[0m[90m [0m[4;96mwebui[0m[4;96m.[0m[4;96mcomponents[0m[4;96m.[0m[4;96mlogs[0m[90m [0m[94mimport[0m LogsPage                                     [31m [0m
+[31m [0m   [2m 36 [0m[2m# Lazy import for backtest2 to avoid architecture issues[0m                       [31m [0m
+[31m [0m   [2m 37 [0mBacktest2Page = [94mNone[0m                                                           [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2m/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/[0m[1mresults.py[0m:16 in    [31m [0m
+[31m [0m <module>                                                                             [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m 13 [0msys.path.insert([94m0[0m, [96mstr[0m(project_root))                                          [31m [0m
+[31m [0m   [2m 14 [0m                                                                               [31m [0m
+[31m [0m   [2m 15 [0m[94mfrom[0m[90m [0m[4;96mwebui[0m[4;96m.[0m[4;96mutils[0m[4;96m.[0m[4;96mstate[0m[90m [0m[94mimport[0m SessionState, UIHelpers                          [31m [0m
+[31m [0m [31m❱ [0m 16 [1;4;94mfrom[0m[1;4;90m [0m[1;4;96mwebui[0m[1;4;96m.[0m[1;4;96mutils[0m[1;4;96m.[0m[1;4;96mpdf_generator[0m[1;4;90m [0m[1;4;94mimport[0m[1;4m PDFReportGenerator[0m                       [31m [0m
+[31m [0m   [2m 17 [0m                                                                               [31m [0m
+[31m [0m   [2m 18 [0m[94mclass[0m[90m [0m[4;92mResultsPage[0m:                                                             [31m [0m
+[31m [0m   [2m 19 [0m[2;90m│   [0m[33m"""分析結果表示画面"""[0m                                                     [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2m/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/utils/[0m[1mpdf_generator.py[0m:11 in   [31m [0m
+[31m [0m <module>                                                                             [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m  8 [0m[94mfrom[0m[90m [0m[4;96mtyping[0m[90m [0m[94mimport[0m Dict, Any, Optional                                         [31m [0m
+[31m [0m   [2m  9 [0m[94mimport[0m[90m [0m[4;96mio[0m                                                                      [31m [0m
+[31m [0m   [2m 10 [0m                                                                               [31m [0m
+[31m [0m [31m❱ [0m 11 [1;4;94mfrom[0m[1;4;90m [0m[1;4;96mreportlab[0m[1;4;96m.[0m[1;4;96mlib[0m[1;4;90m [0m[1;4;94mimport[0m[1;4m colors[0m                                               [31m [0m
+[31m [0m   [2m 12 [0m[94mfrom[0m[90m [0m[4;96mreportlab[0m[4;96m.[0m[4;96mlib[0m[4;96m.[0m[4;96mpagesizes[0m[90m [0m[94mimport[0m A4, letter                                 [31m [0m
+[31m [0m   [2m 13 [0m[94mfrom[0m[90m [0m[4;96mreportlab[0m[4;96m.[0m[4;96mlib[0m[4;96m.[0m[4;96mstyles[0m[90m [0m[94mimport[0m getSampleStyleSheet, ParagraphStyle           [31m [0m
+[31m [0m   [2m 14 [0m[94mfrom[0m[90m [0m[4;96mreportlab[0m[4;96m.[0m[4;96mlib[0m[4;96m.[0m[4;96munits[0m[90m [0m[94mimport[0m inch, mm                                       [31m [0m
+[31m────────────────────────────────────────────────────────────────────────────────────────[0m
+[1;91mModuleNotFoundError: [0mNo module named [32m'reportlab'[0m
+🚀 TradingAgents WebUIを起動中...
+📁 WebUIパス: /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/app.py
+📱 Streamlit Cloud デプロイ対応版
+🔍 環境変数チェック:
+  FINNHUB_API_KEY: ✅ 設定済み
+  OPENAI_API_KEY: ✅ 設定済み
+
+🌐 ブラウザで http://localhost:8501 を開いてください
+🔚 終了するには Ctrl+C を押してください

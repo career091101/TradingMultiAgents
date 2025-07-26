@@ -1,0 +1,12 @@
+=== エラー詳細 ===
+実行エラー: 'Transaction' object has no attribute 'total_value'
+
+Traceback:
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/verify_backtest_advanced.py", line 92, in run_backtest
+    "total_value": t.total_value
+                   ^^^^^^^^^^^^^
+AttributeError: 'Transaction' object has no attribute 'total_value'
+
+
+=== backtest_error_20250723.log ===

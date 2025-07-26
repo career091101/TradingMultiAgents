@@ -389,7 +389,7 @@ class SettingsPage:
             
             # 軽量モデル選択
             available_models = UIHelpers.get_provider_models(provider)
-            current_shallow = SessionState.get("shallow_thinker", "o4-mini-2025-04-16")
+            current_shallow = SessionState.get("shallow_thinker", "gpt-4o-mini")
             
             if current_shallow not in available_models and available_models:
                 current_shallow = available_models[0]
@@ -414,7 +414,7 @@ class SettingsPage:
             SessionState.set("research_depth", depth)
             
             # 高性能モデル選択
-            current_deep = SessionState.get("deep_thinker", "o3-2025-04-16")
+            current_deep = SessionState.get("deep_thinker", "gpt-4o")
             
             if current_deep not in available_models and available_models:
                 current_deep = available_models[-1]  # 通常、最後が最も高性能
@@ -530,7 +530,7 @@ class SettingsPage:
             "default_depth": SessionState.get("research_depth", 3),
             "default_provider": SessionState.get("llm_provider", "openai"),
             "shallow_model": SessionState.get("shallow_thinker", "gpt-4o-mini"),
-            "deep_model": SessionState.get("deep_thinker", "o4-mini-2025-04-16")
+            "deep_model": SessionState.get("deep_thinker", "gpt-4o")
         })
         SessionState.set("user_preferences", prefs)
         SessionState.save_user_preferences()
@@ -544,7 +544,7 @@ class SettingsPage:
             "research_depth": 3,
             "llm_provider": "openai",
             "shallow_thinker": "gpt-4o-mini",
-            "deep_thinker": "o4-mini-2025-04-16",
+            "deep_thinker": "gpt-4o",
             "show_advanced_settings": False
         })
     
@@ -606,7 +606,7 @@ class SettingsPage:
             **LLM設定:**
             - プロバイダー: `{SessionState.get('llm_provider', 'openai')}`
             - 軽量モデル: `{SessionState.get('shallow_thinker', 'gpt-4o-mini')}`
-            - 高性能モデル: `{SessionState.get('deep_thinker', 'o4-mini-2025-04-16')}`
+            - 高性能モデル: `{SessionState.get('deep_thinker', 'gpt-4o')}`
             """)
         
         if analyst_names:

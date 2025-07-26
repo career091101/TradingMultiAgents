@@ -1,0 +1,12 @@
+{
+  "timestamp": "20250726_003956",
+  "agent": "Market Analyst",
+  "prompt": "\n        株価データ: AAPL\n        - 始値: $167.09\n        - 高値: $172.94\n        - 安値: $164.82\n        - 終値: $163.06\n        - 出来高: 31,819,079\n        \n        以下の技術指標を含む包括的な分析を提供してください：\n        - 50日移動平均線と200日移動平均線のクロスオーバー\n        - MACDのシグナルライン交差\n        - RSIのオーバーボート/オーバーソールド状態\n        - ボリンジャーバンドのスクイーズ状態\n        - ATR（平均真の範囲）の変化\n        \n        各指標について詳細な説明を含めてください。\n        \n\nIMPORTANT: You must respond with valid JSON only. No explanations, no markdown, just JSON.\n\nExample of the EXACT format you must use:\n{\n  \"selected_indicators\": [\n    \"item1\",\n    \"item2\"\n  ],\n  \"price_trend\": \"Analysis result\",\n  \"volume_analysis\": \"Analysis result\",\n  \"technical_analysis\": \"Analysis result\",\n  \"recommendation\": \"Analysis result\",\n  \"confidence\": 0.5,\n  \"rationale\": \"Analysis result\"\n}\n\nYour response must follow this exact structure with appropriate values based on the context.\n",
+  "response": "{\n  \"selected_indicators\": [\n    \"50日移動平均線と200日移動平均線のクロスオーバー\",\n    \"MACDのシグナルライン交差\",\n    \"RSIのオーバーボート/オーバーソールド状態\",\n    \"ボリンジャーバンドのスクイーズ状態\",\n    \"ATR（平均真の範囲）の変化\"\n  ],\n  \"price_trend\": \"Bearish\",\n  \"volume_analysis\": \"Decreasing volume\",\n  \"technical_analysis\": \"Mixed signals\",\n  \"recommendation\": \"Hold\",\n  \"confidence\": 0.6,\n  \"rationale\": \"While some indicators suggest a bearish trend, others show mixed signals. It is recommended to hold the position and monitor closely for further confirmation.\"\n}",
+  "response_length": 503,
+  "context_keys": [
+    "test",
+    "iteration"
+  ],
+  "use_japanese": false
+}

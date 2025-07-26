@@ -39,10 +39,17 @@ class TimeRange:
 @dataclass
 class LLMConfig:
     """LLM configuration"""
-    deep_think_model: str = "o1-preview"
-    quick_think_model: str = "gpt-4o"
+    deep_think_model: str = "o3"  # Now we can use o3!
+    quick_think_model: str = "o4-mini"  # And o4-mini!
     temperature: float = 0.0
-    max_tokens: Optional[int] = None
+    max_tokens: Optional[int] = 1000  # Default for most agents
+    # Agent-specific token limits to prevent truncation
+    agent_max_tokens: Optional[Dict[str, int]] = field(default_factory=lambda: {
+        "Market Analyst": 1500,  # Needs more for technical analysis + markdown table
+        "Fundamentals Analyst": 1200,  # Complex financial analysis
+        "Research Manager": 1200,  # Detailed investment plans
+        "Risk Manager": 1000,  # Final decision with rationale
+    })
     timeout: int = 300  # 5 minutes
 
 
@@ -83,7 +90,7 @@ class RiskConfig:
     stop_loss: float = 0.1  # 10%
     take_profit: float = 0.2  # 20%
     max_positions: int = 10
-    min_trade_size: float = 1000.0
+    min_trade_size: float = 100.0  # Reduced from 1000.0 for better trade execution
 
 
 @dataclass
@@ -156,6 +163,7 @@ class BacktestConfig:
     save_results: bool = True
     results_path: str = "./results"
     enable_monitoring: bool = True
+    debug: bool = False  # Debug mode for detailed logging
     
     def __post_init__(self):
         # Handle legacy date fields

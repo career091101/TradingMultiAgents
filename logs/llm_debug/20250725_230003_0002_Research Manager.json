@@ -1,0 +1,11 @@
+{
+  "timestamp": "20250725_230003",
+  "agent": "Research Manager",
+  "prompt": "Analyze bull vs bear thesis\n\nIMPORTANT: You must respond with valid JSON only. No explanations, no markdown, just JSON.\n\nExample of the EXACT format you must use:\n{\n  \"investment_decision\": \"Analysis result\",\n  \"investment_plan\": {\n    \"sub_field\": \"value\"\n  },\n  \"confidence_level\": 0.5\n}\n\nYour response must follow this exact structure with appropriate values based on the context.\n",
+  "response": "{\n  \"investment_decision\": \"Neutral\",\n  \"investment_plan\": {\n    \"bull_thesis\": \"Market will continue to rise due to strong economic indicators and positive investor sentiment\",\n    \"bear_thesis\": \"Market is overvalued and due for a correction, with economic uncertainties ahead\",\n    \"risk_tolerance\": \"Medium\"\n  },\n  \"confidence_level\": 0.4\n}",
+  "response_length": 344,
+  "context_keys": [
+    "test"
+  ],
+  "use_japanese": false
+}

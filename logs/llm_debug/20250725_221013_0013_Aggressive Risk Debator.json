@@ -1,0 +1,13 @@
+{
+  "timestamp": "20250725_221013",
+  "agent": "Aggressive Risk Debator",
+  "prompt": "\n以下の取引提案を評価してください。\n\n取引提案:\n- アクション: HOLD\n- 確信度: 0.0\n- 理由: Based on the comprehensive analysis and the investment plan to monitor the stock performance in the medium to long-term, it is recommended to hold the position on MSFT for now.\n\nポートフォリオ状況:\n- 現金比率: 100.0%\n- 含み損益: $0.00\n\nあなたの立場からリスク評価を行ってください。\n\n\nPlease respond in the following JSON format:\n{\n  \"analysis\": \"string\",\n  \"confidence\": {\n    \"type\": \"number\",\n    \"minimum\": 0,\n    \"maximum\": 1\n  },\n  \"rationale\": {\n    \"type\": \"string\"\n  }\n}",
+  "response": "{\n  \"analysis\": \"The recommendation to hold the position on MSFT with a cash ratio of 100% indicates a very conservative approach with no exposure to market risk.\",\n  \"confidence\": {\n    \"type\": \"number\",\n    \"minimum\": 0,\n    \"maximum\": 1\n  },\n  \"rationale\": {\n    \"type\": \"string\"\n  }\n}",
+  "response_length": 288,
+  "context_keys": [
+    "trade_signal",
+    "portfolio",
+    "context"
+  ],
+  "use_japanese": false
+}

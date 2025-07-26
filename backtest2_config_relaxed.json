@@ -1,0 +1,21 @@
+{
+  "tickers": ["AAPL", "MSFT"],
+  "start_date": "2024-01-01",
+  "end_date": "2024-03-31",
+  "initial_capital": 100000,
+  "llm_provider": "openai",
+  "agent_settings": {
+    "debate_rounds": 3,
+    "risk_rounds": 2,
+    "enable_memory": true,
+    "enable_reflection": true,
+    "aggressive_limit": 0.6,
+    "neutral_limit": 0.4,
+    "conservative_limit": 0.2,
+    "stop_loss": 0.05,
+    "take_profit": 0.15,
+    "max_positions": 10
+  },
+  "debug": true,
+  "log_level": "DEBUG"
+}

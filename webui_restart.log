@@ -1,0 +1,348 @@
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.50.9:8501
+
+WARNING:root:TradingMultiAgents dataflows not available
+INFO:webui.backend.backtest2_wrapper:Successfully imported backtest2 modules
+WARNING:webui.components.notification_handler:通知サービスが利用できません
+INFO:webui.backend.backtest2_wrapper:Creating BacktestConfig - class type: <class 'type'>
+INFO:webui.backend.backtest2_wrapper:BacktestConfig module: backtest2.core.config
+INFO:webui.backend.backtest2_wrapper:BacktestConfig MRO: (<class 'backtest2.core.config.BacktestConfig'>, <class 'object'>)
+INFO:webui.backend.backtest2_wrapper:Is dataclass: True
+INFO:webui.backend.backtest2_wrapper:Dataclass fields: ['name', 'symbols', 'time_range', 'initial_capital', 'random_seed', 'max_positions', 'position_limits', 'llm_config', 'data_sources', 'reflection_config', 'result_dir', 'slippage', 'commission', 'risk_free_rate', 'benchmark', 'start_date', 'end_date', 'agent_config', 'data_config', 'risk_config', 'enable_parallel', 'max_workers', 'cache_size', 'log_level', 'save_results', 'results_path', 'enable_monitoring', 'debug']
+INFO:webui.backend.backtest2_wrapper:Has random_seed attr: True
+INFO:webui.backend.backtest2_wrapper:BacktestConfig.__init__ signature: {'name': <class 'str'>, 'symbols': typing.List[str], 'time_range': typing.Optional[backtest2.core.config.TimeRange], 'initial_capital': <class 'float'>, 'random_seed': <class 'int'>, 'max_positions': <class 'int'>, 'position_limits': typing.Dict[backtest2.core.config.RiskProfile, float], 'llm_config': <class 'backtest2.core.config.LLMConfig'>, 'data_sources': typing.List[str], 'reflection_config': typing.Optional[typing.Dict[str, typing.Any]], 'result_dir': typing.Optional[pathlib.Path], 'slippage': <class 'float'>, 'commission': <class 'float'>, 'risk_free_rate': <class 'float'>, 'benchmark': <class 'str'>, 'start_date': typing.Optional[datetime.datetime], 'end_date': typing.Optional[datetime.datetime], 'agent_config': typing.Optional[backtest2.core.config.AgentConfig], 'data_config': typing.Optional[backtest2.core.config.DataConfig], 'risk_config': typing.Optional[backtest2.core.config.RiskConfig], 'enable_parallel': <class 'bool'>, 'max_workers': <class 'int'>, 'cache_size': <class 'int'>, 'log_level': <class 'str'>, 'save_results': <class 'bool'>, 'results_path': <class 'str'>, 'enable_monitoring': <class 'bool'>, 'debug': <class 'bool'>, 'return': None}
+INFO:backtest2.data.manager_simple:DataManager initialized with Yahoo Finance
+INFO:backtest2.core.engine:Starting backtest execution 9251b006-b38c-4fc6-8fb6-d8ae698c3e8b
+INFO:backtest2.core.engine:Initializing backtest environment
+INFO:backtest2.data.manager_simple:Initializing data manager
+INFO:backtest2.agents.llm_client:Initializing LLM client with models: deep=o3, quick=o4-mini
+INFO:backtest2.agents.llm_client:Initializing LLM client with models: deep=o3, quick=o4-mini
+INFO:backtest2.agents.llm_client:Initializing LLM client with models: deep=o3, quick=o4-mini
+INFO:backtest2.agents.llm_client:Initializing LLM client with models: deep=o3, quick=o4-mini
+INFO:backtest2.agents.llm_client:Initializing LLM client with models: deep=o3, quick=o4-mini
+INFO:backtest2.agents.llm_client:Initializing LLM client with models: deep=o3, quick=o4-mini
+INFO:backtest2.agents.llm_client:Initializing LLM client with models: deep=o3, quick=o4-mini
+INFO:backtest2.agents.llm_client:Initializing LLM client with models: deep=o3, quick=o4-mini
+INFO:backtest2.agents.llm_client:Initializing LLM client with models: deep=o3, quick=o4-mini
+INFO:backtest2.agents.llm_client:Initializing LLM client with models: deep=o3, quick=o4-mini
+INFO:backtest2.agents.llm_client:Initializing LLM client with models: deep=o3, quick=o4-mini
+INFO:backtest2.agents.llm_client:Initializing LLM client with models: deep=o3, quick=o4-mini
+INFO:backtest2.agents.orchestrator:Initialized 12 agents
+INFO:backtest2.core.engine:Loading benchmark data for SPY
+INFO:backtest2.agents.orchestrator:Starting decision process 6af6ccb0-9dc9-4cb8-88f0-a525071266b4 for AAPL on 2025-04-25 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Market Analyst: 0 chars
+WARNING:backtest2.agents.llm_client:Empty response from LLM for Market Analyst, retrying...
+ERROR:backtest2.utils.retry_handler.RetryHandler:All retry attempts failed: cannot access local variable 'full_prompt' where it is not associated with a value
+ERROR:backtest2.agents.llm_client:LLM generation failed after retries: cannot access local variable 'full_prompt' where it is not associated with a value
+ERROR:backtest2.agents.llm_client:Circuit breaker state: {'state': 'closed', 'failure_count': 1, 'success_count': 0, 'last_failure': '2025-07-24T16:17:52.201884'}
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: cannot access local variable 'full_prompt' where it is not associated with a value
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for News Analyst: 352 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Social Media Analyst: 1350 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Fundamentals Analyst: 866 chars
+INFO:backtest2.agents.orchestrator:Phase 2: Investment Analysis
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Bull Researcher: 0 chars
+WARNING:backtest2.agents.llm_client:Empty response from LLM for Bull Researcher, retrying...
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Bear Researcher: 1892 chars
+INFO:backtest2.agents.orchestrator:Phase 3: Investment Decision
+INFO:backtest2.agents.orchestrator:Debate round 1
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Research Manager: 880 chars
+INFO:backtest2.agents.orchestrator:Phase 4: Trading Decision
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Trader: 784 chars
+INFO:backtest2.agents.orchestrator:Phase 5: Risk Assessment
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+INFO:backtest2.agents.orchestrator:Risk discussion round 1
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Aggressive Risk Debator: 536 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Conservative Risk Debator: 530 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Neutral Risk Debator: 472 chars
+INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+INFO:backtest2.agents.orchestrator:[DECISION DEBUG] Final decision: HOLD with confidence 0.0
+INFO:backtest2.agents.orchestrator:Final decision for AAPL: HOLD with confidence 0.00
+INFO:backtest2.agents.orchestrator:Starting decision process aee24902-421c-4191-bc54-c9812a34b2f0 for AAPL on 2025-04-28 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Market Analyst: 0 chars
+WARNING:backtest2.agents.llm_client:Empty response from LLM for Market Analyst, retrying...
+ERROR:backtest2.utils.retry_handler.RetryHandler:All retry attempts failed: cannot access local variable 'full_prompt' where it is not associated with a value
+ERROR:backtest2.agents.llm_client:LLM generation failed after retries: cannot access local variable 'full_prompt' where it is not associated with a value
+ERROR:backtest2.agents.llm_client:Circuit breaker state: {'state': 'closed', 'failure_count': 2, 'success_count': 0, 'last_failure': '2025-07-24T16:21:50.681344'}
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: cannot access local variable 'full_prompt' where it is not associated with a value
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for News Analyst: 874 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Social Media Analyst: 902 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Fundamentals Analyst: 1087 chars
+INFO:backtest2.agents.orchestrator:Phase 2: Investment Analysis
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Bull Researcher: 0 chars
+WARNING:backtest2.agents.llm_client:Empty response from LLM for Bull Researcher, retrying...
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+ERROR:backtest2.agents.llm_client:No JSON found in response: 
+WARNING:backtest2.agents.llm_client:Parsed text response to: {'analysis': 'string', 'confidence': 0.0, 'rationale': '', 'action': 'HOLD', 'recommendation': 'HOLD', 'investment_decision': 'HOLD', 'final_decision': 'HOLD'}
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Bear Researcher: 0 chars
+WARNING:backtest2.agents.llm_client:Empty response from LLM for Bear Researcher, retrying...
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+ERROR:backtest2.agents.llm_client:No JSON found in response: 
+WARNING:backtest2.agents.llm_client:Parsed text response to: {'analysis': 'string', 'confidence': 0.0, 'rationale': '', 'action': 'HOLD', 'recommendation': 'HOLD', 'investment_decision': 'HOLD', 'final_decision': 'HOLD'}
+INFO:backtest2.agents.orchestrator:Phase 3: Investment Decision
+INFO:backtest2.agents.orchestrator:Debate round 1
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Research Manager: 1661 chars
+INFO:backtest2.agents.orchestrator:Phase 4: Trading Decision
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Trader: 697 chars
+INFO:backtest2.agents.orchestrator:Phase 5: Risk Assessment
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+INFO:backtest2.agents.orchestrator:Risk discussion round 1
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Aggressive Risk Debator: 494 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Conservative Risk Debator: 524 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Neutral Risk Debator: 608 chars
+INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+INFO:backtest2.agents.orchestrator:[DECISION DEBUG] Final decision: HOLD with confidence 0.0
+INFO:backtest2.agents.orchestrator:Final decision for AAPL: HOLD with confidence 0.00
+INFO:backtest2.agents.orchestrator:Starting decision process 2a993922-c0f7-409d-8bec-57c69cb1e454 for AAPL on 2025-04-29 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Market Analyst: 0 chars
+WARNING:backtest2.agents.llm_client:Empty response from LLM for Market Analyst, retrying...
+ERROR:backtest2.utils.retry_handler.RetryHandler:All retry attempts failed: cannot access local variable 'full_prompt' where it is not associated with a value
+ERROR:backtest2.agents.llm_client:LLM generation failed after retries: cannot access local variable 'full_prompt' where it is not associated with a value
+ERROR:backtest2.agents.llm_client:Circuit breaker state: {'state': 'closed', 'failure_count': 3, 'success_count': 0, 'last_failure': '2025-07-24T16:26:42.449523'}
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: cannot access local variable 'full_prompt' where it is not associated with a value
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for News Analyst: 330 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Social Media Analyst: 901 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Fundamentals Analyst: 1101 chars
+INFO:backtest2.agents.orchestrator:Phase 2: Investment Analysis
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Bull Researcher: 2125 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Bear Researcher: 0 chars
+WARNING:backtest2.agents.llm_client:Empty response from LLM for Bear Researcher, retrying...
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+ERROR:backtest2.agents.llm_client:No JSON found in response: 
+WARNING:backtest2.agents.llm_client:Parsed text response to: {'analysis': 'string', 'confidence': 0.0, 'rationale': '', 'action': 'HOLD', 'recommendation': 'HOLD', 'investment_decision': 'HOLD', 'final_decision': 'HOLD'}
+INFO:backtest2.agents.orchestrator:Phase 3: Investment Decision
+INFO:backtest2.agents.orchestrator:Debate round 1
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Research Manager: 868 chars
+INFO:backtest2.agents.orchestrator:Phase 4: Trading Decision
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Trader: 756 chars
+INFO:backtest2.agents.orchestrator:Phase 5: Risk Assessment
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+INFO:backtest2.agents.orchestrator:Risk discussion round 1
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Aggressive Risk Debator: 494 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Conservative Risk Debator: 626 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Neutral Risk Debator: 1404 chars
+INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+INFO:backtest2.agents.orchestrator:[DECISION DEBUG] Final decision: HOLD with confidence 0.0
+INFO:backtest2.agents.orchestrator:Final decision for AAPL: HOLD with confidence 0.00
+INFO:backtest2.agents.orchestrator:Starting decision process 0ed6490a-35a4-4448-8ce9-0cfe0430a5f0 for AAPL on 2025-04-30 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Market Analyst: 0 chars
+WARNING:backtest2.agents.llm_client:Empty response from LLM for Market Analyst, retrying...
+ERROR:backtest2.utils.retry_handler.RetryHandler:All retry attempts failed: cannot access local variable 'full_prompt' where it is not associated with a value
+ERROR:backtest2.agents.llm_client:LLM generation failed after retries: cannot access local variable 'full_prompt' where it is not associated with a value
+ERROR:backtest2.agents.llm_client:Circuit breaker state: {'state': 'closed', 'failure_count': 4, 'success_count': 0, 'last_failure': '2025-07-24T16:31:34.370380'}
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: cannot access local variable 'full_prompt' where it is not associated with a value
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for News Analyst: 883 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Social Media Analyst: 1274 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Fundamentals Analyst: 1340 chars
+INFO:backtest2.agents.orchestrator:Phase 2: Investment Analysis
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Bull Researcher: 0 chars
+WARNING:backtest2.agents.llm_client:Empty response from LLM for Bull Researcher, retrying...
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+ERROR:backtest2.agents.llm_client:No JSON found in response: 
+WARNING:backtest2.agents.llm_client:Parsed text response to: {'analysis': 'string', 'confidence': 0.0, 'rationale': '', 'action': 'HOLD', 'recommendation': 'HOLD', 'investment_decision': 'HOLD', 'final_decision': 'HOLD'}
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Bear Researcher: 0 chars
+WARNING:backtest2.agents.llm_client:Empty response from LLM for Bear Researcher, retrying...
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+ERROR:backtest2.agents.llm_client:No JSON found in response: 
+WARNING:backtest2.agents.llm_client:Parsed text response to: {'analysis': 'string', 'confidence': 0.0, 'rationale': '', 'action': 'HOLD', 'recommendation': 'HOLD', 'investment_decision': 'HOLD', 'final_decision': 'HOLD'}
+INFO:backtest2.agents.orchestrator:Phase 3: Investment Decision
+INFO:backtest2.agents.orchestrator:Debate round 1
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Research Manager: 1012 chars
+INFO:backtest2.agents.orchestrator:Phase 4: Trading Decision
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Trader: 566 chars
+INFO:backtest2.agents.orchestrator:Phase 5: Risk Assessment
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+INFO:backtest2.agents.orchestrator:Risk discussion round 1
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Aggressive Risk Debator: 1232 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Conservative Risk Debator: 508 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Neutral Risk Debator: 482 chars
+INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+INFO:backtest2.agents.orchestrator:[DECISION DEBUG] Final decision: HOLD with confidence 0.0
+INFO:backtest2.agents.orchestrator:Final decision for AAPL: HOLD with confidence 0.00
+INFO:backtest2.agents.orchestrator:Starting decision process b92dbfbc-c4f0-43ce-93c8-4d1951e9aea3 for AAPL on 2025-05-01 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Market Analyst: 97 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for News Analyst: 870 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Social Media Analyst: 691 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Fundamentals Analyst: 713 chars
+INFO:backtest2.agents.orchestrator:Phase 2: Investment Analysis
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Bull Researcher: 2153 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Bear Researcher: 0 chars
+WARNING:backtest2.agents.llm_client:Empty response from LLM for Bear Researcher, retrying...
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.orchestrator:Phase 3: Investment Decision
+INFO:backtest2.agents.orchestrator:Debate round 1
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Research Manager: 1593 chars
+INFO:backtest2.agents.orchestrator:Phase 4: Trading Decision
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Trader: 548 chars
+INFO:backtest2.agents.orchestrator:Phase 5: Risk Assessment
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+INFO:backtest2.agents.orchestrator:Risk discussion round 1
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Aggressive Risk Debator: 491 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Conservative Risk Debator: 410 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Neutral Risk Debator: 724 chars
+INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+INFO:backtest2.agents.orchestrator:[DECISION DEBUG] Final decision: HOLD with confidence 0.0
+INFO:backtest2.agents.orchestrator:Final decision for AAPL: HOLD with confidence 0.00
+INFO:backtest2.agents.orchestrator:Starting decision process 74ba5000-8aaf-405b-842a-633d7f6b0612 for AAPL on 2025-05-02 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Market Analyst: 0 chars
+WARNING:backtest2.agents.llm_client:Empty response from LLM for Market Analyst, retrying...
+ERROR:backtest2.utils.retry_handler.RetryHandler:All retry attempts failed: cannot access local variable 'full_prompt' where it is not associated with a value
+ERROR:backtest2.agents.llm_client:LLM generation failed after retries: cannot access local variable 'full_prompt' where it is not associated with a value
+ERROR:backtest2.agents.llm_client:Circuit breaker state: {'state': 'closed', 'failure_count': 1, 'success_count': 0, 'last_failure': '2025-07-24T16:40:10.767336'}
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: cannot access local variable 'full_prompt' where it is not associated with a value
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for News Analyst: 832 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Social Media Analyst: 835 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Fundamentals Analyst: 1263 chars
+INFO:backtest2.agents.orchestrator:Phase 2: Investment Analysis
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+ERROR:backtest2.utils.retry_handler.RetryHandler:All retry attempts failed: Error code: 400 - {'error': {'message': 'Invalid prompt: your prompt was flagged as potentially violating our usage policy. Please try again with a different prompt: https://platform.openai.com/docs/guides/reasoning#advice-on-prompting', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_prompt'}}
+ERROR:backtest2.agents.llm_client:LLM generation failed after retries: Error code: 400 - {'error': {'message': 'Invalid prompt: your prompt was flagged as potentially violating our usage policy. Please try again with a different prompt: https://platform.openai.com/docs/guides/reasoning#advice-on-prompting', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_prompt'}}
+ERROR:backtest2.agents.llm_client:Circuit breaker state: {'state': 'closed', 'failure_count': 1, 'success_count': 0, 'last_failure': '2025-07-24T16:41:22.354462'}
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Error code: 400 - {'error': {'message': 'Invalid prompt: your prompt was flagged as potentially violating our usage policy. Please try again with a different prompt: https://platform.openai.com/docs/guides/reasoning#advice-on-prompting', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_prompt'}}
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Bear Researcher: 0 chars
+WARNING:backtest2.agents.llm_client:Empty response from LLM for Bear Researcher, retrying...
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.orchestrator:Phase 3: Investment Decision
+INFO:backtest2.agents.orchestrator:Debate round 1
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Research Manager: 911 chars
+INFO:backtest2.agents.orchestrator:Phase 4: Trading Decision
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Trader: 431 chars
+INFO:backtest2.agents.orchestrator:Phase 5: Risk Assessment
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+INFO:backtest2.agents.orchestrator:Risk discussion round 1
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Aggressive Risk Debator: 1213 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Conservative Risk Debator: 1493 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Neutral Risk Debator: 1443 chars
+INFO:backtest2.agents.orchestrator:Phase 6: Final Decision
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+INFO:backtest2.agents.orchestrator:[DECISION DEBUG] Final decision: HOLD with confidence 0.0
+INFO:backtest2.agents.orchestrator:Final decision for AAPL: HOLD with confidence 0.00
+INFO:backtest2.agents.orchestrator:Starting decision process cec1e6c0-144c-40df-8f41-12409624ce41 for AAPL on 2025-05-05 00:00:00
+INFO:backtest2.agents.orchestrator:Phase 1: Data Collection
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Market Analyst: 0 chars
+WARNING:backtest2.agents.llm_client:Empty response from LLM for Market Analyst, retrying...
+ERROR:backtest2.utils.retry_handler.RetryHandler:All retry attempts failed: cannot access local variable 'full_prompt' where it is not associated with a value
+ERROR:backtest2.agents.llm_client:LLM generation failed after retries: cannot access local variable 'full_prompt' where it is not associated with a value
+ERROR:backtest2.agents.llm_client:Circuit breaker state: {'state': 'closed', 'failure_count': 2, 'success_count': 0, 'last_failure': '2025-07-24T16:44:28.824972'}
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: cannot access local variable 'full_prompt' where it is not associated with a value
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for News Analyst: 606 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Social Media Analyst: 1054 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Fundamentals Analyst: 1028 chars
+INFO:backtest2.agents.orchestrator:Phase 2: Investment Analysis
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Bull Researcher: 2172 chars
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Bear Researcher: 0 chars
+WARNING:backtest2.agents.llm_client:Empty response from LLM for Bear Researcher, retrying...
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+ERROR:backtest2.agents.llm_client:Failed to parse extracted JSON: Invalid \escape: line 2 column 2881 (char 2882)
+ERROR:backtest2.agents.llm_client:JSON text was: {
+  "analysis": "── Bear Analyst vs. Bull Analyst: Why the glass is half-empty for AAPL ──\n\n1. Let’s start with the elephant in the room – slowing top-line growth\n• iPhone dependence (≈52 % of FY24 sales) is colliding with a saturated global smartphone market. IDC shows unit growth for premium handsets running barely +1 % CAGR. Last quarter AAPL’s iPhone revenue actually fell –2 % YoY despite heavy carrier subsidies.  \n• Upgrade cycles are lengthening to ~4 years (CIRP), removing the volume 
+WARNING:backtest2.agents.llm_client:Parsed text response to: {'analysis': 'string', 'confidence': 0.0, 'rationale': '{\n  "analysis": "── Bear Analyst vs. Bull Analyst: Why the glass is half-empty for AAPL ──\\n\\n1. Let’s start with the elephant in the room – slowing top-line growth\\n• iPhone dependence (≈52 % of FY24 sales) is colliding with a saturated global smartphone market. IDC shows unit growth for premium handsets running barely +1 % CAGR. Last quarter AAPL’s iPhone revenue actually fell –2 % YoY despite heavy carrier subsidies.  \\n• Upgrade cycles are lengthening to ~4 years (CIRP), removing the volume ', 'action': 'BUY', 'recommendation': 'BUY', 'investment_decision': 'BUY', 'final_decision': 'BUY'}
+INFO:backtest2.agents.orchestrator:Phase 3: Investment Decision
+INFO:backtest2.agents.orchestrator:Debate round 1
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Research Manager: 792 chars
+INFO:backtest2.agents.orchestrator:Phase 4: Trading Decision
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backtest2.agents.llm_client:[LLM DEBUG] Response for Trader: 643 chars
+INFO:backtest2.agents.orchestrator:Phase 5: Risk Assessment
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+ERROR:backtest2.agents.llm_client:Failed to generate structured response: Object of type TradeAction is not JSON serializable
+INFO:backtest2.agents.orchestrator:Risk discussion round 1

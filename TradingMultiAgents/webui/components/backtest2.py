@@ -10,6 +10,7 @@ import json
 from typing import Dict, Any, List, Optional
 from pathlib import Path
 import logging
+import plotly.express as px
 
 from ..utils.state import SessionState, UIHelpers
 from ..backend.backtest2_wrapper import Backtest2Wrapper
@@ -28,11 +29,11 @@ class Backtest2Page:
     
     def render(self):
         """Render the Backtest2 page."""
-        st.title("🧪 バックテスト2 - 論文準拠マルチエージェント取引")
+        st.title("📊 バックテスト - 論文準拠マルチエージェント取引")
         
         # Information box
         st.info("""
-        **バックテスト2** は論文の6段階意思決定フローを実装しています：
+        **バックテスト** は論文の6段階意思決定フローを実装しています：
         1. 📊 データ収集 → 2. 💡 投資分析 → 3. 📈 投資決定
         4. 💰 取引決定 → 5. ⚠️ リスク評価 → 6. ✅ 最終決定
         
@@ -244,8 +245,8 @@ class Backtest2Page:
             
             # Get values from analysis settings
             llm_provider = self.state.get("llm_provider", "openai")
-            deep_model = self.state.get("deep_thinker", "o3-2025-04-16")
-            fast_model = self.state.get("shallow_thinker", "o4-mini-2025-04-16")
+            deep_model = self.state.get("deep_thinker", "gpt-4o")
+            fast_model = self.state.get("shallow_thinker", "gpt-4o-mini")
             
             # Display current settings (read-only)
             st.info(f"""
@@ -372,6 +373,17 @@ class Backtest2Page:
                 help="キャッシュをバイパスして新しいデータを取得"
             )
             self.state.set("bt2_force_refresh", force_refresh)
+            
+            # Debug mode
+            debug_mode = st.checkbox(
+                "🐛 デバッグモードを有効化",
+                value=self.state.get("bt2_debug", True),
+                help="詳細なログ出力を有効にして問題を診断"
+            )
+            self.state.set("bt2_debug", debug_mode)
+            
+            if debug_mode:
+                st.info("デバッグモードが有効です。詳細なログが実行ログタブに表示されます。")
     
     def _render_execution(self):
         """Render execution section."""
@@ -450,25 +462,46 @@ class Backtest2Page:
                         disabled=self.state.get("bt2_running", False)):
                 self._run_backtest()
         
-        # Progress section
+        # Progress section with error monitoring
         if self.state.get("bt2_running", False):
             st.markdown("---")
             st.markdown("### 実行進捗")
+            
+            # Check for errors in real-time
+            logs = self.state.get("bt2_logs", [])
+            recent_errors = [log for log in logs[-20:] if any(keyword in log.lower() for keyword in ['error', 'exception', 'failed'])]
+            
+            if recent_errors:
+                st.error(f"⚠️ エラーが検出されました ({len(recent_errors)}件)")
+                with st.expander("エラー詳細を表示", expanded=True):
+                    for error in recent_errors[-3:]:  # Show last 3 errors
+                        st.code(error, language=None)
             
             # Overall progress
             progress = self.state.get("bt2_progress", 0.0)
             st.progress(progress / 100)
             
-            # Status
-            col1, col2 = st.columns(2)
+            # Status with error indicator
+            col1, col2, col3 = st.columns(3)
             with col1:
                 status = self.state.get("bt2_status", "初期化中...")
-                st.write(f"**ステータス**: {status}")
+                if any(keyword in status.lower() for keyword in ['error', 'failed']):
+                    st.error(f"**ステータス**: {status}")
+                else:
+                    st.write(f"**ステータス**: {status}")
             
             with col2:
                 current_ticker = self.state.get("bt2_current_ticker", "")
                 if current_ticker:
                     st.write(f"**処理中**: {current_ticker}")
+                    
+            with col3:
+                # Show error count
+                error_count = sum(1 for log in logs if 'error' in log.lower())
+                if error_count > 0:
+                    st.error(f"**エラー数**: {error_count}")
+                else:
+                    st.success("**エラー**: 0")
             
             # Current phase indicator
             phases = ["データ収集", "投資分析", "投資決定",
@@ -493,15 +526,41 @@ class Backtest2Page:
                 self.state.set("bt2_running", False)
                 st.warning("バックテストがユーザーによって停止されました。")
         
-        # Recent logs
+        # Recent logs with error highlighting
         if self.state.get("bt2_logs"):
-            with st.expander("実行ログ", expanded=False):
+            with st.expander("実行ログ", expanded=True):
                 logs = self.state.get("bt2_logs", [])
-                # Create a text area with logs
-                log_text = "\n".join(logs[-20:])  # Last 20 entries
                 
-                # Display last 20 log entries
-                st.text_area("最新ログ (最後の20件)", value=log_text, height=200, disabled=True, key="bt2_log_display")
+                # Display error summary if any errors found
+                error_count = sum(1 for log in logs if any(keyword in log.lower() for keyword in ['error', 'exception', 'failed', 'traceback']))
+                warning_count = sum(1 for log in logs if 'warning' in log.lower())
+                
+                if error_count > 0 or warning_count > 0:
+                    col1, col2, col3 = st.columns(3)
+                    with col1:
+                        st.error(f"❌ エラー: {error_count}件")
+                    with col2:
+                        st.warning(f"⚠️ 警告: {warning_count}件")
+                    with col3:
+                        st.info(f"📝 全ログ: {len(logs)}件")
+                
+                # Display logs with color coding
+                st.markdown("**最新ログ (最後の20件)**")
+                
+                # Create HTML for colored logs
+                html_logs = []
+                for log in logs[-20:]:
+                    log_lower = log.lower()
+                    if any(keyword in log_lower for keyword in ['error', 'exception', 'failed', 'traceback']):
+                        html_logs.append(f'<div style="color: #ff4444; font-family: monospace; margin: 2px 0;">{log}</div>')
+                    elif 'warning' in log_lower:
+                        html_logs.append(f'<div style="color: #ffaa00; font-family: monospace; margin: 2px 0;">{log}</div>')
+                    elif any(keyword in log_lower for keyword in ['success', 'completed', '✓']):
+                        html_logs.append(f'<div style="color: #00aa00; font-family: monospace; margin: 2px 0;">{log}</div>')
+                    else:
+                        html_logs.append(f'<div style="font-family: monospace; margin: 2px 0;">{log}</div>')
+                
+                st.markdown(f'<div style="background-color: #f0f0f0; padding: 10px; border-radius: 5px; max-height: 300px; overflow-y: auto;">{"".join(html_logs)}</div>', unsafe_allow_html=True)
                 
                 # Show full logs in code block for easy copying
                 full_log_text = "\n".join(logs)
@@ -543,8 +602,8 @@ class Backtest2Page:
             "max_positions": self.state.get("bt2_max_positions", 5),
             "agent_config": {
                 "llm_provider": self.state.get("bt2_llm_provider", "openai"),
-                "deep_model": self.state.get("bt2_deep_model", "o3-2025-04-16"),
-                "fast_model": self.state.get("bt2_fast_model", "o4-mini-2025-04-16"),
+                "deep_model": self.state.get("bt2_deep_model", "o3"),
+                "fast_model": self.state.get("bt2_fast_model", "o4-mini"),
                 "temperature": self.state.get("bt2_temperature", 0.7),
                 "max_tokens": self.state.get("bt2_max_tokens", 2000),
                 "max_debate_rounds": self.state.get("bt2_debate_rounds", 1),
@@ -558,7 +617,7 @@ class Backtest2Page:
             "force_refresh": self.state.get("bt2_force_refresh", False),
             "generate_plots": True,
             "save_trades": True,
-            "debug": True,
+            "debug": self.state.get("bt2_debug", True),  # Use debug mode from settings
             "use_mock": self.state.get("bt2_use_mock", False)
         }
         
@@ -631,20 +690,33 @@ class Backtest2Page:
                 break
     
     def _update_logs(self, log_entry: str):
-        """Update logs callback."""
+        """Update logs callback with enhanced error detection."""
         logs = self.state.get("bt2_logs", [])
         timestamp = datetime.now().strftime("%H:%M:%S")
-        logs.append(f"[{timestamp}] {log_entry}")
         
-        # Keep only last 100 entries
-        if len(logs) > 100:
-            logs = logs[-100:]
+        # Format log entry with timestamp
+        formatted_log = f"[{timestamp}] {log_entry}"
+        logs.append(formatted_log)
+        
+        # Keep only last 200 entries (increased for better debugging)
+        if len(logs) > 200:
+            logs = logs[-200:]
         
         self.state.set("bt2_logs", logs)
+        
+        # Log errors to console for immediate visibility
+        log_lower = log_entry.lower()
+        if any(keyword in log_lower for keyword in ['error', 'exception', 'failed', 'traceback']):
+            logger.error(f"BACKTEST ERROR: {log_entry}")
+        elif 'warning' in log_lower:
+            logger.warning(f"BACKTEST WARNING: {log_entry}")
     
     def _render_results(self):
         """Render results section with agent performance analysis."""
         st.markdown("### バックテスト結果とエージェント分析")
+        
+        # Add error log viewer
+        self._render_error_logs()
         
         if not self.state.get("bt2_completed", False):
             st.info("結果がありません。「バックテスト実行」タブでバックテストを実行してください。")
@@ -719,30 +791,50 @@ class Backtest2Page:
         agent_performance = self._aggregate_agent_performance(results)
         
         if agent_performance:
-            # Agent accuracy metrics
-            col1, col2 = st.columns(2)
+            # Display aggregated agent performance metrics
+            summary = agent_performance.get("Summary", {})
+            
+            # Decision metrics
+            col1, col2, col3 = st.columns(3)
             
             with col1:
-                st.markdown("##### Agent Decision Accuracy")
-                
-                agent_accuracy = []
-                for agent, perf in agent_performance.items():
-                    if "accuracy" in perf:
-                        agent_accuracy.append({
-                            "Agent": agent,
-                            "Accuracy": f"{perf['accuracy']:.1f}%",
-                            "Decisions": perf.get("total_decisions", 0)
-                        })
-                
-                if agent_accuracy:
-                    df_accuracy = pd.DataFrame(agent_accuracy)
-                    st.dataframe(df_accuracy, use_container_width=True, hide_index=True)
+                st.metric("総決定数", summary.get("total_decisions", 0))
+                st.metric("実行取引数", summary.get("total_trades", 0))
             
             with col2:
-                st.markdown("##### Agent Contribution to Returns")
-                
-                # Placeholder for agent contribution analysis
-                st.info("エージェント貢献分析は、各エージェントの決定がリターンにどう影響したかを示します")
+                exec_rate = summary.get("trade_execution_rate", 0)
+                st.metric("取引実行率", f"{exec_rate:.1%}")
+                st.metric("メモリエントリ", summary.get("memory_entries", 0))
+            
+            with col3:
+                breakdown = summary.get("decision_breakdown", {})
+                st.markdown("##### 決定内訳")
+                for action, count in breakdown.items():
+                    st.write(f"{action}: {count}")
+            
+            # Decision flow details
+            st.markdown("---")
+            st.markdown("##### エージェント決定フロー分析")
+            
+            if summary.get("total_decisions", 0) > 0:
+                # Create decision distribution chart
+                breakdown = summary.get("decision_breakdown", {})
+                if breakdown:
+                    df_decisions = pd.DataFrame(
+                        list(breakdown.items()),
+                        columns=["Action", "Count"]
+                    )
+                    
+                    fig = px.pie(df_decisions, values="Count", names="Action",
+                                title="決定タイプ分布",
+                                color_discrete_map={
+                                    "BUY": "#00cc44",
+                                    "SELL": "#ff3333",
+                                    "HOLD": "#999999"
+                                })
+                    st.plotly_chart(fig, use_container_width=True)
+            else:
+                st.warning("決定データがありません。")
         
         # Decision flow analysis
         st.markdown("---")
@@ -762,6 +854,63 @@ class Backtest2Page:
         
         df_phases = pd.DataFrame(phase_data)
         st.dataframe(df_phases, use_container_width=True, hide_index=True)
+        
+        # Debug section - Merged data for debugging
+        st.markdown("---")
+        st.markdown("#### 🐛 デバッグ用統合データ")
+        
+        # Create merged debug data
+        debug_data = self._create_debug_data(results)
+        
+        # Display in expandable text area
+        with st.expander("デバッグデータ（クリックで展開）", expanded=False):
+            st.text_area(
+                "統合デバッグデータ",
+                value=debug_data,
+                height=400,
+                help="バックテスト結果、エージェント分析、実行ログをマージしたデータです"
+            )
+        
+        # One-click copy and download options
+        col1, col2, col3 = st.columns([1, 1, 1])
+        
+        with col1:
+            # Download as text file
+            st.download_button(
+                "📥 デバッグデータをダウンロード",
+                data=debug_data,
+                file_name=f"backtest_debug_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
+                mime="text/plain",
+                use_container_width=True,
+                help="デバッグデータをテキストファイルとしてダウンロード"
+            )
+        
+        with col2:
+            # Copy button with session state
+            if st.button(
+                "📋 クリップボードにコピー",
+                key="copy_debug_data",
+                use_container_width=True,
+                help="デバッグデータをクリップボードにコピー（下のテキストエリアを全選択してコピー）"
+            ):
+                st.session_state["show_copy_area"] = True
+                st.toast("💡 下のテキストエリアを全選択（Ctrl+A/Cmd+A）してコピー（Ctrl+C/Cmd+C）してください")
+        
+        with col3:
+            # Clear button
+            if st.button(
+                "🗑️ デバッグデータをクリア",
+                key="clear_debug_data",
+                use_container_width=True,
+                help="現在のデバッグデータをクリア"
+            ):
+                st.session_state["bt2_logs"] = []
+                st.rerun()
+        
+        # Show copy area if button was clicked
+        if st.session_state.get("show_copy_area", False):
+            st.info("📋 以下のテキストを全選択してコピーしてください")
+            st.code(debug_data, language=None)
         
         # Download section
         st.markdown("---")
@@ -835,6 +984,174 @@ class Backtest2Page:
                 file_name=f"backtest2_config_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
                 mime="application/json"
             )
+    
+    def _render_error_logs(self):
+        """Render comprehensive error logs section for debugging."""
+        with st.expander("🔍 エラーログとデバッグ情報", expanded=True):
+            # Error summary dashboard
+            logs = self.state.get("bt2_logs", [])
+            error_logs = []
+            warning_logs = []
+            llm_errors = []
+            api_errors = []
+            config_errors = []
+            
+            # Categorize logs with more specific error types
+            for log in logs:
+                log_lower = log.lower()
+                if any(keyword in log_lower for keyword in ['error', 'exception', 'failed', 'traceback']):
+                    error_logs.append(log)
+                    
+                    # Categorize specific error types
+                    if any(keyword in log_lower for keyword in ['openai', 'api key', 'llm', 'model', 'o3', 'o4']):
+                        llm_errors.append(log)
+                    elif any(keyword in log_lower for keyword in ['yahoo', 'finnhub', 'api', 'request', 'timeout']):
+                        api_errors.append(log)
+                    elif any(keyword in log_lower for keyword in ['config', 'initialization', 'import']):
+                        config_errors.append(log)
+                        
+                elif any(keyword in log_lower for keyword in ['warning', 'warn']):
+                    warning_logs.append(log)
+            
+            # Error summary metrics
+            st.markdown("### 📊 エラーサマリー")
+            col1, col2, col3, col4 = st.columns(4)
+            
+            with col1:
+                if error_logs:
+                    st.error(f"❌ 総エラー数\n**{len(error_logs)}件**")
+                else:
+                    st.success("✅ エラーなし")
+                    
+            with col2:
+                if warning_logs:
+                    st.warning(f"⚠️ 警告数\n**{len(warning_logs)}件**")
+                else:
+                    st.info("警告なし")
+                    
+            with col3:
+                if llm_errors:
+                    st.error(f"🤖 LLMエラー\n**{len(llm_errors)}件**")
+                else:
+                    st.success("LLM正常")
+                    
+            with col4:
+                if api_errors:
+                    st.error(f"🌐 APIエラー\n**{len(api_errors)}件**")
+                else:
+                    st.success("API正常")
+            
+            st.markdown("---")
+            
+            # Critical errors first
+            if error_logs:
+                st.markdown("### ❌ エラーログ詳細")
+                
+                # Show most recent errors with highlighting
+                for i, error in enumerate(error_logs[-10:], 1):  # Last 10 errors
+                    with st.container():
+                        # Extract error type if possible
+                        if "error:" in error.lower():
+                            error_type = error.split("error:")[0].split("]")[-1].strip()
+                            st.markdown(f"**Error #{i}: {error_type}**")
+                        else:
+                            st.markdown(f"**Error #{i}**")
+                        
+                        # Display error with syntax highlighting
+                        if "traceback" in error.lower():
+                            st.code(error, language="python")
+                        else:
+                            st.code(error, language=None)
+                
+                # Show download button for all errors
+                if len(error_logs) > 10:
+                    st.info(f"表示: 最新10件 / 全{len(error_logs)}件のエラー")
+                    error_text = "\n\n".join(error_logs)
+                    st.download_button(
+                        "📥 全エラーログをダウンロード",
+                        data=error_text,
+                        file_name=f"errors_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
+                        mime="text/plain"
+                    )
+            
+            # Warnings section
+            if warning_logs:
+                st.markdown("### ⚠️ 警告ログ")
+                for warning in warning_logs[-5:]:  # Last 5 warnings
+                    st.warning(warning)
+            
+            # LLM Configuration Check
+            st.markdown("### 🤖 LLM設定チェック")
+            
+            # Check model names validity
+            deep_model = self.state.get('bt2_deep_model', 'Not set')
+            fast_model = self.state.get('bt2_fast_model', 'Not set')
+            
+            # Known valid models (2025年7月時点)
+            valid_openai_models = [
+                'gpt-4', 'gpt-4-turbo', 'gpt-4o', 'gpt-4o-mini', 'gpt-3.5-turbo',
+                'gpt-4.1', 'gpt-4.1-mini', 'gpt-4.1-nano',
+                'o1', 'o1-mini', 'o1-preview',
+                'o3', 'o3-mini', 'o3-pro', 'o3-2025-04-16',
+                'o4-mini', 'o4-mini-2025-04-16'
+            ]
+            
+            col1, col2 = st.columns(2)
+            with col1:
+                if deep_model in valid_openai_models:
+                    st.success(f"✅ Deep Model: **{deep_model}**")
+                else:
+                    st.error(f"❌ Deep Model: **{deep_model}**\n\n⚠️ 無効なモデル名です！")
+                    st.info("有効なモデル: " + ", ".join(valid_openai_models))
+                    
+            with col2:
+                if fast_model in valid_openai_models:
+                    st.success(f"✅ Fast Model: **{fast_model}**")
+                else:
+                    st.error(f"❌ Fast Model: **{fast_model}**\n\n⚠️ 無効なモデル名です！")
+            
+            # API Key status with more detail
+            import os
+            api_key = os.getenv("OPENAI_API_KEY")
+            if api_key:
+                st.success(f"✅ OpenAI API Key: 設定済み (長さ: {len(api_key)}文字)")
+            else:
+                st.error("❌ OpenAI API Key: 未設定")
+                st.code("export OPENAI_API_KEY='your-api-key-here'", language="bash")
+            
+            # Check for common LLM configuration issues
+            if llm_errors:
+                st.markdown("### 🚨 LLM関連エラーの詳細")
+                
+                # Check for specific error patterns
+                for error in llm_errors[-5:]:
+                    if "o3-2025" in error or "o4-mini-2025" in error:
+                        st.error("**問題**: 存在しないLLMモデル名が設定されています")
+                        st.info("**解決策**: 設定画面で正しいモデル名（gpt-4o, gpt-4o-mini等）を選択してください")
+                        break
+                    elif "api key" in error.lower():
+                        st.error("**問題**: OpenAI API Keyが正しく設定されていません")
+                        st.info("**解決策**: 環境変数 OPENAI_API_KEY を設定してください")
+                        break
+            
+            # All logs in text area
+            st.markdown("#### 全ログ")
+            all_logs_text = "\n".join(logs[-100:]) if logs else "ログがありません"
+            st.text_area(
+                "実行ログ（最新100件）",
+                value=all_logs_text,
+                height=300,
+                key="error_log_viewer"
+            )
+            
+            # Download logs button
+            if logs:
+                st.download_button(
+                    "📥 ログをダウンロード",
+                    data="\n".join(logs),
+                    file_name=f"backtest2_logs_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
+                    mime="text/plain"
+                )
     
     def _render_ticker_analysis(self, ticker: str, result: Dict[str, Any]):
         """Render detailed analysis for a single ticker."""
@@ -911,9 +1228,11 @@ class Backtest2Page:
     
     def _aggregate_agent_performance(self, results: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
         """Aggregate agent performance across all tickers."""
-        # Simple aggregation for current engine format
+        # Aggregate performance data with new format
         total_decisions = 0
+        total_trades = 0
         total_memory_entries = 0
+        decision_breakdown = {"HOLD": 0, "BUY": 0, "SELL": 0}
         
         for ticker, result in results.items():
             if not isinstance(result, dict):
@@ -922,13 +1241,100 @@ class Backtest2Page:
             agent_perf = result.get("agent_performance", {})
             if isinstance(agent_perf, dict):
                 total_decisions += agent_perf.get("total_decisions", 0)
+                total_trades += agent_perf.get("total_trades", 0)
                 total_memory_entries += agent_perf.get("memory_entries", 0)
+                
+                # Aggregate decision breakdown
+                breakdown = agent_perf.get("decision_breakdown", {})
+                if isinstance(breakdown, dict):
+                    for action, count in breakdown.items():
+                        if action in decision_breakdown:
+                            decision_breakdown[action] += count
         
-        # Return summary format expected by UI
+        # Calculate trade execution rate
+        trade_execution_rate = total_trades / total_decisions if total_decisions > 0 else 0
+        
+        # Return enhanced summary format
         return {
             "Summary": {
                 "total_decisions": total_decisions,
+                "total_trades": total_trades,
                 "memory_entries": total_memory_entries,
+                "trade_execution_rate": trade_execution_rate,
+                "decision_breakdown": decision_breakdown,
                 "accuracy": 0.0  # Placeholder until engine provides this
             }
         }
+    
+    def _create_debug_data(self, results: Dict[str, Dict[str, Any]]) -> str:
+        """Create merged debug data for easy copying."""
+        debug_sections = []
+        
+        # Header
+        debug_sections.append("=" * 80)
+        debug_sections.append("BACKTEST DEBUG DATA")
+        debug_sections.append(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        debug_sections.append("=" * 80)
+        
+        # Configuration
+        debug_sections.append("\n[CONFIGURATION]")
+        config = {
+            "tickers": self.state.get("bt2_tickers"),
+            "start_date": str(self.state.get("bt2_start_date")),
+            "end_date": str(self.state.get("bt2_end_date")),
+            "initial_capital": self.state.get("bt2_capital"),
+            "llm_provider": self.state.get("bt2_llm_provider"),
+            "agent_settings": {
+                "debate_rounds": self.state.get("bt2_debate_rounds"),
+                "risk_rounds": self.state.get("bt2_risk_rounds"),
+                "enable_memory": self.state.get("bt2_enable_memory"),
+                "enable_reflection": self.state.get("bt2_enable_reflection")
+            }
+        }
+        debug_sections.append(json.dumps(config, indent=2))
+        
+        # Results Summary
+        debug_sections.append("\n[RESULTS SUMMARY]")
+        for ticker, result in results.items():
+            if isinstance(result, dict) and "metrics" in result:
+                metrics = result["metrics"]
+                debug_sections.append(f"\n{ticker}:")
+                debug_sections.append(f"  Total Return: {metrics.get('total_return', 0):.2f}%")
+                debug_sections.append(f"  Sharpe Ratio: {metrics.get('sharpe_ratio', 0):.2f}")
+                debug_sections.append(f"  Max Drawdown: {metrics.get('max_drawdown', 0):.2f}%")
+                debug_sections.append(f"  Total Trades: {metrics.get('total_trades', 0)}")
+                debug_sections.append(f"  Win Rate: {metrics.get('win_rate', 0):.1f}%")
+        
+        # Agent Performance
+        debug_sections.append("\n[AGENT PERFORMANCE]")
+        agent_perf = self._aggregate_agent_performance(results)
+        debug_sections.append(json.dumps(agent_perf, indent=2))
+        
+        # Detailed Results
+        debug_sections.append("\n[DETAILED RESULTS]")
+        debug_sections.append(json.dumps(results, indent=2, default=str))
+        
+        # Execution Logs
+        debug_sections.append("\n[EXECUTION LOGS]")
+        logs = self.state.get("bt2_logs", [])
+        if logs:
+            # Get last 100 logs
+            recent_logs = logs[-100:] if len(logs) > 100 else logs
+            for log in recent_logs:
+                debug_sections.append(log)
+        else:
+            debug_sections.append("No execution logs available")
+        
+        # Memory Analysis (if available)
+        debug_sections.append("\n[MEMORY ANALYSIS]")
+        for ticker, result in results.items():
+            if isinstance(result, dict) and "memory_analysis" in result:
+                debug_sections.append(f"\n{ticker} Memory:")
+                debug_sections.append(json.dumps(result["memory_analysis"], indent=2))
+        
+        # Footer
+        debug_sections.append("\n" + "=" * 80)
+        debug_sections.append("END OF DEBUG DATA")
+        debug_sections.append("=" * 80)
+        
+        return "\n".join(debug_sections)

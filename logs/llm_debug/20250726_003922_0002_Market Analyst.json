@@ -1,0 +1,12 @@
+{
+  "timestamp": "20250726_003922",
+  "agent": "Market Analyst",
+  "prompt": "\n        株価データ: AAPL\n        - 始値: $395.78\n        - 高値: $409.72\n        - 安値: $385.96\n        - 終値: $391.49\n        - 出来高: 15,761,360\n        \n        以下の技術指標を含む包括的な分析を提供してください：\n        - 50日移動平均線と200日移動平均線のクロスオーバー\n        - MACDのシグナルライン交差\n        - RSIのオーバーボート/オーバーソールド状態\n        - ボリンジャーバンドのスクイーズ状態\n        - ATR（平均真の範囲）の変化\n        \n        各指標について詳細な説明を含めてください。\n        \n\nIMPORTANT: You must respond with valid JSON only. No explanations, no markdown, just JSON.\n\nExample of the EXACT format you must use:\n{\n  \"selected_indicators\": [\n    \"item1\",\n    \"item2\"\n  ],\n  \"price_trend\": \"Analysis result\",\n  \"volume_analysis\": \"Analysis result\",\n  \"technical_analysis\": \"Analysis result\",\n  \"recommendation\": \"Analysis result\",\n  \"confidence\": 0.5,\n  \"rationale\": \"Analysis result\"\n}\n\nYour response must follow this exact structure with appropriate values based on the context.\n",
+  "response": "{\n  \"selected_indicators\": [\n    \"50-day moving average and 200-day moving average crossover\",\n    \"MACD signal line crossover\",\n    \"RSI overbought/oversold condition\",\n    \"Bollinger Bands squeeze condition\",\n    \"ATR (Average True Range) change\"\n  ],\n  \"price_trend\": \"Analysis result\",\n  \"volume_analysis\": \"Analysis result\",\n  \"technical_analysis\": \"Analysis result\",\n  \"recommendation\": \"Analysis result\",\n  \"confidence\": 0.7,\n  \"rationale\": \"Analysis result\"\n}",
+  "response_length": 467,
+  "context_keys": [
+    "test",
+    "iteration"
+  ],
+  "use_japanese": false
+}

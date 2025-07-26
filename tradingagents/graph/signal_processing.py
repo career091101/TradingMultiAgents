@@ -28,4 +28,26 @@ class SignalProcessor:
             ("human", full_signal),
         ]
 
-        return self.quick_thinking_llm.invoke(messages).content
+        response = self.quick_thinking_llm.invoke(messages).content
+        
+        # Normalize Japanese trading signals to English
+        response = response.strip()
+        japanese_to_english = {
+            "買い": "BUY",
+            "売り": "SELL", 
+            "保有": "HOLD",
+            "買う": "BUY",
+            "売る": "SELL",
+            "ホールド": "HOLD",
+            "購入": "BUY",
+            "売却": "SELL",
+            "維持": "HOLD"
+        }
+        
+        # Check if response contains Japanese trading terms
+        for jp_term, en_term in japanese_to_english.items():
+            if jp_term in response:
+                return en_term
+                
+        # Return the original response if it's already in English
+        return response.upper() if response.upper() in ["BUY", "SELL", "HOLD"] else "HOLD"

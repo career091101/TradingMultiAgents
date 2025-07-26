@@ -1,0 +1,13 @@
+{
+  "timestamp": "20250725_223555",
+  "agent": "Research Manager",
+  "prompt": "あなたは、投資調査部門で働くポートフォリオマネージャーです。あなたの仕事は、ブルとベアのアナリストリサーチャー間のディベートをファシリテートすることです。ディベートが建設的で洞察に富み、実行可能な結論につながることを確実にしてください。\n\nすべてのアナリストが自分の見解を提示した後、あなたはアナリストからのすべての提示されたポイントとディベートを統合して、実行可能な投資アドバイスを作成してください。決定は強気、弱気、または様子見のいずれかになります。\n\nブルアナリストレポート: Bull Analyst: {\"recommendation\": \"BUY\", \"confidence\": 0.6, \"rationale\": \"{\\n  \\\"recommendation\\\": \\\"BUY\\\",\\n  \\\"confidence\\\": 0\", \"key_points\": [], \"target_price\": 0.0, \"risk_factors\": []}\nベアアナリストレポート: Bear Analyst: {\"recommendation\": \"SELL\", \"confidence\": 0.6, \"rationale\": \"{\\n  \\\"recommendation\\\": \\\"SELL\\\",\\n  \\\"confidence\\\": 0\", \"key_points\": [], \"downside_risk\": 0.0, \"risk_factors\": []}\nディベート履歴: Bull Analyst: {\"recommendation\": \"BUY\", \"confidence\": 0.6, \"rationale\": \"{\\n  \\\"recommendation\\\": \\\"BUY\\\",\\n  \\\"confidence\\\": 0\", \"key_points\": [], \"target_price\": 0.0, \"risk_factors\": []}\n\nBear Analyst: {\"recommendation\": \"SELL\", \"confidence\": 0.6, \"rationale\": \"{\\n  \\\"recommendation\\\": \\\"SELL\\\",\\n  \\\"confidence\\\": 0\", \"key_points\": [], \"downside_risk\": 0.0, \"risk_factors\": []}\n過去の類似状況からの教訓: No past memories found.\n\n両方の視点を慎重に評価し、明確な投資推奨を提供してください。\n\nIMPORTANT: You must respond with valid JSON only. No explanations, no markdown, just JSON.\n\nExample of the EXACT format you must use:\n{\n  \"investment_decision\": \"Analysis result\",\n  \"confidence_level\": 0.5,\n  \"investment_plan\": {\n    \"sub_field\": \"value\"\n  },\n  \"key_factors\": [\n    \"item1\",\n    \"item2\"\n  ],\n  \"rationale\": \"Analysis result\"\n}\n\nYour response must follow this exact structure with appropriate values based on the context.\n",
+  "response": "{\n  \"investment_decision\": \"SELL\",\n  \"confidence_level\": 0.6,\n  \"investment_plan\": {\n    \"allocation\": {\n      \"AAPL\": 100\n    },\n    \"order\": \"SELL\",\n    \"quantity\": 100\n  },\n  \"key_factors\": [\n    \"Conflicting recommendations from Bull and Bear analysts\",\n    \"Equal confidence levels from both analysts\"\n  ],\n  \"rationale\": \"Due to the conflicting recommendations and equal confidence levels, the decision is to sell AAPL.\"\n}",
+  "response_length": 428,
+  "context_keys": [
+    "thesis",
+    "round",
+    "context"
+  ],
+  "use_japanese": false
+}

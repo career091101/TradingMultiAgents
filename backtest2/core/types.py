@@ -67,6 +67,24 @@ class MarketData:
     technicals: Optional[Dict[str, float]] = None
     sentiment: Optional[Dict[str, float]] = None
 
+    
+    def to_dict(self):
+        """Convert to dictionary for JSON serialization"""
+        return {
+            'date': self.date.isoformat() if hasattr(self.date, 'isoformat') else str(self.date),
+            'symbol': self.symbol,
+            'open': float(self.open),
+            'high': float(self.high),
+            'low': float(self.low),
+            'close': float(self.close),
+            'volume': int(self.volume),
+            'adjusted_close': float(self.adjusted_close) if self.adjusted_close else None,
+            'news': self.news,
+            'fundamentals': self.fundamentals,
+            'technicals': self.technicals,
+            'sentiment': self.sentiment
+        }
+
 
 @dataclass
 class TradingSignal:
@@ -194,6 +212,20 @@ class AgentOutput:
             'rationale': self.rationale,
             'metadata': self.metadata
         }
+    
+    def to_dict(self):
+        """Convert to dictionary for JSON serialization"""
+        return {
+            'agent_name': self.agent_name,
+            'timestamp': self.timestamp.isoformat() if hasattr(self.timestamp, 'isoformat') else str(self.timestamp),
+            'output_type': self.output_type,
+            'content': self.content,
+            'confidence': float(self.confidence),
+            'processing_time': float(self.processing_time),
+            'rationale': self.rationale,
+            'metadata': self.metadata
+        }
+
 
 
 @dataclass

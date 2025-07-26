@@ -33,6 +33,9 @@ class TradingAgentAdapter(BaseAgent):
         start_time = datetime.now()
         
         try:
+            # Log input
+            self.logger.debug(f"[{self.name}] Processing input with keys: {list(input_data.keys()) if input_data else 'None'}")
+            
             # Prepare context
             context = self._prepare_context(input_data)
             
@@ -56,15 +59,30 @@ class TradingAgentAdapter(BaseAgent):
             
             processing_time = (datetime.now() - start_time).total_seconds()
             
+            # Validate response before creating output
+            validated_response = self._validate_response(response, self._get_output_schema())
+            
             return self._create_output(
-                content=content,
-                confidence=confidence,
+                content=self._process_response(validated_response),
+                confidence=self._calculate_confidence(validated_response),
                 processing_time=processing_time,
-                rationale=rationale
+                rationale=validated_response.get('rationale', '')
             )
             
         except Exception as e:
             self.logger.error(f"Agent {self.name} processing failed: {e}")
+            self.logger.error(f"Agent type: {type(self).__name__}")
+            self.logger.error(f"Use deep thinking: {self.use_deep_thinking}")
+            self.logger.error(f"Input data sample: {str(input_data)[:200]}..." if input_data else "No input data")
+            
+            # Don't propagate JSON serialization errors - create a default response
+            if "JSON serializable" in str(e):
+                return self._create_output(
+                    content={'action': 'HOLD', 'confidence': 0.0, 'rationale': 'Technical error - defaulting to HOLD'},
+                    confidence=0.0,
+                    processing_time=(datetime.now() - start_time).total_seconds(),
+                    rationale="JSON serialization error - defaulting to HOLD"
+                )
             return self._create_error_output(str(e))
             
     def _prepare_context(self, input_data: Dict[str, Any]) -> Dict[str, Any]:
@@ -80,6 +98,47 @@ class TradingAgentAdapter(BaseAgent):
             else:
                 context[key] = value
         return context
+
+    def _validate_response(self, response: Dict[str, Any], schema: Dict[str, Any]) -> Dict[str, Any]:
+        """Validate and fix LLM response to match schema"""
+        # Fix common action field issues
+        action_fields = ['action', 'final_decision', 'investment_decision', 'recommendation']
+        for field in action_fields:
+            if field in response:
+                value = response[field]
+                if isinstance(value, str):
+                    # Clean up the value
+                    value = value.upper().strip()
+                    # Handle "BUY/SELL/HOLD" format
+                    if "/" in value:
+                        # Default to HOLD if multiple options
+                        value = 'HOLD'
+                    # Extract valid action
+                    for action in ['BUY', 'SELL', 'HOLD']:
+                        if action in value:
+                            response[field] = action
+                            break
+                    else:
+                        # Default to HOLD if unclear
+                        response[field] = 'HOLD'
+        
+        # Ensure confidence is a float between 0 and 1
+        confidence_fields = ['confidence', 'confidence_level']
+        for field in confidence_fields:
+            if field in response:
+                try:
+                    conf = float(response[field])
+                    response[field] = min(1.0, max(0.0, conf))
+                except:
+                    response[field] = 0.5
+        
+        # Ensure required string fields have values
+        string_fields = ['rationale', 'analysis', 'valuation', 'sentiment']
+        for field in string_fields:
+            if field in schema and field not in response:
+                response[field] = ""
+        
+        return response
         
     def _generate_prompt(self, input_data: Dict[str, Any]) -> str:
         # Normalize context to dict if it's an object
@@ -121,33 +180,6 @@ class MarketAnalystAdapter(TradingAgentAdapter):
     """Market Analyst adapter"""
     
 
-    def _validate_response(self, response: Dict[str, Any], schema: Dict[str, Any]) -> Dict[str, Any]:
-        """Validate and fix LLM response to match schema"""
-        # Fix action field if it's in wrong format
-        if 'action' in response:
-            action = response['action']
-            if isinstance(action, str):
-                # Handle "string (BUY/SELL/HOLD)" format
-                if "BUY" in action and "SELL" in action and "HOLD" in action:
-                    response['action'] = 'HOLD'  # Default to HOLD if unclear
-                elif action.upper() in ['BUY', 'SELL', 'HOLD']:
-                    response['action'] = action.upper()
-                else:
-                    response['action'] = 'HOLD'
-        
-        # Fix final_decision field similarly
-        if 'final_decision' in response:
-            decision = response['final_decision']
-            if isinstance(decision, str):
-                if "BUY" in decision and "SELL" in decision and "HOLD" in decision:
-                    response['final_decision'] = 'HOLD'
-                elif decision.upper() in ['BUY', 'SELL', 'HOLD']:
-                    response['final_decision'] = decision.upper()
-                else:
-                    response['final_decision'] = 'HOLD'
-        
-        return response
-
 
     def __init__(self, name: str, llm_config, memory: AgentMemory):
         super().__init__(
@@ -166,8 +198,27 @@ class MarketAnalystAdapter(TradingAgentAdapter):
             input_data['context'] = context
         
         market_data: MarketData = input_data.get('market_data')
-        # Context is already normalized to dict above
-        current_date = context.get('timestamp', datetime.now())
+        
+        # Try to get the date from multiple sources
+        current_date = None
+        
+        # First try market_data.date
+        if market_data and hasattr(market_data, 'date'):
+            current_date = market_data.date
+        
+        # Then try context timestamp
+        if not current_date:
+            current_date = context.get('timestamp', datetime.now())
+        
+        # Ensure current_date is a datetime object
+        if isinstance(current_date, str):
+            try:
+                from dateutil import parser
+                current_date = parser.parse(current_date)
+            except:
+                current_date = datetime.now()
+        elif not isinstance(current_date, datetime):
+            current_date = datetime.now()
         
         return f"""
 参考として、現在の日付は {current_date.strftime('%Y-%m-%d')} です。調査対象の企業は {market_data.symbol} です。
@@ -179,21 +230,20 @@ class MarketAnalystAdapter(TradingAgentAdapter):
 - 終値: ${market_data.close:.2f}
 - 出来高: {market_data.volume:,}
 
-上記の指標リストから最も関連性の高い指標を選択し、詳細な分析レポートを作成してください。
-観察するトレンドの非常に詳細で細かい分析レポートを作成してください。
-レポートの最後に、重要なポイントを整理したMarkdownテーブルを追加してください。
+上記の指標リストから最も関連性の高い指標を最大5つ選択し、簡潔な分析を提供してください。
+各分析は要点を絞って200-300文字以内でまとめてください。
 """
         
     def _get_output_schema(self) -> Dict[str, Any]:
         return {
-            "selected_indicators": {"type": "array", "items": {"type": "string"}},
+            "selected_indicators": {"type": "array", "items": {"type": "string"}, "maxItems": 5},
             "price_trend": {"type": "string", "enum": ["bullish", "bearish", "neutral"]},
-            "volume_analysis": {"type": "string"},
-            "technical_analysis": {"type": "string"},
+            "volume_analysis": {"type": "string", "maxLength": 200},
+            "technical_analysis": {"type": "string", "maxLength": 300},
             "recommendation": {"type": "string", "enum": ["BUY", "HOLD", "SELL"]},
             "confidence": {"type": "number", "minimum": 0, "maximum": 1},
-            "rationale": {"type": "string"},
-            "summary_table": {"type": "string", "description": "Markdown formatted table"}
+            "rationale": {"type": "string", "maxLength": 200}
+            # Removed summary_table to reduce token usage
         }
         
     def _process_response(self, response: Dict[str, Any]) -> Dict[str, Any]:
@@ -392,6 +442,16 @@ class BullResearcherAdapter(TradingAgentAdapter):
         # In full implementation, this would retrieve actual memories
         # For now, return a placeholder
         return "No past memories found."
+    
+    def _get_output_schema(self) -> Dict[str, Any]:
+        return {
+            "recommendation": {"type": "string", "enum": ["BUY", "HOLD", "SELL"]},
+            "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+            "rationale": {"type": "string"},
+            "key_points": {"type": "array", "items": {"type": "string"}},
+            "target_price": {"type": "number"},
+            "risk_factors": {"type": "array", "items": {"type": "string"}}
+        }
 
 
 class BearResearcherAdapter(TradingAgentAdapter):
@@ -445,6 +505,16 @@ class BearResearcherAdapter(TradingAgentAdapter):
         # In full implementation, this would retrieve actual memories
         # For now, return a placeholder
         return "No past memories found."
+    
+    def _get_output_schema(self) -> Dict[str, Any]:
+        return {
+            "recommendation": {"type": "string", "enum": ["BUY", "HOLD", "SELL"]},
+            "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+            "rationale": {"type": "string"},
+            "key_points": {"type": "array", "items": {"type": "string"}},
+            "downside_risk": {"type": "number"},
+            "risk_factors": {"type": "array", "items": {"type": "string"}}
+        }
 
 
 class ResearchManagerAdapter(TradingAgentAdapter):
@@ -497,12 +567,12 @@ class ResearchManagerAdapter(TradingAgentAdapter):
         return {
             "investment_decision": {"type": "string", "enum": ["BUY", "HOLD", "SELL"]},
             "confidence_level": {"type": "number"},
-            "investment_plan": {
-                "action": "string",
+            "investment_plan": {"type": "object", "properties": {
+                "action": {"type": "string"},
                 "target_allocation": {"type": "number"},
-                "time_horizon": "string"
-            },
-            "key_factors": ["string"],
+                "time_horizon": {"type": "string"}
+            }},
+            "key_factors": {"type": "array", "items": {"type": "string"}},
             "rationale": {"type": "string"}
         }
 

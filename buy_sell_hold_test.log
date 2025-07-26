@@ -1,0 +1,235 @@
+WARNING:root:TradingMultiAgents dataflows not available
+ERROR:backtest2.agents.llm_client:Failed to parse extracted JSON: Extra data: line 31 column 1 (char 405)
+ERROR:backtest2.agents.llm_client:JSON text was: {
+  "overall_sentiment": {
+    "type": "number",
+    "minimum": -1,
+    "maximum": 1
+  },
+  "key_topics": {
+    "type": "array",
+    "items": {
+      "type": ""
+    }
+  },
+  "market_impact": {
+    "type": "",
+    "enum": [
+      "positive",
+      "negative",
+      "neutral"
+    ]
+  },
+  "confidence": {
+    "type": "number",
+    "minimum": 0,
+    "maximum": 1
+  },
+  "rationale": {
+    "type": ""
+  }
+}
+
+{
+  "overall_sentiment": 0.2,
+  "key_topics": ["earnings", "product launches", "competition"],
+
+WARNING:backtest2.agents.llm_client:Parsed text response to: {'overall_sentiment': 0.0, 'key_topics': [], 'market_impact': '', 'confidence': 0.0, 'rationale': '{\n  "overall_sentiment": {\n    "type": "number",\n    "minimum": -1,\n    "maximum": 1\n  },\n  "key_topics": {\n    "type": "array",\n    "items": {\n      "type": "string"\n    }\n  },\n  "market_impact": {\n    "type": "string",\n    "enum": [\n      "positive",\n      "negative",\n      "neutral"\n    ]\n  },\n  "confidence": {\n    "type": "number",\n    "minimum": 0,\n    "maximum": 1\n  },\n  "rationale": {\n    "type": "string"\n  }\n}\n\n{\n  "overall_sentiment": 0.2,\n  "key_topics": ["earnings", "product launches"', 'action': 'HOLD', 'recommendation': 'HOLD', 'investment_decision': 'HOLD', 'final_decision': 'HOLD'}
+ERROR:backtest2.utils.transaction_manager:Transaction ea774677-2979-49a1-b364-1108e1800baf failed: No position to sell for AAPL
+WARNING:backtest2.utils.transaction_manager.TransactionContext:Rolling back transaction ea774677-2979-49a1-b364-1108e1800baf
+ERROR:backtest2.risk.position_manager:Transaction failed: No position to sell for AAPL
+ERROR:backtest2.core.engine:Failed to execute transaction for AAPL
+ERROR:backtest2.agents.llm_client:Failed to parse extracted JSON: Extra data: line 33 column 1 (char 432)
+ERROR:backtest2.agents.llm_client:JSON text was: {
+  "sentiment_score": {
+    "type": "number",
+    "minimum": -1,
+    "maximum": 1
+  },
+  "trending_level": {
+    "type": "",
+    "enum": [
+      "high",
+      "medium",
+      "low"
+    ]
+  },
+  "community_sentiment": {
+    "type": "",
+    "enum": [
+      "positive",
+      "negative",
+      "neutral"
+    ]
+  },
+  "confidence": {
+    "type": "number",
+    "minimum": 0,
+    "maximum": 1
+  },
+  "rationale": {
+    "type": ""
+  }
+}
+
+{
+  "sentiment_score": 0.2,
+  "trending_level": "medium",
+  "communi
+WARNING:backtest2.agents.llm_client:Parsed text response to: {'sentiment_score': 0.0, 'trending_level': '', 'community_sentiment': '', 'confidence': 0.0, 'rationale': '{\n  "sentiment_score": {\n    "type": "number",\n    "minimum": -1,\n    "maximum": 1\n  },\n  "trending_level": {\n    "type": "string",\n    "enum": [\n      "high",\n      "medium",\n      "low"\n    ]\n  },\n  "community_sentiment": {\n    "type": "string",\n    "enum": [\n      "positive",\n      "negative",\n      "neutral"\n    ]\n  },\n  "confidence": {\n    "type": "number",\n    "minimum": 0,\n    "maximum": 1\n  },\n  "rationale": {\n    "type": "string"\n  }\n}\n\n{\n  "sentiment_score": 0.2,\n  "trending_level": "m', 'action': 'HOLD', 'recommendation': 'HOLD', 'investment_decision': 'HOLD', 'final_decision': 'HOLD'}
+ERROR:backtest2.agents.llm_client:Failed to parse extracted JSON: Extra data: line 31 column 1 (char 405)
+ERROR:backtest2.agents.llm_client:JSON text was: {
+  "overall_sentiment": {
+    "type": "number",
+    "minimum": -1,
+    "maximum": 1
+  },
+  "key_topics": {
+    "type": "array",
+    "items": {
+      "type": ""
+    }
+  },
+  "market_impact": {
+    "type": "",
+    "enum": [
+      "positive",
+      "negative",
+      "neutral"
+    ]
+  },
+  "confidence": {
+    "type": "number",
+    "minimum": 0,
+    "maximum": 1
+  },
+  "rationale": {
+    "type": ""
+  }
+}
+
+{
+  "overall_sentiment": 0.2,
+  "key_topics": ["earnings", "product launches", "regulatory chal
+WARNING:backtest2.agents.llm_client:Parsed text response to: {'overall_sentiment': 0.0, 'key_topics': [], 'market_impact': '', 'confidence': 0.0, 'rationale': '{\n  "overall_sentiment": {\n    "type": "number",\n    "minimum": -1,\n    "maximum": 1\n  },\n  "key_topics": {\n    "type": "array",\n    "items": {\n      "type": "string"\n    }\n  },\n  "market_impact": {\n    "type": "string",\n    "enum": [\n      "positive",\n      "negative",\n      "neutral"\n    ]\n  },\n  "confidence": {\n    "type": "number",\n    "minimum": 0,\n    "maximum": 1\n  },\n  "rationale": {\n    "type": "string"\n  }\n}\n\n{\n  "overall_sentiment": 0.2,\n  "key_topics": ["earnings", "product launches"', 'action': 'HOLD', 'recommendation': 'HOLD', 'investment_decision': 'HOLD', 'final_decision': 'HOLD'}
+ERROR:backtest2.agents.llm_client:Failed to parse extracted JSON: Extra data: line 33 column 1 (char 432)
+ERROR:backtest2.agents.llm_client:JSON text was: {
+  "sentiment_score": {
+    "type": "number",
+    "minimum": -1,
+    "maximum": 1
+  },
+  "trending_level": {
+    "type": "",
+    "enum": [
+      "high",
+      "medium",
+      "low"
+    ]
+  },
+  "community_sentiment": {
+    "type": "",
+    "enum": [
+      "positive",
+      "negative",
+      "neutral"
+    ]
+  },
+  "confidence": {
+    "type": "number",
+    "minimum": 0,
+    "maximum": 1
+  },
+  "rationale": {
+    "type": ""
+  }
+}
+
+Context:
+{
+  "market_data": {
+    "date": "2025-07-22T00:00:00",
+   
+WARNING:backtest2.agents.llm_client:Parsed text response to: {'sentiment_score': 0.0, 'trending_level': '', 'community_sentiment': '', 'confidence': 0.0, 'rationale': '{\n  "sentiment_score": {\n    "type": "number",\n    "minimum": -1,\n    "maximum": 1\n  },\n  "trending_level": {\n    "type": "string",\n    "enum": [\n      "high",\n      "medium",\n      "low"\n    ]\n  },\n  "community_sentiment": {\n    "type": "string",\n    "enum": [\n      "positive",\n      "negative",\n      "neutral"\n    ]\n  },\n  "confidence": {\n    "type": "number",\n    "minimum": 0,\n    "maximum": 1\n  },\n  "rationale": {\n    "type": "string"\n  }\n}\n\nContext:\n{\n  "market_data": {\n    "date": "2025-07', 'action': 'HOLD', 'recommendation': 'HOLD', 'investment_decision': 'HOLD', 'final_decision': 'HOLD'}
+ERROR:backtest2.utils.transaction_manager:Transaction b01f57ff-e072-486c-a977-d472a0435406 failed: No position to sell for AAPL
+WARNING:backtest2.utils.transaction_manager.TransactionContext:Rolling back transaction b01f57ff-e072-486c-a977-d472a0435406
+ERROR:backtest2.risk.position_manager:Transaction failed: No position to sell for AAPL
+ERROR:backtest2.core.engine:Failed to execute transaction for AAPL
+ERROR:backtest2.agents.llm_client:Failed to parse extracted JSON: Extra data: line 31 column 1 (char 405)
+ERROR:backtest2.agents.llm_client:JSON text was: {
+  "overall_sentiment": {
+    "type": "number",
+    "minimum": -1,
+    "maximum": 1
+  },
+  "key_topics": {
+    "type": "array",
+    "items": {
+      "type": ""
+    }
+  },
+  "market_impact": {
+    "type": "",
+    "enum": [
+      "positive",
+      "negative",
+      "neutral"
+    ]
+  },
+  "confidence": {
+    "type": "number",
+    "minimum": 0,
+    "maximum": 1
+  },
+  "rationale": {
+    "type": ""
+  }
+}
+
+Context:
+{
+  "market_data": {
+    "date": "2025-07-22T00:00:00",
+    "symbol": "MSFT",
+    "ope
+WARNING:backtest2.agents.llm_client:Parsed text response to: {'overall_sentiment': 0.0, 'key_topics': [], 'market_impact': '', 'confidence': 0.0, 'rationale': '{\n  "overall_sentiment": {\n    "type": "number",\n    "minimum": -1,\n    "maximum": 1\n  },\n  "key_topics": {\n    "type": "array",\n    "items": {\n      "type": "string"\n    }\n  },\n  "market_impact": {\n    "type": "string",\n    "enum": [\n      "positive",\n      "negative",\n      "neutral"\n    ]\n  },\n  "confidence": {\n    "type": "number",\n    "minimum": 0,\n    "maximum": 1\n  },\n  "rationale": {\n    "type": "string"\n  }\n}\n\nContext:\n{\n  "market_data": {\n    "date": "2025-07-22T00:00:00",\n    "symbol"', 'action': 'HOLD', 'recommendation': 'HOLD', 'investment_decision': 'HOLD', 'final_decision': 'HOLD'}
+ERROR:backtest2.utils.transaction_manager:Transaction 08627ca4-56b0-447e-bcda-c98514b84eb7 failed: No position to sell for MSFT
+WARNING:backtest2.utils.transaction_manager.TransactionContext:Rolling back transaction 08627ca4-56b0-447e-bcda-c98514b84eb7
+ERROR:backtest2.risk.position_manager:Transaction failed: No position to sell for MSFT
+ERROR:backtest2.core.engine:Failed to execute transaction for MSFT
+ERROR:backtest2.agents.llm_client:Failed to parse extracted JSON: Extra data: line 31 column 1 (char 405)
+ERROR:backtest2.agents.llm_client:JSON text was: {
+  "overall_sentiment": {
+    "type": "number",
+    "minimum": -1,
+    "maximum": 1
+  },
+  "key_topics": {
+    "type": "array",
+    "items": {
+      "type": ""
+    }
+  },
+  "market_impact": {
+    "type": "",
+    "enum": [
+      "positive",
+      "negative",
+      "neutral"
+    ]
+  },
+  "confidence": {
+    "type": "number",
+    "minimum": 0,
+    "maximum": 1
+  },
+  "rationale": {
+    "type": ""
+  }
+}
+
+{
+  "overall_sentiment": 0.2,
+  "key_topics": ["earnings", "product launches", "competition"],
+
+WARNING:backtest2.agents.llm_client:Parsed text response to: {'overall_sentiment': 0.0, 'key_topics': [], 'market_impact': '', 'confidence': 0.0, 'rationale': '{\n  "overall_sentiment": {\n    "type": "number",\n    "minimum": -1,\n    "maximum": 1\n  },\n  "key_topics": {\n    "type": "array",\n    "items": {\n      "type": "string"\n    }\n  },\n  "market_impact": {\n    "type": "string",\n    "enum": [\n      "positive",\n      "negative",\n      "neutral"\n    ]\n  },\n  "confidence": {\n    "type": "number",\n    "minimum": 0,\n    "maximum": 1\n  },\n  "rationale": {\n    "type": "string"\n  }\n}\n\n{\n  "overall_sentiment": 0.2,\n  "key_topics": ["earnings", "product launches"', 'action': 'HOLD', 'recommendation': 'HOLD', 'investment_decision': 'HOLD', 'final_decision': 'HOLD'}

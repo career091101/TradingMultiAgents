@@ -1,0 +1,12 @@
+{
+  "timestamp": "20250725_224106",
+  "agent": "Social Media Analyst",
+  "prompt": "\nMSFTのソーシャルメディア動向を分析してください。\n\n価格変動: -0.86%\n\nソーシャルメディアでの注目度や感情を評価してください。\n\n\nIMPORTANT: You must respond with valid JSON only. No explanations, no markdown, just JSON.\n\nExample of the EXACT format you must use:\n{\n  \"sentiment_score\": 0.5,\n  \"trending_level\": \"Analysis result\",\n  \"community_sentiment\": \"Analysis result\",\n  \"confidence\": 0.5,\n  \"rationale\": \"Analysis result\"\n}\n\nYour response must follow this exact structure with appropriate values based on the context.\n",
+  "response": "{\n  \"sentiment_score\": -0.2,\n  \"trending_level\": \"Stable\",\n  \"community_sentiment\": \"Mixed\",\n  \"confidence\": 0.6,\n  \"rationale\": \"There is a slightly negative sentiment score, indicating a slightly bearish outlook. The trending level is stable, suggesting no significant spikes in social media attention. The community sentiment is mixed, with a balance between positive and negative conversations.\"\n}",
+  "response_length": 401,
+  "context_keys": [
+    "market_data",
+    "context"
+  ],
+  "use_japanese": false
+}

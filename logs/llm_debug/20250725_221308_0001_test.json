@@ -1,0 +1,9 @@
+{
+  "timestamp": "20250725_221308",
+  "agent": "test",
+  "prompt": "The stock price has increased 10% in the last week with strong volume. Should I BUY, SELL, or HOLD?\n\nRespond with only one word: BUY, SELL, or HOLD.",
+  "response": "BUY",
+  "response_length": 3,
+  "context_keys": [],
+  "use_japanese": false
+}

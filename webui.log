@@ -1,0 +1,357 @@
+Python: /Users/y-sato/TradingAgents2/.venv/bin/python
+Python version: Python 3.12.3
+Current directory: /Users/y-sato/TradingAgents2/TradingMultiAgents
+Checking plotly installation...
+Plotly version: 6.2.0
+Starting WebUI...
+/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/watchdog/observers/__init__.py:68: UserWarning: Failed to import fsevents. Fall back to kqueue
+  warnings.warn("Failed to import fsevents. Fall back to kqueue", stacklevel=1)
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.50.9:8501
+
+WARNING:root:TradingMultiAgents dataflows not available
+INFO:webui.backend.backtest2_wrapper:Successfully imported backtest2 modules
+INFO:webui.backend.backtest2_wrapper:Creating BacktestConfig - class type: <class 'type'>
+INFO:webui.backend.backtest2_wrapper:BacktestConfig module: backtest2.core.config
+INFO:webui.backend.backtest2_wrapper:BacktestConfig MRO: (<class 'backtest2.core.config.BacktestConfig'>, <class 'object'>)
+INFO:webui.backend.backtest2_wrapper:Is dataclass: True
+INFO:webui.backend.backtest2_wrapper:Dataclass fields: ['name', 'symbols', 'time_range', 'initial_capital', 'random_seed', 'max_positions', 'position_limits', 'llm_config', 'data_sources', 'reflection_config', 'result_dir', 'slippage', 'commission', 'risk_free_rate', 'benchmark', 'start_date', 'end_date', 'agent_config', 'data_config', 'risk_config', 'enable_parallel', 'max_workers', 'cache_size', 'log_level', 'save_results', 'results_path', 'enable_monitoring', 'debug']
+INFO:webui.backend.backtest2_wrapper:Has random_seed attr: True
+INFO:webui.backend.backtest2_wrapper:BacktestConfig.__init__ signature: {'name': <class 'str'>, 'symbols': typing.List[str], 'time_range': typing.Optional[backtest2.core.config.TimeRange], 'initial_capital': <class 'float'>, 'random_seed': <class 'int'>, 'max_positions': <class 'int'>, 'position_limits': typing.Dict[backtest2.core.config.RiskProfile, float], 'llm_config': <class 'backtest2.core.config.LLMConfig'>, 'data_sources': typing.List[str], 'reflection_config': typing.Optional[typing.Dict[str, typing.Any]], 'result_dir': typing.Optional[pathlib.Path], 'slippage': <class 'float'>, 'commission': <class 'float'>, 'risk_free_rate': <class 'float'>, 'benchmark': <class 'str'>, 'start_date': typing.Optional[datetime.datetime], 'end_date': typing.Optional[datetime.datetime], 'agent_config': typing.Optional[backtest2.core.config.AgentConfig], 'data_config': typing.Optional[backtest2.core.config.DataConfig], 'risk_config': typing.Optional[backtest2.core.config.RiskConfig], 'enable_parallel': <class 'bool'>, 'max_workers': <class 'int'>, 'cache_size': <class 'int'>, 'log_level': <class 'str'>, 'save_results': <class 'bool'>, 'results_path': <class 'str'>, 'enable_monitoring': <class 'bool'>, 'debug': <class 'bool'>, 'return': None}
+INFO:backtest2.data.manager_simple:DataManager initialized with Yahoo Finance
+INFO:backtest2.core.engine:Starting backtest execution 7e7a2cff-8278-40de-9ca5-eb19098681d5
+INFO:backtest2.core.engine:Initializing backtest environment
+INFO:backtest2.data.manager_simple:Initializing data manager
+INFO:backtest2.agents.llm_client:Initializing LLM client with models: deep=o3, quick=o4-mini
+ERROR:backtest2.core.engine:Backtest failed: dlopen(/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so, 0x0002): tried: '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64')), '/System/Volumes/Preboot/Cryptexes/OS/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (no such file), '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64'))
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 256, in run_backtest
+    loop = asyncio.get_running_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 102, in run
+    await self._initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 163, in _initialize
+    await self.agent_orchestrator.initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 156, in initialize
+    self.agents['market_analyst'] = MarketAnalystAdapter(
+                                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/agent_adapter.py", line 185, in __init__
+    super().__init__(
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/agent_adapter.py", line 29, in __init__
+    self.llm_client = OpenAILLMClient(llm_config)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/llm_client.py", line 106, in __init__
+    self.deep_llm = ChatOpenAI(
+                    ^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/langchain_core/load/serializable.py", line 130, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 745, in validate_environment
+    self.client = self.root_client.chat.completions
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/_client.py", line 175, in chat
+    from .resources.chat import Chat
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/__init__.py", line 3, in <module>
+    from .beta import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/beta/__init__.py", line 3, in <module>
+    from .beta import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/beta/beta.py", line 23, in <module>
+    from ...resources.chat import Chat, AsyncChat
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/chat/__init__.py", line 3, in <module>
+    from .chat import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/chat/chat.py", line 7, in <module>
+    from .completions.completions import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/__init__.py", line 11, in <module>
+    from .completions import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 42, in <module>
+    from ....lib.streaming.chat import ChatCompletionStreamManager, AsyncChatCompletionStreamManager
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/lib/streaming/chat/__init__.py", line 21, in <module>
+    from ._completions import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/lib/streaming/chat/_completions.py", line 8, in <module>
+    from jiter import from_json
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/__init__.py", line 1, in <module>
+    from .jiter import *
+ImportError: dlopen(/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so, 0x0002): tried: '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64')), '/System/Volumes/Preboot/Cryptexes/OS/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (no such file), '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64'))
+ERROR:backtest2.core.engine:Failed at date: 2025-04-26 00:00:00
+ERROR:backtest2.core.engine:Config: symbols=['AAPL'], period=None to None
+INFO:backtest2.core.engine:Cleaning up backtest resources
+INFO:backtest2.data.manager_simple:Closing data manager
+INFO:backtest2.agents.orchestrator:Cleaning up orchestrator resources
+INFO:backtest2.agents.orchestrator:Orchestrator cleanup completed
+INFO:MemoryStore:Saved memories to results/backtest2_20250725_161630/AAPL/memories.json
+ERROR:webui.backend.backtest2_wrapper:Error processing AAPL: dlopen(/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so, 0x0002): tried: '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64')), '/System/Volumes/Preboot/Cryptexes/OS/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (no such file), '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64'))
+ERROR:webui.backend.backtest2_wrapper:Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 256, in run_backtest
+    loop = asyncio.get_running_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 184, in run_backtest_async
+    result = await engine.run()
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 102, in run
+    await self._initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 163, in _initialize
+    await self.agent_orchestrator.initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 156, in initialize
+    self.agents['market_analyst'] = MarketAnalystAdapter(
+                                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/agent_adapter.py", line 185, in __init__
+    super().__init__(
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/agent_adapter.py", line 29, in __init__
+    self.llm_client = OpenAILLMClient(llm_config)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/llm_client.py", line 106, in __init__
+    self.deep_llm = ChatOpenAI(
+                    ^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/langchain_core/load/serializable.py", line 130, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 745, in validate_environment
+    self.client = self.root_client.chat.completions
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/_client.py", line 175, in chat
+    from .resources.chat import Chat
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/__init__.py", line 3, in <module>
+    from .beta import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/beta/__init__.py", line 3, in <module>
+    from .beta import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/beta/beta.py", line 23, in <module>
+    from ...resources.chat import Chat, AsyncChat
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/chat/__init__.py", line 3, in <module>
+    from .chat import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/chat/chat.py", line 7, in <module>
+    from .completions.completions import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/__init__.py", line 11, in <module>
+    from .completions import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 42, in <module>
+    from ....lib.streaming.chat import ChatCompletionStreamManager, AsyncChatCompletionStreamManager
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/lib/streaming/chat/__init__.py", line 21, in <module>
+    from ._completions import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/lib/streaming/chat/_completions.py", line 8, in <module>
+    from jiter import from_json
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/__init__.py", line 1, in <module>
+    from .jiter import *
+ImportError: dlopen(/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so, 0x0002): tried: '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64')), '/System/Volumes/Preboot/Cryptexes/OS/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (no such file), '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64'))
+
+ERROR:webui.components.backtest2:BACKTEST ERROR: Error processing AAPL: dlopen(/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so, 0x0002): tried: '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64')), '/System/Volumes/Preboot/Cryptexes/OS/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (no such file), '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64'))
+INFO:backtest2.data.manager_simple:DataManager initialized with Yahoo Finance
+INFO:backtest2.core.engine:Starting backtest execution a93f7028-3e83-40e4-953e-1aefe98ea940
+INFO:backtest2.core.engine:Initializing backtest environment
+INFO:backtest2.data.manager_simple:Initializing data manager
+INFO:backtest2.agents.llm_client:Initializing LLM client with models: deep=o3, quick=o4-mini
+ERROR:backtest2.core.engine:Backtest failed: dlopen(/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so, 0x0002): tried: '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64')), '/System/Volumes/Preboot/Cryptexes/OS/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (no such file), '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64'))
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 256, in run_backtest
+    loop = asyncio.get_running_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 102, in run
+    await self._initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 163, in _initialize
+    await self.agent_orchestrator.initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 156, in initialize
+    self.agents['market_analyst'] = MarketAnalystAdapter(
+                                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/agent_adapter.py", line 185, in __init__
+    super().__init__(
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/agent_adapter.py", line 29, in __init__
+    self.llm_client = OpenAILLMClient(llm_config)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/llm_client.py", line 106, in __init__
+    self.deep_llm = ChatOpenAI(
+                    ^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/langchain_core/load/serializable.py", line 130, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 745, in validate_environment
+    self.client = self.root_client.chat.completions
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/_client.py", line 175, in chat
+    from .resources.chat import Chat
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/__init__.py", line 3, in <module>
+    from .beta import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/beta/__init__.py", line 3, in <module>
+    from .beta import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/beta/beta.py", line 23, in <module>
+    from ...resources.chat import Chat, AsyncChat
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/chat/__init__.py", line 3, in <module>
+    from .chat import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/chat/chat.py", line 7, in <module>
+    from .completions.completions import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/__init__.py", line 11, in <module>
+    from .completions import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 42, in <module>
+    from ....lib.streaming.chat import ChatCompletionStreamManager, AsyncChatCompletionStreamManager
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/lib/streaming/chat/__init__.py", line 21, in <module>
+    from ._completions import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/lib/streaming/chat/_completions.py", line 8, in <module>
+    from jiter import from_json
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/__init__.py", line 1, in <module>
+    from .jiter import *
+ImportError: dlopen(/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so, 0x0002): tried: '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64')), '/System/Volumes/Preboot/Cryptexes/OS/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (no such file), '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64'))
+ERROR:backtest2.core.engine:Failed at date: 2025-04-26 00:00:00
+ERROR:backtest2.core.engine:Config: symbols=['MSFT'], period=None to None
+INFO:backtest2.core.engine:Cleaning up backtest resources
+INFO:backtest2.data.manager_simple:Closing data manager
+INFO:backtest2.agents.orchestrator:Cleaning up orchestrator resources
+INFO:backtest2.agents.orchestrator:Orchestrator cleanup completed
+INFO:MemoryStore:Saved memories to results/backtest2_20250725_161630/MSFT/memories.json
+ERROR:webui.backend.backtest2_wrapper:Error processing MSFT: dlopen(/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so, 0x0002): tried: '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64')), '/System/Volumes/Preboot/Cryptexes/OS/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (no such file), '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64'))
+ERROR:webui.backend.backtest2_wrapper:Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 256, in run_backtest
+    loop = asyncio.get_running_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/backend/backtest2_wrapper.py", line 184, in run_backtest_async
+    result = await engine.run()
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 102, in run
+    await self._initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/core/engine.py", line 163, in _initialize
+    await self.agent_orchestrator.initialize()
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/orchestrator.py", line 156, in initialize
+    self.agents['market_analyst'] = MarketAnalystAdapter(
+                                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/agent_adapter.py", line 185, in __init__
+    super().__init__(
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/agent_adapter.py", line 29, in __init__
+    self.llm_client = OpenAILLMClient(llm_config)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/backtest2/agents/llm_client.py", line 106, in __init__
+    self.deep_llm = ChatOpenAI(
+                    ^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/langchain_core/load/serializable.py", line 130, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 745, in validate_environment
+    self.client = self.root_client.chat.completions
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/_client.py", line 175, in chat
+    from .resources.chat import Chat
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/__init__.py", line 3, in <module>
+    from .beta import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/beta/__init__.py", line 3, in <module>
+    from .beta import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/beta/beta.py", line 23, in <module>
+    from ...resources.chat import Chat, AsyncChat
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/chat/__init__.py", line 3, in <module>
+    from .chat import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/chat/chat.py", line 7, in <module>
+    from .completions.completions import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/__init__.py", line 11, in <module>
+    from .completions import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 42, in <module>
+    from ....lib.streaming.chat import ChatCompletionStreamManager, AsyncChatCompletionStreamManager
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/lib/streaming/chat/__init__.py", line 21, in <module>
+    from ._completions import (
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/openai/lib/streaming/chat/_completions.py", line 8, in <module>
+    from jiter import from_json
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/__init__.py", line 1, in <module>
+    from .jiter import *
+ImportError: dlopen(/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so, 0x0002): tried: '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64')), '/System/Volumes/Preboot/Cryptexes/OS/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (no such file), '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64'))
+
+ERROR:webui.components.backtest2:BACKTEST ERROR: Error processing MSFT: dlopen(/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so, 0x0002): tried: '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64')), '/System/Volumes/Preboot/Cryptexes/OS/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (no such file), '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/jiter/jiter.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64'))
+INFO:webui.components.backtest2:Results type: <class 'dict'>
+INFO:webui.components.backtest2:AAPL result type: <class 'dict'>
+INFO:webui.components.backtest2:AAPL keys: ['ticker', 'error', 'metrics', 'initial_capital', 'final_value', 'files']
+INFO:webui.components.backtest2:AAPL metrics type: <class 'dict'>
+INFO:webui.components.backtest2:MSFT result type: <class 'dict'>
+INFO:webui.components.backtest2:MSFT keys: ['ticker', 'error', 'metrics', 'initial_capital', 'final_value', 'files']
+INFO:webui.components.backtest2:MSFT metrics type: <class 'dict'>
+ERROR:__main__:バックテストページのレンダリングエラー: dlopen(/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/pyarrow/lib.cpython-312-darwin.so, 0x0002): tried: '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/pyarrow/lib.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64')), '/System/Volumes/Preboot/Cryptexes/OS/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/pyarrow/lib.cpython-312-darwin.so' (no such file), '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/pyarrow/lib.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64'))
+ERROR:__main__:Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/app.py", line 228, in render_main_content
+    backtest2.render()
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/backtest2.py", line 61, in render
+    self._render_results()
+  File "/Users/y-sato/TradingAgents2/TradingMultiAgents/webui/components/backtest2.py", line 856, in _render_results
+    st.dataframe(df_phases, use_container_width=True, hide_index=True)
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 443, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/streamlit/elements/arrow.py", line 535, in dataframe
+    import pyarrow as pa
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/pyarrow/__init__.py", line 61, in <module>
+    import pyarrow.lib as _lib
+ImportError: dlopen(/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/pyarrow/lib.cpython-312-darwin.so, 0x0002): tried: '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/pyarrow/lib.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64')), '/System/Volumes/Preboot/Cryptexes/OS/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/pyarrow/lib.cpython-312-darwin.so' (no such file), '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/pyarrow/lib.cpython-312-darwin.so' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64'))
+
+2025-07-25 16:28:23.008 Uncaught exception in write_error
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/streamlit/web/bootstrap.py", line 348, in run
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/streamlit/web/server/routes.py", line 78, in validate_absolute_path
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/tornado/web.py", line 2976, in validate_absolute_path
+tornado.web.HTTPError: HTTP 404: Not Found
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/tornado/web.py", line 1848, in _execute
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/tornado/web.py", line 2761, in get
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/streamlit/web/server/routes.py", line 93, in validate_absolute_path
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/tornado/web.py", line 2976, in validate_absolute_path
+tornado.web.HTTPError: HTTP 404: Not Found
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/tornado/web.py", line 1348, in send_error
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/streamlit/web/server/routes.py", line 100, in write_error
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/tornado/web.py", line 994, in render
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/tornado/web.py", line 1140, in render_string
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/tornado/template.py", line 446, in load
+  File "/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/tornado/template.py", line 476, in _create_template
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/y-sato/TradingAgents2/.venv/lib/python3.12/site-packages/streamlit/static/index.html'
+🚀 TradingAgents WebUIを起動中...
+📁 WebUIパス: /Users/y-sato/TradingAgents2/TradingMultiAgents/webui/app.py
+📱 Streamlit Cloud デプロイ対応版
+🔍 環境変数チェック:
+  FINNHUB_API_KEY: ✅ 設定済み
+  OPENAI_API_KEY: ✅ 設定済み
+
+🌐 ブラウザで http://localhost:8501 を開いてください
+🔚 終了するには Ctrl+C を押してください

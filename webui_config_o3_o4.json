@@ -1,0 +1,34 @@
+{
+  "recommended_settings": {
+    "provider": "openai",
+    "deep_model": "o3-2025-04-16",
+    "fast_model": "o4-mini-2025-04-16",
+    "temperature": 1.0,
+    "date_range": {
+      "start": "2024-01-01",
+      "end": "2024-12-31"
+    },
+    "tickers": ["AAPL", "MSFT"],
+    "initial_capital": 100000,
+    "agent_settings": {
+      "debate_rounds": 1,
+      "risk_rounds": 1,
+      "enable_memory": true,
+      "enable_reflection": true
+    }
+  },
+  "alternative_settings": {
+    "mock_mode": {
+      "provider": "custom",
+      "deep_model": "mock",
+      "fast_model": "mock",
+      "note": "モックモードでは取引が確実に実行されます"
+    },
+    "gpt_models": {
+      "provider": "openai",
+      "deep_model": "gpt-4-turbo-preview",
+      "fast_model": "gpt-3.5-turbo",
+      "temperature": 0.7
+    }
+  }
+}
